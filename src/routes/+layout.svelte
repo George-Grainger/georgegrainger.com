@@ -33,7 +33,7 @@
 	<slot />
 </main>
 
-<footer />
+<Footer />
 
 <!-- SVG Symbols -->
 <SmallClouds />
