@@ -6,13 +6,13 @@
 <svg
 	xmlns="http://www.w3.org/2000/svg"
 	viewBox="0 0 380 170"
-	class="svg"
 	fill="var(--white)"
 	role="button"
 	tabindex={0}
-	aria-pressed={$theme.current === 'dark' ? 'true' : 'false'}
+	aria-pressed={$theme === 'dark' ? 'true' : 'false'}
 	aria-label="Dark mode"
 	on:click={theme.toggle}
+	on:keypress={theme.toggle}
 >
 	<circle class="moon" cx="85" cy="85" r="70" mask="url(#moon-mask)" />
 	<circle class="sun" cx="295" cy="85" r="70" fill="var(--yellow-2)" />
@@ -59,19 +59,14 @@
 </svg>
 
 <style lang="scss">
-	.svg {
-		transition: background-color var(--duration) var(--transition),
-			border-color var(--duration) var(--transition);
+	svg {
 		background-color: hsl(212, 97%, 68%);
 		border: 0.15em solid var(--white);
 		border-radius: 100vmax;
 		height: 2em;
 		position: relative;
-	}
-
-	.sun {
-		transition: translate var(--duration) var(--transition),
-			opacity var(--duration) var(--transition);
+		transition: background-color var(--duration) var(--transition),
+			border-color var(--duration) var(--transition);
 	}
 
 	.moon {
@@ -101,9 +96,11 @@
 		opacity: 0;
 	}
 
-	:global(.light) .svg {
-		.plane {
-			animation: plane_move 2000ms 1 450ms;
+	svg[aria-pressed='false'] {
+		.sun {
+			transition: translate calc(var(--duration) * 0.75) var(--transition)
+					calc(var(--duration) * 0.25),
+				opacity var(--duration) var(--transition);
 		}
 
 		.moon,
@@ -115,14 +112,20 @@
 		.moon_mask {
 			translate: 6rem;
 		}
+
+		.plane {
+			animation: plane_move 2000ms 1 450ms;
+		}
 	}
 
-	:global(.dark) .svg {
+	svg[aria-pressed='true'] {
 		background-color: hsl(223, 48%, 25%);
 		border-color: hsl(230, 23%, 56%);
 
 		.sun {
-			translate: -8rem -0.6rem;
+			transition: translate var(--duration) var(--transition),
+				opacity calc(var(--duration) * 0.75) var(--transition) calc(var(--duration) * 0.25);
+			translate: -11rem -0.8rem;
 			opacity: 0;
 		}
 

@@ -2,7 +2,8 @@
 	import '@fontsource/poppins';
 	import '../global.scss';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
-	import SmallClouds from '$lib/svg/SmallClouds.svelte';
+	import SmallClouds from '$lib/svg/symbols/SmallClouds.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 </script>
 
 <nav aria-label="Main">
@@ -21,7 +22,7 @@
 		</li>
 		<li>Animations</li>
 		<li>
-			<select onChange={() => console.log('here')}>
+			<select on:change={() => console.log('here')}>
 				<option id="test" value="test"> Test </option>
 			</select>
 		</li>
@@ -50,6 +51,7 @@
 
 		a {
 			text-decoration: none;
+			color: inherit;
 		}
 	}
 </style>
