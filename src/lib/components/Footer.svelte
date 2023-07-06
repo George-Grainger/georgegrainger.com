@@ -3,12 +3,14 @@
 </script>
 
 <footer>
-	<div class="footerImage"><FooterScene /></div>
-	<div class="footerText">
+	<div class="footer-image"><FooterScene /></div>
+	<div class="footer-text">
 		<strong>Preferences</strong>
 		<ul>
 			<li>
-				<a href="/"> Test </a>
+				<a href="/">Test 1</a>
+				<a href="/">Test 2</a>
+				<a href="/">Test 3</a>
 			</li>
 		</ul>
 		<strong>Created By</strong>
@@ -25,14 +27,14 @@
 		isolation: isolate;
 	}
 
-	.footerImage {
+	.footer-image {
 		position: relative;
 		display: flex;
 		flex: 1 0 auto;
 		justify-content: center;
 	}
 
-	.footerText {
+	.footer-text {
 		display: grid;
 		padding: 0 5vw 1em;
 		color: var(--black);

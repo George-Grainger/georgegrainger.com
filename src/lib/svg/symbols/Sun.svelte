@@ -1,9 +1,9 @@
 <svg display="none">
 	<symbol id="sun" viewBox="0 0 265 265">
-		<path d="M132 195a63 63 0 1 0 0-125 63 63 0 0 0 0 125Z" fill="url(#sun_glow)" />
+		<path d="M132 195a63 63 0 1 0 0-125 63 63 0 0 0 0 125Z" fill="url(#sun-glow)" />
 		<defs>
 			<radialGradient
-				id="sun_glow"
+				id="sun-glow"
 				cx="0"
 				cy="0"
 				r="1"

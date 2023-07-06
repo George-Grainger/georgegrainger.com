@@ -12,7 +12,7 @@
 <Trees />
 <Mountains />
 
-<svg height="500" viewBox="0 0 800 265">
+<svg height="500" viewBox="0 0 800 265" display="none">
 	<use href="#sun" height="150" />
 	<use href="#earth" height="150" />
 	<use href="#cow" height="150" />
