@@ -6,8 +6,8 @@
 		<meta name="viewport" content="width=device-width" />
 
 		<script>
+			// Prevent dark mode flash
 			(() => {
-				// Prevent flash
 				const default_theme = window?.matchMedia('(prefers-color-scheme: dark)').matches
 					? 'dark'
 					: 'light';

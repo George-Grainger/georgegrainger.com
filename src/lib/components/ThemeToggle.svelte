@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
-	import { fly } from 'svelte/transition';
 </script>
 
 <svg
@@ -24,36 +23,16 @@
 		class="dots"
 		d="M330 37a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM345 107a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM295 137a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM225 87a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM190 147a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
 	/>
-	{#if $theme === 'light'}
-		<g class="clouds">
-			<use
-				href="#sm-cloud-1"
-				x="40"
-				y="100"
-				height="50"
-				in:fly={{ y: 100, duration: 300, delay: 100 }}
-				out:fly={{ x: 100, duration: 300 }}
-			/>
-			<use
-				href="#sm-cloud-2"
-				x="135"
-				y="90"
-				height="40"
-				in:fly={{ y: 100, duration: 300 }}
-				out:fly={{ x: 100, duration: 300 }}
-			/>
-		</g>
-	{/if}
-	<path
-		class="plane"
-		d="M384 55H-4m409-2c-2.5-.5-7 0-7 0l-6-5-1 1 1 5h-3l-4-4v1l1 3h-1l5 2s11 .5 15 0c1.1-.14 5-1.5 2-2s.5-.5-2-1Z"
-		stroke="var(--white)"
-		stroke-width="4"
-	/>
+
+	<g class="clouds">
+		<use href="#sm-cloud-1" x="40" y="100" height="50" />
+		<use href="#sm-cloud-2" x="135" y="90" height="40" />
+	</g>
+
 	<defs>
 		<mask id="moon-mask">
 			<rect width="300" height="170" />
-			<circle cx="120" cy="70" r="70" class="moon_mask" fill="hsl(230, 23%, 46%)" />
+			<circle cx="120" cy="70" r="70" class="moon-mask" fill="hsl(230, 23%, 46%)" />
 		</mask>
 	</defs>
 </svg>
@@ -61,7 +40,7 @@
 <style lang="scss">
 	svg {
 		background-color: hsl(212, 97%, 68%);
-		border: 0.15em solid var(--white);
+		outline: 0.2em solid var(--white);
 		border-radius: 100vmax;
 		height: 2em;
 		position: relative;
@@ -73,7 +52,7 @@
 		transition: opacity var(--duration) var(--transition);
 	}
 
-	.moon_mask {
+	.moon-mask {
 		transition: translate var(--duration) var(--transition);
 	}
 
@@ -92,11 +71,11 @@
 		translate: calc(-1 * var(--_distance));
 	}
 
-	.plane {
-		opacity: 0;
+	.clouds use:last-child {
+		--_delay: calc(var(--duration) * -0.33);
 	}
 
-	svg[aria-pressed='false'] {
+	:global(.light) svg {
 		.sun {
 			transition: translate calc(var(--duration) * 0.75) var(--transition)
 					calc(var(--duration) * 0.25),
@@ -109,18 +88,18 @@
 			opacity: 0;
 		}
 
-		.moon_mask {
-			translate: 6rem;
+		.clouds use {
+			animation: cloud-to-light var(--duration) var(--_delay, 0ms);
 		}
 
-		.plane {
-			animation: plane_move 2000ms 1 450ms;
+		.moon-mask {
+			translate: 6rem;
 		}
 	}
 
-	svg[aria-pressed='true'] {
+	:global(.dark) svg {
 		background-color: hsl(223, 48%, 25%);
-		border-color: hsl(230, 23%, 56%);
+		outline-color: hsl(230, 23%, 56%);
 
 		.sun {
 			transition: translate var(--duration) var(--transition),
@@ -134,26 +113,26 @@
 			translate: 0;
 		}
 
-		.moon_mask {
+		.moon-mask {
 			transition-delay: 50ms;
 		}
 
 		.moon {
 			transition-duration: calc(var(--duration) * 0.5);
 		}
+
+		.clouds use {
+			transition: translate var(--duration) var(--transition);
+			translate: 12.5rem 0;
+		}
 	}
 
-	@keyframes plane_move {
-		0% {
-			opacity: 1;
-			translate: -25rem;
+	@keyframes cloud-to-light {
+		from {
+			translate: 0 12.5rem;
 		}
-		80% {
-			opacity: 1;
-			translate: 0rem;
-		}
-		100% {
-			opacity: 0;
+		to {
+			translate: 0 0;
 		}
 	}
 </style>
