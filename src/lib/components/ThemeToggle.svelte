@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { theme } from '$lib/stores/theme';
+	import { THEMES, theme } from '$lib/stores/theme';
 </script>
 
 <svg
@@ -8,7 +8,7 @@
 	fill="var(--white)"
 	role="button"
 	tabindex={0}
-	aria-pressed={$theme === 'dark' ? 'true' : 'false'}
+	aria-pressed={$theme === THEMES.DARK ? 'true' : 'false'}
 	aria-label="Dark mode"
 	on:click={theme.toggle}
 	on:keypress={theme.toggle}
