@@ -44,7 +44,7 @@ img {
 	--yellow-2: hsl(52, 98%, 48%);
 
 	--transition: cubic-bezier(0.22, 0.61, 0.36, 1);
-	--duration: calc(var(--mult, 1) * 300ms);
+	--duration: 500ms;
 }
 
 :root {
@@ -63,4 +63,6 @@ body {
 	line-height: 1.5;
 	color: var(--text);
 	background-color: var(--background);
+	transition: color var(--transition) var(--duration),
+		background-color var(--transition) var(--duration);
 }

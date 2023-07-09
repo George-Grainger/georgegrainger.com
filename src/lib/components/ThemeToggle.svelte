@@ -13,8 +13,7 @@
 	on:click={theme.toggle}
 	on:keypress={theme.toggle}
 >
-	<circle class="moon" cx="85" cy="85" r="70" mask="url(#moon-mask)" />
-	<circle class="sun" cx="295" cy="85" r="70" fill="var(--yellow-2)" />
+	<circle class="sun-moon" cx="85" cy="85" r="70" mask="url(#moon-mask)" />
 	<path
 		class="stars"
 		d="m242 111 3 13 13 3-13 3-3 13-3-13-13-3 13-3 3-13ZM207 31l3 13 13 3-13 3-3 13-3-13-13-3 13-3 3-13ZM297 61l3 13 13 3-13 3-3 13-3-13-13-3 13-3 3-13Z"
@@ -28,6 +27,13 @@
 		<use href="#sm-cloud-1" x="40" y="100" height="50" />
 		<use href="#sm-cloud-2" x="135" y="90" height="40" />
 	</g>
+
+	<path
+		class="plane"
+		d="M384 55H-4m409-2c-2.5-.5-7 0-7 0l-6-5-1 1 1 5h-3l-4-4v1l1 3h-1l5 2s11 .5 15 0c1.1-.14 5-1.5 2-2s.5-.5-2-1Z"
+		stroke="var(--white)"
+		stroke-width="4"
+	/>
 
 	<defs>
 		<mask id="moon-mask">
@@ -48,8 +54,8 @@
 			border-color var(--duration) var(--transition);
 	}
 
-	.moon {
-		transition: opacity var(--duration) var(--transition);
+	.sun-moon {
+		transition: translate var(--duration) var(--transition), fill var(--duration) var(--transition);
 	}
 
 	.moon-mask {
@@ -72,17 +78,14 @@
 	}
 
 	.clouds use:last-child {
-		--_delay: calc(var(--duration) * -0.33);
+		--_delay: calc(var(--duration) * -0.25);
+	}
+
+	.plane {
+		opacity: 0;
 	}
 
 	:global(.light) svg {
-		.sun {
-			transition: translate calc(var(--duration) * 0.75) var(--transition)
-					calc(var(--duration) * 0.25),
-				opacity var(--duration) var(--transition);
-		}
-
-		.moon,
 		.stars,
 		.dots {
 			opacity: 0;
@@ -92,8 +95,17 @@
 			animation: cloud-to-light var(--duration) var(--_delay, 0ms);
 		}
 
+		.sun-moon {
+			fill: var(--yellow-2);
+			translate: 13rem;
+		}
+
+		.plane {
+			animation: plane-move calc(6 * var(--duration)) 1 calc(1.25 * var(--duration));
+		}
+
 		.moon-mask {
-			translate: 6rem;
+			translate: 8rem -4rem;
 		}
 	}
 
@@ -101,29 +113,20 @@
 		background-color: hsl(223, 48%, 25%);
 		outline-color: hsl(230, 23%, 56%);
 
-		.sun {
-			transition: translate var(--duration) var(--transition),
-				opacity calc(var(--duration) * 0.75) var(--transition) calc(var(--duration) * 0.25);
-			translate: -11rem -0.8rem;
-			opacity: 0;
-		}
-
 		.stars,
 		.dots {
 			translate: 0;
 		}
 
+		.clouds use {
+			translate: 6.75rem;
+			opacity: 0;
+			transition: translate var(--duration) var(--transition),
+				opacity var(--duration) var(--transition);
+		}
+
 		.moon-mask {
 			transition-delay: 50ms;
-		}
-
-		.moon {
-			transition-duration: calc(var(--duration) * 0.5);
-		}
-
-		.clouds use {
-			transition: translate var(--duration) var(--transition);
-			translate: 12.5rem 0;
 		}
 	}
 
@@ -132,7 +135,19 @@
 			translate: 0 12.5rem;
 		}
 		to {
+			opacity: 1;
 			translate: 0 0;
+		}
+	}
+
+	@keyframes plane-move {
+		0% {
+			opacity: 1;
+			translate: -25rem;
+		}
+		60% {
+			opacity: 1;
+			translate: 0rem;
 		}
 	}
 </style>
