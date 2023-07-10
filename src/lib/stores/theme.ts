@@ -1,24 +1,41 @@
 import { browser } from '$app/environment';
-import { togglable } from './persisted-stores';
+import type { Updater, Writable } from 'svelte/store';
+import { persisted } from './persisted-stores';
 
-export enum THEMES {
-	DARK = 'dark',
-	LIGHT = 'light'
+const options = {
+	DARK: 'dark',
+	LIGHT: 'light'
+};
+
+type ThemeOption = keyof typeof options;
+type Theme = Writable<string> & { toggle: () => void } & { [key in ThemeOption]: string };
+
+function createTheme(): Theme {
+	const getSystemTheme = () => {
+		return window.matchMedia('(prefers-color-scheme: dark)').matches ? options.DARK : options.LIGHT;
+	};
+
+	const getInitialTheme = () => {
+		if (!browser) return options.LIGHT;
+		return localStorage.getItem('theme') ?? getSystemTheme();
+	};
+
+	const store = persisted('theme', getInitialTheme());
+	const update = (callback: Updater<string>) => {
+		store.update((last) => {
+			const value = callback(last);
+			document.documentElement.classList.replace(last, value);
+			return value;
+		});
+	};
+
+	const toggle = () => update((last) => (last === options.DARK ? options.LIGHT : options.DARK));
+	return {
+		...store,
+		update,
+		toggle,
+		...options
+	};
 }
 
-function getSystemTheme() {
-	return window.matchMedia('(prefers-color-scheme: dark)').matches ? THEMES.DARK : THEMES.LIGHT;
-}
-
-function getInitialTheme() {
-	if (!browser) return THEMES.LIGHT;
-	return localStorage.getItem('theme') ?? getSystemTheme();
-}
-
-export const theme = togglable('theme', getInitialTheme(), THEMES.DARK, THEMES.LIGHT);
-
-theme.subscribe((value) => {
-	if (!browser) return;
-	document.documentElement.classList.remove(...Object.values(THEMES));
-	document.documentElement.classList.add(value);
-});
+export const theme = createTheme();

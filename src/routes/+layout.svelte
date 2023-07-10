@@ -4,6 +4,7 @@
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
 	import SmallClouds from '$lib/svg/symbols/SmallClouds.svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import Select from '$lib/components/Select.svelte';
 </script>
 
 <nav aria-label="Main">
@@ -20,7 +21,7 @@
 		<li>
 			<ThemeToggle />
 		</li>
-		<li>Animations</li>
+		<li><Select /></li>
 		<li>
 			<select on:change={() => console.log('here')}>
 				<option id="test" value="test"> Test </option>
