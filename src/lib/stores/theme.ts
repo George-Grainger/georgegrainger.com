@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import type { Updater, Writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
 import { persisted } from './persisted-stores';
 
 const options = {
@@ -21,18 +21,12 @@ function createTheme(): Theme {
 	};
 
 	const store = persisted('theme', getInitialTheme());
-	const update = (callback: Updater<string>) => {
-		store.update((last) => {
-			const value = callback(last);
-			document.documentElement.classList.replace(last, value);
-			return value;
-		});
+	store.subscribe((val) => browser && document.documentElement.setAttribute('data-theme', val));
+	const toggle = () => {
+		store.update((last) => (last === options.DARK ? options.LIGHT : options.DARK));
 	};
-
-	const toggle = () => update((last) => (last === options.DARK ? options.LIGHT : options.DARK));
 	return {
 		...store,
-		update,
 		toggle,
 		...options
 	};

@@ -1,5 +1,5 @@
 import { browser } from '$app/environment';
-import type { Updater, Writable } from 'svelte/store';
+import type { Writable } from 'svelte/store';
 import { persisted } from './persisted-stores';
 
 const options = {
@@ -23,17 +23,9 @@ function createMotion(): Motion {
 	};
 
 	const store = persisted('motion', getInitialMotion());
-	const update = (callback: Updater<string>) => {
-		store.update((last) => {
-			const value = callback(last);
-			document.documentElement.classList.replace(last, value);
-			return value;
-		});
-	};
-
+	store.subscribe((val) => browser && document.documentElement.setAttribute('data-motion', val));
 	return {
 		...store,
-		update,
 		...options
 	};
 }

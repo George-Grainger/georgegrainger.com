@@ -85,7 +85,7 @@
 		opacity: 0;
 	}
 
-	:global(.light) svg {
+	:global([data-theme='light']) svg {
 		.stars,
 		.dots {
 			opacity: 0;
@@ -109,7 +109,7 @@
 		}
 	}
 
-	:global(.dark) svg {
+	:global([data-theme='dark']) svg {
 		background-color: hsl(223, 48%, 25%);
 		outline-color: hsl(230, 23%, 56%);
 

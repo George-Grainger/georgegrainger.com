@@ -12,7 +12,7 @@
 					? 'dark'
 					: 'light';
 				const theme = localStorage.getItem('theme') ?? default_theme;
-				document.documentElement.classList.add(theme);
+				document.documentElement.setAttribute('data-theme', theme);
 			})();
 		</script>
 
