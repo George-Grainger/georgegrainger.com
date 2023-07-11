@@ -1,4 +1,4 @@
-<svg>
+<svg display="none">
 	<symbol id="mountain-purple" viewBox="0 0 250 153">
 		<path d="M250 152 154 35l-4 2-8 10-14-10-12 7-9-7H93L1 152h249Z" fill="#6E517A" />
 		<path

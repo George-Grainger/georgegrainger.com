@@ -22,11 +22,7 @@
 			<ThemeToggle />
 		</li>
 		<li><Select /></li>
-		<li>
-			<select on:change={() => console.log('here')}>
-				<option id="test" value="test"> Test </option>
-			</select>
-		</li>
+		<li><Select /></li>
 	</ul>
 </nav>
 
@@ -46,13 +42,13 @@
 		ul {
 			display: flex;
 			justify-content: space-evenly;
+			align-items: center;
 			font-weight: 600;
 			font-size: 1.1em;
 		}
 
 		a {
 			text-decoration: none;
-			color: inherit;
 		}
 	}
 </style>

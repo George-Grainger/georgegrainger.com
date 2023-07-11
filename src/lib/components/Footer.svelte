@@ -37,8 +37,7 @@
 	.footer-text {
 		display: grid;
 		padding: 0 5vw 1em;
-		color: var(--black);
-		background-color: var(--clr-footer);
+		background-color: var(--black);
 		z-index: 1;
 		gap: 0.25em;
 		grid-template-columns: repeat(2, auto);
