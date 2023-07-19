@@ -73,23 +73,26 @@
 </div>
 
 <style lang="scss">
-	[aria-expanded='false'] + [role='menu'] {
-		opacity: 0;
+	div {
+		--_drop-duration: var(--duration);
+
+		isolation: isolate;
 	}
 
 	button,
 	li {
 		--_size: 0.5em;
+		--_border-size: 0.2em;
 
 		display: grid;
-		grid-template-columns: 1fr 1.5em;
+		grid-template-columns: auto 1.5em;
 		gap: calc(2 * var(--_size));
 		align-items: center;
 
 		text-align: left;
 		background-color: var(--inverse);
 		padding: calc(0.5 * var(--_size)) var(--_size);
-		border: 0.2em solid var(--text);
+		border: var(--_border-size) solid var(--text);
 		width: 100%;
 		cursor: pointer;
 
@@ -106,39 +109,53 @@
 			content: '';
 			grid-row: 1;
 			grid-column: 2;
-			border-left: var(--_size) solid transparent;
-			border-right: var(--_size) solid transparent;
+			border-inline: var(--_size) solid transparent;
 			justify-self: center;
+			transition: opacity var(--_drop-duration) var(--transition);
 		}
 
 		&::before {
 			translate: 0 -0.33em;
 			border-bottom: var(--_size) solid currentColor;
-			opacity: 0.35;
 		}
 
 		&::after {
 			translate: 0 0.33em;
 			border-top: var(--_size) solid currentColor;
 		}
-	}
 
-	ul {
-		height: 0;
-		translate: 0 0.5rem;
+		&[aria-expanded='false']::before,
+		&[aria-expanded='true']::after {
+			opacity: 0.35;
+		}
 	}
 
 	li {
 		border-block: none;
 
 		&:first-of-type {
-			border-top: solid;
+			border-top: var(--_border-size) solid;
 			border-radius: var(--border-radius) var(--border-radius) 0 0;
 		}
 
 		&:last-of-type {
-			border-bottom: solid;
+			border-bottom: var(--_border-size) solid;
 			border-radius: 0 0 var(--border-radius) var(--border-radius);
 		}
+	}
+
+	[role='menu'] {
+		height: 0;
+		translate: 0 0.5rem;
+		transition: translate var(--_drop-duration) var(--transition),
+			opacity var(--_drop-duration) var(--transition);
+		z-index: -1;
+		position: relative;
+	}
+
+	[aria-expanded='false'] + [role='menu'] {
+		translate: 0 -1rem;
+		opacity: 0;
+		pointer-events: none;
 	}
 </style>
