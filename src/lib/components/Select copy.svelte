@@ -41,7 +41,7 @@
 	}
 </script>
 
-<div data-wraps={id} use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}>
+<div use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}>
 	<button
 		type="button"
 		aria-haspopup="menu"
@@ -72,31 +72,27 @@
 
 <style lang="scss">
 	div {
-		--_drop-duration: calc(var(--duration) * 0.67);
+		--_drop-duration: var(--duration);
+		--_svg-size: 1.5em;
 		--_size: 0.5em;
-		--_arrow-size: 0.5em;
-		--_border-size: 0.15em;
-
-		isolation: isolate;
-		font-size: 0.9em;
+		--_border-size: 0.2em;
 	}
 
 	button,
 	ul :global(li) {
 		display: grid;
-		grid-template-columns: auto minmax(max-content, var(--_svg-size, 1.5em));
+		grid-template-columns: auto minmax(max-content, var(--_svg-size));
 		gap: calc(2 * var(--_size));
 		align-items: center;
 
 		text-align: left;
 		background-color: var(--inverse);
 		padding: calc(0.5 * var(--_size)) var(--_size);
-		border: var(--_border-size) solid var(--text);
 		width: 100%;
 		cursor: pointer;
 
 		:global(svg) {
-			height: var(--_svg-size, 1.5em);
+			height: var(--_svg-size);
 		}
 
 		&:hover {
@@ -106,24 +102,26 @@
 
 	button {
 		border-radius: var(--border-radius);
+		border: var(--_border-size) solid var(--text);
+
 		&::before,
 		&::after {
 			content: '';
 			grid-row: 1;
 			grid-column: -2;
-			border-inline: var(--_arrow-size) solid transparent;
+			border-inline: var(--_size) solid transparent;
 			justify-self: center;
 			transition: opacity var(--_drop-duration) var(--transition);
 		}
 
 		&::before {
-			translate: 0 -0.3em;
-			border-bottom: var(--_arrow-size) solid currentColor;
+			translate: 0 -0.33em;
+			border-bottom: var(--_size) solid currentColor;
 		}
 
 		&::after {
-			translate: 0 0.3em;
-			border-top: var(--_arrow-size) solid currentColor;
+			translate: 0 0.33em;
+			border-top: var(--_size) solid currentColor;
 		}
 
 		&[aria-expanded='false']::before,
@@ -133,39 +131,66 @@
 	}
 
 	ul {
-		height: 0;
-		translate: 0 0.3em;
+		height: inherit;
+		position: absolute;
+		inset: auto var(--_size) calc(-4 * var(--_size));
+		z-index: 1;
+		overflow: hidden;
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
-		z-index: -1;
-		position: relative;
 
-		:global(li) {
-			border-block: none;
-			margin-block: -1px;
-			padding-block: 0.3em;
-
-			&:first-of-type {
-				border-top: var(--_border-size) solid;
-				border-top-left-radius: var(--border-radius);
-				border-top-right-radius: var(--border-radius);
-			}
-
-			&:last-of-type {
-				border-bottom: var(--_border-size) solid;
-				border-bottom-left-radius: var(--border-radius);
-				border-bottom-right-radius: var(--border-radius);
-			}
-		}
-
-		:global(li :last-child) {
-			place-self: center;
-		}
+		border-radius: var(--border-radius);
+		border: var(--_border-size) solid var(--text);
 	}
 
 	[aria-expanded='false'] + ul {
-		translate: 0 calc(-2 * var(--_size));
 		opacity: 0;
 		pointer-events: none;
+	}
+
+	[aria-expanded='true'] + ul {
+		translate: 0 calc(-5 * var(--_size));
+	}
+
+	@media only screen and (width <= 40rem) {
+		div:has([aria-expanded='true'])::before {
+			content: '';
+			position: sticky;
+			inset: 0;
+			background-color: var(--black);
+			opacity: 0.4;
+			pointer-events: none;
+		}
+	}
+
+	@media only screen and (width > 40rem) {
+		ul {
+			position: relative;
+			inset: auto;
+			z-index: -1;
+			height: 0;
+			border: none;
+			overflow: initial;
+
+			:global(li) {
+				border-inline: var(--_border-size) solid var(--text);
+
+				&:first-of-type {
+					border-top: var(--_border-size) solid;
+					border-top-left-radius: var(--border-radius);
+					border-top-right-radius: var(--border-radius);
+				}
+
+				&:last-of-type {
+					border-bottom: var(--_border-size) solid;
+					border-bottom-left-radius: var(--border-radius);
+					border-bottom-right-radius: var(--border-radius);
+				}
+			}
+		}
+
+		[aria-expanded='true'] + ul {
+			translate: 0 var(--_size);
+		}
 	}
 </style>

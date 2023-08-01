@@ -23,10 +23,10 @@
 		<li>
 			<a href="#home">About</a>
 		</li>
-		<li class="self-end">
+		<li>
 			<ThemeToggle />
 		</li>
-		<li class="self-stretch">
+		<li>
 			<Select id="motion-select" referBy="Motion Preference" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
 					<span>Keep Animations</span>
@@ -38,15 +38,15 @@
 				</Option>
 			</Select>
 		</li>
-		<li class="self-stretch">
+		<li>
 			<Select id="language-select" referBy="Language" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
 					<UkFlag />
-					<span>English</span>
+					<span>En</span>
 				</Option>
 				<Option value={motion.REDUCE}>
 					<FranceFlag />
-					<span>French</span>
+					<span>Fr</span>
 				</Option>
 			</Select>
 		</li>
@@ -68,28 +68,33 @@
 
 		ul {
 			display: flex;
-			justify-content: space-evenly;
-			align-items: center;
+			justify-content: space-between;
 			font-weight: 600;
-			font-size: 1.1em;
+			font-size: clamp(1.125rem, 3.5vw, 1.375rem);
+
+			width: min(100vw - 2rem, var(--page-width));
+			margin: auto;
 		}
 
-		.self-stretch {
-			align-self: stretch;
-		}
-
-		.self-end {
-			align-self: flex-end;
+		li {
+			display: flex;
+			align-items: center;
+			height: 1.75em;
 		}
 
 		a {
 			text-decoration: none;
 		}
-	}
 
-	:global([aria-controls='motion-select'] svg),
-	:global([aria-controls='language-select'] span) {
-		display: none;
+		:global([data-wraps='language-select']) {
+			--_size: 0.275em;
+			--_svg-size: 1.75em;
+		}
+
+		:global([aria-controls='motion-select'] svg),
+		:global([aria-controls='language-select'] span) {
+			display: none;
+		}
 	}
 
 	// @media only screen and (max-width: 60rem) {
