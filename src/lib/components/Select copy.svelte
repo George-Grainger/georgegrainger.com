@@ -73,15 +73,12 @@
 <style lang="scss">
 	div {
 		--_drop-duration: var(--duration);
-		--_svg-size: 1.5em;
-		--_size: 0.5em;
-		--_border-size: 0.2em;
 	}
 
 	button,
 	ul :global(li) {
 		display: grid;
-		grid-template-columns: auto minmax(max-content, var(--_svg-size));
+		grid-template-columns: auto minmax(max-content, var(--svg-size));
 		gap: calc(2 * var(--_size));
 		align-items: center;
 

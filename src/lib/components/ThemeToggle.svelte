@@ -45,13 +45,14 @@
 
 <style lang="scss">
 	svg {
+		--_svg-size: 2em;
+
 		background-color: hsl(212, 97%, 68%);
 		outline: 0.15em solid var(--white);
 		border-radius: 100vmax;
 		position: relative;
 		transition: background-color var(--duration) var(--transition),
 			border-color var(--duration) var(--transition);
-		height: 100%;
 	}
 
 	.sun-moon {

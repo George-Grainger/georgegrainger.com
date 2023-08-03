@@ -73,12 +73,11 @@
 <style lang="scss">
 	div {
 		--_drop-duration: calc(var(--duration) * 0.67);
-		--_size: 0.5em;
 		--_arrow-size: 0.5em;
-		--_border-size: 0.15em;
 
 		isolation: isolate;
-		font-size: 0.9em;
+		font-size: var(--_select-fs);
+		height: 100%;
 	}
 
 	button,
@@ -91,13 +90,9 @@
 		text-align: left;
 		background-color: var(--inverse);
 		padding: calc(0.5 * var(--_size)) var(--_size);
-		border: var(--_border-size) solid var(--text);
+		border: var(--_border-size) solid currentColor;
 		width: 100%;
 		cursor: pointer;
-
-		:global(svg) {
-			height: var(--_svg-size, 1.5em);
-		}
 
 		&:hover {
 			background-color: var(--hover);
@@ -167,5 +162,8 @@
 		translate: 0 calc(-2 * var(--_size));
 		opacity: 0;
 		pointer-events: none;
+	}
+
+	@media only screen and (width < 40rem) {
 	}
 </style>
