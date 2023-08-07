@@ -81,13 +81,14 @@
 
 		display: flex;
 		justify-content: space-between;
-		gap: 2ch;
+		gap: 1rem;
 
 		font-weight: 600;
 		font-size: clamp(1.125rem, 3.5vw, 1.375rem);
 
 		margin: 1rem auto;
 		width: min(100vw - 2rem, var(--page-width));
+		z-index: 1;
 
 		ul {
 			display: contents;
@@ -116,10 +117,6 @@
 			border-radius: var(--border-radius);
 			background-color: var(--inverse);
 			padding: calc(0.5 * var(--_size)) var(--_size);
-		}
-
-		:global(svg) {
-			height: var(--_svg-size);
 		}
 
 		:global([data-wraps='language-select']) {

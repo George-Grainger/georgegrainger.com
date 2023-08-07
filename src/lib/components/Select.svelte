@@ -19,9 +19,14 @@
 		expanded = !expanded;
 	}
 
+	function handleKeyPress(e: KeyboardEvent) {
+		console.log(e);
+	}
+
 	function handleChange(e: MouseEvent | KeyboardEvent) {
 		const el = e.target as HTMLElement;
 		updates = el.closest('li')?.getAttribute('data-value') ?? '';
+		expanded = false;
 	}
 
 	$: if (browser && btn) {
@@ -51,7 +56,7 @@
 		tabindex="0"
 		bind:this={btn}
 		on:click={toggleExpanded}
-		on:keypress={toggleExpanded}
+		on:keypress={handleKeyPress}
 	>
 		{loading}
 	</button>
@@ -76,7 +81,6 @@
 		--_arrow-size: 0.5em;
 
 		isolation: isolate;
-		font-size: var(--_select-fs);
 		height: 100%;
 	}
 
@@ -84,7 +88,6 @@
 	ul :global(li) {
 		display: grid;
 		grid-template-columns: auto minmax(max-content, var(--_svg-size, 1.5em));
-		gap: calc(2 * var(--_size));
 		align-items: center;
 
 		text-align: left;
@@ -101,6 +104,7 @@
 
 	button {
 		border-radius: var(--border-radius);
+
 		&::before,
 		&::after {
 			content: '';
@@ -128,17 +132,16 @@
 	}
 
 	ul {
-		height: 0;
-		translate: 0 0.3em;
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
 		z-index: -1;
-		position: relative;
+		position: absolute;
 
 		:global(li) {
+			position: relative;
 			border-block: none;
 			margin-block: -1px;
-			padding-block: 0.3em;
+			padding-block: 0.5em;
 
 			&:first-of-type {
 				border-top: var(--_border-size) solid;
@@ -159,11 +162,52 @@
 	}
 
 	[aria-expanded='false'] + ul {
-		translate: 0 calc(-2 * var(--_size));
+		translate: 0 calc(2 * var(--_size));
 		opacity: 0;
 		pointer-events: none;
 	}
 
-	@media only screen and (width < 40rem) {
+	@media only screen and (width <= 40rem) {
+		ul {
+			inset: auto 1rem 1rem;
+
+			:global(li) {
+				justify-content: start;
+				padding-inline: 0.75em;
+				gap: 0.75em;
+			}
+
+			:global(li[aria-checked='true']::after) {
+				content: '✔';
+				position: absolute;
+				right: 0.75em;
+			}
+
+			:global(li span) {
+				order: 1;
+			}
+		}
+	}
+
+	@media only screen and (width > 40rem) {
+		div {
+			font-size: var(--_select-fs);
+		}
+
+		button,
+		ul :global(li) {
+			gap: calc(2 * var(--_size));
+		}
+
+		ul {
+			position: relative;
+			inset: 0;
+			translate: 0 0.35em;
+			height: 0;
+		}
+
+		[aria-expanded='false'] + ul {
+			translate: 0 calc(-2 * var(--_size));
+		}
 	}
 </style>
