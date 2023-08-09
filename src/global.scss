@@ -50,8 +50,10 @@ img {
 	--sky-blue: hsl(212, 97%, 85%);
 	--yellow-1: hsl(52, 98%, 78%);
 	--yellow-2: hsl(52, 98%, 48%);
+	--yellow-3: hsl(52, 100%, 50%);
 	--blue: hsl(223, 100%, 33%);
 	--red: hsl(349, 100%, 43%);
+	--purple: hsl(259, 79%, 50%);
 
 	// Display
 	--border-radius: 0.5rem;
@@ -68,6 +70,8 @@ img {
 	--inverse: var(--white);
 	--hover: var(--white-hover);
 	--text: var(--black);
+	--outline: var(--yellow-3);
+	// --outline-inverse: var(--yellow-2);
 }
 
 :root[data-theme='dark'] {
@@ -76,6 +80,8 @@ img {
 	--inverse: var(--black);
 	--text: var(--white);
 	--hover: var(--black-hover);
+	--outline: var(--yellow-2);
+	// --outline-inverse: var(--purple);
 }
 
 body {
@@ -107,4 +113,13 @@ button {
 
 svg {
 	height: var(--_svg-size, 1.5em);
+}
+
+:focus {
+	outline: 0.25rem solid transparent;
+}
+
+:focus-visible {
+	outline: 0.25rem solid var(--outline);
+	outline-offset: 0.125rem;
 }

@@ -45,10 +45,10 @@
 
 <style lang="scss">
 	svg {
-		--_svg-size: 2em;
+		--_svg-size: 2.3em;
 
 		background-color: hsl(212, 97%, 68%);
-		outline: 0.15em solid var(--white);
+		border: 0.15em solid var(--white);
 		border-radius: 100vmax;
 		position: relative;
 		transition: background-color var(--duration) var(--transition),
@@ -112,7 +112,7 @@
 
 	:global([data-theme='dark']) svg {
 		background-color: hsl(223, 48%, 25%);
-		outline-color: hsl(230, 23%, 56%);
+		border-color: hsl(230, 23%, 56%);
 
 		.stars,
 		.dots {

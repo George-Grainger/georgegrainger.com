@@ -15,18 +15,61 @@
 	const dispatch = createEventDispatcher();
 
 	function toggleExpanded() {
-		// Need to handle keyboard navigation
-		expanded = !expanded;
+		setExpanded(!expanded);
 	}
 
-	function handleKeyPress(e: KeyboardEvent) {
-		console.log(e);
+	function setExpanded(value: boolean) {
+		expanded = value;
+		if (expanded) {
+			const current = ul?.querySelector(`[data-value=${updates}]`) as HTMLElement;
+			current?.focus();
+		} else {
+			btn.focus();
+		}
+	}
+
+	function handleKeyDown(e: KeyboardEvent) {
+		let { key, altKey } = e;
+		const current = ul?.querySelector(`[data-value=${updates}]`) as HTMLElement;
+		let next: HTMLElement | undefined;
+
+		switch (key) {
+			case 'Escape':
+			case 'Tab':
+				setExpanded(false);
+				break;
+			case 'Enter':
+				btn.focus();
+				break;
+			case 'ArrowDown':
+				if (altKey) {
+					setExpanded(true);
+					break;
+				}
+			case 'ArrowRight':
+				next = current?.nextElementSibling as HTMLElement;
+				break;
+			case 'ArrowUp':
+				if (altKey) {
+					setExpanded(false);
+					break;
+				}
+			case 'ArrowLeft':
+				next = current?.previousElementSibling as HTMLElement;
+				break;
+			default:
+				return e;
+		}
+
+		if (next) {
+			updates = next.getAttribute('data-value') ?? '';
+			expanded && next.focus();
+		}
 	}
 
 	function handleChange(e: MouseEvent | KeyboardEvent) {
 		const el = e.target as HTMLElement;
 		updates = el.closest('li')?.getAttribute('data-value') ?? '';
-		expanded = false;
 	}
 
 	$: if (browser && btn) {
@@ -56,7 +99,7 @@
 		tabindex="0"
 		bind:this={btn}
 		on:click={toggleExpanded}
-		on:keypress={handleKeyPress}
+		on:keydown={handleKeyDown}
 	>
 		{loading}
 	</button>
@@ -66,8 +109,11 @@
 		aria-label={`${referBy} Options`}
 		tabindex="-1"
 		bind:this={ul}
-		on:click={handleChange}
-		on:keypress={handleChange}
+		on:click={(e) => {
+			handleChange(e);
+			setExpanded(false);
+		}}
+		on:keydown={handleKeyDown}
 	>
 		<slot>
 			<Option value="placeholder" />
@@ -153,6 +199,10 @@
 				border-bottom: var(--_border-size) solid;
 				border-bottom-left-radius: var(--border-radius);
 				border-bottom-right-radius: var(--border-radius);
+			}
+
+			&:focus-visible {
+				outline-offset: calc(-1.75 * var(--_border-size));
 			}
 		}
 
