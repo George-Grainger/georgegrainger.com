@@ -48,6 +48,10 @@
 				}
 			case 'ArrowRight':
 				next = current?.nextElementSibling as HTMLElement;
+				if (altKey) {
+					next = ul.lastElementChild as HTMLElement;
+					e.preventDefault();
+				}
 				break;
 			case 'ArrowUp':
 				if (altKey) {
@@ -56,6 +60,10 @@
 				}
 			case 'ArrowLeft':
 				next = current?.previousElementSibling as HTMLElement;
+				if (altKey) {
+					next = ul.firstElementChild as HTMLElement;
+					e.preventDefault();
+				}
 				break;
 			default:
 				return e;
