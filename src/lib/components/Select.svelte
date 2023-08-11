@@ -97,7 +97,11 @@
 	}
 </script>
 
-<div data-wraps={id} use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}>
+<div
+	data-wraps={id}
+	class:expanded
+	use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}
+>
 	<button
 		type="button"
 		aria-haspopup="menu"
@@ -119,7 +123,7 @@
 		bind:this={ul}
 		on:click={(e) => {
 			handleChange(e);
-			setExpanded(false);
+			browser && window?.matchMedia('(width > 40)').matches && setExpanded(false);
 		}}
 		on:keydown={handleKeyDown}
 	>
@@ -134,8 +138,17 @@
 		--_drop-duration: calc(var(--duration) * 0.67);
 		--_arrow-size: 0.5em;
 
-		isolation: isolate;
 		height: 100%;
+
+		&::before {
+			position: fixed;
+			inset: 0;
+			pointer-events: none;
+			background-color: var(--black);
+			opacity: 0;
+			transition: opacity var(--transition) var(--_drop-duration);
+			z-index: 1;
+		}
 	}
 
 	button,
@@ -158,6 +171,7 @@
 
 	button {
 		border-radius: var(--border-radius);
+		height: 100%;
 
 		&::before,
 		&::after {
@@ -189,7 +203,7 @@
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
 		z-index: -1;
-		position: absolute;
+		position: fixed;
 
 		:global(li) {
 			position: relative;
@@ -212,10 +226,34 @@
 			&:focus-visible {
 				outline-offset: calc(-1.75 * var(--_border-size));
 			}
+
+			:global(:last-child) {
+				place-self: center;
+			}
+
+			&::before,
+			&::after {
+				height: 1em;
+				width: 1em;
+				border-radius: 100vmax;
+				outline: solid var(--text) 0.125em;
+				position: absolute;
+				left: 0.75em;
+			}
+
+			&::before {
+				background-color: var(--text);
+				transition: var(--transition) var(--duration);
+				scale: 0;
+			}
+
+			&::after {
+				border: solid var(--inverse) 0.125em;
+			}
 		}
 
-		:global(li :last-child) {
-			place-self: center;
+		:global(li[aria-checked='true']::before) {
+			scale: 1;
 		}
 	}
 
@@ -226,23 +264,35 @@
 	}
 
 	@media only screen and (width <= 40rem) {
+		div::before {
+			content: '';
+		}
+
+		div.expanded::before {
+			opacity: 0.75;
+		}
+
+		button {
+			z-index: 0;
+		}
+
 		ul {
 			inset: auto 1rem 1rem;
+			z-index: 2;
 
 			:global(li) {
 				justify-content: start;
-				padding-inline: 0.75em;
+				padding-inline: 3em 0.75em;
 				gap: 0.75em;
-			}
 
-			:global(li[aria-checked='true']::after) {
-				content: '✔';
-				position: absolute;
-				right: 0.75em;
-			}
+				:global(span) {
+					order: 1;
+				}
 
-			:global(li span) {
-				order: 1;
+				&::before,
+				&::after {
+					content: '';
+				}
 			}
 		}
 	}
