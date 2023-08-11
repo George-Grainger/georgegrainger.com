@@ -29,7 +29,7 @@
 	}
 
 	function handleKeyDown(e: KeyboardEvent) {
-		let { key, altKey } = e;
+		const { key, altKey } = e;
 		const current = ul?.querySelector(`[data-value=${updates}]`) as HTMLElement;
 		let next: HTMLElement | undefined;
 
@@ -46,6 +46,7 @@
 					setExpanded(true);
 					break;
 				}
+			/* falls through */
 			case 'ArrowRight':
 				next = current?.nextElementSibling as HTMLElement;
 				if (altKey) {
@@ -58,6 +59,7 @@
 					setExpanded(false);
 					break;
 				}
+			/* falls through */
 			case 'ArrowLeft':
 				next = current?.previousElementSibling as HTMLElement;
 				if (altKey) {
@@ -65,8 +67,6 @@
 					e.preventDefault();
 				}
 				break;
-			default:
-				return e;
 		}
 
 		if (next) {

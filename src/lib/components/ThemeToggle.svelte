@@ -1,5 +1,22 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
+
+	function handleKeyDown(e: KeyboardEvent) {
+		switch (e.key) {
+			case 'ArrowUp':
+			case 'ArrowLeft':
+				theme.set(theme.DARK);
+				break;
+			case 'ArrowDown':
+			case 'ArrowRight':
+				theme.set(theme.LIGHT);
+				break;
+			case ' ':
+			case 'Enter':
+				theme.toggle();
+				break;
+		}
+	}
 </script>
 
 <svg
@@ -11,7 +28,7 @@
 	aria-pressed={$theme === theme.DARK ? 'true' : 'false'}
 	aria-label="Dark mode"
 	on:click={theme.toggle}
-	on:keypress={theme.toggle}
+	on:keydown={handleKeyDown}
 >
 	<circle class="sun-moon" cx="85" cy="85" r="70" mask="url(#moon-mask)" />
 	<path
