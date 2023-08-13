@@ -8,7 +8,7 @@
 	export let referBy: string;
 	export let updates: string;
 
-	let loading = 'Loading...';
+	let loading = '';
 	let expanded = false;
 	let btn: HTMLButtonElement;
 	let ul: HTMLElement;
@@ -78,6 +78,7 @@
 	function handleChange(e: MouseEvent | KeyboardEvent) {
 		const el = e.target as HTMLElement;
 		updates = el.closest('li')?.getAttribute('data-value') ?? '';
+		setExpanded(false);
 	}
 
 	$: if (browser && btn) {
@@ -121,10 +122,7 @@
 		aria-label={`${referBy} Options`}
 		tabindex="-1"
 		bind:this={ul}
-		on:click={(e) => {
-			handleChange(e);
-			browser && window?.matchMedia('(width > 40)').matches && setExpanded(false);
-		}}
+		on:click={handleChange}
 		on:keydown={handleKeyDown}
 	>
 		<slot>
@@ -172,6 +170,7 @@
 	button {
 		border-radius: var(--border-radius);
 		height: 100%;
+		z-index: 0;
 
 		&::before,
 		&::after {
@@ -203,7 +202,6 @@
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
 		z-index: -1;
-		position: fixed;
 
 		:global(li) {
 			position: relative;
@@ -233,12 +231,12 @@
 
 			&::before,
 			&::after {
-				height: 1em;
-				width: 1em;
+				height: 0.75em;
+				width: 0.75em;
 				border-radius: 100vmax;
 				outline: solid var(--text) 0.125em;
 				position: absolute;
-				left: 0.75em;
+				right: 0.75em;
 			}
 
 			&::before {
@@ -246,19 +244,20 @@
 				transition: var(--transition) var(--duration);
 				scale: 0;
 			}
-
-			&::after {
-				border: solid var(--inverse) 0.125em;
-			}
 		}
 
-		:global(li[aria-checked='true']::before) {
-			scale: 1;
+		:global(li[aria-checked='true']) {
+			&::before {
+				scale: 1;
+			}
+
+			&::after {
+				border: 0.175em solid var(--inverse);
+			}
 		}
 	}
 
 	[aria-expanded='false'] + ul {
-		translate: 0 calc(2 * var(--_size));
 		opacity: 0;
 		pointer-events: none;
 	}
@@ -268,21 +267,20 @@
 			content: '';
 		}
 
-		div.expanded::before {
-			opacity: 0.75;
-		}
-
-		button {
-			z-index: 0;
+		.expanded::before {
+			opacity: 0.85;
 		}
 
 		ul {
-			inset: auto 1rem 1rem;
-			z-index: 2;
+			font-size: 1.15em;
+			z-index: 1;
+			position: fixed;
+			inset: 50% 1em auto;
+			transform: translateY(-50%);
 
 			:global(li) {
 				justify-content: start;
-				padding-inline: 3em 0.75em;
+				padding-inline: 0.5em 2.25em;
 				gap: 0.75em;
 
 				:global(span) {
@@ -308,14 +306,8 @@
 		}
 
 		ul {
-			position: relative;
-			inset: 0;
 			translate: 0 0.35em;
 			height: 0;
-		}
-
-		[aria-expanded='false'] + ul {
-			translate: 0 calc(-2 * var(--_size));
 		}
 	}
 </style>
