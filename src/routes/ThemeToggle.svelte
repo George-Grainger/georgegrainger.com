@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
+	import SmallClouds from '$lib/svg/symbols/SmallClouds.svelte';
+
+	export let height: string | number = '';
+	export let width: string | number = '';
 
 	function handleKeyDown(e: KeyboardEvent) {
 		switch (e.key) {
@@ -20,7 +24,8 @@
 </script>
 
 <svg
-	xmlns="http://www.w3.org/2000/svg"
+	{height}
+	{width}
 	viewBox="0 0 380 170"
 	fill="var(--white)"
 	role="button"
@@ -60,10 +65,11 @@
 	</defs>
 </svg>
 
+<!-- SVG Symbols -->
+<SmallClouds />
+
 <style lang="scss">
 	svg {
-		--_svg-size: 2.3em;
-
 		background-color: hsl(212, 97%, 68%);
 		border: 0.15em solid var(--white);
 		border-radius: 100vmax;

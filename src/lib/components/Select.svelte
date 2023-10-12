@@ -8,7 +8,6 @@
 	export let referBy: string;
 	export let updates: string;
 
-	let loading = '';
 	let expanded = false;
 	let btn: HTMLButtonElement;
 	let ul: HTMLElement;
@@ -84,7 +83,10 @@
 	$: if (browser && btn) {
 		// Handle visible option switch
 		const current = ul?.querySelector(`[data-value=${updates}]`);
-		btn.innerHTML = current?.innerHTML || loading;
+
+		if (current) {
+			btn.innerHTML = current.innerHTML;
+		}
 
 		// Handle aria-checked
 		const previous = current?.parentElement?.querySelector('[aria-checked="true"]');
@@ -113,9 +115,7 @@
 		bind:this={btn}
 		on:click={toggleExpanded}
 		on:keydown={handleKeyDown}
-	>
-		{loading}
-	</button>
+	/>
 	<ul
 		{id}
 		role="menu"
@@ -134,9 +134,7 @@
 <style lang="scss">
 	div {
 		--_drop-duration: calc(var(--duration) * 0.67);
-		--_arrow-size: 0.5em;
-
-		height: 100%;
+		--_arrow-size: 0.4em;
 
 		&::before {
 			position: fixed;
@@ -152,12 +150,12 @@
 	button,
 	ul :global(li) {
 		display: grid;
-		grid-template-columns: auto minmax(max-content, var(--_svg-size, 1.5em));
+		grid-template-columns: auto minmax(max-content, 1.5em);
 		align-items: center;
 
 		text-align: left;
 		background-color: var(--inverse);
-		padding: calc(0.5 * var(--_size)) var(--_size);
+		padding: var(--_size);
 		border: var(--_border-size) solid currentColor;
 		width: 100%;
 		cursor: pointer;
@@ -169,8 +167,12 @@
 
 	button {
 		border-radius: var(--border-radius);
-		height: 100%;
-		z-index: 0;
+		line-height: 1;
+
+		&:empty {
+			height: 2.25em;
+			min-width: 3em;
+		}
 
 		&::before,
 		&::after {
@@ -183,12 +185,12 @@
 		}
 
 		&::before {
-			translate: 0 -0.3em;
+			translate: 0 -0.25em;
 			border-bottom: var(--_arrow-size) solid currentColor;
 		}
 
 		&::after {
-			translate: 0 0.3em;
+			translate: 0 0.25em;
 			border-top: var(--_arrow-size) solid currentColor;
 		}
 
@@ -202,12 +204,13 @@
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
 		z-index: -1;
+		position: relative;
 
 		:global(li) {
 			position: relative;
 			border-block: none;
 			margin-block: -1px;
-			padding-block: 0.5em;
+			padding-block: 0.25em;
 
 			&:first-of-type {
 				border-top: var(--_border-size) solid;
@@ -259,6 +262,7 @@
 
 	[aria-expanded='false'] + ul {
 		opacity: 0;
+		translate: 0 -1em;
 		pointer-events: none;
 	}
 
@@ -300,9 +304,13 @@
 			font-size: var(--_select-fs);
 		}
 
+		button:empty {
+			height: 2em;
+		}
+
 		button,
 		ul :global(li) {
-			gap: calc(2 * var(--_size));
+			gap: calc(4 * var(--_size));
 		}
 
 		ul {

@@ -1,4 +1,9 @@
-<svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<script lang="ts">
+	export let height: string | number = '';
+	export let width: string | number = '';
+</script>
+
+<svg {height} {width} viewBox="0 0 48 48">
 	<title>Uk Flag</title>
 	<path d="M48 24a24 24 0 1 1-48 0 24 24 0 0 1 48 0Z" fill="var(--blue)" />
 	<path

@@ -1,17 +1,3 @@
-<script lang="ts">
-	import Cow from './symbols/Cow.svelte';
-	import Earth from './symbols/Earth.svelte';
-	import Mountains from './symbols/Mountains.svelte';
-	import Sun from './symbols/Sun.svelte';
-	import Trees from './symbols/Trees.svelte';
-</script>
-
-<Sun />
-<Earth />
-<Cow />
-<Trees />
-<Mountains />
-
 <svg height="500" viewBox="0 0 800 265" display="none">
 	<use href="#sun" height="150" />
 	<use href="#earth" height="150" />

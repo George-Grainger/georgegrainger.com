@@ -55,8 +55,12 @@ img {
 	--red: hsl(349, 100%, 43%);
 	--purple: hsl(259, 79%, 50%);
 
+	// Svg colors
+	--cloud: hsl(0, 0%, 98%);
+	--cloud-dark: hsl(231, 23%, 42%);
+
 	// Display
-	--border-radius: 0.5rem;
+	--border-radius: 0.67rem;
 	--page-width: 80rem;
 
 	// Animation
@@ -110,10 +114,6 @@ h1 {
 
 button {
 	cursor: pointer;
-}
-
-svg {
-	height: var(--_svg-size, 1.5em);
 }
 
 :focus {

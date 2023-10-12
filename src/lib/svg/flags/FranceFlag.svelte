@@ -1,4 +1,9 @@
-<svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+<script lang="ts">
+	export let height: string | number = '';
+	export let width: string | number = '';
+</script>
+
+<svg {height} {width} viewBox="0 0 80 80">
 	<title>French Flag</title>
 	<path d="M80 40a40 40 0 1 1-80 0 40 40 0 0 1 80 0Z" fill="var(--white)" />
 	<path d="M26 3a40 40 0 0 0 0 74V3Z" fill="var(--blue)" />
