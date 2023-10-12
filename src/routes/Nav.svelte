@@ -14,10 +14,10 @@
 			<a href="/">Home</a>
 		</li>
 		<li>
-			<a href="#projects">Projects</a>
+			<a href="/projects">Projects</a>
 		</li>
 		<li>
-			<a href="#home">About</a>
+			<a href="/about">About</a>
 		</li>
 	</ul>
 	<ul class="settings">
@@ -74,7 +74,10 @@
 
 		margin: 1rem auto;
 		width: min(100vw - 2rem, var(--page-width));
-		z-index: 1;
+
+		top: 1rem;
+		position: sticky;
+		z-index: 9;
 	}
 
 	ul {

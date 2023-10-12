@@ -4,6 +4,7 @@
 	import Crater from './symbols/Crater.svelte';
 	import Earth from './symbols/Earth.svelte';
 	import Moon from './symbols/Moon.svelte';
+	import MoonDecorated from './symbols/MoonDecorated.svelte';
 	import Mountains from './symbols/Mountains.svelte';
 	import SmallClouds from './symbols/SmallClouds.svelte';
 	import Sun from './symbols/Sun.svelte';
@@ -16,6 +17,7 @@
 	<Crater />
 	<Earth />
 	<Moon />
+	<MoonDecorated />
 	<Mountains />
 	<SmallClouds />
 	<Sun />

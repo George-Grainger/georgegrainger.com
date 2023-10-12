@@ -1,6 +1,6 @@
 <script lang="ts">
-	export let height: string | number = '';
-	export let width: string | number = '';
+	export let height: string | number | undefined = undefined;
+	export let width: string | number | undefined = undefined;
 
 	export let disabled = false;
 </script>
