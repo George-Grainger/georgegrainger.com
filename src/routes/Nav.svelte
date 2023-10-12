@@ -39,18 +39,18 @@
 		<li>
 			<Select id="language-select" referBy="Language" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
-					<UkFlag height="var(--_svg-height)" />
+					<UkFlag />
 					<span>En</span>
 				</Option>
 				<Option value={motion.REDUCE}>
-					<FranceFlag height="var(--_svg-height)" />
+					<FranceFlag />
 					<span>Fr</span>
 				</Option>
 			</Select>
 		</li>
 	</ul>
 	<button class="hamburger">
-		<svg height="var(--_svg-height)" viewBox="0 0 24 24">
+		<svg viewBox="0 0 24 24">
 			<path
 				fill="currentColor"
 				d="M4 18q-.425 0-.713-.288T3 17q0-.425.288-.713T4 16h16q.425 0 .713.288T21 17q0 .425-.288.713T20 18H4Zm0-5q-.425 0-.713-.288T3 12q0-.425.288-.713T4 11h16q.425 0 .713.288T21 12q0 .425-.288.713T20 13H4Zm0-5q-.425 0-.713-.288T3 7q0-.425.288-.713T4 6h16q.425 0 .713.288T21 7q0 .425-.288.713T20 8H4Z"
@@ -113,6 +113,11 @@
 	:global([aria-controls='motion-select'] span),
 	:global([aria-controls='language-select'] span) {
 		display: none;
+	}
+
+	.hamburger svg,
+	:global([data-wraps='language-select'] svg) {
+		height: var(--_svg-height);
 	}
 
 	@media only screen and (width > 40rem) {

@@ -7,7 +7,7 @@
 	<use href="#astronaut" x="105" y="2" width="160" height="160" />
 </symbol>
 
-<svg height="20vh" viewBox="0 0 800 550" overflow="visible">
+<svg viewBox="0 0 800 550" overflow="visible">
 	<g class="moon-wrapper">
 		<use class="moon" href="#moon-decorated" x="205" y="30" width="490" height="520" />
 	</g>
@@ -32,7 +32,7 @@
 	.earth-wrapper,
 	.earth,
 	.sun {
-		transition: transform 1200ms cubic-bezier(0.17, 0.84, 0.44, 1);
+		transition: transform 1200ms var(--transition);
 	}
 
 	.earth {
@@ -40,7 +40,7 @@
 	}
 
 	.moon {
-		transform-origin: 0px 250px;
+		transform-origin: 0px -150px;
 	}
 
 	.sun {
@@ -49,21 +49,21 @@
 
 	:global([data-theme='light']) {
 		.moon-wrapper {
-			transform: matrix(-0.17, -0.1, 0.1, -0.17, 150, 240);
+			transform: scale(0.2) rotate(60deg) translate(50em, 0em);
 		}
 
 		.moon {
-			transform: rotate(150deg);
+			transform: rotate(-60deg);
 		}
 	}
 
 	:global([data-theme='dark']) {
-		.earth-wrapper {
-			transform: matrix(-0.2, 0.35, -0.35, -0.2, 150, 30);
-		}
-
 		.sun {
 			transform: scale(0.4) rotate(-120deg);
+		}
+
+		.earth-wrapper {
+			transform: scale(0.4) rotate(120deg) translate(-20em, -30em);
 		}
 
 		.earth {
