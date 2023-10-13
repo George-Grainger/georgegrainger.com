@@ -73,7 +73,7 @@
 		font-weight: 600;
 		font-size: clamp(1.25rem, 3.9vw, 1.525rem);
 
-		margin: 1rem auto 5rem;
+		margin: 1rem auto 4rem;
 		width: var(--page-width);
 
 		top: 1rem;

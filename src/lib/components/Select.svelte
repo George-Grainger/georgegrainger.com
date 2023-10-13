@@ -274,7 +274,7 @@
 		ul {
 			z-index: 1;
 			position: fixed;
-			inset: auto 1rem 1rem;
+			inset: auto 0.5rem 0.5rem;
 
 			:global(li) {
 				justify-content: start;

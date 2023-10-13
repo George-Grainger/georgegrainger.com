@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '@fontsource/poppins/800.css';
 	import HeroScene from './HeroScene.svelte';
+	import ProjectCard from '$lib/components/ProjectCard.svelte';
 </script>
 
 <section id="hero" class="hero">
@@ -11,6 +12,7 @@
 </section>
 
 <section />
+<!-- <ProjectCard /> -->
 <section />
 
 <style lang="scss">
@@ -20,7 +22,7 @@
 
 	.hero {
 		place-items: center;
-		gap: 1.25em 3.5em;
+		gap: 0.5em 3.5em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 
 		h1 {
@@ -39,8 +41,9 @@
 
 		p {
 			text-align: center;
-			margin-top: 1em;
+			margin-top: 3em;
 			font-size: 0.9em;
+			max-width: 32ch;
 			text-wrap: balance;
 		}
 	}
