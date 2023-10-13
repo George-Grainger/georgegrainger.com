@@ -1,11 +1,11 @@
-<svg viewBox="-75 0 1000 600" overflow="visible">
+<svg viewBox="0 0 1000 600" overflow="visible">
 	<g class="moon-wrapper">
-		<use class="moon" href="#moon-decorated" x="205" y="80" width="490" height="520" />
+		<use class="moon" href="#moon-decorated" x="275" y="80" width="490" height="520" />
 	</g>
 	<g class="earth-wrapper">
-		<use class="earth" href="#earth" x="40" y="200" width="400" height="400" />
+		<use class="earth" href="#earth" x="135" y="200" width="400" height="400" />
 	</g>
-	<use class="sun" href="#sun" x="630" y="110" height="180" width="180" />
+	<use class="sun" href="#sun" x="705" y="110" height="180" width="180" />
 </svg>
 
 <style lang="scss">
@@ -19,24 +19,24 @@
 	}
 
 	.moon {
-		transform-origin: 450px 340px;
+		transform-origin: 525px 340px;
 	}
 
 	.earth-wrapper {
-		transform-origin: 500px 40px;
+		transform-origin: 575px 40px;
 	}
 
 	.earth {
-		transform-origin: 240px 400px;
+		transform-origin: 315px 400px;
 	}
 
 	.sun {
-		transform-origin: 750px 75px;
+		transform-origin: 775px 75px;
 	}
 
 	:global([data-theme='light']) {
 		.moon-wrapper {
-			transform: scale(0.2) rotate(45deg) translate(80em);
+			transform: scale(0.2) rotate(45deg) translate(100rem, -15rem);
 		}
 
 		.moon {
@@ -46,7 +46,7 @@
 
 	:global([data-theme='dark']) {
 		.earth-wrapper {
-			transform: scale(0.4) rotate(45deg) translate(-15em, 20em);
+			transform: scale(0.4) rotate(45deg) translate(-15rem, 20rem);
 		}
 
 		.earth {

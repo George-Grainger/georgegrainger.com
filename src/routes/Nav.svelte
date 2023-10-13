@@ -73,7 +73,7 @@
 		font-weight: 600;
 		font-size: clamp(1.25rem, 3.9vw, 1.525rem);
 
-		margin: 1rem auto;
+		margin: 1rem auto 5rem;
 		width: var(--page-width);
 
 		top: 1rem;
@@ -99,7 +99,7 @@
 	}
 
 	.hamburger {
-		--_size: 0.15em;
+		--_size: 0.2675em;
 
 		display: flex;
 		align-items: center;
@@ -107,7 +107,9 @@
 		border: var(--_border-size) solid currentColor;
 		border-radius: var(--border-radius);
 		background-color: var(--inverse);
-		padding: calc(0.5 * var(--_size)) var(--_size);
+		padding: var(--_size);
+		height: fit-content;
+		margin-block: auto;
 	}
 
 	.select :global(button span) {

@@ -7,7 +7,7 @@
 	<h1>Hello there</h1>
 	<h2>Thanks for stopping by</h2>
 	<HeroScene />
-	<p class="intro">I'm George, a computer science masters student based in Manchester</p>
+	<p class="intro">I'm George, a final year computer science student based in Manchester</p>
 </section>
 
 <section />
@@ -20,7 +20,7 @@
 
 	.hero {
 		place-items: center;
-		gap: 0.5em 2.5em;
+		gap: 1.25em 3.5em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 
 		h1 {
@@ -34,12 +34,12 @@
 			font-weight: 800;
 			font-size: 1.5em;
 			letter-spacing: -0.015rem;
-			margin-bottom: 1rem;
+			margin-bottom: 1em;
 		}
 
 		p {
 			text-align: center;
-			margin-block: 3rem 1rem;
+			margin-top: 1em;
 			font-size: 0.9em;
 			text-wrap: balance;
 		}
@@ -61,7 +61,7 @@
 			p {
 				text-align: justify;
 				text-align-last: center;
-				margin-block: 0;
+				margin-top: 0;
 				font-size: 0.7em;
 				max-width: 40ch;
 				text-wrap: initial;
