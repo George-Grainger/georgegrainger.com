@@ -76,8 +76,9 @@
 
 	function handleChange(e: MouseEvent | KeyboardEvent) {
 		const el = e.target as HTMLElement;
+		const transitionDelay = browser && window?.matchMedia('(width <= 40rem)').matches ? 87.5 : 0;
+		setTimeout(() => setExpanded(false), transitionDelay);
 		updates = el.closest('li')?.getAttribute('data-value') ?? '';
-		setExpanded(false);
 	}
 
 	$: if (browser && btn) {
@@ -262,7 +263,6 @@
 
 	[aria-expanded='false'] + ul {
 		opacity: 0;
-		translate: 0 -1em;
 		pointer-events: none;
 	}
 
@@ -279,8 +279,7 @@
 			font-size: 1.15em;
 			z-index: 1;
 			position: fixed;
-			inset: 50% 1em auto;
-			transform: translateY(-50%);
+			inset: auto 1rem 1rem;
 
 			:global(li) {
 				justify-content: start;
@@ -304,18 +303,22 @@
 			font-size: var(--_select-fs);
 		}
 
-		button:empty {
-			height: 2em;
-		}
-
 		button,
 		ul :global(li) {
 			gap: calc(4 * var(--_size));
 		}
 
+		button:empty {
+			height: 2em;
+		}
+
 		ul {
 			translate: 0 0.35em;
 			height: 0;
+		}
+
+		[aria-expanded='false'] + ul {
+			translate: 0 -1em;
 		}
 	}
 </style>

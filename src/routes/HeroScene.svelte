@@ -18,42 +18,47 @@
 	.earth-wrapper,
 	.earth,
 	.sun {
+		will-change: transform;
 		transition: transform calc(3 * var(--duration)) var(--transition);
 	}
 
-	.earth {
-		transform-origin: 400px 100px;
+	.moon {
+		transform-origin: 450px 340px;
 	}
 
-	.moon {
-		transform-origin: 0px -150px;
+	.earth-wrapper {
+		transform-origin: 500px 40px;
+	}
+
+	.earth {
+		transform-origin: 240px 400px;
 	}
 
 	.sun {
-		transform-origin: 750px 80px;
+		transform-origin: 750px 40px;
 	}
 
 	:global([data-theme='light']) {
 		.moon-wrapper {
-			transform: scale(0.2) rotate(60deg) translate(50em, 0em);
+			transform: scale(0.2) rotate(45deg) translate(80em);
 		}
 
 		.moon {
-			transform: rotate(-60deg);
+			transform: rotate(-45deg);
 		}
 	}
 
 	:global([data-theme='dark']) {
-		.sun {
-			transform: scale(0.3) rotate(-180deg);
-		}
-
 		.earth-wrapper {
-			transform: scale(0.4) rotate(120deg) translate(-30em, -20em);
+			transform: scale(0.4) rotate(45deg) translate(-15em, 20em);
 		}
 
 		.earth {
-			transform: rotate(-120deg);
+			transform: rotate(-45deg);
+		}
+
+		.sun {
+			transform: scale(0.3) rotate(-120deg);
 		}
 	}
 </style>
