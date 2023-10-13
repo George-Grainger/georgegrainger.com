@@ -76,7 +76,7 @@
 
 	function handleChange(e: MouseEvent | KeyboardEvent) {
 		const el = e.target as HTMLElement;
-		const transitionDelay = browser && window?.matchMedia('(width <= 40rem)').matches ? 87.5 : 0;
+		const transitionDelay = browser && window?.matchMedia('(width <= 40rem)').matches ? 100 : 0;
 		setTimeout(() => setExpanded(false), transitionDelay);
 		updates = el.closest('li')?.getAttribute('data-value') ?? '';
 	}
@@ -101,11 +101,7 @@
 	}
 </script>
 
-<div
-	data-wraps={id}
-	class:expanded
-	use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}
->
+<div class:expanded use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}>
 	<button
 		type="button"
 		aria-haspopup="menu"
@@ -276,15 +272,14 @@
 		}
 
 		ul {
-			font-size: 1.15em;
 			z-index: 1;
 			position: fixed;
 			inset: auto 1rem 1rem;
 
 			:global(li) {
 				justify-content: start;
-				padding-inline: 0.5em 2.25em;
-				gap: 0.75em;
+				padding: 0.675em 2.25em 0.675em 0.5em;
+				gap: 1em;
 
 				:global(span) {
 					order: 1;

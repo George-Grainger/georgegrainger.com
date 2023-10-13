@@ -22,9 +22,9 @@
 	</ul>
 	<ul class="settings">
 		<li>
-			<ThemeToggle height="2.25em" />
+			<ThemeToggle height="2em" />
 		</li>
-		<li>
+		<li class="select motion-select">
 			<Select id="motion-select" referBy="Motion Preference" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
 					<span>Keep Animations</span>
@@ -36,7 +36,7 @@
 				</Option>
 			</Select>
 		</li>
-		<li>
+		<li class="select language-select">
 			<Select id="language-select" referBy="Language" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
 					<UkFlag />
@@ -64,16 +64,17 @@
 		--_size: 0.3em;
 		--_border-size: 0.125em;
 		--_svg-height: 1.8em;
+		--_select-fs: 0.9em;
 
 		display: flex;
 		justify-content: space-between;
 		gap: 1rem;
 
 		font-weight: 600;
-		font-size: clamp(1.125rem, 3.5vw, 1.375rem);
+		font-size: clamp(1.25rem, 3.9vw, 1.525rem);
 
 		margin: 1rem auto;
-		width: min(100vw - 2rem, var(--page-width));
+		width: var(--page-width);
 
 		top: 1rem;
 		position: sticky;
@@ -109,17 +110,16 @@
 		padding: calc(0.5 * var(--_size)) var(--_size);
 	}
 
-	:global([data-wraps='language-select']) {
-		--_size: 0.15em;
-	}
-
-	:global([aria-controls='motion-select'] span),
-	:global([aria-controls='language-select'] span) {
+	.select :global(button span) {
 		display: none;
 	}
 
+	.language-select {
+		--_size: 0.15em;
+	}
+
 	.hamburger svg,
-	:global([data-wraps='language-select'] svg) {
+	.language-select :global(svg) {
 		height: var(--_svg-height);
 	}
 
@@ -128,12 +128,14 @@
 			--_svg-height: 1.5em;
 		}
 
-		:global([aria-controls='motion-select'] span) {
-			display: inherit;
-		}
+		.motion-select :global(button) {
+			:global(span) {
+				display: inherit;
+			}
 
-		:global([aria-controls='motion-select'] svg) {
-			display: none;
+			:global(svg) {
+				display: none;
+			}
 		}
 	}
 

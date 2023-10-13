@@ -1,4 +1,4 @@
-<svg viewBox="0 0 850 600" overflow="visible">
+<svg viewBox="-75 0 1000 600" overflow="visible">
 	<g class="moon-wrapper">
 		<use class="moon" href="#moon-decorated" x="205" y="80" width="490" height="520" />
 	</g>
@@ -9,10 +9,6 @@
 </svg>
 
 <style lang="scss">
-	svg {
-		margin: 5rem 25vw;
-	}
-
 	.moon-wrapper,
 	.moon,
 	.earth-wrapper,
@@ -35,7 +31,7 @@
 	}
 
 	.sun {
-		transform-origin: 750px 40px;
+		transform-origin: 750px 75px;
 	}
 
 	:global([data-theme='light']) {
@@ -59,6 +55,13 @@
 
 		.sun {
 			transform: scale(0.3) rotate(-120deg);
+		}
+	}
+
+	@media only screen and (width > 60rem) {
+		svg {
+			grid-row: 1 / span 4;
+			grid-column: 2;
 		}
 	}
 </style>
