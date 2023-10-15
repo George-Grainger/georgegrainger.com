@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '@fontsource/poppins/400.css';
 	import '@fontsource/poppins/600.css';
+	import '@fontsource/poppins/700.css';
 	import '../global.scss';
 	import Footer from './Footer.svelte';
 	import Nav from './Nav.svelte';

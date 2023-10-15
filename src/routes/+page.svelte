@@ -2,6 +2,7 @@
 	import '@fontsource/poppins/800.css';
 	import HeroScene from './HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
+	import Button from '$lib/components/Button.svelte';
 </script>
 
 <section id="hero" class="hero">
@@ -9,6 +10,7 @@
 	<h2>Thanks for stopping by</h2>
 	<HeroScene />
 	<p class="intro">I'm George, a final year computer science student based in Manchester</p>
+	<Button href="/#about">About me</Button>
 </section>
 
 <section id="projects" class="projects">
@@ -75,6 +77,11 @@
 				font-size: 0.7em;
 				max-width: 40ch;
 				text-wrap: initial;
+			}
+
+			:global(a) {
+				margin-block: 1em;
+				font-size: 0.9em;
 			}
 		}
 	}

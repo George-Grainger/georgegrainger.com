@@ -1,5 +1,6 @@
 <script lang="ts">
 	import symput from '$lib/assets/projects/symput.svg';
+	import Button from './Button.svelte';
 </script>
 
 <article>
@@ -16,7 +17,7 @@
 			functions and more!
 		</p>
 		<div>
-			<button>See More</button>
+			<Button>View Details</Button>
 		</div>
 	</section>
 </article>
@@ -132,11 +133,12 @@
 		transform: translateY(5%);
 
 		strong {
-			font-size: 1.3em;
+			font-weight: 700;
+			font-size: 1.5em;
 		}
 
 		p {
-			font-size: 0.85em;
+			font-size: 0.9em;
 			width: 110%;
 			text-wrap: balance;
 		}
