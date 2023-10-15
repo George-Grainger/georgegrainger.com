@@ -1,5 +1,5 @@
 <script lang="ts">
-	import FooterScene from '$lib/svg/FooterScene.svelte';
+	import FooterScene from '$lib/assets/svg/FooterScene.svelte';
 </script>
 
 <footer>

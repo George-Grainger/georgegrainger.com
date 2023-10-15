@@ -11,9 +11,9 @@
 	<p class="intro">I'm George, a final year computer science student based in Manchester</p>
 </section>
 
-<section />
-<!-- <ProjectCard /> -->
-<section />
+<section id="projects" class="projects">
+	<ProjectCard />
+</section>
 
 <style lang="scss">
 	section {
@@ -27,14 +27,11 @@
 
 		h1 {
 			line-height: 1;
-			font-weight: 800;
 			font-size: 3.2125em;
 			letter-spacing: -0.03rem;
 		}
 
 		h2 {
-			font-weight: 800;
-			font-size: 1.5em;
 			letter-spacing: -0.015rem;
 			margin-bottom: 1em;
 		}
@@ -46,6 +43,16 @@
 			max-width: 32ch;
 			text-wrap: balance;
 		}
+	}
+
+	.projects {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, min(75vw, 18rem));
+		justify-content: center;
+		gap: 2em 4em;
+		font-size: 1.125rem;
+		margin-bottom: 2.5%;
+		counter-reset: card-num;
 	}
 
 	@media only screen and (width > 60rem) {

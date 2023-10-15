@@ -3,9 +3,9 @@
 	import Option from '$lib/components/Option.svelte';
 	import Select from '$lib/components/Select.svelte';
 	import { motion } from '$lib/stores/motion';
-	import AnimationIcon from '$lib/svg/AnimationIcon.svelte';
-	import FranceFlag from '$lib/svg/flags/FranceFlag.svelte';
-	import UkFlag from '$lib/svg/flags/UKFlag.svelte';
+	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
+	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
+	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 </script>
 
 <nav aria-label="Main">
@@ -28,11 +28,11 @@
 			<Select id="motion-select" referBy="Motion Preference" updates={$motion}>
 				<Option value={motion.NO_PREFERENCE}>
 					<span>Keep Animations</span>
-					<AnimationIcon height="1.5em" />
+					<AnimationIcon />
 				</Option>
 				<Option value={motion.REDUCE}>
 					<span>Reduce Animations</span>
-					<AnimationIcon height="1.5em" disabled={true} />
+					<AnimationIcon disabled={true} />
 				</Option>
 			</Select>
 		</li>
@@ -61,14 +61,14 @@
 
 <style lang="scss">
 	nav[aria-label='Main'] {
-		--_size: 0.3em;
-		--_border-size: 0.125em;
-		--_svg-height: 1.8em;
+		--_size: 0.15em;
+		--_border-size: 0.2rem;
+		--_svg-height: 1.5em;
 		--_select-fs: 0.9em;
 
 		display: flex;
 		justify-content: space-between;
-		gap: 1rem;
+		gap: 0.5rem;
 
 		font-weight: 600;
 		font-size: clamp(1.25rem, 3.9vw, 1.525rem);
@@ -110,42 +110,41 @@
 		padding: var(--_size);
 		height: fit-content;
 		margin-block: auto;
+
+		svg {
+			height: var(--_svg-height);
+		}
 	}
 
 	.select :global(button span) {
 		display: none;
 	}
 
-	.language-select {
-		--_size: 0.15em;
-	}
-
-	.hamburger svg,
-	.language-select :global(svg) {
-		height: var(--_svg-height);
-	}
-
 	@media only screen and (width > 40rem) {
 		nav[aria-label='Main'] {
-			--_svg-height: 1.5em;
+			--svg-height: 1.5em;
 		}
 
-		.motion-select :global(button) {
-			:global(span) {
-				display: inherit;
-			}
+		.hamburger {
+			--_size: 0.15em;
+		}
 
-			:global(svg) {
-				display: none;
+		.motion-select {
+			--_size: 0.4em;
+
+			:global(button) {
+				:global(span) {
+					display: inherit;
+				}
+
+				:global(svg) {
+					display: none;
+				}
 			}
 		}
 	}
 
 	@media only screen and (width > 60rem) {
-		nav[aria-label='Main'] {
-			--_size: 0.4em;
-		}
-
 		.links {
 			display: contents;
 		}

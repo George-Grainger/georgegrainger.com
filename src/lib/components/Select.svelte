@@ -142,6 +142,10 @@
 			transition: opacity var(--transition) var(--_drop-duration);
 			z-index: 1;
 		}
+
+		:global(svg) {
+			height: var(--_svg-height, 1.5em);
+		}
 	}
 
 	button,

@@ -1,24 +1,34 @@
+<script lang="ts">
+	import symput from '$lib/assets/projects/symput.svg';
+</script>
+
 <article>
 	<header>
-		<img src="" alt="" />
-		<h1>Title</h1>
-		<h2>Subtitle</h2>
+		<img src={symput} alt="" />
+		<h1>Symput</h1>
+		<h2>An Android keyboard and associated full stack website for feedback</h2>
 	</header>
 	<section>
-		<h1>Title</h1>
-		<p>Testing</p>
+		<strong aria-hidden="true">Symput</strong>
+		<p>
+			Created a full stack website, symput.com allowing users of our first-year group project
+			android keyboard to provide feedback. The site includes a CMS, user profiles, serverless
+			functions and more!
+		</p>
+		<div>
+			<button>See More</button>
+		</div>
 	</section>
-	<button>See More</button>
 </article>
 
 <style lang="scss">
 	article {
-		transition: transform var(--duration) var(--transition);
 		display: grid;
 		position: relative;
 		isolation: isolate;
 		width: fit-content;
 		margin: auto;
+		transition: transform var(--duration) var(--transition);
 
 		&::before {
 			content: '';
@@ -27,7 +37,7 @@
 			z-index: -1;
 			transform: scale(0.9, 0.33);
 			transform-origin: 50% 20%;
-			border-radius: var(--br);
+			border-radius: var(--border-radius);
 			background-color: var(--card);
 			transition: transform var(--duration) var(--transition);
 		}
@@ -38,7 +48,8 @@
 		}
 
 		&::after {
-			content: attr(attr-index);
+			counter-increment: card-num;
+			content: counter(card-num);
 			position: absolute;
 			right: 10%;
 			font-weight: 600;
@@ -52,6 +63,82 @@
 		&:hover::after,
 		&:focus-within::after {
 			transform: translateX(100%);
+		}
+
+		&:focus-within,
+		&:hover {
+			header {
+				transform: translateY(-33%) scale(0.6);
+
+				h1,
+				h2 {
+					opacity: 0;
+				}
+			}
+
+			section {
+				opacity: 1;
+				transform: translateY(0);
+				pointer-events: auto;
+				transition: transform var(--duration) var(--transition),
+					opacity var(--duration) var(--transition);
+			}
+		}
+	}
+
+	header,
+	section {
+		grid-area: -1/-1;
+	}
+
+	header {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+		margin-bottom: auto;
+		transition: transform var(--duration) var(--transition);
+
+		img {
+			border-radius: var(--border-radius);
+			object-fit: cover;
+			aspect-ratio: 5 / 6;
+		}
+
+		h1,
+		h2 {
+			line-height: 1;
+			margin-inline: 0.25em;
+			transition: opacity var(--duration) var(--transition);
+		}
+
+		h2 {
+			font-size: 0.75em;
+			font-weight: 600;
+			color: var(--hover-inverse);
+			text-wrap: balance;
+		}
+	}
+
+	section {
+		display: grid;
+		place-items: center;
+		text-align: center;
+		z-index: -1;
+		gap: 1em;
+		margin-top: 60%;
+		opacity: 0;
+		padding-bottom: 1em;
+		pointer-events: none;
+		transform: translateY(5%);
+
+		strong {
+			font-size: 1.3em;
+		}
+
+		p {
+			font-size: 0.85em;
+			width: 110%;
+			text-wrap: balance;
 		}
 	}
 </style>

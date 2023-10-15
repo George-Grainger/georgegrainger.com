@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
-	import SmallClouds from '$lib/svg/symbols/SmallClouds.svelte';
+	import SmallClouds from '$lib/assets/svg/symbols/SmallClouds.svelte';
 
 	export let height: string | number | undefined = undefined;
 	export let width: string | number | undefined = undefined;

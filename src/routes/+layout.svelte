@@ -4,7 +4,7 @@
 	import '../global.scss';
 	import Footer from './Footer.svelte';
 	import Nav from './Nav.svelte';
-	import Symbols from '$lib/svg/Symbols.svelte';
+	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import type { LayoutServerData } from './$types';
 	import { blur, fly } from 'svelte/transition';
 
