@@ -1,6 +1,6 @@
 <script lang="ts">
 	import '@fontsource/poppins/800.css';
-	import HeroScene from './HeroScene.svelte';
+	import HeroScene from '../lib/assets/svg/HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Symput from '$lib/assets/projects/Symput.svelte';

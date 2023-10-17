@@ -1,11 +1,11 @@
-<svg viewBox="0 0 1000 600" overflow="visible">
+<svg viewBox="0 0 800 600" overflow="visible">
 	<g class="moon-wrapper">
 		<use class="moon" href="#moon-decorated" x="275" y="80" width="490" height="520" />
 	</g>
 	<g class="earth-wrapper">
-		<use class="earth" href="#earth" x="135" y="200" width="400" height="400" />
+		<use class="earth" href="#earth" x="85" y="200" width="400" height="400" />
 	</g>
-	<use class="sun" href="#sun" x="705" y="110" height="180" width="180" />
+	<use class="sun" href="#sun" x="650" y="60" height="180" width="180" />
 </svg>
 
 <style lang="scss">
@@ -23,15 +23,15 @@
 	}
 
 	.earth-wrapper {
-		transform-origin: 575px 40px;
+		transform-origin: 400px 0px;
 	}
 
 	.earth {
-		transform-origin: 315px 400px;
+		transform-origin: 265px 400px;
 	}
 
 	.sun {
-		transform-origin: 775px 75px;
+		transform-origin: 725px 60px;
 	}
 
 	:global([data-theme='light']) {

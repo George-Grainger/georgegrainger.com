@@ -9,6 +9,6 @@
 
 <style lang="scss">
 	circle {
-		filter: drop-shadow(0 0 10rem var(--yellow-1));
+		filter: drop-shadow(0 0 5rem var(--yellow-1));
 	}
 </style>

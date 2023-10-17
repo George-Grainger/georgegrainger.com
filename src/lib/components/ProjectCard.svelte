@@ -27,7 +27,7 @@
 						rel="noopener noreferrer"
 					>
 						<svelte:component this={technologyMap[technology].component} />
-						<strong>{technologyMap[technology].name}</strong>
+						<small>{technologyMap[technology].name}</small>
 					</CondtionalLink>
 				{/if}
 			{/each}
@@ -43,7 +43,6 @@
 		isolation: isolate;
 		width: fit-content;
 		margin: auto;
-		transition: transform var(--duration) var(--transition);
 
 		&::before {
 			content: '';
@@ -54,7 +53,7 @@
 			transform-origin: 50% 20%;
 			border-radius: var(--border-radius);
 			background-color: var(--card);
-			transition: transform var(--duration) var(--transition);
+			transition: background-color var(--duration) var(--transition);
 		}
 
 		&:focus-within::before,
@@ -72,7 +71,6 @@
 			background-color: var(--black);
 			padding: 0.5em 0.5em 0.75em;
 			clip-path: polygon(100% 0%, 100% 100%, 50% 85%, 0 100%, 0 0);
-			transition: transform var(--duration) var(--transition);
 		}
 
 		&:hover::after,
@@ -95,8 +93,6 @@
 				opacity: 1;
 				transform: translateY(0);
 				pointer-events: auto;
-				transition: transform var(--duration) var(--transition),
-					opacity var(--duration) var(--transition);
 			}
 		}
 	}
@@ -111,7 +107,6 @@
 		flex-direction: column;
 		gap: 0.5em;
 		margin-bottom: auto;
-		transition: transform var(--duration) var(--transition);
 
 		img,
 		:global(svg) {
@@ -124,7 +119,6 @@
 		h2 {
 			line-height: 1;
 			margin-inline: 0.25em;
-			transition: opacity var(--duration) var(--transition);
 		}
 
 		h1 {
@@ -134,8 +128,9 @@
 		h2 {
 			font-size: 0.75em;
 			font-weight: 600;
-			color: var(--hover-inverse);
 			text-wrap: balance;
+			color: var(--hover-inverse);
+			transition: color var(--duration) var(--transition);
 		}
 	}
 
@@ -166,31 +161,29 @@
 	.languages {
 		columns: var(--columns, 3);
 		column-rule: 1px solid var(--text);
+		transition: column-rule-color var(--duration) var(--transition);
 
-		strong {
+		small {
 			display: block;
+			font-weight: 600;
 			font-variant-caps: small-caps;
-			color: var(--hover-black);
-			font-size: 0.6em;
+			color: var(--hover-inverse);
+			font-size: 0.7em;
+			transition: color var(--duration) var(--transition);
 		}
 
 		:global(a) {
 			outline: none;
 
-			:global(strong) {
-				text-decoration: underline;
-			}
-
-			&:hover :global(path) {
+			&:hover :global(svg) {
 				transform: scale(1.2);
 			}
 		}
 
 		:global(svg) {
-			--a-duration: calc(3 * var(--duration));
-			width: var(--size, 0.75em);
-			overflow: visible;
-			font-size: 3em;
+			--a-duration: calc(2 * var(--duration));
+			width: var(--size, 1em);
+			font-size: 2em;
 		}
 
 		:global(path) {
@@ -199,29 +192,49 @@
 	}
 
 	:global([data-motion='no-preference']) {
-		article:focus-within :global(path),
-		article:hover :global(path) {
-			stroke-dasharray: 0 var(--_dash-array, 1600);
-			animation: border-move var(--a-duration) var(--a-delay, 0ms) linear forwards,
-				fill-icon var(--a-duration) calc(1.25 * var(--a-duration) + var(--a-delay, 0ms)) linear
-					forwards;
-		}
-
-		.languages :global(path) {
-			fill-opacity: 0;
-			transition: transform var(--duration) var(--transition);
-
-			&:not([stroke-width]) {
-				stroke-width: 0.15em;
+		article {
+			&:focus-within :global(path),
+			&:hover :global(path) {
+				stroke-dasharray: 0 var(--_dash-array, 1600);
+				animation: border-move var(--a-duration) var(--a-delay, 0ms) linear forwards,
+					fill-icon var(--a-duration) calc(1.25 * var(--a-duration) + var(--a-delay, 0ms)) linear
+						forwards;
 			}
 		}
 
-		.languages :global(:nth-child(2) path) {
-			--a-delay: calc(0.4 * var(--a-duration));
+		header {
+			transition: transform var(--duration) var(--transition);
+
+			h1 {
+				transition: opacity var(--duration) var(--transition);
+			}
 		}
 
-		.languages :global(:nth-child(3) path) {
-			--a-delay: calc(0.8 * var(--a-duration));
+		section {
+			transition: transform var(--duration) var(--transition),
+				opacity var(--duration) var(--transition);
+		}
+
+		.languages {
+			:global(svg) {
+				transition: transform var(--duration) var(--transition);
+			}
+
+			:global(path) {
+				fill-opacity: 0;
+
+				&:not([stroke-width]) {
+					stroke-width: 0.15em;
+				}
+			}
+
+			:global(:nth-child(2) path) {
+				--a-delay: calc(0.4 * var(--a-duration));
+			}
+
+			:global(:nth-child(3) path) {
+				--a-delay: calc(0.8 * var(--a-duration));
+			}
 		}
 	}
 

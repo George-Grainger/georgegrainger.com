@@ -25,7 +25,12 @@
 			<ThemeToggle height="2em" />
 		</li>
 		<li class="select motion-select">
-			<Select id="motion-select" referBy="Motion Preference" updates={$motion}>
+			<Select
+				on:change={(e) => motion.set(e.detail.to)}
+				id="motion-select"
+				referBy="Motion Preference"
+				updates={$motion}
+			>
 				<Option value={motion.NO_PREFERENCE}>
 					<span>Keep Animations</span>
 					<AnimationIcon />
@@ -37,7 +42,12 @@
 			</Select>
 		</li>
 		<li class="select language-select">
-			<Select id="language-select" referBy="Language" updates={$motion}>
+			<Select
+				on:change={(e) => console.log(e)}
+				id="language-select"
+				referBy="Language"
+				updates={$motion}
+			>
 				<Option value={motion.NO_PREFERENCE}>
 					<UkFlag />
 					<span>En</span>

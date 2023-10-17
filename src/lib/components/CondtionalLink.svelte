@@ -1,8 +1,9 @@
 <script lang="ts">
 	export let href: string | undefined;
-	export let fallback: string | false = false;
 	export let target = '_blank';
 	export let rel = 'noopener noreferrer';
+
+	export let fallback: string | false = false;
 </script>
 
 {#if href}
