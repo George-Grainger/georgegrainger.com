@@ -1,25 +1,23 @@
 <script lang="ts">
-	// @ts-nocheck - required for conditional creation of a/button
+	import CondtionalLink from './CondtionalLink.svelte';
 
 	export let href = '';
-
-	let tag = href ? 'a' : 'button';
 </script>
 
-<svelte:element this={tag} {href}>
+<CondtionalLink class="btn" {href} fallback="button">
 	<span><slot>Button Text</slot></span>
 	<span>
 		<svg viewBox="0 0 66 43" fill="currentColor">
-			<path d="m40 4 4-4h1l21 21a1 1 0 0 1 0 1L45 43h-1l-4-4a1 1 0 0 1 0-1l17-16v-1L40 5V4Z" />
-			<path d="m20 4 4-4h1l21 21a1 1 0 0 1 0 1L25 43h-1l-4-4a1 1 0 0 1 0-1l17-16v-1L20 5V4Z" />
 			<path d="m0 4 4-4h1l21 21a1 1 0 0 1 0 1L5 43H4l-4-4v-1l17-16v-1L0 5a1 1 0 0 1 0-1Z" />
+			<path d="m20 4 4-4h1l21 21a1 1 0 0 1 0 1L25 43h-1l-4-4a1 1 0 0 1 0-1l17-16v-1L20 5V4Z" />
+			<path d="m40 4 4-4h1l21 21a1 1 0 0 1 0 1L45 43h-1l-4-4a1 1 0 0 1 0-1l17-16v-1L40 5V4Z" />
 		</svg>
 	</span>
-</svelte:element>
+</CondtionalLink>
 
 <style lang="scss">
-	a,
-	button {
+	// Global to prevent purging
+	:global(.btn) {
 		position: relative;
 		display: flex;
 		width: fit-content;
@@ -102,28 +100,25 @@
 			path {
 				transition: transform var(--duration) var(--transition);
 
-				&:nth-child(1) {
-					--time: 200ms;
-					transition-duration: calc(0.8 * var(--duration));
-					transform: translateX(-30%);
+				&:first-child {
+					--time: var(--duration);
+					transform: translateX(30%);
 				}
 
-				&:nth-child(3) {
-					--time: 600ms;
-					transform: translateX(30%);
+				&:last-child {
+					--time: 0ms;
+					transform: translateX(-30%);
 				}
 			}
 		}
 	}
 
-	:global([data-motion='no-preference']) {
-		button,
-		a {
-			&:focus-visible,
-			&:hover {
-				path {
-					animation: color-pulse calc(3 * var(--duration)) infinite calc(-1 * var(--time, 600ms));
-				}
+	:global([data-motion='no-preference'] .btn) {
+		&:focus-visible,
+		&:hover {
+			path {
+				animation: color-pulse calc(3 * var(--duration)) infinite
+					calc(-1 * var(--time, var(--duration) / 2));
 			}
 		}
 	}
@@ -132,7 +127,7 @@
 		0% {
 			fill: currentColor;
 		}
-		50% {
+		40% {
 			fill: var(--yellow-2);
 		}
 		100% {

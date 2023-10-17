@@ -3,6 +3,7 @@
 	import HeroScene from './HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
+	import Symput from '$lib/assets/projects/Symput.svelte';
 </script>
 
 <section id="hero" class="hero">
@@ -14,7 +15,10 @@
 </section>
 
 <section id="projects" class="projects">
-	<ProjectCard />
+	<ProjectCard technologies={['assembly', 'iot', 'love']}>
+		<svelte:fragment slot="image"><Symput /></svelte:fragment>
+		<svelte:fragment slot="title">Test</svelte:fragment>
+	</ProjectCard>
 </section>
 
 <style lang="scss">
@@ -29,11 +33,14 @@
 
 		h1 {
 			line-height: 1;
+			font-weight: 800;
 			font-size: 3.2125em;
 			letter-spacing: -0.03rem;
 		}
 
 		h2 {
+			font-weight: 700;
+			font-size: 1.525em;
 			letter-spacing: -0.015rem;
 			margin-bottom: 1em;
 		}
@@ -44,6 +51,10 @@
 			font-size: 0.9em;
 			max-width: 32ch;
 			text-wrap: balance;
+		}
+
+		:global(a) {
+			margin-block: 1em;
 		}
 	}
 
@@ -80,7 +91,6 @@
 			}
 
 			:global(a) {
-				margin-block: 1em;
 				font-size: 0.9em;
 			}
 		}
