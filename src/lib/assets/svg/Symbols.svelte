@@ -1,7 +1,6 @@
 <script>
 	import Astronaut from './symbols/Astronaut.svelte';
 	import Cow from './symbols/Cow.svelte';
-	import Crater from './symbols/Crater.svelte';
 	import Earth from './symbols/Earth.svelte';
 	import Moon from './symbols/Moon.svelte';
 	import MoonDecorated from './symbols/MoonDecorated.svelte';
@@ -13,7 +12,6 @@
 <svg height="0" width="0">
 	<Astronaut />
 	<Cow />
-	<Crater />
 	<Earth />
 	<Moon />
 	<MoonDecorated />

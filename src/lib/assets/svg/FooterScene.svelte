@@ -1,98 +1,69 @@
-<script lang="ts">
-	import { theme } from '$lib/stores/theme';
-	import { fade, fly } from 'svelte/transition';
-
-	let duration = 1050;
-</script>
-
 <svg viewBox="0 0 2196 775" overflow="visible">
 	<use class="sun" href="#sun" height="150" x="-450" y="0" />
+	<use href="#earth" class="earth" height="440" x="325" y="200" />
 
-	<use href="#tree-yellow" height="150" />
-	<use href="#tree-green" height="150" />
-
-	{#if $theme == theme.LIGHT}
+	<path
+		class="mountain-group"
+		d="M484 273.5 548 296l88-123.5 124.5 73 20-28.2 50.1 32.4L949.3 162l120.4 111.5 102.9-76.5 175.8 94.7 87.2-46.3 71.8 189.7-37.6 109.2-1015.6 2.1V383L484 273.5Z"
+		fill="url(#bg-mountains-fill)"
+	/>
+	<g class="mountain-group">
 		<path
-			class="mountain-group"
-			d="M484 273.5 548 296l88-123.5 124.5 73 20-28.2 50.1 32.4L949.3 162l120.4 111.5 102.9-76.5 175.8 94.7 87.2-46.3 71.8 189.7-37.6 109.2-1015.6 2.1V383L484 273.5Z"
-			fill="url(#bg-mountains-fill)"
-			in:fly={{ y: '100%', opacity: 1, duration: 1050 }}
-			out:fly={{ y: '100%', opacity: 1, duration: 1050, delay: 200 }}
+			d="m1164.1 231-43.4-61L955.2 470a.9.9 0 0 0 0 .9.9.9 0 0 0 .8.4h379c.8 0-170.9-240.4-170.9-240.4Z"
 		/>
-		<g
-			class="mountain-group"
-			transition:fly={{ y: '100%', opacity: 1, duration: 1050, delay: 100 }}
-		>
-			<path
-				d="m1164.1 231-43.4-61L955.2 470a.9.9 0 0 0 0 .9.9.9 0 0 0 .8.4h379c.8 0-170.9-240.4-170.9-240.4Z"
-			/>
-			<path
-				d="M1128.8 236.8c7.8-1.4 16.9 14 24 12 5.8-1.6 2-8.9 4.7-13.7 1-1.7 6.3-4.6 6.3-4.6l-43.1-60.5-45.6 82.8s21.4-16.7 28.2-13.3c7.7 4 16.7-1.2 25.5-2.7Z"
-			/>
-			<path
-				d="m1120.7 170 4 44.8 17.7 32.6-12.6 24.2L1159 306l.6 56.5 42 23.8-8.2 52.4 38.7 33 103-.2L1120.6 170Z"
-			/>
-			<path
-				d="m1213.5 469-194.8-273.5-150.8 273.6a.8.8 0 0 0 .7 1.2h344.2c.2 0 .3 0 .4-.2a.8.8 0 0 0 .3-1.1Z"
-			/>
-			<path
-				d="M1025.3 253.7c7-1.2 9.7 8.8 20 9.1 6.8.2 4.5-3.5 7-7.9.8-1.5 5.7-4.2 5.7-4.2l-39.3-55.2c0-1.4-41.6 75.5-41.6 75.5s18.5-15.2 24.7-12c7.1 3.5 15.4-3.8 23.5-5.3Z"
-			/>
-			<path
-				d="m1018.7 195.5 3.6 40.6 5.6 20.2-1 31.7 26.6 31.1-14.8 51.1 27.5 15 13.4 57.9 42 27.2h92.8l-195.7-274.8Z"
-			/>
-			<path d="M1030.5 471.5 828.2 211.3 677.7 471.5h352.8Z" />
-			<path
-				d="M837.6 279.5c7.7-2.2 17.5 9.2 25.4 8.2 5-.6 13.5-14.3 13.5-14.3l-48.2-62-42 72.4s17.6-12.3 25.7-8.9c8.6 3.6 15.6 7.4 25.6 4.6Z"
-			/>
-			<path
-				d="M844.8 289.6 817.6 353l23.4 52.6 60.1 24.8-17.5 20.5 52.4 20.4h94.5L828.2 211.2l16.6 78.4Z"
-			/>
-		</g>
-		<g
-			class="mountain-group"
-			in:fly={{ y: '100%', opacity: 1, duration: 1050, delay: 200 }}
-			out:fly={{ y: '100%', opacity: 1, duration: 1050 }}
-		>
-			<path d="M1158.8 496 912.6 225.2 669.8 495.9h489Z" />
-			<path
-				d="M851 294s25 16.8 37 11.7c7-3 13.7-6.4 21.4-9.3 5-2 15.4 4.8 20.7 4.8 5.3 0 15.5-6.9 19.5-10 4.2-3.3 22-.8 21-2l-58-64-61.7 68.8Z"
-			/>
-			<path
-				d="M1158.7 496 912.6 225.2l-3.6 62 27.9 41.8-17.9 61.1 13.2 37.7-23.8 44.7 93.7 23.3h156.6Z"
-			/>
-			<path
-				d="m1216.8 496-121.3-146.5-5.1 1.7-9.2 13.5-18.5-12.6-14.2 8.1-11.8-9-17.3.7-116.8 144h314.2Z"
-			/>
-			<path
-				d="M1049.4 360.4c4.1-1.7 11.5-7.2 15.8-6.4 4.8 1 9.5 10 14.2 11.2 5.5 1.3 17.3-14.5 17.3-14.5l-37.4-44.9-41 47.5s12.1-1.3 15.5.2c4.6 2.1 11.5 8.6 15.6 7Z"
-			/>
-			<path
-				d="m1059.3 305.9 1.6 48.8 13.6 16-14.9 32.1 26.6 27.5-4.3 44.2 41 21.3h93.8s-157.4-190.7-157.4-190Z"
-			/>
-			<path d="m1318.1 496.7-90-165.7-55.6-33.4-48.4 54.6-122.3 144.5H1318Z" />
-			<path
-				d="M1175.4 356.6c7.6.4 20.6-12.9 27.9-16.5 6.3-3.2 25.7-7.7 24.8-9l-55.6-33.6-41 46.2s10.4-2.3 16-1.6c8.2 1 20.1 14.2 28 14.5Z"
-			/>
-			<path
-				d="m1172.5 297.6 15.7 30.7 17.2 28.5-22 52.5 49.3 49.6 10.1 37.8h75.3l-90-165.7-55.6-33.4Z"
-			/>
-			<path d="m878.4 496.2-83.5-100.1-43-51.7-91.1 111.2v40.6h217.6Z" />
-			<path />
-			<path
-				d="M878.3 496.2 751.8 344.4l-1.8 34.8 14.3 23.4-9.2 34.3L762 458l-12.2 25.1 48.2 13 80.4.1Z"
-			/>
-		</g>
-	{:else}
-		<use
-			href="#earth"
-			class="earth"
-			height="400"
-			x="325"
-			y="225"
-			transition:fly={{ y: '100%', opacity: 1, duration: 1050, delay: 200 }}
+		<path
+			d="M1128.8 236.8c7.8-1.4 16.9 14 24 12 5.8-1.6 2-8.9 4.7-13.7 1-1.7 6.3-4.6 6.3-4.6l-43.1-60.5-45.6 82.8s21.4-16.7 28.2-13.3c7.7 4 16.7-1.2 25.5-2.7Z"
 		/>
-	{/if}
+		<path
+			d="m1120.7 170 4 44.8 17.7 32.6-12.6 24.2L1159 306l.6 56.5 42 23.8-8.2 52.4 38.7 33 103-.2L1120.6 170Z"
+		/>
+		<path
+			d="m1213.5 469-194.8-273.5-150.8 273.6a.8.8 0 0 0 .7 1.2h344.2c.2 0 .3 0 .4-.2a.8.8 0 0 0 .3-1.1Z"
+		/>
+		<path
+			d="M1025.3 253.7c7-1.2 9.7 8.8 20 9.1 6.8.2 4.5-3.5 7-7.9.8-1.5 5.7-4.2 5.7-4.2l-39.3-55.2c0-1.4-41.6 75.5-41.6 75.5s18.5-15.2 24.7-12c7.1 3.5 15.4-3.8 23.5-5.3Z"
+		/>
+		<path
+			d="m1018.7 195.5 3.6 40.6 5.6 20.2-1 31.7 26.6 31.1-14.8 51.1 27.5 15 13.4 57.9 42 27.2h92.8l-195.7-274.8Z"
+		/>
+		<path d="M1030.5 471.5 828.2 211.3 677.7 471.5h352.8Z" />
+		<path
+			d="M837.6 279.5c7.7-2.2 17.5 9.2 25.4 8.2 5-.6 13.5-14.3 13.5-14.3l-48.2-62-42 72.4s17.6-12.3 25.7-8.9c8.6 3.6 15.6 7.4 25.6 4.6Z"
+		/>
+		<path
+			d="M844.8 289.6 817.6 353l23.4 52.6 60.1 24.8-17.5 20.5 52.4 20.4h94.5L828.2 211.2l16.6 78.4Z"
+		/>
+	</g>
+	<g class="mountain-group">
+		<path d="M1158.8 496 912.6 225.2 669.8 495.9h489Z" />
+		<path
+			d="M851 294s25 16.8 37 11.7c7-3 13.7-6.4 21.4-9.3 5-2 15.4 4.8 20.7 4.8 5.3 0 15.5-6.9 19.5-10 4.2-3.3 22-.8 21-2l-58-64-61.7 68.8Z"
+		/>
+		<path
+			d="M1158.7 496 912.6 225.2l-3.6 62 27.9 41.8-17.9 61.1 13.2 37.7-23.8 44.7 93.7 23.3h156.6Z"
+		/>
+		<path
+			d="m1216.8 496-121.3-146.5-5.1 1.7-9.2 13.5-18.5-12.6-14.2 8.1-11.8-9-17.3.7-116.8 144h314.2Z"
+		/>
+		<path
+			d="M1049.4 360.4c4.1-1.7 11.5-7.2 15.8-6.4 4.8 1 9.5 10 14.2 11.2 5.5 1.3 17.3-14.5 17.3-14.5l-37.4-44.9-41 47.5s12.1-1.3 15.5.2c4.6 2.1 11.5 8.6 15.6 7Z"
+		/>
+		<path
+			d="m1059.3 305.9 1.6 48.8 13.6 16-14.9 32.1 26.6 27.5-4.3 44.2 41 21.3h93.8s-157.4-190.7-157.4-190Z"
+		/>
+		<path d="m1318.1 496.7-90-165.7-55.6-33.4-48.4 54.6-122.3 144.5H1318Z" />
+		<path
+			d="M1175.4 356.6c7.6.4 20.6-12.9 27.9-16.5 6.3-3.2 25.7-7.7 24.8-9l-55.6-33.6-41 46.2s10.4-2.3 16-1.6c8.2 1 20.1 14.2 28 14.5Z"
+		/>
+		<path
+			d="m1172.5 297.6 15.7 30.7 17.2 28.5-22 52.5 49.3 49.6 10.1 37.8h75.3l-90-165.7-55.6-33.4Z"
+		/>
+		<path d="m878.4 496.2-83.5-100.1-43-51.7-91.1 111.2v40.6h217.6Z" />
+		<path />
+		<path
+			d="M878.3 496.2 751.8 344.4l-1.8 34.8 14.3 23.4-9.2 34.3L762 458l-12.2 25.1 48.2 13 80.4.1Z"
+		/>
+	</g>
 
 	<g class="surface">
 		<path
@@ -121,90 +92,142 @@
 		/>
 		<path d="M14.4 623.4H2196V775H14.4V623.4Z" fill="var(--_surface-l1)" />
 
-		{#if $theme == theme.LIGHT}
-			<g in:fade={{ duration: 350, delay: 150 }} out:fade={{ duration: 350 }} class="house">
-				<path
-					fill="var(--black)"
-					fill-opacity="0.25"
-					d="M512 677.5c63.1 0 114.2-12.2 114.2-27.3 0-15-51.1-27.2-114.1-27.2-63 0-114.1 12.2-114.1 27.2s51 27.3 114 27.3Z"
-				/>
-				<path d="m584.7 579-73-60.4-68.4 60.2v79h141.4V579Z" fill="#603F16" />
-				<path
-					d="M585 576.6 511.2 508l-67.9 69.6v21.7l68.1-66.4 73.3 66.9.3-23.2Z"
-					fill="var(--black)"
-				/>
-				<g fill="#342312">
-					<path
-						d="M592.9 567.4 511.2 495l-76 72.3v27l76.2-75.4 81.5 75.3v-26.8ZM497.6 607.2v50.6h27.7v-50.6h-27.7Z"
-					/>
-					<path d="M555.8 499h-18v42.6h18v-42.7Z" />
-				</g>
-				<path fill="var(--black)" fill-opacity="0.25" d="m584.9 586.4-.2 13v-13.1l.2.1Z" />
-				<path
-					fill="var(--black)"
-					fill-opacity="0.25"
-					d="M592.9 567.1v26.7l-8-7.4-.2-.1v71.2l-73.5.3v-163l26.5 23.4v-19.5h18V534l37.2 33Z"
-				/>
-				<g opacity="0.6" fill="#9D9D9C" class="smoke">
-					<path
-						opacity="0.6"
-						d="M617.5 528a54.6 54.6 0 0 0 53.7-55.6c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-						style="transform-origin:28% 61% 0;animation-delay:-.4s"
-					/>
-					<path
-						opacity="0.6"
-						d="M673 532.6a54.6 54.6 0 0 0 53.7-55.5c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-						style="transform-origin:30.5% 62% 0;animation-delay:-.8s"
-					/>
-					<path
-						opacity="0.6"
-						d="M708.5 500.6a54.6 54.6 0 0 0 53.6-55.5c0-30.7-24-55.5-53.6-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-						style="transform-origin:32.5% 58% 0;animation-delay:-1.2s"
-					/>
-				</g>
-				<g fill="var(--white)" class="smoke">
-					<path
-						d="M566.5 509.3c27.4 0 49.6-23 49.6-51.3a50.5 50.5 0 0 0-49.6-51.4c-27.5 0-49.7 23-49.7 51.4a50.5 50.5 0 0 0 49.7 51.3Z"
-						style="transform-origin:25.5% 65.5% 0;animation-delay:-.2s"
-					/>
-					<path
-						d="M591.3 516.8a25.3 25.3 0 0 0 24.8-25.6 25.3 25.3 0 0 0-24.8-25.7 25.3 25.3 0 0 0-24.8 25.7 25.3 25.3 0 0 0 24.8 25.6Z"
-						style="transform-origin:26.5% 66.5% 0;animation-delay:-.4s"
-					/>
-					<path
-						d="M573.8 435.1a25.3 25.3 0 0 0 24.9-25.7 25.3 25.3 0 0 0-24.9-25.6 25.3 25.3 0 0 0-24.8 25.6 25.3 25.3 0 0 0 24.8 25.7Z"
-						style="transform-origin:26% 54% 0;animation-delay:-.6s"
-					/>
-					<path
-						d="M627.6 492.4a62.2 62.2 0 0 0 61.2-63.3c0-35-27.4-63.2-61.2-63.2a62.2 62.2 0 0 0-61.1 63.2c0 35 27.3 63.3 61.1 63.3Z"
-						style="transform-origin:28.5% 55% 0;animation-delay:-.8s"
-					/>
-					<path
-						d="M663.4 496.9c31 0 56-26 56-58a57 57 0 0 0-56-58c-31 0-56 26-56 58a57 57 0 0 0 56 58Z"
-						style="transform-origin:30% 57% 0;animation-delay:-1s"
-					/>
-					<path
-						d="M687.6 465a50.2 50.2 0 0 0 49.3-51c0-28.1-22-51-49.3-51a50.2 50.2 0 0 0-49.3 51c0 28.2 22.1 51 49.3 51Z"
-						style="transform-origin:31% 54% 0;animation-delay:-1.2s"
-					/>
-				</g>
-			</g>
-		{/if}
+		<use href="#crater-footer" x="-720" y="570" height="28" fill="var(--_surface-l3)" />
+		<use href="#crater-footer" x="-160" y="565" height="20" fill="var(--_surface-l3)" />
 
-		<ellipse
-			class="cow-shadow"
-			fill="var(--black)"
-			fill-opacity="0.25"
-			rx="70"
-			ry="18"
-			cx="1150"
-			cy="673"
-		/>
-		<use class="cow" href="#cow" x="50" y="550" height="150" />
-		<circle class="cow-helment" fill="var(--black)" fill-opacity="0.15" r="40" cx="1107" cy="585" />
+		<use href="#crater-footer" x="-800" y="490" height="32" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="-760" y="490" height="16" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="-240" y="520" height="24" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="440" y="530" height="20" fill="var(--_surface-l4)" />
+
+		<use href="#crater-footer" x="-520" y="490" height="32" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="-100" y="480" height="20" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="-60" y="500" height="10" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="260" y="480" height="26" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="520" y="500" height="10" fill="var(--_surface-l5)" />
+
+		<use href="#crater-footer" x="-760" y="440" height="12" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="-740" y="420" height="30" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="-720" y="440" height="16" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="580" y="435" height="24" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="720" y="450" height="20" fill="var(--_surface-l6)" />
+
+		<use href="#crater-footer" x="-600" y="385" height="18" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="-540" y="385" height="16" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="-480" y="400" height="14" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="-420" y="420" height="20" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="60" y="410" height="12" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="80" y="400" height="16" fill="var(--_surface-l7)" />
+		<use href="#crater-footer" x="90" y="415" height="14" fill="var(--_surface-l7)" />
+
+		<!-- Layer 1 -->
+		<use href="#tree-green" x="200" y="480" height="200" />
+
+		<!-- Layer 3 -->
+		<use href="#tree-yellow" x="-800" y="410" height="80" />
+		<use href="#tree-yellow" x="-830" y="425" height="70" />
+		<use href="#tree-green" x="-770" y="420" height="80" />
 	</g>
 
+	<g class="house">
+		<path
+			fill="var(--black)"
+			fill-opacity="0.2"
+			d="M512 677.5c63.1 0 114.2-12.2 114.2-27.3 0-15-51.1-27.2-114.1-27.2-63 0-114.1 12.2-114.1 27.2s51 27.3 114 27.3Z"
+		/>
+		<path d="m584.7 579-73-60.4-68.4 60.2v79h141.4V579Z" fill="#603F16" />
+		<path
+			d="M585 576.6 511.2 508l-67.9 69.6v21.7l68.1-66.4 73.3 66.9.3-23.2Z"
+			fill="var(--black)"
+		/>
+		<g fill="#342312">
+			<path
+				d="M592.9 567.4 511.2 495l-76 72.3v27l76.2-75.4 81.5 75.3v-26.8ZM497.6 607.2v50.6h27.7v-50.6h-27.7Z"
+			/>
+			<path d="M555.8 499h-18v42.6h18v-42.7Z" />
+		</g>
+		<path fill="var(--black)" fill-opacity="0.25" d="m584.9 586.4-.2 13v-13.1l.2.1Z" />
+		<path
+			fill="var(--black)"
+			fill-opacity="0.25"
+			d="M592.9 567.1v26.7l-8-7.4-.2-.1v71.2l-73.5.3v-163l26.5 23.4v-19.5h18V534l37.2 33Z"
+		/>
+		<g opacity="0.6" fill="#9D9D9C" class="smoke">
+			<path
+				opacity="0.6"
+				d="M617.5 528a54.6 54.6 0 0 0 53.7-55.6c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
+				style="transform-origin:28% 61% 0;animation-delay:-.4s"
+			/>
+			<path
+				opacity="0.6"
+				d="M673 532.6a54.6 54.6 0 0 0 53.7-55.5c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
+				style="transform-origin:30.5% 62% 0;animation-delay:-.8s"
+			/>
+			<path
+				opacity="0.6"
+				d="M708.5 500.6a54.6 54.6 0 0 0 53.6-55.5c0-30.7-24-55.5-53.6-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
+				style="transform-origin:32.5% 58% 0;animation-delay:-1.2s"
+			/>
+		</g>
+		<g fill="var(--white)" class="smoke">
+			<path
+				d="M566.5 509.3c27.4 0 49.6-23 49.6-51.3a50.5 50.5 0 0 0-49.6-51.4c-27.5 0-49.7 23-49.7 51.4a50.5 50.5 0 0 0 49.7 51.3Z"
+				style="transform-origin:25.5% 65.5% 0;animation-delay:-.2s"
+			/>
+			<path
+				d="M591.3 516.8a25.3 25.3 0 0 0 24.8-25.6 25.3 25.3 0 0 0-24.8-25.7 25.3 25.3 0 0 0-24.8 25.7 25.3 25.3 0 0 0 24.8 25.6Z"
+				style="transform-origin:26.5% 66.5% 0;animation-delay:-.4s"
+			/>
+			<path
+				d="M573.8 435.1a25.3 25.3 0 0 0 24.9-25.7 25.3 25.3 0 0 0-24.9-25.6 25.3 25.3 0 0 0-24.8 25.6 25.3 25.3 0 0 0 24.8 25.7Z"
+				style="transform-origin:26% 54% 0;animation-delay:-.6s"
+			/>
+			<path
+				d="M627.6 492.4a62.2 62.2 0 0 0 61.2-63.3c0-35-27.4-63.2-61.2-63.2a62.2 62.2 0 0 0-61.1 63.2c0 35 27.3 63.3 61.1 63.3Z"
+				style="transform-origin:28.5% 55% 0;animation-delay:-.8s"
+			/>
+			<path
+				d="M663.4 496.9c31 0 56-26 56-58a57 57 0 0 0-56-58c-31 0-56 26-56 58a57 57 0 0 0 56 58Z"
+				style="transform-origin:30% 57% 0;animation-delay:-1s"
+			/>
+			<path
+				d="M687.6 465a50.2 50.2 0 0 0 49.3-51c0-28.1-22-51-49.3-51a50.2 50.2 0 0 0-49.3 51c0 28.2 22.1 51 49.3 51Z"
+				style="transform-origin:31% 54% 0;animation-delay:-1.2s"
+			/>
+		</g>
+	</g>
+
+	<ellipse
+		class="cow-shadow"
+		fill="var(--black)"
+		fill-opacity="0.2"
+		rx="70"
+		ry="18"
+		cx="1100"
+		cy="673"
+	/>
+	<g class="cow">
+		<use href="#cow" x="0" y="550" height="150" />
+		<circle class="cow-helment" fill="#ababab" fill-opacity="0.15" r="40" cx="1057" cy="585" />
+	</g>
+
+	<g class="astronaut">
+		<use href="#astronaut" x="350" y="550" height="150" />
+		<use href="#astronaut-face" x="350" y="550" height="150" />
+	</g>
 	<defs>
+		<symbol viewBox="0 0 12 24" id="crater-footer" filter="url(#crater-shadow-footer)">
+			<ellipse cx="12" cy="6" rx="12" ry="6" />
+		</symbol>
+
+		<filter id="crater-shadow-footer">
+			<feOffset dx="2" dy="2" />
+			<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
+			<feFlood flood-color="black" flood-opacity="0.6" result="color" />
+			<feComposite operator="in" in="color" in2="inverse" result="shadow" />
+			<feComposite operator="over" in="shadow" in2="SourceGraphic" />
+		</filter>
+
 		<linearGradient
 			id="bg-mountains-fill"
 			x1="962"
@@ -216,8 +239,8 @@
 			<stop offset=".6" stop-color="#C9BDDE" />
 			<stop offset="1" stop-color="#A18AAB" />
 		</linearGradient>
-		<filter id="earth-shadow-footer">
-			<feOffset dx="128" dy="-96" />
+		<filter id="earth-shadow-right">
+			<feOffset dx="-144" dy="-144" />
 			<feGaussianBlur stdDeviation="16" result="offset-blur" />
 			<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 			<feFlood flood-color="black" flood-opacity="0.6" result="color" />
@@ -226,6 +249,7 @@
 		</filter>
 	</defs>
 </svg>
+
 <svg class="surface" preserveAspectRatio="none" viewBox="0 0 2196 775">
 	<path d="M14 461h2182v97H14v-97Z" fill="var(--_surface-l5)" />
 	<path d="M14 478h2182v97H14v-97Z" fill="var(--_surface-l4)" />
@@ -236,7 +260,6 @@
 
 <style lang="scss">
 	svg {
-		transform-origin: center center;
 		--_surface-l1: hsl(117, 36%, 49%);
 		--_surface-l2: hsl(118, 44%, 43%);
 		--_surface-l3: hsl(119, 53%, 37%);
@@ -244,6 +267,10 @@
 		--_surface-l5: hsl(123, 64%, 28%);
 		--_surface-l6: hsl(125, 66%, 24%);
 		--_surface-l7: hsl(125, 66%, 20%);
+
+		--_duration: calc(3 * var(--duration));
+
+		transform-origin: center center;
 	}
 
 	svg:first-child {
@@ -262,14 +289,27 @@
 	}
 
 	.sun {
-		transition: transform calc(3 * var(--duration)) var(--transition);
+		transition: transform var(--_duration) var(--transition);
 	}
 
-	.earth :global(circle) {
-		fill: red !important;
+	.earth {
+		--_earth-shadow: url(#earth-shadow-right);
+
+		transform-origin: 50% 100%;
+		transition: transform var(--_duration) var(--transition) var(--_delay, 0ms);
 	}
 
 	.mountain-group {
+		transition: transform var(--_duration) var(--transition) var(--_delay, 0ms);
+
+		&:first-of-type {
+			--_delay: calc(0.5 * var(--duration));
+		}
+
+		&:last-of-type {
+			--_delay: var(--duration);
+		}
+
 		:nth-child(3n) {
 			fill: var(--black);
 			fill-opacity: 0.25;
@@ -279,13 +319,21 @@
 			fill: hsl(336, 36%, 55%);
 		}
 
-		&:nth-of-type(2) :nth-child(3n + 1) {
-			fill: hsl(282, 20%, 40%);
+		&:nth-of-type(2) {
+			:nth-child(3n + 1) {
+				fill: hsl(282, 20%, 40%);
+			}
 		}
 
 		:nth-child(3n + 2) {
 			fill: var(--white);
 		}
+	}
+
+	.astronaut,
+	.house,
+	.cow-helment {
+		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
 	}
 
 	.smoke path {
@@ -296,11 +344,31 @@
 		transition: fill var(--duration) var(--transition);
 	}
 
+	[href^='#crater-'] {
+		transition: fill var(--duration) var(--transition),
+			opacity var(--duration) var(--transition) var(--_delay, 0ms);
+	}
+
 	:global([data-theme='light']) {
 		.sun {
 			transform: scale(0.33) translateX(30%);
 		}
+
+		.earth {
+			transform: translate(7.5%, 40%);
+		}
+
+		.house {
+			--_delay: calc(0.25 * var(--duration));
+		}
+
+		[href^='#crater-'],
+		.astronaut,
+		.cow-helment {
+			opacity: 0;
+		}
 	}
+
 	:global([data-theme='dark']) {
 		svg {
 			--_surface-l1: hsl(227, 23%, 88%);
@@ -310,6 +378,24 @@
 			--_surface-l5: hsl(227, 23%, 59%);
 			--_surface-l6: hsl(226, 23%, 52%);
 			--_surface-l7: hsl(227, 23%, 46%);
+		}
+
+		.mountain-group {
+			--_delay: 0ms;
+			transform: translateY(50%);
+		}
+
+		.house {
+			opacity: 0;
+		}
+
+		.cow {
+			transform: translateY(-50%);
+		}
+
+		[href^='#crater-'],
+		.astronaut {
+			--_delay: calc(0.25 * var(--duration));
 		}
 	}
 
