@@ -92,26 +92,6 @@
 		/>
 		<path d="M14.4 623.4H2196V775H14.4V623.4Z" fill="var(--_surface-l1)" />
 
-		<use href="#crater-footer" x="-720" y="570" height="28" fill="var(--_surface-l3)" />
-		<use href="#crater-footer" x="-160" y="565" height="20" fill="var(--_surface-l3)" />
-
-		<use href="#crater-footer" x="-800" y="490" height="32" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="-760" y="490" height="16" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="-240" y="520" height="24" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="440" y="530" height="20" fill="var(--_surface-l4)" />
-
-		<use href="#crater-footer" x="-520" y="490" height="32" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="-100" y="480" height="20" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="-60" y="500" height="10" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="260" y="480" height="26" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="520" y="500" height="10" fill="var(--_surface-l5)" />
-
-		<use href="#crater-footer" x="-760" y="440" height="12" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="-740" y="420" height="30" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="-720" y="440" height="16" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="580" y="435" height="24" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="720" y="450" height="20" fill="var(--_surface-l6)" />
-
 		<use href="#crater-footer" x="-600" y="385" height="18" fill="var(--_surface-l7)" />
 		<use href="#crater-footer" x="-540" y="385" height="16" fill="var(--_surface-l7)" />
 		<use href="#crater-footer" x="-480" y="400" height="14" fill="var(--_surface-l7)" />
@@ -120,13 +100,76 @@
 		<use href="#crater-footer" x="80" y="400" height="16" fill="var(--_surface-l7)" />
 		<use href="#crater-footer" x="90" y="415" height="14" fill="var(--_surface-l7)" />
 
-		<!-- Layer 1 -->
-		<use href="#tree-green" x="200" y="480" height="200" />
+		<use href="#crater-footer" x="-760" y="440" height="12" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="-740" y="420" height="30" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="-720" y="440" height="16" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="580" y="435" height="24" fill="var(--_surface-l6)" />
+		<use href="#crater-footer" x="720" y="450" height="20" fill="var(--_surface-l6)" />
+
+		<use href="#crater-footer" x="-520" y="490" height="32" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="-100" y="480" height="20" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="-60" y="500" height="10" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="260" y="480" height="26" fill="var(--_surface-l5)" />
+		<use href="#crater-footer" x="520" y="500" height="10" fill="var(--_surface-l5)" />
+
+		<use href="#crater-footer" x="-800" y="490" height="32" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="-760" y="490" height="16" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="-240" y="520" height="24" fill="var(--_surface-l4)" />
+		<use href="#crater-footer" x="440" y="530" height="20" fill="var(--_surface-l4)" />
+
+		<use href="#crater-footer" x="-720" y="570" height="28" fill="var(--_surface-l3)" />
+		<use href="#crater-footer" x="-160" y="565" height="20" fill="var(--_surface-l3)" />
+
+		<!-- Layer 6 -->
+		<use href="#tree-green" x="120" y="385" height="20" />
+		<use href="#tree-green" x="100" y="385" height="18" />
+		<use href="#tree-green" x="114" y="387" height="20" />
+		<use href="#tree-green" x="127" y="390" height="22" />
+		<use href="#tree-green" x="147" y="390" height="21" />
+		<use href="#tree-green" x="167" y="400" height="24" />
+		<use href="#tree-yellow" x="175" y="410" height="24" />
+		<use href="#tree-yellow" x="60" y="400" height="28" />
+		<use href="#tree-green" x="50" y="402" height="29" />
+		<use href="#tree-yellow" x="42" y="380" height="20" />
+		<use href="#tree-yellow" x="34" y="378" height="24" />
+		<use href="#tree-green" x="27" y="385" height="18" />
+		<use href="#tree-green" x="20" y="385" height="20" />
+		<use href="#tree-green" x="14" y="387" height="20" />
+		<use href="#tree-green" x="7" y="390" height="20" />
+		<use href="#tree-green" x="0" y="390" height="24" />
+
+		<!-- Layer 5 -->
+		<use href="#tree-green" x="615" y="410" height="24" />
+		<use href="#tree-yellow" x="595" y="410" height="24" />
+		<use href="#tree-green" x="605" y="415" height="32" />
+		<use href="#tree-yellow" x="585" y="410" height="32" />
+		<use href="#tree-green" x="-125" y="430" height="56" />
+
+		<!-- Layer 4 -->
+		<use href="#tree-yellow" x="-105" y="430" height="56" />
+		<use href="#tree-green" x="-125" y="430" height="56" />
+		<use href="#tree-green" x="105" y="440" height="40" />
+		<use href="#tree-green" x="85" y="440" height="48" />
+		<use href="#tree-yellow" x="45" y="445" height="40" />
+		<use href="#tree-yellow" x="65" y="440" height="64" />
+		<use href="#tree-green" x="480" y="440" height="56" />
+		<use href="#tree-yellow" x="445" y="445" height="56" />
+		<use href="#tree-green" x="465" y="450" height="60" />
 
 		<!-- Layer 3 -->
-		<use href="#tree-yellow" x="-800" y="410" height="80" />
-		<use href="#tree-yellow" x="-830" y="425" height="70" />
-		<use href="#tree-green" x="-770" y="420" height="80" />
+		<use href="#tree-yellow" x="-810" y="410" height="80" />
+		<use href="#tree-yellow" x="-840" y="425" height="70" />
+		<use href="#tree-green" x="-780" y="420" height="80" />
+		<use href="#tree-green" x="-325" y="450" height="72" />
+		<use href="#tree-green" x="-300" y="440" height="90" />
+		<use href="#tree-yellow" x="-240" y="450" height="72" />
+
+		<!-- Layer 2 -->
+		<use href="#tree-yellow" x="300" y="460" height="100" />
+		<use href="#tree-green" x="270" y="480" height="90" />
+
+		<!-- Layer 1 -->
+		<use href="#tree-green" x="200" y="480" height="200" />
 	</g>
 
 	<g class="house">
@@ -288,6 +331,7 @@
 		height: 100%;
 	}
 
+	.cow,
 	.sun {
 		transition: transform var(--_duration) var(--transition);
 	}
@@ -330,6 +374,7 @@
 		}
 	}
 
+	[href^='#tree-'],
 	.astronaut,
 	.house,
 	.cow-helment {
@@ -358,8 +403,9 @@
 			transform: translate(7.5%, 40%);
 		}
 
+		[href^='#tree-'],
 		.house {
-			--_delay: calc(0.25 * var(--duration));
+			--_delay: calc(0.67 * var(--duration));
 		}
 
 		[href^='#crater-'],
@@ -385,6 +431,7 @@
 			transform: translateY(50%);
 		}
 
+		[href^='#tree-'],
 		.house {
 			opacity: 0;
 		}
@@ -395,7 +442,7 @@
 
 		[href^='#crater-'],
 		.astronaut {
-			--_delay: calc(0.25 * var(--duration));
+			--_delay: calc(0.67 * var(--duration));
 		}
 	}
 
