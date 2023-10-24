@@ -200,6 +200,11 @@
 					fill-icon var(--a-duration) calc(1.25 * var(--a-duration) + var(--a-delay, 0ms)) linear
 						forwards;
 			}
+
+			&::before,
+			&::after {
+				transition: transform var(--duration) var(--transition);
+			}
 		}
 
 		header {

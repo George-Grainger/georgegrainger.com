@@ -595,7 +595,7 @@
 		.rocket {
 			--_opacity-delay: calc(var(--_duration) * 0.9);
 
-			transform: translateY(-140%);
+			transform: translateY(-100%);
 			opacity: 0;
 		}
 
