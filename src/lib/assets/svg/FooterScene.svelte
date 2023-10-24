@@ -258,6 +258,107 @@
 		<use href="#astronaut" x="350" y="550" height="150" />
 		<use href="#astronaut-face" x="350" y="550" height="150" />
 	</g>
+
+	<ellipse
+		class="rocket-shadow"
+		fill="var(--black)"
+		fill-opacity="0.2"
+		rx="120"
+		ry="28"
+		cx="815"
+		cy="633"
+	/>
+	<g class="rocket">
+		<g class="rocket-flames">
+			<path d="M871 519h24v150h-24V519Z" fill="url(#r_flame)" />
+			<path d="M741 519h24v150h-24V519Z" fill="url(#l_flame)" />
+			<path d="M846 533.6h-57l2 135.4h57l-2-135.4Z" fill="url(#c_flame)" />
+
+			<g fill="#9D9D9C" fill-opacity=".8" class="smoke">
+				<path
+					d="M897.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:41.2% 83% 0;animation-delay:-100ms"
+				/>
+				<path
+					d="M861.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:39.2% 83% 0;animation-delay:-200ms"
+				/>
+				<path
+					d="M814.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:37.2% 85% 0;animation-delay:-300ms"
+				/>
+				<path
+					d="M732.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:33.2% 83% 0;animation-delay:-200ms"
+				/>
+				<path
+					d="M773.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:35.2% 83% 0"
+				/>
+			</g>
+			<g fill="var(--white)" fill-opacity="0.8" class="smoke">
+				<path
+					d="M751.9 668.8a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 35Z"
+					style="transform-origin:34.2% 83% 0;animation-delay:-150ms"
+				/>
+				<path
+					d="M793.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:36.2% 85% 0;animation-delay:-150ms"
+				/>
+				<path
+					d="M838.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:38.2% 85% 0;animation-delay:-250ms"
+				/>
+				<path
+					d="M879.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
+					style="transform-origin:40.2% 83% 0;animation-delay:-50ms"
+				/>
+			</g>
+		</g>
+
+		<g class="rocket-body">
+			<path
+				d="M755 500.8c-2 0-4 .3-6 1-1.8.6-3.5 1.6-5 2.9a13.5 13.5 0 0 0-3.3 4.4 12 12 0 0 0-1.2 5.1v107h30.9v-107c0-7.4-6.9-13.4-15.4-13.4ZM884 500.8c-2 0-4 .4-6 1-1.8.7-3.5 1.7-5 3a13.5 13.5 0 0 0-3.3 4.4 12 12 0 0 0-1.2 5.1v107h30.9v-107c0-7.4-6.9-13.5-15.4-13.5Z"
+				fill="#D03E4A"
+			/>
+			<g fill="#333">
+				<path
+					d="M753.9 620.5h15.4l6.3 10.5H754v-10.5ZM882.9 620.5h15.4l6.3 10.5h-21.8v-10.5ZM818.4 615.5h30l10.5 23h-40.6v-23Z"
+				/>
+			</g>
+			<g fill="var(--black)">
+				<path
+					d="M739.2 620.5h15.4V631H733l6.3-10.5ZM868.2 620.5h15.4V631h-21.8l6.4-10.5ZM789.2 615.5h30v23h-40.6l10.6-23Z"
+				/>
+			</g>
+			<path
+				d="M737.7 574.4c9.4-18.8 47.2-45.7 47.2-45.7h69s37.9 27 47.2 45.8c6.4 12.9 4.2 41.8 4.2 41.8H733.5s-2.2-29 4.2-41.9Z"
+				fill="#595959"
+			/>
+			<path
+				d="M819.5 400.2c-22.5 0-40.5 39.7-40.5 59.3v156.8h81V459.5c0-19.6-18-59.3-40.5-59.3Z"
+				fill="url(#rocket_shine)"
+			/>
+			<path
+				d="M819.6 400.2c-14.6 0-27.3 16.6-34.4 33.7h68.7c-7.1-17-19.8-33.7-34.3-33.7Z"
+				fill="#D03E4A"
+			/>
+			<path d="M824.7 528.7h-10.5v87.6h10.5v-87.6Z" fill="#595959" />
+			<path
+				d="M796.2 459.8a35.3 35.3 0 0 1 23.3-7.3c9.6 0 18.5 2.8 23.4 7.4"
+				fill="#22EDF6"
+				fill-opacity=".4"
+			/>
+		</g>
+	</g>
+
+	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s" />
+	<use href="#sm-cloud-2" height="40" y="40" style="animation-delay: -30s" />
+	<use href="#sm-cloud-1" height="50" y="55" style="animation-delay: -210s" />
+	<use href="#sm-cloud-3" height="40" y="-10" style="animation-delay: -120s" />
+	<use href="#sm-cloud-1" height="30" y="200" style="animation-delay: -50s" />
+	<use href="#sm-cloud-2" height="40" y="175" style="animation-delay: -140s" />
+
 	<defs>
 		<symbol viewBox="0 0 12 24" id="crater-footer" filter="url(#crater-shadow-footer)">
 			<ellipse cx="12" cy="6" rx="12" ry="6" />
@@ -290,6 +391,29 @@
 			<feComposite operator="in" in="color" in2="inverse" result="shadow" />
 			<feComposite operator="over" in="shadow" in2="SourceGraphic" />
 		</filter>
+		<linearGradient
+			id="rocket_shine"
+			x1="734"
+			y1="553"
+			x2="905"
+			y2="553"
+			gradientUnits="userSpaceOnUse"
+		>
+			<stop stop-color="#CCC" />
+			<stop offset="1" stop-color="#fff" />
+		</linearGradient>
+		<linearGradient id="r_flame" x1="814" y1="599" x2="814" y2="669" gradientUnits="userSpaceOnUse">
+			<stop offset=".5" stop-color="orange" />
+			<stop offset="1" stop-color="orange" stop-opacity="0" />
+		</linearGradient>
+		<linearGradient id="l_flame" x1="814" y1="599" x2="814" y2="669" gradientUnits="userSpaceOnUse">
+			<stop offset=".5" stop-color="orange" />
+			<stop offset="1" stop-color="orange" stop-opacity="0" />
+		</linearGradient>
+		<linearGradient id="c_flame" x1="814" y1="599" x2="814" y2="669" gradientUnits="userSpaceOnUse">
+			<stop offset=".5" stop-color="orange" />
+			<stop offset="1" stop-color="orange" stop-opacity="0" />
+		</linearGradient>
 	</defs>
 </svg>
 
@@ -331,7 +455,6 @@
 		height: 100%;
 	}
 
-	.cow,
 	.sun {
 		transition: transform var(--_duration) var(--transition);
 	}
@@ -381,8 +504,17 @@
 		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
 	}
 
+	.cow-shadow,
+	.cow {
+		--_duration: calc(2.5 * var(--duration));
+		--_transition: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+		transform-origin: 1100px 673px;
+		transition: transform var(--_duration) var(--_transition) var(--_delay, 0ms);
+	}
+
 	.smoke path {
-		animation: smoke-animaton calc(var(--duration) * 3) linear infinite;
+		animation: smoke-animaton var(--_smoke-duration, var(--_duration)) linear infinite;
 	}
 
 	.surface path {
@@ -394,6 +526,45 @@
 			opacity var(--duration) var(--transition) var(--_delay, 0ms);
 	}
 
+	.rocket,
+	.rocket-shadow,
+	.rocket-flames {
+		--_duration: calc(7 * var(--duration));
+		--_transition: cubic-bezier(0.1, 1, 0.2, 1);
+	}
+
+	.rocket,
+	.rocket-flames {
+		transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms),
+			opacity var(--duration) var(--transition) var(--_opacity-delay, 0ms);
+	}
+
+	.rocket-shadow {
+		transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms);
+		transform-origin: 815px 633px;
+	}
+
+	.rocket-flames {
+		--_transition-delay: calc(1.5 * var(--duration));
+		--_smoke-duration: var(--duration);
+		--_opacity-delay: var(--_duration);
+
+		opacity: 0;
+	}
+
+	[href^='#sm-cloud'] {
+		animation: pan-screen 180s linear infinite;
+		transition: opacity var(--duration) var(--transition);
+
+		&:nth-child(2n + 1) {
+			animation-duration: 240s;
+		}
+
+		&:nth-child(3n - 1) {
+			animation-duration: 140s;
+		}
+	}
+
 	:global([data-theme='light']) {
 		.sun {
 			transform: scale(0.33) translateX(30%);
@@ -403,6 +574,7 @@
 			transform: translate(7.5%, 40%);
 		}
 
+		[href^='#sm-cloud'],
 		[href^='#tree-'],
 		.house {
 			--_delay: calc(0.67 * var(--duration));
@@ -412,6 +584,31 @@
 		.astronaut,
 		.cow-helment {
 			opacity: 0;
+		}
+
+		.rocket,
+		.rocket-shadow {
+			--_duration: calc(3 * var(--duration));
+			--_transition: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+		}
+
+		.rocket {
+			--_opacity-delay: calc(var(--_duration) * 0.9);
+
+			transform: translateY(-140%);
+			opacity: 0;
+		}
+
+		.rocket-shadow {
+			transform: scale(0);
+		}
+
+		.rocket-flames {
+			--_transition-delay: var(--duration);
+
+			opacity: 1;
+			transform: translateY(100px);
+			transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms);
 		}
 	}
 
@@ -431,18 +628,41 @@
 			transform: translateY(50%);
 		}
 
+		[href^='#sm-cloud'],
 		[href^='#tree-'],
 		.house {
 			opacity: 0;
 		}
 
+		[href^='#sm-cloud'],
+		.house .smoke path {
+			animation-play-state: paused;
+		}
+
 		.cow {
+			--_delay: calc(0.5 * var(--duration));
+			--_leg-rotation: 70deg;
+
 			transform: translateY(-50%);
+			animation: cow-sway 10s linear infinite var(--_delay);
+		}
+
+		.cow-shadow {
+			transform: scale(0.3);
 		}
 
 		[href^='#crater-'],
 		.astronaut {
 			--_delay: calc(0.67 * var(--duration));
+		}
+	}
+
+	@keyframes cow-sway {
+		25% {
+			rotate: -3deg;
+		}
+		75% {
+			rotate: 3deg;
 		}
 	}
 
@@ -452,6 +672,27 @@
 		}
 		66% {
 			transform: scale(0.7);
+		}
+	}
+
+	@keyframes rotate-360 {
+		to {
+			transform: rotate(-360deg);
+		}
+	}
+
+	@keyframes pan-screen {
+		0% {
+			transform: translateX(-50%);
+			fill-opacity: 0;
+		}
+		1%,
+		99% {
+			fill-opacity: 1;
+		}
+		100% {
+			fill-opacity: 0;
+			transform: translateX(40%);
 		}
 	}
 </style>
