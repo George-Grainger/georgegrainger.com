@@ -368,10 +368,9 @@
 	</g>
 
 	<defs>
-		<symbol viewBox="0 0 12 24" id="crater-footer" filter="url(#crater-shadow-footer)">
-			<ellipse cx="12" cy="6" rx="12" ry="6" />
+		<symbol viewBox="0 0 12 24" id="crater-footer">
+			<ellipse cx="12" cy="6" rx="12" ry="6" filter="url(#crater-shadow-footer)" />
 		</symbol>
-
 		<filter id="crater-shadow-footer">
 			<feOffset dx="2" dy="2" />
 			<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
@@ -379,7 +378,6 @@
 			<feComposite operator="in" in="color" in2="inverse" result="shadow" />
 			<feComposite operator="over" in="shadow" in2="SourceGraphic" />
 		</filter>
-
 		<linearGradient
 			id="bg-mountains-fill"
 			x1="962"
@@ -425,13 +423,62 @@
 	</defs>
 </svg>
 
-<svg class="cloud-wrapper" viewBox="0 -200 2196 500">
-	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s" />
-	<use href="#sm-cloud-2" height="40" y="40" style="animation-delay: -30s" />
-	<use href="#sm-cloud-1" height="50" y="55" style="animation-delay: -210s" />
-	<use href="#sm-cloud-3" height="40" y="10" style="animation-delay: -120s" />
-	<use href="#sm-cloud-1" height="30" y="200" style="animation-delay: -50s" />
-	<use href="#sm-cloud-2" height="40" y="175" style="animation-delay: -140s" />
+<svg class="sky-wrapper" viewBox="0 -200 2196 500">
+	<use
+		href="#sm-cloud-3"
+		height="50"
+		y="250"
+		style="transform-origin:  250; animation-delay: -20s 0s;"
+	/>
+	<use href="#sm-cloud-1" height="40" y="40" style="animation-delay: -30s;" />
+	<use href="#sm-cloud-2" height="50" y="55" style="animation-delay: -210s;" />
+	<use href="#sm-cloud-1" height="40" y="10" style="animation-delay: -120s;" />
+	<use href="#sm-cloud-2" height="30" y="200" style="animation-delay: -50s;" />
+	<use href="#sm-cloud-3" height="40" y="175" style="animation-delay: -140s;" />
+	<use href="#sm-cloud-3" height="40" y="80" style="animation-delay: -100s;" />
+
+	<use
+		href="#sm-asteroid-1"
+		height="40"
+		y="40"
+		style="transform-origin: 1098px 60px; animation-delay: -30s;"
+	/>
+	<use
+		href="#sm-asteroid-3"
+		height="50"
+		y="55"
+		style="transform-origin: 1098px 80px; animation-delay: -180s;"
+	/>
+	<use
+		href="#sm-asteroid-5"
+		height="40"
+		y="10"
+		style="transform-origin: 1098px 30px; animation-delay: -120s;"
+	/>
+	<use
+		href="#sm-asteroid-7"
+		height="30"
+		y="200"
+		style="transform-origin: 1098px 215px; animation-delay: -50s;"
+	/>
+	<use
+		href="#sm-asteroid-2"
+		height="40"
+		y="175"
+		style="transform-origin: 1098px 195px; animation-delay: -140s;"
+	/>
+	<use
+		href="#sm-asteroid-9"
+		height="40"
+		y="40"
+		style="transform-origin: 1098px 60px; animation-delay: -100s;"
+	/>
+	<use
+		href="#sm-asteroid-8"
+		height="80"
+		y="40"
+		style="transform-origin: 1098px 100px; animation-delay: -75s;"
+	/>
 </svg>
 
 <svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975">
@@ -466,7 +513,7 @@
 			mask-image: linear-gradient (transparent, black 25%);
 		}
 
-		&.cloud-wrapper {
+		&.sky-wrapper {
 			position: absolute;
 			flex: 1 0 auto;
 			width: 130vw;
@@ -534,7 +581,7 @@
 	}
 
 	[href^='#tree-'],
-	[href^='#sm-cloud'],
+	[href^='#sm-'],
 	.astronaut,
 	.house,
 	.cow-helmet {
@@ -593,6 +640,18 @@
 		}
 	}
 
+	[href^='#sm-asteroid'] {
+		animation: pan-screen 180s linear infinite, spin 30s linear infinite;
+
+		&:nth-child(2n + 1) {
+			animation-duration: 240s 45s;
+		}
+
+		&:nth-child(3n - 1) {
+			animation-duration: 140s 60s;
+		}
+	}
+
 	:global([data-theme='light']) {
 		.sun {
 			transform: scale(0.33) translateX(30%);
@@ -608,7 +667,12 @@
 			--_delay: calc(0.67 * var(--duration));
 		}
 
+		[href^='#sm-asteroid'] {
+			animation-play-state: paused;
+		}
+
 		[href^='#crater-'],
+		[href^='#sm-asteroid-'],
 		.astronaut,
 		.cow-helmet {
 			opacity: 0;
@@ -704,7 +768,7 @@
 		}
 	}
 
-	@keyframes rotate-360 {
+	@keyframes spin {
 		to {
 			transform: rotate(-360deg);
 		}
@@ -712,10 +776,10 @@
 
 	@keyframes pan-screen {
 		0% {
-			transform: translateX(-60%);
+			translate: -60%;
 		}
 		100% {
-			transform: translateX(60%);
+			translate: 60%;
 		}
 	}
 </style>
