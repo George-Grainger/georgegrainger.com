@@ -4,7 +4,7 @@
 		cy="256"
 		r="255"
 		fill="url(#sun-glow)"
-		filter="drop-shadow(0 0 5rem var(--yellow-1))"
+		filter="drop-shadow(0 0 4rem var(--yellow-1))"
 	/>
 </symbol>
 

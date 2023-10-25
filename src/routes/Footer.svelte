@@ -26,7 +26,6 @@
 		isolation: isolate;
 		width: 100vw;
 		overflow-x: clip;
-		// background-image: linear-gradient(0deg, hsl(117, 36%, 49%) 40%, transparent 0%);
 	}
 
 	.footer-image {

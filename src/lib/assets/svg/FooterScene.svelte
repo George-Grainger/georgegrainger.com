@@ -1,5 +1,5 @@
-<svg viewBox="0 0 2196 775" overflow="visible">
-	<use class="sun" href="#sun" height="150" x="-450" y="0" />
+<svg class="main-scene" viewBox="0 -200 2196 975">
+	<use class="sun" href="#sun" height="150" x="-450" y="30" />
 	<use href="#earth" class="earth" height="440" x="325" y="200" />
 
 	<path
@@ -195,47 +195,59 @@
 			fill-opacity="0.25"
 			d="M592.9 567.1v26.7l-8-7.4-.2-.1v71.2l-73.5.3v-163l26.5 23.4v-19.5h18V534l37.2 33Z"
 		/>
-		<g opacity="0.6" fill="#9D9D9C" class="smoke">
-			<path
-				opacity="0.6"
-				d="M617.5 528a54.6 54.6 0 0 0 53.7-55.6c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-				style="transform-origin:28% 61% 0;animation-delay:-.4s"
+
+		<g opacity="0.4" fill="#9D9D9C" class="smoke">
+			<circle r="48" cx="615" cy="470" style="transform-origin:610px 475px" />
+			<circle
+				r="42"
+				cx="660"
+				cy="470"
+				style="transform-origin:630px 485px; animation-delay:-300ms"
 			/>
-			<path
-				opacity="0.6"
-				d="M673 532.6a54.6 54.6 0 0 0 53.7-55.5c0-30.7-24-55.5-53.7-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-				style="transform-origin:30.5% 62% 0;animation-delay:-.8s"
+			<circle
+				r="64"
+				cx="700"
+				cy="450"
+				style="transform-origin:700px 460px; animation-delay:-600ms"
 			/>
-			<path
-				opacity="0.6"
-				d="M708.5 500.6a54.6 54.6 0 0 0 53.6-55.5c0-30.7-24-55.5-53.6-55.5a54.6 54.6 0 0 0-53.7 55.5c0 30.7 24 55.5 53.7 55.5Z"
-				style="transform-origin:32.5% 58% 0;animation-delay:-1.2s"
+			<circle
+				r="48"
+				cx="690"
+				cy="400"
+				style="transform-origin:680px 400px; animation-delay:-300ms"
 			/>
 		</g>
 		<g fill="var(--white)" class="smoke">
-			<path
-				d="M566.5 509.3c27.4 0 49.6-23 49.6-51.3a50.5 50.5 0 0 0-49.6-51.4c-27.5 0-49.7 23-49.7 51.4a50.5 50.5 0 0 0 49.7 51.3Z"
-				style="transform-origin:25.5% 65.5% 0;animation-delay:-.2s"
+			<circle r="45" cx="565" cy="460" style="transform-origin:550px 485px;" />
+			<circle
+				r="30"
+				cx="590"
+				cy="480"
+				style="transform-origin:610px 455px; animation-delay:-150ms"
 			/>
-			<path
-				d="M591.3 516.8a25.3 25.3 0 0 0 24.8-25.6 25.3 25.3 0 0 0-24.8-25.7 25.3 25.3 0 0 0-24.8 25.7 25.3 25.3 0 0 0 24.8 25.6Z"
-				style="transform-origin:26.5% 66.5% 0;animation-delay:-.4s"
+			<circle
+				r="25"
+				cx="575"
+				cy="420"
+				style="transform-origin:560px 445px; animation-delay:-300ms"
 			/>
-			<path
-				d="M573.8 435.1a25.3 25.3 0 0 0 24.9-25.7 25.3 25.3 0 0 0-24.9-25.6 25.3 25.3 0 0 0-24.8 25.6 25.3 25.3 0 0 0 24.8 25.7Z"
-				style="transform-origin:26% 54% 0;animation-delay:-.6s"
+			<circle
+				r="55"
+				cx="625"
+				cy="430"
+				style="transform-origin:600px 475px; animation-delay:-450ms"
 			/>
-			<path
-				d="M627.6 492.4a62.2 62.2 0 0 0 61.2-63.3c0-35-27.4-63.2-61.2-63.2a62.2 62.2 0 0 0-61.1 63.2c0 35 27.3 63.3 61.1 63.3Z"
-				style="transform-origin:28.5% 55% 0;animation-delay:-.8s"
+			<circle
+				r="60"
+				cx="660"
+				cy="440"
+				style="transform-origin:620px 455px; animation-delay:-600ms"
 			/>
-			<path
-				d="M663.4 496.9c31 0 56-26 56-58a57 57 0 0 0-56-58c-31 0-56 26-56 58a57 57 0 0 0 56 58Z"
-				style="transform-origin:30% 57% 0;animation-delay:-1s"
-			/>
-			<path
-				d="M687.6 465a50.2 50.2 0 0 0 49.3-51c0-28.1-22-51-49.3-51a50.2 50.2 0 0 0-49.3 51c0 28.2 22.1 51 49.3 51Z"
-				style="transform-origin:31% 54% 0;animation-delay:-1.2s"
+			<circle
+				r="50"
+				cx="690"
+				cy="415"
+				style="transform-origin:630px 455px; animation-delay:-750ms"
 			/>
 		</g>
 	</g>
@@ -251,7 +263,7 @@
 	/>
 	<g class="cow">
 		<use href="#cow" x="0" y="550" height="150" />
-		<circle class="cow-helment" fill="#ababab" fill-opacity="0.15" r="40" cx="1057" cy="585" />
+		<circle class="cow-helmet" fill="#ababab" fill-opacity="0.15" r="40" cx="1057" cy="585" />
 	</g>
 
 	<g class="astronaut">
@@ -275,44 +287,47 @@
 			<path d="M846 533.6h-57l2 135.4h57l-2-135.4Z" fill="url(#c_flame)" />
 
 			<g fill="#9D9D9C" fill-opacity=".8" class="smoke">
-				<path
-					d="M897.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:41.2% 83% 0;animation-delay:-100ms"
+				<circle
+					r="17"
+					cx="870"
+					cy="652"
+					style="transform-origin: 870px 642px; animation-delay: -100ms"
 				/>
-				<path
-					d="M861.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:39.2% 83% 0;animation-delay:-200ms"
+				<circle
+					r="17"
+					cx="900"
+					cy="652"
+					style="transform-origin: 900px 642px; animation-delay: -200ms"
 				/>
-				<path
-					d="M814.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:37.2% 85% 0;animation-delay:-300ms"
+				<circle
+					r="17"
+					cx="820"
+					cy="672"
+					style="transform-origin: 820px 662px; animation-delay: -300ms"
 				/>
-				<path
-					d="M732.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:33.2% 83% 0;animation-delay:-200ms"
+				<circle
+					r="17"
+					cx="740"
+					cy="652"
+					style="transform-origin: 740px 642px; animation-delay: -200ms"
 				/>
-				<path
-					d="M773.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:35.2% 83% 0"
+				<circle
+					r="17"
+					cx="770"
+					cy="652"
+					style="transform-origin: 770px 642px; animation-delay: -100ms"
 				/>
 			</g>
 			<g fill="var(--white)" fill-opacity="0.8" class="smoke">
-				<path
-					d="M751.9 668.8a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 35Z"
-					style="transform-origin:34.2% 83% 0;animation-delay:-150ms"
+				<circle r="17" cx="800" cy="662" style="transform-origin: 800px 642px" />
+				<circle
+					r="17"
+					cx="840"
+					cy="662"
+					style="transform-origin: 840px 642px; animation-delay: -150ms"
 				/>
-				<path
-					d="M793.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:36.2% 85% 0;animation-delay:-150ms"
-				/>
-				<path
-					d="M838.4 681.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:38.2% 85% 0;animation-delay:-250ms"
-				/>
-				<path
-					d="M879.4 668.9a17.4 17.4 0 1 0 0-34.9 17.4 17.4 0 0 0 0 34.9Z"
-					style="transform-origin:40.2% 83% 0;animation-delay:-50ms"
-				/>
+				<circle r="17" cx="885" cy="662" style="transform-origin: 885px 642px" />
+				<circle r="17" cx="755" cy="662" style="transform-origin: 755px 642px" />
 			</g>
 		</g>
 
@@ -351,13 +366,6 @@
 			/>
 		</g>
 	</g>
-
-	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s" />
-	<use href="#sm-cloud-2" height="40" y="40" style="animation-delay: -30s" />
-	<use href="#sm-cloud-1" height="50" y="55" style="animation-delay: -210s" />
-	<use href="#sm-cloud-3" height="40" y="-10" style="animation-delay: -120s" />
-	<use href="#sm-cloud-1" height="30" y="200" style="animation-delay: -50s" />
-	<use href="#sm-cloud-2" height="40" y="175" style="animation-delay: -140s" />
 
 	<defs>
 		<symbol viewBox="0 0 12 24" id="crater-footer" filter="url(#crater-shadow-footer)">
@@ -417,7 +425,16 @@
 	</defs>
 </svg>
 
-<svg class="surface" preserveAspectRatio="none" viewBox="0 0 2196 775">
+<svg class="cloud-wrapper" viewBox="0 -200 2196 500">
+	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s" />
+	<use href="#sm-cloud-2" height="40" y="40" style="animation-delay: -30s" />
+	<use href="#sm-cloud-1" height="50" y="55" style="animation-delay: -210s" />
+	<use href="#sm-cloud-3" height="40" y="10" style="animation-delay: -120s" />
+	<use href="#sm-cloud-1" height="30" y="200" style="animation-delay: -50s" />
+	<use href="#sm-cloud-2" height="40" y="175" style="animation-delay: -140s" />
+</svg>
+
+<svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975">
 	<path d="M14 461h2182v97H14v-97Z" fill="var(--_surface-l5)" />
 	<path d="M14 478h2182v97H14v-97Z" fill="var(--_surface-l4)" />
 	<path d="M14 519h2182v97H14v-97Z" fill="var(--_surface-l3)" />
@@ -434,41 +451,57 @@
 		--_surface-l5: hsl(123, 64%, 28%);
 		--_surface-l6: hsl(125, 66%, 24%);
 		--_surface-l7: hsl(125, 66%, 20%);
-
 		--_duration: calc(3 * var(--duration));
+		--_transition: var(--transition);
 
+		contain: content;
 		transform-origin: center center;
+
+		&.main-scene {
+			margin-left: 10vw;
+			width: 160vw;
+			max-width: 130rem;
+			flex: 1 0 auto;
+			-webkit-mask-image: linear-gradient(transparent, black 25%);
+			mask-image: linear-gradient (transparent, black 25%);
+		}
+
+		&.cloud-wrapper {
+			position: absolute;
+			flex: 1 0 auto;
+			width: 130vw;
+			max-width: 130rem;
+			-webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
+			mask-image: linear-gradient (90deg, transparent, black 20%, black 80%, transparent);
+		}
+
+		&.surface {
+			position: absolute;
+			z-index: -1;
+			inset: 0 -5vw;
+			width: 110vw;
+			height: 100%;
+		}
 	}
 
-	svg:first-child {
-		margin-left: 10vw;
-		width: 160vw;
-		max-width: 130rem;
-		flex: 1 0 auto;
-	}
-
-	svg:last-child {
-		position: absolute;
-		z-index: -1;
-		inset: 0 -5vw;
-		width: 110vw;
-		height: 100%;
-	}
-
-	.sun {
-		transition: transform var(--_duration) var(--transition);
+	.sun,
+	.earth,
+	.mountain-group,
+	.cow-shadow,
+	.cow,
+	.rocket,
+	.rocket-shadow,
+	.rocket-flames {
+		transition: transform var(--_duration) var(--_transition) var(--_delay, 0ms);
 	}
 
 	.earth {
 		--_earth-shadow: url(#earth-shadow-right);
 
 		transform-origin: 50% 100%;
-		transition: transform var(--_duration) var(--transition) var(--_delay, 0ms);
 	}
 
 	.mountain-group {
-		transition: transform var(--_duration) var(--transition) var(--_delay, 0ms);
-
 		&:first-of-type {
 			--_delay: calc(0.5 * var(--duration));
 		}
@@ -498,9 +531,10 @@
 	}
 
 	[href^='#tree-'],
+	[href^='#sm-cloud'],
 	.astronaut,
 	.house,
-	.cow-helment {
+	.cow-helmet {
 		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
 	}
 
@@ -510,10 +544,9 @@
 		--_transition: cubic-bezier(0.645, 0.045, 0.355, 1);
 
 		transform-origin: 1100px 673px;
-		transition: transform var(--_duration) var(--_transition) var(--_delay, 0ms);
 	}
 
-	.smoke path {
+	.smoke circle {
 		animation: smoke-animaton var(--_smoke-duration, var(--_duration)) linear infinite;
 	}
 
@@ -534,27 +567,19 @@
 	}
 
 	.rocket,
-	.rocket-flames {
-		transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms),
-			opacity var(--duration) var(--transition) var(--_opacity-delay, 0ms);
-	}
-
 	.rocket-shadow {
-		transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms);
 		transform-origin: 815px 633px;
 	}
 
 	.rocket-flames {
-		--_transition-delay: calc(1.5 * var(--duration));
+		--_delay: calc(1.5 * var(--duration));
 		--_smoke-duration: var(--duration);
-		--_opacity-delay: var(--_duration);
 
 		opacity: 0;
 	}
 
 	[href^='#sm-cloud'] {
 		animation: pan-screen 180s linear infinite;
-		transition: opacity var(--duration) var(--transition);
 
 		&:nth-child(2n + 1) {
 			animation-duration: 240s;
@@ -582,7 +607,7 @@
 
 		[href^='#crater-'],
 		.astronaut,
-		.cow-helment {
+		.cow-helmet {
 			opacity: 0;
 		}
 
@@ -593,10 +618,7 @@
 		}
 
 		.rocket {
-			--_opacity-delay: calc(var(--_duration) * 0.9);
-
 			transform: translateY(-100%);
-			opacity: 0;
 		}
 
 		.rocket-shadow {
@@ -604,11 +626,10 @@
 		}
 
 		.rocket-flames {
-			--_transition-delay: var(--duration);
+			--_-delay: var(--duration);
 
 			opacity: 1;
 			transform: translateY(100px);
-			transition: transform var(--_duration) var(--_transition) var(--_transition-delay, 0ms);
 		}
 	}
 
@@ -648,12 +669,17 @@
 		}
 
 		.cow-shadow {
-			transform: scale(0.3);
+			transform: scale(0.4);
 		}
 
 		[href^='#crater-'],
 		.astronaut {
 			--_delay: calc(0.67 * var(--duration));
+		}
+
+		.rocket-flames {
+			transition: transform var(--_duration) var(--_transition) var(--_delay, 0ms),
+				opacity var(--duration) var(--transition) calc(5 * var(--duration));
 		}
 	}
 
@@ -683,16 +709,10 @@
 
 	@keyframes pan-screen {
 		0% {
-			transform: translateX(-50%);
-			fill-opacity: 0;
-		}
-		1%,
-		99% {
-			fill-opacity: 1;
+			transform: translateX(-60%);
 		}
 		100% {
-			fill-opacity: 0;
-			transform: translateX(40%);
+			transform: translateX(60%);
 		}
 	}
 </style>

@@ -43,6 +43,7 @@
 		isolation: isolate;
 		width: fit-content;
 		margin: auto;
+		contain: layout;
 
 		&::before {
 			content: '';

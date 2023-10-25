@@ -32,6 +32,7 @@
 		text-decoration: none;
 		transition: scale var(--duration) var(--transition);
 		border: none;
+		contain: layout;
 
 		&:focus-visible {
 			border-radius: 0;

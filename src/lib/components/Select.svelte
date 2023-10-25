@@ -161,6 +161,8 @@
 		width: 100%;
 		cursor: pointer;
 
+		transition: background-color var(--transition) var(--duration);
+
 		&:hover {
 			background-color: var(--hover);
 		}
@@ -245,7 +247,7 @@
 
 			&::before {
 				background-color: var(--text);
-				transition: var(--transition) var(--duration);
+				transition: scale var(--transition) var(--duration);
 				scale: 0;
 			}
 		}

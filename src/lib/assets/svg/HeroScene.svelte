@@ -1,4 +1,4 @@
-<svg viewBox="0 0 800 600" overflow="visible">
+<svg viewBox="-100 -50 1000 700">
 	<g class="moon-wrapper">
 		<use class="moon" href="#moon-decorated" x="275" y="80" width="490" height="520" />
 	</g>
@@ -9,6 +9,10 @@
 </svg>
 
 <style lang="scss">
+	svg {
+		contain: content;
+	}
+
 	.moon-wrapper,
 	.moon,
 	.earth-wrapper,

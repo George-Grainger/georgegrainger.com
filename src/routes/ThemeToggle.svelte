@@ -76,6 +76,7 @@
 		position: relative;
 		transition: background-color var(--duration) var(--transition),
 			border-color var(--duration) var(--transition);
+		contain: content;
 	}
 
 	.sun-moon {

@@ -28,7 +28,7 @@
 
 	.hero {
 		place-items: center;
-		gap: 0.5em 3.5em;
+		gap: 0.5em 1em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 
 		h1 {
