@@ -1,3 +1,56 @@
+<svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975">
+	<path d="M14 461h2182v97H14v-97Z" fill="var(--_surface-l5)" />
+	<path d="M14 478h2182v97H14v-97Z" fill="var(--_surface-l4)" />
+	<path d="M14 519h2182v97H14v-97Z" fill="var(--_surface-l3)" />
+	<path d="M14 563h2182v97H14v-97Z" fill="var(--_surface-l2)" />
+	<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
+</svg>
+
+<svg class="sky-wrapper" viewBox="0 -200 2196 500">
+	<use
+		href="#sm-asteroid-1"
+		height="40"
+		y="40"
+		style="transform-origin: 1098px 60px; animation-delay: -30s;"
+	/>
+	<use
+		href="#sm-asteroid-3"
+		height="50"
+		y="55"
+		style="transform-origin: 1098px 80px; animation-delay: -180s;"
+	/>
+	<use
+		href="#sm-asteroid-5"
+		height="40"
+		y="10"
+		style="transform-origin: 1098px 30px; animation-delay: -120s;"
+	/>
+	<use
+		href="#sm-asteroid-7"
+		height="30"
+		y="200"
+		style="transform-origin: 1098px 215px; animation-delay: -50s;"
+	/>
+	<use
+		href="#sm-asteroid-2"
+		height="40"
+		y="175"
+		style="transform-origin: 1098px 195px; animation-delay: -140s;"
+	/>
+	<use
+		href="#sm-asteroid-9"
+		height="40"
+		y="40"
+		style="transform-origin: 1098px 60px; animation-delay: -100s;"
+	/>
+	<use
+		href="#sm-asteroid-8"
+		height="80"
+		y="40"
+		style="transform-origin: 1098px 100px; animation-delay: -75s;"
+	/>
+</svg>
+
 <svg class="main-scene" viewBox="0 -200 2196 975">
 	<use class="sun" href="#sun" height="150" x="-450" y="30" />
 	<use href="#earth" class="earth" height="440" x="325" y="200" />
@@ -90,7 +143,7 @@
 			d="m442 595 25 1c26 1 77 3 127 0 51-4 102-13 152-13 51 0 102 10 153 13 50 3 101-1 152 0 50 0 101 5 152 2 51-2 101-12 152-18s102-8 127-9l26-1c267-12 685 54 685 54H13s276-36 429-29Z"
 			fill="var(--_surface-l1)"
 		/>
-		<path d="M14.4 623.4H2196V775H14.4V623.4Z" fill="var(--_surface-l1)" />
+		<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
 
 		<use href="#crater-footer" x="-600" y="385" height="18" fill="var(--_surface-l7)" />
 		<use href="#crater-footer" x="-540" y="385" height="16" fill="var(--_surface-l7)" />
@@ -424,69 +477,13 @@
 </svg>
 
 <svg class="sky-wrapper" viewBox="0 -200 2196 500">
-	<use
-		href="#sm-cloud-3"
-		height="50"
-		y="250"
-		style="transform-origin:  250; animation-delay: -20s 0s;"
-	/>
+	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s;" />
 	<use href="#sm-cloud-1" height="40" y="40" style="animation-delay: -30s;" />
 	<use href="#sm-cloud-2" height="50" y="55" style="animation-delay: -210s;" />
 	<use href="#sm-cloud-1" height="40" y="10" style="animation-delay: -120s;" />
 	<use href="#sm-cloud-2" height="30" y="200" style="animation-delay: -50s;" />
 	<use href="#sm-cloud-3" height="40" y="175" style="animation-delay: -140s;" />
 	<use href="#sm-cloud-3" height="40" y="80" style="animation-delay: -100s;" />
-
-	<use
-		href="#sm-asteroid-1"
-		height="40"
-		y="40"
-		style="transform-origin: 1098px 60px; animation-delay: -30s;"
-	/>
-	<use
-		href="#sm-asteroid-3"
-		height="50"
-		y="55"
-		style="transform-origin: 1098px 80px; animation-delay: -180s;"
-	/>
-	<use
-		href="#sm-asteroid-5"
-		height="40"
-		y="10"
-		style="transform-origin: 1098px 30px; animation-delay: -120s;"
-	/>
-	<use
-		href="#sm-asteroid-7"
-		height="30"
-		y="200"
-		style="transform-origin: 1098px 215px; animation-delay: -50s;"
-	/>
-	<use
-		href="#sm-asteroid-2"
-		height="40"
-		y="175"
-		style="transform-origin: 1098px 195px; animation-delay: -140s;"
-	/>
-	<use
-		href="#sm-asteroid-9"
-		height="40"
-		y="40"
-		style="transform-origin: 1098px 60px; animation-delay: -100s;"
-	/>
-	<use
-		href="#sm-asteroid-8"
-		height="80"
-		y="40"
-		style="transform-origin: 1098px 100px; animation-delay: -75s;"
-	/>
-</svg>
-
-<svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975">
-	<path d="M14 461h2182v97H14v-97Z" fill="var(--_surface-l5)" />
-	<path d="M14 478h2182v97H14v-97Z" fill="var(--_surface-l4)" />
-	<path d="M14 519h2182v97H14v-97Z" fill="var(--_surface-l3)" />
-	<path d="M14 563h2182v97H14v-97Z" fill="var(--_surface-l2)" />
-	<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
 </svg>
 
 <style lang="scss">
@@ -524,9 +521,8 @@
 
 		&.surface {
 			position: absolute;
-			z-index: -1;
-			inset: 0 -5vw;
-			width: 110vw;
+			inset: 0 -10vw;
+			width: 130vw;
 			height: 100%;
 		}
 	}
