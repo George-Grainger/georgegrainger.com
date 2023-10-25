@@ -1,7 +1,7 @@
 import getAccessToken from '$lib/utils/server/get-access-token.js';
 import { json } from '@sveltejs/kit';
 
-export async function GET({ fetch }) {
+export async function GET({ fetch, setHeaders }) {
 	const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=9`;
 
 	const { access_token } = await getAccessToken();
@@ -16,6 +16,8 @@ export async function GET({ fetch }) {
 	}
 
 	const data = await res.json();
+	const time = new Date().toLocaleTimeString();
 
-	return json(data);
+	setHeaders({ 'cache-control': 'public, max-age=30' });
+	return json({ time, data });
 }
