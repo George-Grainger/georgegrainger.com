@@ -182,7 +182,7 @@
 		}
 
 		:global(svg) {
-			--a-duration: calc(2 * var(--duration));
+			--a-duration: calc(2.5 * var(--duration));
 			width: var(--size, 1em);
 			font-size: 2em;
 		}

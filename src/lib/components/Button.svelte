@@ -92,7 +92,6 @@
 		span:last-child {
 			width: 1em;
 			position: relative;
-			transition: margin var(--duration) var(--transition);
 		}
 
 		svg {

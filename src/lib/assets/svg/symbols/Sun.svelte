@@ -8,7 +8,7 @@
 	/>
 </symbol>
 
-<radialGradient id="sun-glow" cx="0.67" cy="0.33" r="0.5">
+<radialGradient id="sun-glow" cx="0.5" cy="0.5" r="0.5">
 	<stop stop-color="#FEF090" />
 	<stop offset="1" stop-color="#F3D502" />
 </radialGradient>

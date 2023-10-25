@@ -12,7 +12,7 @@
 
 	export let data: LayoutServerData;
 
-	let interval = 350;
+	let interval = 300;
 	let showClouds = false;
 </script>
 

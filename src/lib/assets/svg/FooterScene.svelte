@@ -218,7 +218,7 @@
 			/>
 		</g>
 		<g fill="var(--white)" class="smoke">
-			<circle r="45" cx="565" cy="460" style="transform-origin:550px 485px;" />
+			<circle r="40" cx="565" cy="470" style="transform-origin:550px 470px;" />
 			<circle
 				r="30"
 				cx="590"
@@ -228,14 +228,14 @@
 			<circle
 				r="25"
 				cx="575"
-				cy="420"
+				cy="430"
 				style="transform-origin:560px 445px; animation-delay:-300ms"
 			/>
 			<circle
 				r="55"
 				cx="625"
-				cy="430"
-				style="transform-origin:600px 475px; animation-delay:-450ms"
+				cy="410"
+				style="transform-origin:600px 415px; animation-delay:-450ms"
 			/>
 			<circle
 				r="60"
@@ -488,11 +488,14 @@
 	.earth,
 	.mountain-group,
 	.cow-shadow,
-	.cow,
 	.rocket,
 	.rocket-shadow,
 	.rocket-flames {
 		transition: transform var(--_duration) var(--_transition) var(--_delay, 0ms);
+	}
+
+	.cow {
+		transition: translate var(--_duration) var(--_transition) var(--_-delay, 0ms);
 	}
 
 	.earth {
@@ -664,7 +667,7 @@
 			--_delay: calc(0.5 * var(--duration));
 			--_leg-rotation: 70deg;
 
-			transform: translateY(-50%);
+			translate: 0 -50%;
 			animation: cow-sway 10s linear infinite var(--_delay);
 		}
 
@@ -685,10 +688,10 @@
 
 	@keyframes cow-sway {
 		25% {
-			rotate: -3deg;
+			rotate: -10deg;
 		}
 		75% {
-			rotate: 3deg;
+			rotate: 10deg;
 		}
 	}
 

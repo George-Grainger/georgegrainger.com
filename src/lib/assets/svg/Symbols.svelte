@@ -2,9 +2,9 @@
 	import Astronaut from './symbols/Astronaut.svelte';
 	import Cow from './symbols/Cow.svelte';
 	import Earth from './symbols/Earth.svelte';
-	import Moon from './symbols/Moon.svelte';
+	import SpaceRocks from './symbols/SpaceRocks.svelte';
 	import MoonDecorated from './symbols/MoonDecorated.svelte';
-	import SmallClouds from './symbols/SmallClouds.svelte';
+	import Clouds from './symbols/Clouds.svelte';
 	import Sun from './symbols/Sun.svelte';
 	import Trees from './symbols/Trees.svelte';
 </script>
@@ -13,9 +13,9 @@
 	<Astronaut />
 	<Cow />
 	<Earth />
-	<Moon />
+	<SpaceRocks />
 	<MoonDecorated />
-	<SmallClouds />
+	<Clouds />
 	<Sun />
 	<Trees />
 </svg>
