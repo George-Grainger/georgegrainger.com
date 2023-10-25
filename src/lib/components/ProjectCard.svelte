@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from './Button.svelte';
-	import { technologyMap } from '../utils/technology-map';
+	import { technologyMap } from '$lib/utils/client/technology-map';
 	import CondtionalLink from './CondtionalLink.svelte';
 
 	type Technology = keyof typeof technologyMap;

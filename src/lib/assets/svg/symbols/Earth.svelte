@@ -23,21 +23,3 @@
 	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
 	<feComposite operator="over" in="shadow" in2="SourceGraphic" />
 </filter>
-
-<style>
-	[href^='#sm-cloud-'] {
-		transform-origin: center;
-		animation: cloud-rotate infinite 75s linear;
-
-		&:last-of-type {
-			animation-delay: -67s;
-			animation-duration: 100s;
-		}
-	}
-
-	@keyframes cloud-rotate {
-		to {
-			rotate: -360deg;
-		}
-	}
-</style>

@@ -4,7 +4,11 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import Symput from '$lib/assets/projects/Symput.svelte';
+
+	export let data;
 </script>
+
+<pre>{JSON.stringify(data, null, 2)}</pre>
 
 <section id="hero" class="hero">
 	<h1>Hello there</h1>
