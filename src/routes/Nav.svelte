@@ -6,6 +6,8 @@
 	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
+
+	let lang = 'en';
 </script>
 
 <nav aria-label="Main">
@@ -25,34 +27,24 @@
 			<ThemeToggle height="2em" />
 		</li>
 		<li class="select motion-select">
-			<Select
-				on:change={(e) => motion.set(e.detail.to)}
-				id="motion-select"
-				referBy="Motion Preference"
-				updates={$motion}
-			>
-				<Option value={motion.NO_PREFERENCE}>
+			<Select id="motion-select" referBy="Motion Preference" bind:selected={$motion}>
+				<Option value={'no-preference'}>
 					<span>Keep Animations</span>
 					<AnimationIcon />
 				</Option>
-				<Option value={motion.REDUCE}>
+				<Option value={'reduce'}>
 					<span>Reduce Animations</span>
 					<AnimationIcon disabled={true} />
 				</Option>
 			</Select>
 		</li>
 		<li class="select language-select">
-			<Select
-				on:change={(e) => console.log(e)}
-				id="language-select"
-				referBy="Language"
-				updates={$motion}
-			>
-				<Option value={motion.NO_PREFERENCE}>
+			<Select id="language-select" referBy="Language" bind:selected={lang}>
+				<Option value={'en'}>
 					<UkFlag />
 					<span>En</span>
 				</Option>
-				<Option value={motion.REDUCE}>
+				<Option value={'fr'}>
 					<FranceFlag />
 					<span>Fr</span>
 				</Option>
@@ -121,17 +113,18 @@
 	}
 
 	.hamburger {
-		--_size: 0.2675em;
+		--_size: 0.275em;
 
 		display: flex;
 		align-items: center;
+		justify-content: center;
+		aspect-ratio: 1;
+
 		font-size: var(--_select-fs);
 		border: var(--_border-size) solid currentColor;
 		border-radius: var(--border-radius);
 		background-color: var(--inverse);
 		padding: var(--_size);
-		height: fit-content;
-		margin-block: auto;
 
 		svg {
 			height: var(--_svg-height);

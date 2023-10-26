@@ -6,7 +6,7 @@
 
 	export let id: string;
 	export let referBy: string;
-	export let updates: string;
+	export let selected: string = '';
 
 	let expanded = false;
 	let btn: HTMLButtonElement;
@@ -20,7 +20,7 @@
 	function setExpanded(value: boolean) {
 		expanded = value;
 		if (expanded) {
-			const current = ul?.querySelector(`[data-value=${updates}]`) as HTMLElement;
+			const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
 			current?.focus();
 		} else {
 			btn.focus();
@@ -29,7 +29,8 @@
 
 	function handleKeyDown(e: KeyboardEvent) {
 		const { key, altKey } = e;
-		const current = ul?.querySelector(`[data-value=${updates}]`) as HTMLElement;
+		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
+
 		let next: HTMLElement | undefined;
 
 		switch (key) {
@@ -47,10 +48,10 @@
 				}
 			/* falls through */
 			case 'ArrowRight':
+				e.preventDefault();
 				next = current?.nextElementSibling as HTMLElement;
 				if (altKey) {
 					next = ul.lastElementChild as HTMLElement;
-					e.preventDefault();
 				}
 				break;
 			case 'ArrowUp':
@@ -60,44 +61,44 @@
 				}
 			/* falls through */
 			case 'ArrowLeft':
+				e.preventDefault();
 				next = current?.previousElementSibling as HTMLElement;
 				if (altKey) {
 					next = ul.firstElementChild as HTMLElement;
-					e.preventDefault();
 				}
 				break;
 		}
 
 		if (next) {
-			updates = next.getAttribute('data-value') ?? '';
 			expanded && next.focus();
+			doUpdate(next);
 		}
 	}
 
-	function handleChange(e: MouseEvent | KeyboardEvent) {
-		const el = e.target as HTMLElement;
-		const transitionDelay = browser && window?.matchMedia('(width <= 40rem)').matches ? 100 : 0;
+	function handleClick(e: MouseEvent) {
+		const transitionDelay = browser && window?.matchMedia('(width <= 40rem)').matches ? 150 : 0;
 		setTimeout(() => setExpanded(false), transitionDelay);
-		updates = el.closest('li')?.getAttribute('data-value') ?? '';
+
+		const el = e.target as HTMLElement;
+		const next = el.closest('li');
+
+		if (next) {
+			doUpdate(next);
+		}
 	}
 
-	$: if (browser && btn) {
-		// Handle visible option switch
-		const current = ul?.querySelector(`[data-value=${updates}]`);
+	function doUpdate(next: HTMLElement) {
+		const previous = ul.querySelector('[aria-checked="true"]');
+		previous?.setAttribute('aria-checked', 'false');
+		next?.setAttribute('aria-checked', 'true');
+		selected = next?.getAttribute('data-value') || '';
+	}
 
+	$: {
+		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
 		if (current) {
 			btn.innerHTML = current.innerHTML;
 		}
-
-		// Handle aria-checked
-		const previous = current?.parentElement?.querySelector('[aria-checked="true"]');
-		previous?.setAttribute('aria-checked', 'false');
-		current?.setAttribute('aria-checked', 'true');
-
-		dispatch('change', {
-			from: previous?.getAttribute('data-value'),
-			to: current?.getAttribute('data-value')
-		});
 	}
 </script>
 
@@ -106,20 +107,22 @@
 		type="button"
 		aria-haspopup="menu"
 		aria-controls={id}
-		aria-label={`Current ${referBy}: ${updates}`}
+		aria-label={`Current ${referBy}: ${selected}`}
 		aria-expanded={expanded}
 		tabindex="0"
 		bind:this={btn}
 		on:click={toggleExpanded}
 		on:keydown={handleKeyDown}
-	/>
+	>
+		<div class="loading-spinner" />
+	</button>
 	<ul
 		{id}
 		role="menu"
 		aria-label={`${referBy} Options`}
 		tabindex="-1"
 		bind:this={ul}
-		on:click={handleChange}
+		on:click={handleClick}
 		on:keydown={handleKeyDown}
 	>
 		<slot>
@@ -171,11 +174,9 @@
 	button {
 		border-radius: var(--border-radius);
 		line-height: 1;
-
-		&:empty {
-			height: 2.25em;
-			min-width: 3em;
-		}
+		min-height: 2.25em;
+		min-width: 3em;
+		position: relative;
 
 		&::before,
 		&::after {
@@ -201,6 +202,16 @@
 		&[aria-expanded='true']::after {
 			opacity: 0.35;
 		}
+	}
+	.loading-spinner {
+		position: relative;
+		justify-self: center;
+		height: 1.25em;
+		aspect-ratio: 1;
+		border: 0.25em solid var(--text);
+		border-right-color: transparent;
+		border-radius: 100vmax;
+		animation: rotate-forever calc(2 * var(--duration)) linear infinite;
 	}
 
 	ul {
@@ -320,6 +331,12 @@
 
 		[aria-expanded='false'] + ul {
 			translate: 0 -1em;
+		}
+	}
+
+	@keyframes rotate-forever {
+		to {
+			transform: rotate(360deg);
 		}
 	}
 </style>
