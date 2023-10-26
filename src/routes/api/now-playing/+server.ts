@@ -1,23 +1,23 @@
-import getAccessToken from '$lib/utils/server/get-access-token.js';
-import { json } from '@sveltejs/kit';
+import { filterTrackData, getSpotifyResponse } from '$lib/utils/server/spotify.js';
+import { error, json } from '@sveltejs/kit';
 
-export async function GET({ fetch, setHeaders }) {
-	const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-
-	const { access_token } = await getAccessToken();
-	const res = await fetch(NOW_PLAYING_ENDPOINT, {
-		headers: {
-			Authorization: `Bearer ${access_token}`
-		}
-	});
+export async function GET({ setHeaders }) {
+	const nowPlayingEndpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
+	const res = await getSpotifyResponse(nowPlayingEndpoint);
 
 	if (!res.ok) {
-		json({ error: true, status: res.status, message: 'Failed to get recently playing.' });
+		throw error(res.status, res.statusText);
+	}
+
+	if (res.status == 204) {
+		throw error(430, 'Not currently playing a song');
 	}
 
 	const data = await res.json();
-	const time = new Date().toLocaleTimeString();
+	const track = filterTrackData(data.item);
+	const duration = data.item.duration_ms;
+	const progressMs = data.progress_ms;
 
-	// setHeaders({ 'cache-control': 'public, max-age=3600' });
-	return json({ time, data });
+	setHeaders({ 'cache-control': 'public, max-age=30' });
+	return json({ ...track, duration, progressMs });
 }

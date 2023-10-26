@@ -1,10 +1,15 @@
 export const load = async ({ fetch }) => {
-	const fetchPosts = async () => {
-		const res = await fetch('/api/top-tracks');
-		console.log(res.headers);
-		const data = await res.json();
-		return data;
-	};
+	const responses = await Promise.all([
+		fetch('/api/top-tracks'),
+		fetch('/api/now-playing'),
+		fetch('/api/recently-played')
+	]);
 
-	return { test: fetchPosts() };
+	const data = await Promise.all(
+		responses.filter((res: Response) => res.status == 200).map((res: Response) => res.json())
+	);
+
+	const [topTracks, currentTrack] = data.slice(0, 2);
+
+	return { currentTrack, topTracks };
 };

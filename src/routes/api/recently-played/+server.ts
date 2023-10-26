@@ -1,23 +1,18 @@
-import getAccessToken from '$lib/utils/server/get-access-token.js';
-import { json } from '@sveltejs/kit';
+import { filterTrackData, getSpotifyResponse } from '$lib/utils/server/spotify.js';
+import { error, json } from '@sveltejs/kit';
 
-export async function GET({ fetch, setHeaders }) {
-	const RECENTLY_PLAYED_ENDPOINT = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=9`;
-
-	const { access_token } = await getAccessToken();
-	const res = await fetch(RECENTLY_PLAYED_ENDPOINT, {
-		headers: {
-			Authorization: `Bearer ${access_token}`
-		}
-	});
+export async function GET({ setHeaders }) {
+	const recentlyPlayedEndpoint = `https://api.spotify.com/v1/me/player/recently-played?limit=1`;
+	const res = await getSpotifyResponse(recentlyPlayedEndpoint);
 
 	if (!res.ok) {
-		json({ error: true, status: res.status, message: 'Failed to get recently playing.' });
+		throw error(res.status, res.statusText);
 	}
 
-	const data = await res.json();
-	const time = new Date().toLocaleTimeString();
+	const { items } = await res.json();
+	const track = filterTrackData(items[0].track);
+	const playedAt = items[0].played_at;
 
-	setHeaders({ 'cache-control': 'public, max-age=30' });
-	return json({ time, data });
+	setHeaders({ 'cache-control': 'public, max-age=180' });
+	return json({ ...track, playedAt });
 }
