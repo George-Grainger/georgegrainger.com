@@ -60,6 +60,11 @@ img {
 	--cloud: hsl(0, 0%, 98%);
 	--cloud-dark: hsl(231, 23%, 42%);
 
+	//Spotify colours
+	--spotify-green: hsl(141, 76%, 48%);
+	--progress: var(--white);
+	--timeline: hsl(0, 0%, 37%);
+
 	// Display
 	--border-radius: 0.67rem;
 	--page-width: min(100vw - 3rem, 80rem);
@@ -111,6 +116,7 @@ body > div {
 	min-height: 100svh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+	overflow-x: clip;
 }
 
 main {
@@ -138,4 +144,16 @@ a:focus-visible {
 
 .error {
 	color: var(--red);
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	white-space: nowrap;
+	border-width: 0;
 }

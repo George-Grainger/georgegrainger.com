@@ -18,6 +18,6 @@ export async function GET({ setHeaders }) {
 	const duration = data.item.duration_ms;
 	const progressMs = data.progress_ms;
 
-	setHeaders({ 'cache-control': 'public, max-age=30' });
+	setHeaders({ 'cache-control': 'public, max-age=10' });
 	return json({ ...track, duration, progressMs });
 }

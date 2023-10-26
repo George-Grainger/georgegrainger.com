@@ -3,12 +3,11 @@
 	import HeroScene from '../lib/assets/svg/HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import Symput from '$lib/assets/projects/Symput.svelte';
+	import symput from '$lib/assets/projects/Symput.svg';
+	import TopTrackCard from '$lib/components/TopTrackCard.svelte';
 
 	export let data;
 </script>
-
-<pre>{JSON.stringify(data, null, 2)}</pre>
 
 <section id="hero" class="hero">
 	<h1>Hello there</h1>
@@ -20,9 +19,17 @@
 
 <section id="projects" class="projects">
 	<ProjectCard technologies={['assembly', 'iot', 'love']}>
-		<svelte:fragment slot="image"><Symput /></svelte:fragment>
+		<svelte:fragment slot="image"><img src={symput} alt="Symput Logo" /></svelte:fragment>
 		<svelte:fragment slot="title">Test</svelte:fragment>
 	</ProjectCard>
+</section>
+
+<section id="about-me" class="about-me">
+	<ul>
+		{#each data.topTracks as track}
+			<TopTrackCard tag="li" {...track} />
+		{/each}
+	</ul>
 </section>
 
 <style lang="scss">
@@ -64,12 +71,26 @@
 
 	.projects {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, min(75vw, 18rem));
+		grid-template-columns: repeat(auto-fill, 18rem);
 		justify-content: center;
 		gap: 2em 4em;
 		font-size: 1.125rem;
 		margin-bottom: 2.5%;
 		counter-reset: card-num;
+	}
+
+	.about-me {
+		// place-content: center;
+		// place-items: center;
+
+		ul {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-auto-rows: repeat(3, 1fr);
+			align-items: center;
+			gap: 0.5em;
+			aspect-ratio: 1;
+		}
 	}
 
 	@media only screen and (width > 60rem) {

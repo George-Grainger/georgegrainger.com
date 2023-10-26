@@ -109,7 +109,7 @@
 		gap: 0.5em;
 		margin-bottom: auto;
 
-		img,
+		:global(img),
 		:global(svg) {
 			border-radius: var(--border-radius);
 			object-fit: cover;

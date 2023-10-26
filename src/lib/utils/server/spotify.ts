@@ -9,7 +9,7 @@ import { error } from '@sveltejs/kit';
 
 export interface TopTrack {
 	title: string;
-	creator: string;
+	artist: string;
 	imgUrl: string;
 	imgPlaceholderUrl: string;
 	playUrl: string;
@@ -57,7 +57,7 @@ export async function getSpotifyResponse(endpoint: string) {
 export function filterTrackData(track: Track): TopTrack {
 	return {
 		title: track.name,
-		creator: track.artists.map((artist) => artist.name).join(', '),
+		artist: track.artists.map((artist) => artist.name).join(', '),
 		imgUrl: track.album.images[0].url,
 		imgPlaceholderUrl: track.album.images[2].url,
 		playUrl: track.external_urls.spotify,

@@ -12,9 +12,8 @@
 					<a href="/">Language</a>
 				</li>
 				<li>
-					<a href="/">Theme</a>
+					<a href="/">Themes</a>
 				</li>
-				s
 				<li>
 					<a href="/">Accessibility</a>
 				</li>
@@ -32,7 +31,6 @@
 		flex-direction: column;
 		isolation: isolate;
 		width: 100vw;
-		overflow-x: clip;
 	}
 
 	.footer-text-wrapper {
