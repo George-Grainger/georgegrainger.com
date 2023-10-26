@@ -1,3 +1,7 @@
+export const config = {
+	isr: { expiration: 10 }
+};
+
 export const load = async ({ fetch }) => {
 	const responses = await Promise.all([
 		fetch('/api/top-tracks'),
