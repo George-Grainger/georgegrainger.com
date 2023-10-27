@@ -9,43 +9,37 @@
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { blur, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { onMount } from 'svelte';
 
 	let interval = 300;
 	let showClouds = false;
-	let navigated = false;
-	let beenDuration = false;
+	let beenDuration = true;
 
-	beforeNavigate(() => {
-		showClouds = true;
+	beforeNavigate((e) => {
+		const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
+		showClouds = changed;
+		beenDuration = !changed;
 		setTimeout(() => (beenDuration = true), 400);
 	});
 
 	afterNavigate(() => {
-		navigated = true;
-	});
-
-	$: if (navigated && beenDuration) {
 		showClouds = false;
-		beenDuration = false;
-		navigated = false;
-	}
+	});
 </script>
 
 <Nav />
 
-{#if !showClouds}
-	<main transition:blur={{ duration: interval }}>
+{#if !showClouds && beenDuration}
+	<main out:blur={{ duration: interval }}>
 		<slot />
 	</main>
+{:else}
+	<div transition:fly={{ x: '50%', duration: interval }} class="big-cloud" />
+	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" />
 {/if}
 
 <Footer />
 <Symbols />
-
-{#if showClouds}
-	<div transition:fly={{ x: '50%', duration: interval }} class="big-cloud" />
-	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" />
-{/if}
 
 <style lang="scss">
 	.big-cloud {
@@ -56,7 +50,6 @@
 		translate: 40%;
 
 		+ .big-cloud {
-			// background-color: pink;
 			translate: -40%;
 		}
 	}
