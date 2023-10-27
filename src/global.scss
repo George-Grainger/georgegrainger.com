@@ -81,7 +81,7 @@ img {
 	--hover: var(--white-hover);
 	--text: var(--black);
 	--hover-inverse: var(--black-hover);
-	--outline: var(--yellow-3);
+	--outline: var(--red);
 	--card: var(--white);
 }
 
@@ -92,7 +92,7 @@ img {
 	--text: var(--white);
 	--hover: var(--black-hover);
 	--hover-inverse: var(--white-hover);
-	--outline: var(--yellow-2);
+	--outline: var(--red);
 	--card: var(--black-hover);
 	// --outline-inverse: var(--purple);
 }
@@ -130,16 +130,16 @@ button {
 }
 
 :focus {
-	outline: 0.25rem solid transparent;
+	outline: none;
 }
 
 :focus-visible {
-	outline: 0.25rem solid var(--outline);
-	outline-offset: 0.125rem;
+	outline: 0.15em solid var(--outline);
+	outline-offset: 0.15em;
 }
 
 a:focus-visible {
-	border-radius: var(--border-radius);
+	border-radius: calc(0.5 * var(--border-radius));
 }
 
 .error {

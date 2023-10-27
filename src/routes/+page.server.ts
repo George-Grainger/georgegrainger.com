@@ -1,8 +1,10 @@
+import type { PageServerLoad } from './$types';
+
 export const config = {
 	isr: { expiration: 10 }
 };
 
-export const load = async ({ fetch }) => {
+export const load: PageServerLoad = async ({ fetch }) => {
 	const responses = await Promise.all([
 		fetch('/api/top-tracks'),
 		fetch('/api/now-playing'),

@@ -32,7 +32,7 @@
 				{/if}
 			{/each}
 		</div>
-		<Button>View Details</Button>
+		<Button href={'about'}>View Details</Button>
 	</section>
 </article>
 
@@ -157,6 +157,10 @@
 			width: 110%;
 			text-wrap: balance;
 		}
+
+		:global(button) {
+			font-size: 1.25em;
+		}
 	}
 
 	.languages {
@@ -174,10 +178,16 @@
 		}
 
 		:global(a) {
-			outline: none;
+			outline-style: none;
 
 			&:hover :global(svg) {
 				transform: scale(1.2);
+			}
+
+			&:focus-visible :global(small) {
+				outline: 0.1rem solid var(--outline);
+				outline-offset: 0.15rem;
+				border-radius: calc(0.5 * var(--border-radius));
 			}
 		}
 

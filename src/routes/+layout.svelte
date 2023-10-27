@@ -7,49 +7,56 @@
 	import Footer from './Footer.svelte';
 	import Nav from './Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
-	import type { LayoutServerData } from './$types';
 	import { blur, fly } from 'svelte/transition';
-
-	export let data: LayoutServerData;
+	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	let interval = 300;
 	let showClouds = false;
+	let navigated = false;
+	let beenDuration = false;
+
+	beforeNavigate(() => {
+		showClouds = true;
+		setTimeout(() => (beenDuration = true), 400);
+	});
+
+	afterNavigate(() => {
+		navigated = true;
+	});
+
+	$: if (navigated && beenDuration) {
+		showClouds = false;
+		beenDuration = false;
+		navigated = false;
+	}
 </script>
 
 <Nav />
 
-{#if showClouds}
-	<div transition:fly={{ x: '50%', duration: interval }} class="test" />
-	<div transition:fly={{ x: '-50%', duration: interval }} class="test" />
+{#if !showClouds}
+	<main transition:blur={{ duration: interval }}>
+		<slot />
+	</main>
 {/if}
-
-<main>
-	{#key data.pathname}
-		<div
-			in:blur={{ duration: interval / 2, delay: interval }}
-			out:blur={{ duration: interval }}
-			on:outrostart={() => (showClouds = true)}
-			on:introend={() => (showClouds = false)}
-		>
-			<slot />
-		</div>
-	{/key}
-</main>
 
 <Footer />
 <Symbols />
 
+{#if showClouds}
+	<div transition:fly={{ x: '50%', duration: interval }} class="big-cloud" />
+	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" />
+{/if}
+
 <style lang="scss">
-	.test {
+	.big-cloud {
 		z-index: 5;
-		opacity: 0.8;
-		position: absolute;
+		position: fixed;
 		inset: 0;
-		background-color: grey;
+		background-color: var(--cloud);
 		translate: 40%;
 
-		+ .test {
-			background-color: pink;
+		+ .big-cloud {
+			// background-color: pink;
 			translate: -40%;
 		}
 	}

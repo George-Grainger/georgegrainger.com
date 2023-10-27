@@ -2,9 +2,11 @@
 	import CondtionalLink from './CondtionalLink.svelte';
 
 	export let href = '';
+	export let target = '';
+	export let rel = '';
 </script>
 
-<CondtionalLink class="btn" {href} fallback="button">
+<CondtionalLink class="btn" {href} {target} {rel} fallback="button">
 	<span><slot>Button Text</slot></span>
 	<span>
 		<svg viewBox="0 0 66 43" fill="currentColor">
@@ -36,7 +38,6 @@
 
 		&:focus-visible {
 			border-radius: 0;
-			outline-offset: 0.5em;
 		}
 
 		&::before,
@@ -63,12 +64,12 @@
 
 			&::before {
 				background-color: var(--yellow-2);
-				transform: translateX(0.2rem) scaleY(1.8);
+				transform: translateX(0.1rem) scaleY(1.4);
 			}
 
 			&::after {
 				background-color: var(--yellow-2);
-				transform: translateY(0.2rem) scaleX(1.8);
+				transform: translateY(0.1rem) scaleX(1.4);
 			}
 
 			span {

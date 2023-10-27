@@ -5,8 +5,9 @@
 	import Button from '$lib/components/Button.svelte';
 	import symput from '$lib/assets/projects/Symput.svg';
 	import TopTrackCard from '$lib/components/TopTrackCard.svelte';
+	import type { PageServerData } from './$types';
 
-	export let data;
+	export let data: PageServerData;
 </script>
 
 <section id="hero" class="hero">
@@ -14,7 +15,7 @@
 	<h2>Thanks for stopping by</h2>
 	<HeroScene />
 	<p class="intro">I'm George, a final year computer science student based in Manchester</p>
-	<Button href="/#about">About me</Button>
+	<Button href="/#about-me">About me</Button>
 </section>
 
 <section id="projects" class="projects">
@@ -80,16 +81,44 @@
 	}
 
 	.about-me {
-		// place-content: center;
-		// place-items: center;
+		grid-template-columns: repeat(2, 1fr);
+		gap: 1rem;
 
 		ul {
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
-			grid-auto-rows: repeat(3, 1fr);
 			align-items: center;
 			gap: 0.5em;
 			aspect-ratio: 1;
+
+			:global(li) {
+				z-index: 0;
+				transform-origin: var(--_horizontal, 50%) var(--_vertical, 50%);
+				transition: transform var(--duration) var(--transition),
+					z-index 1ms var(--transition) var(--duration);
+
+				&:focus-within {
+					transition: transform var(--duration) var(--transition);
+					transform: scale(3.15);
+					z-index: 1;
+				}
+
+				&:nth-child(-n + 3) {
+					--_vertical: 1%;
+				}
+
+				&:nth-child(n + 7) {
+					--_vertical: 99%;
+				}
+
+				&:nth-child(3n + 1) {
+					--_horizontal: 1%;
+				}
+
+				&:nth-child(3n + 3) {
+					--_horizontal: 99%;
+				}
+			}
 		}
 	}
 

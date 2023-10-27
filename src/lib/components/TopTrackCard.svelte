@@ -17,7 +17,7 @@
 	<img src={imgUrl} alt={`Album image for ${title}`} loading="lazy" />
 	<button>
 		<span class="sr-only">Close</span>
-		<img class="close" src={cross} alt="" height="40em" width="40em" />
+		<img class="close" src={cross} alt="" height="15em" width="15em" />
 	</button>
 	<div class="details">
 		<p>{title}</p>
@@ -34,12 +34,11 @@
 
 <style lang="scss">
 	.top-track-card {
-		border-radius: var(--border-radius);
+		border-radius: calc(0.5 * var(--border-radius));
 		position: relative;
 		aspect-ratio: 1;
-		// font-size: 0.5em;
 		color: var(--white);
-		overflow: hidden;
+		overflow: clip;
 		cursor: pointer;
 
 		img {
@@ -52,10 +51,10 @@
 
 		.close {
 			position: absolute;
-			top: 0.625em;
-			right: 0.75em;
+			top: calc(5% - 0.25rem);
+			right: calc(5% - 0.25rem);
 			opacity: 0;
-			filter: drop-shadow(0 0.15em 0.25em var(--black));
+			filter: drop-shadow(0 0 0.075rem var(--black));
 			transition: opacity var(--duration) var(--transition);
 		}
 
@@ -68,14 +67,25 @@
 			padding: 15% 5% 5%;
 			background-image: linear-gradient(transparent 5%, var(--black) 75%);
 			transform: translateY(100%);
-			overflow: hidden;
-			text-overflow: ellipsis;
+			font-size: 0.5em;
 			transition: transform var(--duration) var(--transition);
 
-			* {
+			p,
+			strong {
 				overflow: hidden;
 				text-overflow: ellipsis;
 				white-space: nowrap;
+			}
+
+			strong {
+				font-weight: 600;
+				font-size: 0.75em;
+			}
+
+			a {
+				grid-row: span 2;
+				align-self: center;
+				display: flex;
 			}
 		}
 

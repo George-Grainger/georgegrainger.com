@@ -80,7 +80,7 @@
 
 		top: 1rem;
 		position: sticky;
-		z-index: 9;
+		z-index: 1;
 
 		&::before {
 			content: '';
