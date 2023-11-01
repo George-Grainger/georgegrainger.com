@@ -80,19 +80,7 @@
 
 		top: 1rem;
 		position: sticky;
-		z-index: 1;
-
-		&::before {
-			content: '';
-			position: absolute;
-			inset: -4rem -2.5rem -2rem;
-			filter: blur(1rem);
-			box-shadow: inset 0rem 0rem 108rem 4rem var(--background);
-			z-index: -1;
-
-			contain: content;
-			transition: box-shadow var(--duration) var(--transition);
-		}
+		z-index: 10;
 	}
 
 	ul {

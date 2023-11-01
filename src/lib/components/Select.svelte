@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
-	import { createEventDispatcher } from 'svelte';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
 	import Option from './Option.svelte';
 
@@ -11,7 +10,6 @@
 	let expanded = false;
 	let btn: HTMLButtonElement;
 	let ul: HTMLElement;
-	const dispatch = createEventDispatcher();
 
 	function toggleExpanded() {
 		setExpanded(!expanded);
@@ -163,8 +161,6 @@
 		border: var(--_border-size) solid currentColor;
 		width: 100%;
 		cursor: pointer;
-
-		transition: background-color var(--transition) var(--duration);
 
 		&:hover {
 			background-color: var(--hover);

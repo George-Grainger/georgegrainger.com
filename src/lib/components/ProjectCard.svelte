@@ -54,7 +54,6 @@
 			transform-origin: 50% 20%;
 			border-radius: var(--border-radius);
 			background-color: var(--card);
-			transition: background-color var(--duration) var(--transition);
 		}
 
 		&:focus-within::before,
@@ -67,6 +66,7 @@
 			content: counter(card-num);
 			position: absolute;
 			right: 10%;
+			top: -1x;
 			font-weight: 600;
 			color: var(--white);
 			background-color: var(--black);
@@ -131,7 +131,6 @@
 			font-weight: 600;
 			text-wrap: balance;
 			color: var(--hover-inverse);
-			transition: color var(--duration) var(--transition);
 		}
 	}
 
@@ -166,7 +165,6 @@
 	.languages {
 		columns: var(--columns, 3);
 		column-rule: 1px solid var(--text);
-		transition: column-rule-color var(--duration) var(--transition);
 
 		small {
 			display: block;
@@ -174,7 +172,6 @@
 			font-variant-caps: small-caps;
 			color: var(--hover-inverse);
 			font-size: 0.7em;
-			transition: color var(--duration) var(--transition);
 		}
 
 		:global(a) {

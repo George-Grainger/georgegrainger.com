@@ -20,8 +20,16 @@ function createTheme(): Theme {
 		return localStorage.getItem('theme') ?? getSystemTheme();
 	};
 
-	const store = persisted('theme', getInitialTheme());
-	store.subscribe((val) => browser && document.documentElement.setAttribute('data-theme', val));
+	const initialTheme = getInitialTheme();
+	const store = persisted('theme', initialTheme, options);
+	store.subscribe((value) => {
+		if (!browser) return;
+
+		if (!Object.values(options).includes(value)) {
+			store.set(initialTheme);
+		}
+		document.documentElement.setAttribute('data-theme', value);
+	});
 	const toggle = () => {
 		store.update((last) => (last === options.DARK ? options.LIGHT : options.DARK));
 	};

@@ -94,7 +94,6 @@ img {
 	--hover-inverse: var(--white-hover);
 	--outline: var(--red);
 	--card: var(--black-hover);
-	// --outline-inverse: var(--purple);
 }
 
 body {
@@ -106,9 +105,18 @@ body {
 	color: var(--text);
 	background-color: var(--background);
 	overflow-x: hidden;
+}
 
-	transition: color var(--duration) var(--transition),
-		background-color var(--duration) var(--transition);
+body::before {
+	content: '';
+	position: fixed;
+	inset: -4rem -2.5rem auto;
+	height: 10rem;
+	filter: blur(1rem);
+	box-shadow: inset 0rem 0rem 25rem 5rem var(--background);
+	z-index: 1;
+
+	contain: content;
 }
 
 body > div {

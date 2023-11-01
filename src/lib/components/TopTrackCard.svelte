@@ -1,6 +1,10 @@
 <script lang="ts">
-	import spotifyLogo from '$lib/assets/svg/SpotifyLogo.svg';
-	import cross from '$lib/assets/svg/Cross.svg';
+	import spotifyLogo from '$lib/assets/svg/audio/spotify-logo.svg';
+	import cross from '$lib/assets/svg/audio/cross.svg';
+	import LazyImage from './LazyImage.svelte';
+	import AudioPlayer, { pauseCurrent } from './AudioPlayer.svelte';
+	import { autoplay } from '$lib/stores/autoplay';
+	import { clickoutside } from '$lib/hooks/use-click-outide';
 
 	export let tag = 'div';
 
@@ -11,13 +15,33 @@
 	export let imgPlaceholderUrl: string;
 	export let playUrl: string;
 	export let previewUrl: string;
+
+	// Play audio if autoplay is true
+	function handleClick(e: MouseEvent) {
+		if ($autoplay === autoplay.OFF) return;
+
+		const el = e.target as HTMLElement;
+		const audio = el.closest(tag)?.querySelector('audio');
+		audio?.play();
+	}
 </script>
 
-<svelte:element this={tag} class="top-track-card" tabIndex={0}>
-	<img src={imgUrl} alt={`Album image for ${title}`} loading="lazy" />
+<svelte:element
+	this={tag}
+	on:click={handleClick}
+	use:clickoutside={{ enabled: true, callback: pauseCurrent }}
+	class="top-track-card"
+	tabIndex={0}
+>
+	<LazyImage
+		src={imgUrl}
+		alt={`Album image for ${title}`}
+		placholderSrc={imgPlaceholderUrl}
+		loading="lazy"
+	/>
 	<button>
 		<span class="sr-only">Close</span>
-		<img class="close" src={cross} alt="" height="15em" width="15em" />
+		<img class="close" src={cross} alt="" height="12em" width="12em" />
 	</button>
 	<div class="details">
 		<p>{title}</p>
@@ -26,9 +50,9 @@
 			<img src={spotifyLogo} alt="Spotify Logo" height="80em" width="80em" />
 		</a>
 		<strong>{artist}</strong>
-		<!-- {#if previewUrl}
-			<p>{previewUrl}</p>
-		{/if} -->
+		{#if previewUrl}
+			<AudioPlayer src={previewUrl} />
+		{/if}
 	</div>
 </svelte:element>
 

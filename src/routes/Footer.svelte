@@ -36,7 +36,7 @@
 	.footer-text-wrapper {
 		color: var(--black);
 		background-color: hsl(117, 36%, 49%);
-		transition: background-color var(--duration) var(--transition);
+
 		padding-bottom: 1rem;
 		margin-top: -1rem;
 		z-index: 1;

@@ -22,8 +22,15 @@ function createMotion(): Motion {
 		return localStorage.getItem('motion') ?? getSystemMotion();
 	};
 
-	const store = persisted('motion', getInitialMotion());
-	store.subscribe((val) => browser && document.documentElement.setAttribute('data-motion', val));
+	const initialMotion = getInitialMotion();
+	const store = persisted('motion', initialMotion, options);
+	store.subscribe((value) => {
+		if (!browser) return;
+		if (!Object.values(options).includes(value)) {
+			store.set(initialMotion);
+		}
+		document.documentElement.setAttribute('data-motion', value);
+	});
 	return {
 		...store,
 		...options

@@ -70,8 +70,6 @@
 		border: 0.15em solid var(--white);
 		border-radius: 100vmax;
 		position: relative;
-		transition: background-color var(--duration) var(--transition),
-			border-color var(--duration) var(--transition);
 		contain: content;
 	}
 

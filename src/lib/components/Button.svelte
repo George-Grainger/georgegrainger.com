@@ -46,8 +46,7 @@
 			position: absolute;
 			background-color: var(--text);
 			transform-origin: top left;
-			transition: transform var(--duration) var(--transition),
-				background-color var(--duration) var(--transition);
+			transition: transform var(--duration) var(--transition);
 		}
 
 		&::before {
