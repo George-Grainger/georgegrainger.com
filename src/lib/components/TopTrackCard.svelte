@@ -75,8 +75,8 @@
 
 		.close {
 			position: absolute;
-			top: calc(5% - 0.25rem);
-			right: calc(5% - 0.25rem);
+			top: calc(5%);
+			right: calc(5%);
 			opacity: 0;
 			filter: drop-shadow(0 0 0.075rem var(--black));
 			transition: opacity var(--duration) var(--transition);
