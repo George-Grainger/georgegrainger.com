@@ -5,45 +5,76 @@
 	export let topTracks: TopTrack[];
 
 	function handleKeyDown(e: KeyboardEvent) {
-		const { key, altKey } = e;
+		const { key, altKey, shiftKey } = e;
+		const el = e.target as HTMLElement;
+		const isCard = el.classList.contains('top-track-card');
 
-		// let next: HTMLElement | undefined;
+		if (key == 'Escape') {
+			const li = el.closest('li') as HTMLElement;
+			li.focus();
+			li.classList.remove('expanded');
+		}
+
+		if (!isCard || el.classList.contains('expanded')) {
+			return e;
+		}
+
+		let next: Element | null = null;
+		const ul = e.currentTarget as HTMLElement;
+
+		const index = Array.from(ul.children).indexOf(el);
+		const row = Math.floor(index / 3);
+		const col = 1 + (index % 3);
 
 		switch (key) {
-			case 'Escape':
 			case 'Tab':
+				if (shiftKey) {
+					next = el?.previousElementSibling;
+				} else {
+					next = el?.nextElementSibling;
+				}
 				break;
+			case ' ':
 			case 'Enter':
+				e.preventDefault();
+				el.click();
 				break;
 			case 'ArrowDown':
 				if (altKey) {
-					break;
+					next = ul?.querySelector(`li:nth-last-child(${4 - col})`);
+				} else {
+					next = ul?.querySelector(`li:nth-child(${index + 4})`);
 				}
-			/* falls through */
+				break;
 			case 'ArrowRight':
-				e.preventDefault();
-				// next = current?.nextElementSibling as HTMLElement;
 				if (altKey) {
-					// next = ul.lastElementChild as HTMLElement;
+					next = ul?.querySelector(`li:nth-child(${3 * (row + 1)})`);
+				} else {
+					next = el?.nextElementSibling;
 				}
 				break;
 			case 'ArrowUp':
 				if (altKey) {
-					// setExpanded(false);
-					break;
+					next = ul?.querySelector(`li:nth-child(${col})`);
+				} else {
+					next = ul?.querySelector(`li:nth-child(${index - 2})`);
 				}
-			/* falls through */
+				break;
 			case 'ArrowLeft':
-				e.preventDefault();
-				// next = current?.previousElementSibling as HTMLElement;
 				if (altKey) {
-					// next = ul.firstElementChild as HTMLElement;
+					next = ul?.querySelector(`li:nth-child(${3 * row + 1})`);
+				} else {
+					next = el?.previousElementSibling;
 				}
 				break;
 		}
 
-		// if (next) {
-		// }
+		if (next) {
+			(next as HTMLElement)?.focus();
+			e.preventDefault();
+		} else if (isCard) {
+			// Move to spotify now playing
+		}
 	}
 </script>
 

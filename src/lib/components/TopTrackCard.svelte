@@ -14,6 +14,7 @@
 	export let imgUrl: string;
 	export let imgPlaceholderUrl: string;
 	export let playUrl: string;
+	// Needs explicit to prevent ts error in parent
 	export let previewUrl: string | undefined = undefined;
 
 	export let expanded = false;
@@ -28,15 +29,33 @@
 		audio?.play();
 	}
 
-	function handleClickOutside(e: MouseEvent) {
+	function handleClickOutside() {
 		expanded = false;
-		pauseCurrent(e);
+		pauseCurrent();
 	}
 
-	function handleClose(e: MouseEvent) {
-		handleClickOutside(e);
+	function handleClose(e: Event) {
+		e.preventDefault();
+		handleClickOutside();
 		let button = e.currentTarget as HTMLButtonElement;
 		button.closest('li')?.focus();
+	}
+
+	function handleKeyPress(e: KeyboardEvent) {
+		if (e.key == ' ' || e.key == 'Enter' || (e.shiftKey && e.key == 'Tab')) {
+			handleClose(e);
+		}
+	}
+
+	function handleAudioKeyPress(e: KeyboardEvent) {
+		if (e.key != 'Tab' || e.shiftKey) {
+			return e;
+		}
+
+		const el = e.target as HTMLButtonElement;
+		const closeButton = el.closest('li')?.querySelector('.close') as SVGElement;
+		closeButton.focus();
+		e.preventDefault();
 	}
 </script>
 
@@ -54,6 +73,10 @@
 		placholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
+	<button aria-label="Close Card" on:mousedown={handleClose} on:keydown={handleKeyPress}>
+		<span class="sr-only">Close</span>
+		<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
+	</button>
 	<div class="details">
 		<p>{title}</p>
 		<a href={playUrl} target="_blank" rel="noopener noreferrer">
@@ -62,13 +85,9 @@
 		</a>
 		<strong>{artist}</strong>
 		{#if previewUrl}
-			<AudioPlayer src={previewUrl} />
+			<AudioPlayer on:keydown={handleAudioKeyPress} src={previewUrl} />
 		{/if}
 	</div>
-	<button aria-label="Close Card" on:click|stopPropagation={handleClose}>
-		<span class="sr-only">Close</span>
-		<Cross fill="var(--white)" height="1em" width="1em" tabindex="0" />
-	</button>
 </svelte:element>
 
 <style lang="scss">
@@ -98,7 +117,7 @@
 				transition: opacity var(--duration) var(--transition);
 
 				&:focus-visible {
-					outline-offset: -0.125em;
+					outline-offset: -0.175em;
 					outline: solid var(--red) 0.075em;
 				}
 			}

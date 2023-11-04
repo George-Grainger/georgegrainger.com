@@ -5,7 +5,7 @@
 
 	export let id: string;
 	export let referBy: string;
-	export let selected: string = '';
+	export let selected = '';
 
 	let expanded = false;
 	let btn: HTMLButtonElement;

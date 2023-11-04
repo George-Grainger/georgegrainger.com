@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
 	let current: HTMLAudioElement | undefined;
 
-	export function pauseCurrent(e: MouseEvent) {
+	export function pauseCurrent() {
 		current?.pause();
 		current = undefined;
 	}
@@ -32,7 +32,7 @@
 		return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
 	}
 
-	function handleClick(_: MouseEvent) {
+	function handleClick() {
 		paused = !paused;
 		$autoplay = paused ? autoplay.OFF : autoplay.ON;
 	}
@@ -69,7 +69,7 @@
 	}
 </script>
 
-<div class="player">
+<div class="player" on:keydown>
 	<audio
 		{src}
 		bind:currentTime={time}
@@ -128,7 +128,7 @@
 
 	.mute {
 		margin: 0.15em;
-		background: none;
+		background-color: transparent;
 	}
 
 	.time {
@@ -146,14 +146,15 @@
 	.slider {
 		flex: 1;
 		height: 0.25em;
-		background: var(--white);
+		background-color: var(--timeline);
 		border-radius: 0.25em;
 		overflow: hidden;
 	}
 
 	.progress {
-		width: calc(100 * var(--progress));
+		transform-origin: left;
+		transform: scaleX(calc(100 * var(--progress)));
+		background-color: var(--white);
 		height: 100%;
-		background: var(--red);
 	}
 </style>
