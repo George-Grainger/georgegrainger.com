@@ -4,7 +4,7 @@
 	export let placholderSrc: string;
 
 	function setLoaded(e: Event) {
-		const el = e.target as HTMLImageElement;
+		const el = e.currentTarget as HTMLImageElement;
 		el.classList.add('loaded');
 	}
 </script>

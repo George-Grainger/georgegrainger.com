@@ -1,17 +1,17 @@
 <script lang="ts" context="module">
 	let current: HTMLAudioElement | undefined;
 
-	export function pauseCurrent() {
+	export function pauseCurrent(e: MouseEvent) {
 		current?.pause();
 		current = undefined;
 	}
 </script>
 
 <script lang="ts">
-	import playIcon from '$lib/assets/svg/audio/play.svg';
-	import pauseIcon from '$lib/assets/svg/audio/pause.svg';
-	import soundOnIcon from '$lib/assets/svg/audio/sound-on.svg';
-	import soundOffIcon from '$lib/assets/svg/audio/sound-on.svg';
+	import PlayIcon from '$lib/assets/svg/audio/PlayIcon.svelte';
+	import PauseIcon from '$lib/assets/svg/audio/PauseIcon.svelte';
+	import SoundOn from '$lib/assets/svg/audio/SoundOn.svelte';
+	import SoundOff from '$lib/assets/svg/audio/SoundOff.svelte';
 
 	import { autoplay } from '$lib/stores/autoplay';
 
@@ -20,7 +20,7 @@
 	// The duration appears to only work when it's not preset?
 	let duration: number;
 	let time = 0;
-	let muted = true;
+	let muted = false;
 	let paused = true;
 
 	function format(time: number) {
@@ -75,14 +75,15 @@
 		bind:currentTime={time}
 		bind:duration
 		bind:paused
+		bind:muted
 		on:play={handlePlay}
 		on:ended={() => (time = duration)}
 	/>
 	<button class="play" aria-label={paused ? 'play' : 'pause'} on:click={handleClick}>
 		{#if paused}
-			<img src={playIcon} alt="Play button" />
+			<PlayIcon fill="var(--black)" />
 		{:else}
-			<img src={pauseIcon} alt="Pause button" />
+			<PauseIcon fill="var(--black)" />
 		{/if}
 	</button>
 	<div class="time">
@@ -94,9 +95,9 @@
 	</div>
 	<button class="mute" aria-label={muted ? 'mute' : 'unmute'} on:click={() => (muted = !muted)}>
 		{#if muted}
-			<img src={soundOffIcon} alt="Mute" />
+			<SoundOff fill="var(--white)" />
 		{:else}
-			<img src={soundOnIcon} alt="Unmute" />
+			<SoundOn fill="var(--white)" />
 		{/if}
 	</button>
 </div>
@@ -116,9 +117,18 @@
 	button {
 		display: grid;
 		aspect-ratio: 1;
-		border-radius: 100vmax;
 		border: none;
-		margin: 0.25em;
+		border-radius: 100vmax;
+	}
+
+	.play {
+		padding: 0.15em;
+		margin: 0.15em;
+	}
+
+	.mute {
+		margin: 0.15em;
+		background: none;
 	}
 
 	.time {

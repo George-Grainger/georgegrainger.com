@@ -9,7 +9,6 @@
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { blur, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { onMount } from 'svelte';
 
 	let interval = 300;
 	let showClouds = false;

@@ -1,10 +1,10 @@
 <script lang="ts">
 	import spotifyLogo from '$lib/assets/svg/audio/spotify-logo.svg';
-	import cross from '$lib/assets/svg/audio/cross.svg';
 	import LazyImage from './LazyImage.svelte';
 	import AudioPlayer, { pauseCurrent } from './AudioPlayer.svelte';
 	import { autoplay } from '$lib/stores/autoplay';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
+	import Cross from '$lib/assets/svg/audio/Cross.svelte';
 
 	export let tag = 'div';
 
@@ -14,22 +14,37 @@
 	export let imgUrl: string;
 	export let imgPlaceholderUrl: string;
 	export let playUrl: string;
-	export let previewUrl: string;
+	export let previewUrl: string | undefined = undefined;
+
+	export let expanded = false;
 
 	// Play audio if autoplay is true
 	function handleClick(e: MouseEvent) {
+		expanded = true;
 		if ($autoplay === autoplay.OFF) return;
 
 		const el = e.target as HTMLElement;
 		const audio = el.closest(tag)?.querySelector('audio');
 		audio?.play();
 	}
+
+	function handleClickOutside(e: MouseEvent) {
+		expanded = false;
+		pauseCurrent(e);
+	}
+
+	function handleClose(e: MouseEvent) {
+		handleClickOutside(e);
+		let button = e.currentTarget as HTMLButtonElement;
+		button.closest('li')?.focus();
+	}
 </script>
 
 <svelte:element
 	this={tag}
 	on:click={handleClick}
-	use:clickoutside={{ enabled: true, callback: pauseCurrent }}
+	use:clickoutside={{ enabled: expanded, callback: handleClickOutside }}
+	class:expanded
 	class="top-track-card"
 	tabIndex={0}
 >
@@ -39,10 +54,6 @@
 		placholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
-	<button>
-		<span class="sr-only">Close</span>
-		<img class="close" src={cross} alt="" height="12em" width="12em" />
-	</button>
 	<div class="details">
 		<p>{title}</p>
 		<a href={playUrl} target="_blank" rel="noopener noreferrer">
@@ -54,6 +65,10 @@
 			<AudioPlayer src={previewUrl} />
 		{/if}
 	</div>
+	<button aria-label="Close Card" on:click|stopPropagation={handleClose}>
+		<span class="sr-only">Close</span>
+		<Cross fill="var(--white)" height="1em" width="1em" tabindex="0" />
+	</button>
 </svelte:element>
 
 <style lang="scss">
@@ -71,15 +86,22 @@
 
 		button {
 			display: contents;
-		}
 
-		.close {
-			position: absolute;
-			top: calc(5%);
-			right: calc(5%);
-			opacity: 0;
-			filter: drop-shadow(0 0 0.075rem var(--black));
-			transition: opacity var(--duration) var(--transition);
+			:global(svg) {
+				position: absolute;
+				padding: 0.25em;
+				top: calc(5% - 0.25em);
+				right: calc(5% - 0.25em);
+				opacity: 0;
+				border-radius: 100vmax;
+				filter: drop-shadow(0 0 0.075rem var(--black));
+				transition: opacity var(--duration) var(--transition);
+
+				&:focus-visible {
+					outline-offset: -0.125em;
+					outline: solid var(--red) 0.075em;
+				}
+			}
 		}
 
 		.details {
@@ -113,10 +135,10 @@
 			}
 		}
 
-		&:focus-within {
+		&.expanded {
 			cursor: default;
 
-			.close {
+			button :global(svg) {
 				opacity: 1;
 			}
 

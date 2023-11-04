@@ -14,8 +14,8 @@ export function clickoutside(
 ): ReturnType<Action> {
 	const { enabled: initialEnabled, callback } = params;
 
-	const handleOutsideClick = (e: MouseEvent) => {
-		if (!node.contains(e.target as Node)) callback(node);
+	const handleOutsideClick = (_: MouseEvent) => {
+		if (!node.contains(document.activeElement)) callback(node);
 	};
 
 	function update({ enabled }: { enabled: boolean }) {

@@ -4,8 +4,8 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import symput from '$lib/assets/projects/Symput.svg';
-	import TopTrackCard from '$lib/components/TopTrackCard.svelte';
 	import type { PageServerData } from './$types';
+	import TopTracks from './TopTracks.svelte';
 
 	export let data: PageServerData;
 </script>
@@ -26,11 +26,7 @@
 </section>
 
 <section id="about-me" class="about-me">
-	<ul>
-		{#each data.topTracks as track}
-			<TopTrackCard tag="li" {...track} />
-		{/each}
-	</ul>
+	<TopTracks topTracks={data.topTracks} />
 </section>
 
 <style lang="scss">
@@ -83,43 +79,6 @@
 	.about-me {
 		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
-
-		ul {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			align-items: center;
-			gap: 0.5em;
-			aspect-ratio: 1;
-
-			:global(li) {
-				z-index: 0;
-				transform-origin: var(--_horizontal, 50%) var(--_vertical, 50%);
-				transition: transform var(--duration) var(--transition),
-					z-index 1ms var(--transition) var(--duration);
-
-				&:focus-within {
-					transition: transform var(--duration) var(--transition);
-					transform: scale(3.15);
-					z-index: 1;
-				}
-
-				&:nth-child(-n + 3) {
-					--_vertical: 1%;
-				}
-
-				&:nth-child(n + 7) {
-					--_vertical: 99%;
-				}
-
-				&:nth-child(3n + 1) {
-					--_horizontal: 1%;
-				}
-
-				&:nth-child(3n + 3) {
-					--_horizontal: 99%;
-				}
-			}
-		}
 	}
 
 	@media only screen and (width > 60rem) {
