@@ -7,7 +7,7 @@
 </script>
 
 <CondtionalLink class="btn" {href} {target} {rel} fallback="button">
-	<span><slot>Button Text</slot></span>
+	<strong><slot>Button Text</slot></strong>
 	<span>
 		<svg viewBox="0 0 66 43" fill="currentColor">
 			<path d="m0 4 4-4h1l21 21a1 1 0 0 1 0 1L5 43H4l-4-4v-1l17-16v-1L0 5a1 1 0 0 1 0-1Z" />
@@ -71,44 +71,44 @@
 				transform: translateY(0.1rem) scaleX(1.4);
 			}
 
-			span {
+			span,
+			strong {
 				scale: 0.9 1;
 			}
 
-			span:last-child {
-				path {
-					transform: translateX(0);
-					fill: var(--yellow-2);
-				}
+			span path {
+				transform: translateX(0);
+				fill: var(--yellow-2);
 			}
 		}
 
-		span {
-			font-weight: 700;
+		span,
+		strong {
+			// font-weight: 700;
 			transform: skewX(15deg);
 			transition: scale var(--duration) var(--transition);
 		}
 
-		span:last-child {
+		span {
 			width: 1em;
 			position: relative;
 		}
+	}
 
-		svg {
-			height: 0.875em;
+	svg {
+		height: 0.875em;
 
-			path {
-				transition: transform var(--duration) var(--transition);
+		path {
+			transition: transform var(--duration) var(--transition);
 
-				&:first-child {
-					--time: var(--duration);
-					transform: translateX(30%);
-				}
+			&:first-child {
+				--time: var(--duration);
+				transform: translateX(30%);
+			}
 
-				&:last-child {
-					--time: 0ms;
-					transform: translateX(-30%);
-				}
+			&:last-child {
+				--time: 0ms;
+				transform: translateX(-30%);
 			}
 		}
 	}

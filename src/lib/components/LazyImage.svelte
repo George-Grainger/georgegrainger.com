@@ -19,10 +19,15 @@
 		width: 100%;
 		background-repeat: no-repeat;
 		background-size: cover;
+		border-radius: inherit;
+		border-radius: inherit;
 	}
 
 	div img {
 		opacity: 0;
+		border-radius: inherit;
+		height: 100%;
+		width: 100%;
 		transition: opacity var(--duration) var(--transition);
 
 		&.loaded {

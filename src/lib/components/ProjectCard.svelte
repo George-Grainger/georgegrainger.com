@@ -147,7 +147,6 @@
 		transform: translateY(5%);
 
 		strong {
-			font-weight: 700;
 			font-size: 1.5em;
 		}
 

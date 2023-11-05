@@ -53,6 +53,10 @@
 		}
 
 		const el = e.target as HTMLButtonElement;
+		if (!el.classList.contains('mute')) {
+			return e;
+		}
+
 		const closeButton = el.closest('li')?.querySelector('.close') as SVGElement;
 		closeButton.focus();
 		e.preventDefault();
@@ -81,7 +85,7 @@
 		<p>{title}</p>
 		<a href={playUrl} target="_blank" rel="noopener noreferrer">
 			<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
-			<img src={spotifyLogo} alt="Spotify Logo" height="80em" width="80em" />
+			<img src={spotifyLogo} alt="Spotify Logo" />
 		</a>
 		<strong>{artist}</strong>
 		{#if previewUrl}
@@ -118,7 +122,7 @@
 
 				&:focus-visible {
 					outline-offset: -0.175em;
-					outline: solid var(--red) 0.075em;
+					outline: solid var(--red) 0.067em;
 				}
 			}
 		}
@@ -132,7 +136,7 @@
 			padding: 15% 5% 5%;
 			background-image: linear-gradient(transparent 5%, var(--black) 75%);
 			transform: translateY(100%);
-			font-size: 0.5em;
+			font-size: 0.4em;
 			transition: transform var(--duration) var(--transition);
 
 			p,
@@ -143,7 +147,6 @@
 			}
 
 			strong {
-				font-weight: 600;
 				font-size: 0.75em;
 			}
 
@@ -151,6 +154,12 @@
 				grid-row: span 2;
 				align-self: center;
 				display: flex;
+				transition: scale var(--duration) var(--transition);
+				transform-origin: center;
+
+				&:hover {
+					scale: 1.1;
+				}
 			}
 		}
 
@@ -164,6 +173,10 @@
 			.details {
 				transform: translateY(0%);
 			}
+		}
+
+		:global(.player) {
+			font-size: 1.25em;
 		}
 	}
 </style>

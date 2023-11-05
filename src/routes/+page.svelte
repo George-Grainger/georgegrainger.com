@@ -6,6 +6,7 @@
 	import symput from '$lib/assets/projects/Symput.svg';
 	import type { PageServerData } from './$types';
 	import TopTracks from './TopTracks.svelte';
+	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 
 	export let data: PageServerData;
 </script>
@@ -27,6 +28,7 @@
 
 <section id="about-me" class="about-me">
 	<TopTracks topTracks={data.topTracks} />
+	<LastPlayedCard {...data.currentTrack} />
 </section>
 
 <style lang="scss">

@@ -14,6 +14,7 @@
 	import SoundOff from '$lib/assets/svg/audio/SoundOff.svelte';
 
 	import { autoplay } from '$lib/stores/autoplay';
+	import ProgressBar from './ProgressBar.svelte';
 
 	export let src: string;
 
@@ -22,15 +23,6 @@
 	let time = 0;
 	let muted = false;
 	let paused = true;
-
-	function format(time: number) {
-		if (isNaN(time)) return '--:--';
-
-		const minutes = Math.floor(Math.round(time) / 60);
-		const seconds = Math.floor(Math.round(time) % 60);
-
-		return `${minutes}:${seconds < 10 ? `0${seconds}` : seconds}`;
-	}
 
 	function handleClick() {
 		paused = !paused;
@@ -46,26 +38,6 @@
 		}
 
 		current.play();
-	}
-
-	function handlePointerDown(e: PointerEvent) {
-		const div = e.currentTarget as HTMLElement;
-
-		function seek(e: PointerEvent) {
-			const { left, width } = div.getBoundingClientRect();
-
-			let p = (e.clientX - left) / width;
-			if (p < 0) p = 0;
-			if (p > 1) p = 1;
-
-			time = p * duration ?? 0;
-		}
-		seek(e);
-
-		window.addEventListener('pointermove', seek);
-		window.addEventListener('pointerup', () => window.removeEventListener('pointermove', seek), {
-			once: true
-		});
 	}
 </script>
 
@@ -86,13 +58,7 @@
 			<PauseIcon fill="var(--black)" />
 		{/if}
 	</button>
-	<div class="time">
-		<span>{format(time)}</span>
-		<div class="slider" on:pointerdown={handlePointerDown}>
-			<div class="progress" style="--progress: {time / duration}%" />
-		</div>
-		<span>{format(duration)}</span>
-	</div>
+	<ProgressBar on:pointerdown={() => (paused = true)} bind:time bind:duration />
 	<button class="mute" aria-label={muted ? 'mute' : 'unmute'} on:click={() => (muted = !muted)}>
 		{#if muted}
 			<SoundOff fill="var(--white)" />
@@ -119,6 +85,10 @@
 		aspect-ratio: 1;
 		border: none;
 		border-radius: 100vmax;
+
+		&:focus-visible {
+			outline: solid var(--red) 0.125em;
+		}
 	}
 
 	.play {
@@ -129,32 +99,5 @@
 	.mute {
 		margin: 0.15em;
 		background-color: transparent;
-	}
-
-	.time {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: 0.375em;
-	}
-
-	.time span {
-		font-size: 0.4em;
-		line-height: 1;
-	}
-
-	.slider {
-		flex: 1;
-		height: 0.25em;
-		background-color: var(--timeline);
-		border-radius: 0.25em;
-		overflow: hidden;
-	}
-
-	.progress {
-		transform-origin: left;
-		transform: scaleX(calc(100 * var(--progress)));
-		background-color: var(--white);
-		height: 100%;
 	}
 </style>
