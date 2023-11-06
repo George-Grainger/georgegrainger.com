@@ -32,10 +32,10 @@
 	}
 </script>
 
-<div on:pointerdown>
+<div class="progress-bar" on:pointerdown>
 	<span>{format(time)}</span>
 	<div class="slider" on:pointerdown={handlePointerDown}>
-		<div class="progress" style="--progress: {(100 * time) / duration}%" />
+		<div class="progress" style="--progress: {(100 * time) / (duration || 1)}%" />
 	</div>
 	<span>{format(duration)}</span>
 </div>
@@ -52,7 +52,7 @@
 		font-size: 0.4em;
 		line-height: 1;
 		text-align: center;
-		width: 3ch;
+		width: 4ch;
 	}
 
 	.slider {
@@ -66,7 +66,7 @@
 	.progress {
 		transform-origin: left;
 		transform: scaleX(var(--progress));
-		background-color: var(--white);
+		background-color: var(--progress-color, var(--white));
 		height: 100%;
 		width: 100%;
 	}

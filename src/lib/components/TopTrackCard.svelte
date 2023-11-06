@@ -35,10 +35,11 @@
 	}
 
 	function handleClose(e: Event) {
-		e.preventDefault();
-		handleClickOutside();
 		let button = e.currentTarget as HTMLButtonElement;
 		button.closest('li')?.focus();
+		handleClickOutside();
+		e.stopPropagation();
+		e.preventDefault();
 	}
 
 	function handleKeyPress(e: KeyboardEvent) {
@@ -77,7 +78,7 @@
 		placholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
-	<button aria-label="Close Card" on:mousedown={handleClose} on:keydown={handleKeyPress}>
+	<button aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>
 		<span class="sr-only">Close</span>
 		<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
 	</button>

@@ -9,7 +9,7 @@
 		const el = e.target as HTMLElement;
 		const isCard = el.classList.contains('top-track-card');
 
-		if (key == 'Escape') {
+		if (key == 'Escape' || (key == 'Tab' && isCard && shiftKey)) {
 			const li = el.closest('li') as HTMLElement;
 			li.focus();
 			li.classList.remove('expanded');
@@ -33,10 +33,13 @@
 				} else {
 					next = el?.nextElementSibling;
 				}
+
+				if (!next && isCard) {
+					next = document.querySelector('.last-played-card .spotify-link');
+				}
 				break;
 			case ' ':
 			case 'Enter':
-				e.preventDefault();
 				el.click();
 				break;
 			case 'ArrowDown':
@@ -69,11 +72,9 @@
 				break;
 		}
 
+		e.preventDefault();
 		if (next) {
 			(next as HTMLElement)?.focus();
-			e.preventDefault();
-		} else if (isCard) {
-			// Move to spotify now playing
 		}
 	}
 </script>

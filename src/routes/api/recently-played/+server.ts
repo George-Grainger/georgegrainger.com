@@ -11,8 +11,9 @@ export async function GET({ setHeaders }) {
 
 	const { items } = await res.json();
 	const track = filterTrackData(items[0].track);
+	const duration = items[0].track.duration_ms / 1000;
 	const playedAt = items[0].played_at;
 
 	setHeaders({ 'cache-control': 'public, max-age=180' });
-	return json({ ...track, playedAt });
+	return json({ ...track, duration, playedAt, isPlaying: false });
 }

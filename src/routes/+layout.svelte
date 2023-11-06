@@ -7,7 +7,7 @@
 	import Footer from './Footer.svelte';
 	import Nav from './Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
-	import { blur, fly } from 'svelte/transition';
+	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 
 	let interval = 300;
@@ -29,7 +29,7 @@
 <Nav />
 
 {#if !showClouds && beenDuration}
-	<main out:blur={{ duration: interval }}>
+	<main out:fade={{ duration: interval }}>
 		<slot />
 	</main>
 {:else}

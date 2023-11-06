@@ -28,6 +28,7 @@
 		border-radius: inherit;
 		height: 100%;
 		width: 100%;
+		object-fit: cover;
 		transition: opacity var(--duration) var(--transition);
 
 		&.loaded {

@@ -16,9 +16,7 @@ export interface TopTrack {
 	previewUrl?: string;
 }
 
-export type LastPlayedMedia =
-	| (TopTrack & { duration: number; progressMs: number })
-	| (TopTrack & { playedAt: string });
+export type LastPlayedMedia = TopTrack & { duration: number; playedAt: number };
 
 async function getAccessToken() {
 	const basic = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`);

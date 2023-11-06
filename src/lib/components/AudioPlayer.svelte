@@ -1,9 +1,21 @@
 <script lang="ts" context="module">
 	let current: HTMLAudioElement | undefined;
 
+	function fadeOut(target: HTMLAudioElement) {
+		if (target.volume > 0) {
+			const newVol = Math.max(0, target.volume - 0.1);
+			target.volume = newVol;
+			setTimeout(() => fadeOut(target), 30);
+		} else {
+			target?.pause();
+		}
+	}
+
 	export function pauseCurrent() {
-		current?.pause();
-		current = undefined;
+		if (current) {
+			fadeOut(current);
+			current = undefined;
+		}
 	}
 </script>
 
@@ -15,6 +27,7 @@
 
 	import { autoplay } from '$lib/stores/autoplay';
 	import ProgressBar from './ProgressBar.svelte';
+	import { fade } from 'svelte/transition';
 
 	export let src: string;
 
@@ -37,7 +50,8 @@
 			current = audio;
 		}
 
-		current.play();
+		audio.play();
+		audio.volume = 1;
 	}
 </script>
 
