@@ -6,8 +6,8 @@ export async function GET({ setHeaders }) {
 	const res = await getSpotifyResponse(recentlyPlayedEndpoint).catch((e) => e);
 
 	if (res.status == 503) {
-		const track = await import('$lib/api-backup/recently-played');
-		return json(track.default);
+		const track = (await import('$lib/api-backup/recently-played')).default;
+		return json(track);
 	}
 
 	if (!res.ok) {

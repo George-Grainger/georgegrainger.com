@@ -51,11 +51,11 @@
 
 <div class="last-played-card">
 	{#if isPlaying}
-		<strong>Currently Playing</strong>
+		<strong class="header">Currently Playing</strong>
 	{:else if isOffline}
-		<strong>A Personal Favourite</strong>
+		<strong class="header">A Personal Favourite</strong>
 	{:else}
-		<strong>Last Song Played</strong>
+		<strong class="header">My Most Recent Song</strong>
 	{/if}
 	<a
 		class="spotify-link"
@@ -65,7 +65,7 @@
 		on:keydown={handleKeyDown}
 	>
 		<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
-		<img src={spotifyLogo} alt="Spotify Logo" height="30em" width="30em" />
+		<img src={spotifyLogo} alt="Spotify Logo" />
 	</a>
 	<LazyImage
 		src={imgUrl}
@@ -81,11 +81,15 @@
 			<ProgressBar time={progress} {duration} />
 			<p class="tagline">Stick around to see what I listen to next</p>
 		{:else if isOffline}
-			<small>Live spotify data unavailable ☹</small>
+			<small>Live Spotify data is unavailable ☹</small>
 			<p class="tagline">Check again when online to see a live feed</p>
 		{:else}
-			<small>Played on {playedAt.toLocaleString().replace(',', ' at ')}</small>
-			<p class="tagline">Check again when I'm playing to see a live feed</p>
+			<small
+				>Played on {playedAt
+					.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short', hourCycle: 'h12' })
+					.replace(',', ' at ')}</small
+			>
+			<p class="tagline">Check when I'm online to see a live feed</p>
 		{/if}
 	</div>
 	{#if previewUrl}
@@ -100,13 +104,27 @@
 		display: grid;
 		align-items: center;
 		place-self: center;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: auto 18rem auto;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
 		padding: 1em;
 		gap: 0.75em 1em;
 		background-color: var(--card);
 		border-radius: var(--border-radius);
 		position: relative;
+
+		.header {
+			grid-column: span 3;
+		}
+
+		// Target the lazy image and details
+		:global(> div) {
+			grid-column: span 2;
+		}
+
+		// Prevent height of image from stretching
+		:global(> div),
+		:global(div img) {
+			height: initial;
+		}
 
 		.details {
 			display: grid;
@@ -163,10 +181,12 @@
 		}
 
 		img {
+			height: 1.5em;
 			aspect-ratio: 1;
 		}
 
 		:global(.player) {
+			grid-column: 1 / -1;
 			font-size: 1.5em;
 		}
 
@@ -180,6 +200,16 @@
 
 		:global(.mute svg) {
 			fill: var(--text);
+		}
+	}
+
+	@media only screen and (width <= 40rem) {
+		.header {
+			font-size: 0.9em;
+		}
+
+		.details {
+			font-size: 0.75em;
 		}
 	}
 </style>
