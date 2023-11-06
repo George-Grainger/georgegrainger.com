@@ -33,6 +33,8 @@ async function getAccessToken() {
 			grant_type: 'refresh_token',
 			refresh_token: SPOTIFY_REFRESH_TOKEN
 		})
+	}).catch(() => {
+		throw error(503, "Couldn't connect to Spotify");
 	});
 
 	if (!res.ok) {
@@ -45,7 +47,7 @@ async function getAccessToken() {
 export async function getSpotifyResponse(endpoint: string) {
 	const { access_token } = await getAccessToken();
 
-	return await fetch(endpoint, {
+	return fetch(endpoint, {
 		headers: {
 			Authorization: `Bearer ${access_token}`
 		}

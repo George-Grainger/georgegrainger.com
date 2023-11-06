@@ -3,14 +3,16 @@ import { error, json } from '@sveltejs/kit';
 
 export async function GET({ setHeaders }) {
 	const nowPlayingEndpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
-	const res = await getSpotifyResponse(nowPlayingEndpoint);
+	const res = await getSpotifyResponse(nowPlayingEndpoint).catch((e) => {
+		throw error(503, "Couldn't connect to Spotify");
+	});
 
 	if (!res.ok) {
 		throw error(res.status, res.statusText);
 	}
 
 	if (res.status == 204) {
-		throw error(430, 'Not currently playing a song');
+		throw error(503, 'Not currently playing a song');
 	}
 
 	const data = await res.json();
@@ -19,5 +21,5 @@ export async function GET({ setHeaders }) {
 	const playedAt = new Date(Date.now() - data.progress_ms);
 
 	setHeaders({ 'cache-control': 'public, max-age=10' });
-	return json({ ...track, duration, playedAt, isPlaying: true });
+	return json({ ...track, duration, playedAt, isPlaying: true, isOffline: false });
 }

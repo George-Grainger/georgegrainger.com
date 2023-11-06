@@ -1,0 +1,44 @@
+<script>
+	import Button from '$lib/components/Button.svelte';
+	import CondtionalLink from '$lib/components/CondtionalLink.svelte';
+</script>
+
+<section>
+	<h1>Oops ☹</h1>
+	<h2>Something went wrong</h2>
+
+	<p>I'm not sure why that happened - but feel free to get in touch and let me know!</p>
+
+	<Button href="/">Return to safety</Button>
+</section>
+
+<style lang="scss">
+	section {
+		display: grid;
+		place-items: center;
+		place-content: center;
+		min-height: 50vh;
+		min-height: 50svh;
+	}
+
+	h1 {
+		// line-height: 1;
+		font-weight: 800;
+		font-size: 5em;
+		letter-spacing: -0.03rem;
+	}
+
+	h2 {
+		font-weight: 700;
+		font-size: 1.6em;
+		letter-spacing: -0.015rem;
+	}
+
+	p {
+		text-align: center;
+		font-size: 0.9em;
+		max-width: 36ch;
+		text-wrap: balance;
+		margin-block: 0.75em 1.5em;
+	}
+</style>

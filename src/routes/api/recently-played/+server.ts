@@ -3,7 +3,12 @@ import { error, json } from '@sveltejs/kit';
 
 export async function GET({ setHeaders }) {
 	const recentlyPlayedEndpoint = `https://api.spotify.com/v1/me/player/recently-played?limit=1`;
-	const res = await getSpotifyResponse(recentlyPlayedEndpoint);
+	const res = await getSpotifyResponse(recentlyPlayedEndpoint).catch((e) => e);
+
+	if (res.status == 503) {
+		const track = await import('$lib/api-backup/recently-played');
+		return json(track.default);
+	}
 
 	if (!res.ok) {
 		throw error(res.status, res.statusText);
@@ -15,5 +20,5 @@ export async function GET({ setHeaders }) {
 	const playedAt = items[0].played_at;
 
 	setHeaders({ 'cache-control': 'public, max-age=180' });
-	return json({ ...track, duration, playedAt, isPlaying: false });
+	return json({ ...track, duration, playedAt, isPlaying: false, isOffline: false });
 }

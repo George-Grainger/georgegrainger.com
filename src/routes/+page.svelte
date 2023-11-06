@@ -79,7 +79,6 @@
 	}
 
 	.about-me {
-		grid-template-columns: repeat(2, 1fr);
 		gap: 1rem;
 	}
 
@@ -108,6 +107,10 @@
 			:global(a) {
 				font-size: 0.9em;
 			}
+		}
+
+		.about-me {
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 </style>

@@ -100,26 +100,26 @@
 				z-index 1ms var(--transition) var(--duration);
 
 			&:nth-child(-n + 3) {
-				--_vertical: 1%;
+				--_vertical: 1.5%;
 			}
 
 			&:nth-child(n + 7) {
-				--_vertical: 99%;
+				--_vertical: 98.5%;
 			}
 
 			&:nth-child(3n + 1) {
-				--_horizontal: 1%;
+				--_horizontal: 1.5%;
 			}
 
 			&:nth-child(3n + 3) {
-				--_horizontal: 99%;
+				--_horizontal: 98.5%;
 			}
 		}
 
 		// This doesn't work when nested?
 		:global(.expanded) {
 			transition: transform var(--duration) var(--transition);
-			transform: scale(3.15);
+			transform: scale(3.25);
 			z-index: 1;
 		}
 	}

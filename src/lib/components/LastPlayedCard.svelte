@@ -6,9 +6,6 @@
 	import ProgressBar from './ProgressBar.svelte';
 	import { invalidateAll } from '$app/navigation';
 
-	// Spotify Data
-	export let isPlaying: string;
-	// export let playedAt
 	export let title: string;
 	export let artist: string;
 	export let imgUrl: string;
@@ -20,6 +17,8 @@
 	// Stuff for the progress tracking
 	export let duration: number;
 	export let playedAt: Date;
+	export let isPlaying: boolean;
+	export let isOffline: boolean;
 
 	let progress = Math.min((Date.now() - playedAt.getTime()) / 1000, duration);
 
@@ -53,6 +52,8 @@
 <div class="last-played-card">
 	{#if isPlaying}
 		<strong>Currently Playing</strong>
+	{:else if isOffline}
+		<strong>A Personal Favourite</strong>
 	{:else}
 		<strong>Last Song Played</strong>
 	{/if}
@@ -79,6 +80,9 @@
 			<small>I'm currently listening at...</small>
 			<ProgressBar time={progress} {duration} />
 			<p class="tagline">Stick around to see what I listen to next</p>
+		{:else if isOffline}
+			<small>Live spotify data unavailable ☹</small>
+			<p class="tagline">Check again when online to see a live feed</p>
 		{:else}
 			<small>Played on {playedAt.toLocaleString().replace(',', ' at ')}</small>
 			<p class="tagline">Check again when I'm playing to see a live feed</p>
