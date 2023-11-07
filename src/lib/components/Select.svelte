@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
+	import { afterUpdate } from 'svelte';
 	import Option from './Option.svelte';
 
 	export let id: string;
@@ -92,12 +93,12 @@
 		selected = next?.getAttribute('data-value') || '';
 	}
 
-	$: {
+	afterUpdate(() => {
 		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
 		if (current) {
 			btn.innerHTML = current.innerHTML;
 		}
-	}
+	});
 </script>
 
 <div class:expanded use:clickoutside={{ enabled: expanded, callback: toggleExpanded }}>
@@ -199,6 +200,7 @@
 			opacity: 0.35;
 		}
 	}
+
 	.loading-spinner {
 		position: relative;
 		justify-self: center;

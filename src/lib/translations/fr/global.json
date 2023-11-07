@@ -1,5 +1,22 @@
 {
-    "home": "Bonjour",
-    "about": "Ajout",
-    "notification": "You have {{count:gt; 0:{{count}} new {{count; 1:message; default:messages}}!; default:no messages...}}"
+    "title": "La maison de George Grainger",
+    "nav": {
+        "label": "Principal",
+        "home": "Accueil",
+        "projects": "Projets",
+        "about": "Informations",
+        "hamburger-menu": "Menu hamburger"
+    },
+    "theme-toggle": "Basculer le thème",
+    "motion": {
+        "no-preference": "Garder l'animation",
+        "reduce": "Réduire l'animation"
+    },
+    "footer": {
+        "preferences": "Préférences",
+        "languages": "Langues",
+        "theme": "Thème",
+        "accessibility": "Accessibilité",
+        "created-by": "Créé par"
+    }
 }

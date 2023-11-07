@@ -1,5 +1,22 @@
 {
-    "home": "Home",
-    "about": "About",
-    "notification": "You have {{count:gt; 0:{{count}} new {{count; 1:message; default:messages}}!; default:no messages...}}"
+    "title": "George Grainger's Home",
+    "nav": {
+        "label": "Main",
+        "home": "Home",
+        "projects": "Projects",
+        "about": "About",
+        "hamburger-menu": "Hamburger menu"
+    },
+    "theme-toggle": "Theme Toggle",
+    "motion": {
+        "no-preference": "Keep Animations",
+        "reduce": "Reduce Animations"
+    },
+    "footer": {
+        "preferences": "Preferences",
+        "languages": "Languages",
+        "theme": "Theme",
+        "accessibility": "Accessibility",
+        "created-by": "Created by"
+    }
 }

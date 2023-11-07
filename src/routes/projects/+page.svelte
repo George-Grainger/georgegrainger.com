@@ -1,5 +1,7 @@
 <script>
-	import { t } from '$lib/translations';
+	import { getContext } from 'svelte';
+
+	const { t } = getContext('translations');
 </script>
 
 <h1>blog</h1>

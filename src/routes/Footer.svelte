@@ -1,24 +1,27 @@
 <script lang="ts">
 	import FooterScene from '$lib/assets/svg/FooterScene.svelte';
+	import { getContext } from 'svelte';
+
+	const { t, locale } = getContext('translations');
 </script>
 
 <footer>
 	<div class="footer-image"><FooterScene /></div>
 	<div class="footer-text-wrapper">
 		<div class="footer-text">
-			<strong>Preferences</strong>
+			<strong>{$t('global.footer.preferences')}</strong>
 			<ul>
 				<li>
-					<a href="/">Language</a>
+					<a href={`/${locale}/languages`}>{$t('global.footer.languages')}</a>
 				</li>
 				<li>
-					<a href="/">Themes</a>
+					<a href={`/${locale}/theme`}>{$t('global.footer.theme')}</a>
 				</li>
 				<li>
-					<a href="/">Accessibility</a>
+					<a href={`/${locale}/accessibility`}>{$t('global.footer.accessibility')}</a>
 				</li>
 			</ul>
-			<strong>Created By</strong>
+			<strong>{$t('global.footer.created-by')}</strong>
 			<span>George Grainger</span>
 		</div>
 	</div>

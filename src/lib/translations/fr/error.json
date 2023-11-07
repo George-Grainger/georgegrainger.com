@@ -1,6 +1,7 @@
 {
-    "shit.happens": "Auweh...",
-    "404": "Seite nicht gefunden.",
-    "500": "Server interner Fehler.",
-    "default": "Ein Fehler ist aufgetreten."
+    "title": "Oops ☹",
+    "404": "That page doesn't exist",
+    "500": "You hit a server error",
+    "404.body": "Maybe you've misstyped it? If you're sure it's not, please let me know",
+    "500.body": "I'm not sure why that happened - but feel free to get in touch and let me know"
 }

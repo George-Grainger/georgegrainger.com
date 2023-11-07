@@ -45,13 +45,15 @@ async function getAccessToken() {
 }
 
 export async function getSpotifyResponse(endpoint: string) {
-	const { access_token } = await getAccessToken();
+	throw Error('e');
 
-	return fetch(endpoint, {
-		headers: {
-			Authorization: `Bearer ${access_token}`
-		}
-	});
+	// const { access_token } = await getAccessToken();
+
+	// return fetch(endpoint, {
+	// 	headers: {
+	// 		Authorization: `Bearer ${access_token}`
+	// 	}
+	// });
 }
 
 export function filterTrackData(track: Track): TopTrack {

@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
+	import { getContext } from 'svelte';
+
+	const { t } = getContext('translations');
 
 	export let height: string | number | undefined = undefined;
 	export let width: string | number | undefined = undefined;
@@ -30,10 +33,11 @@
 	role="button"
 	tabindex={0}
 	aria-pressed={$theme === theme.DARK ? 'true' : 'false'}
-	aria-label="Dark mode"
+	aria-label={$t('global.theme-toggle')}
 	on:click={theme.toggle}
 	on:keydown={handleKeyDown}
 >
+	<title>{$t('global.theme-toggle')}</title>
 	<circle class="sun-moon" cx="85" cy="85" r="70" mask="url(#moon-mask)" />
 	<path
 		class="stars"

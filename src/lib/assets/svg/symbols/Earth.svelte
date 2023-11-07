@@ -24,7 +24,7 @@
 	<feComposite operator="over" in="shadow" in2="SourceGraphic" />
 </filter>
 
-<style>
+<style lang="scss">
 	use {
 		transform-origin: center;
 		animation: cloud-rotate infinite 75s linear;

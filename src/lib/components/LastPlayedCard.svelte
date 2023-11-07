@@ -16,18 +16,19 @@
 
 	// Stuff for the progress tracking
 	export let duration: number;
-	export let playedAt: Date;
+	export let playedAt: string;
 	export let isPlaying: boolean;
 	export let isOffline: boolean;
 
-	let progress = Math.min((Date.now() - playedAt.getTime()) / 1000, duration);
+	let playedAtDate = new Date(playedAt);
+	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 
 	async function updateProgress() {
 		progress = Math.min(progress + 1, duration);
 
 		if (progress == duration) {
 			await invalidateAll();
-			progress = Math.min((Date.now() - playedAt.getTime()) / 1000, duration);
+			progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 		}
 	}
 
@@ -85,7 +86,7 @@
 			<p class="tagline">Check again when online to see a live feed</p>
 		{:else}
 			<small
-				>Played on {playedAt
+				>Played on {playedAtDate
 					.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short', hourCycle: 'h12' })
 					.replace(',', ' at ')}</small
 			>

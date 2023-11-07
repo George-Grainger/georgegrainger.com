@@ -5,8 +5,8 @@ export async function GET({ setHeaders }) {
 	const nowPlayingEndpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
 	const recentlyPlayedEndpoint = `https://api.spotify.com/v1/me/player/recently-played?limit=1`;
 	const [npRes, rpRes] = await Promise.all([
-		getSpotifyResponse(nowPlayingEndpoint),
-		getSpotifyResponse(recentlyPlayedEndpoint)
+		getSpotifyResponse(nowPlayingEndpoint).catch((e) => e),
+		getSpotifyResponse(recentlyPlayedEndpoint).catch((e) => e)
 	]);
 
 	// Currently playing a track

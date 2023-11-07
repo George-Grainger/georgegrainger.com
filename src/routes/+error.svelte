@@ -1,13 +1,17 @@
 <script>
+	import { page } from '$app/stores';
 	import Button from '$lib/components/Button.svelte';
-	import CondtionalLink from '$lib/components/CondtionalLink.svelte';
+	import { getContext } from 'svelte';
+
+	const { t } = getContext('translations');
+	const { status } = $page;
 </script>
 
 <section>
-	<h1>Oops ☹</h1>
-	<h2>Something went wrong</h2>
+	<h1>{$t('error.title')}</h1>
+	<h2>{$t(`error.${status}`)}</h2>
 
-	<p>I'm not sure why that happened - but feel free to get in touch and let me know!</p>
+	<p>{$t(`error.${status}.body`)}</p>
 
 	<Button href="/">Return to safety</Button>
 </section>

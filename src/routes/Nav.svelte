@@ -6,19 +6,21 @@
 	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
-	import { locale, t } from '$lib/translations';
+	import { getContext } from 'svelte';
+
+	const { t, locale } = getContext('translations');
 </script>
 
-<nav aria-label="Main">
+<nav aria-label={$t('global.nav.label')}>
 	<ul class="links">
 		<li>
-			<a href="/">{$t('global.home')}</a>
+			<a href="/">{$t('global.nav.home')}</a>
 		</li>
 		<li>
-			<a href="/projects">Projects</a>
+			<a href="/projects">{$t('global.nav.projects')}</a>
 		</li>
 		<li>
-			<a href="/about">About</a>
+			<a href="/about">{$t('global.nav.about')}</a>
 		</li>
 	</ul>
 	<ul class="settings">
@@ -28,11 +30,11 @@
 		<li class="select motion-select">
 			<Select id="motion-select" referBy="Motion Preference" bind:selected={$motion}>
 				<Option value={'no-preference'}>
-					<span>Keep Animations</span>
+					<span>{$t('global.motion.no-preference')}</span>
 					<AnimationIcon />
 				</Option>
 				<Option value={'reduce'}>
-					<span>Reduce Animations</span>
+					<span>{$t('global.motion.reduce')}</span>
 					<AnimationIcon disabled={true} />
 				</Option>
 			</Select>
@@ -52,6 +54,7 @@
 	</ul>
 	<button class="hamburger">
 		<svg viewBox="0 0 24 24">
+			<title>{$t('global.nav.hamburger-menu')}</title>
 			<path
 				fill="currentColor"
 				d="M4 18q-.425 0-.713-.288T3 17q0-.425.288-.713T4 16h16q.425 0 .713.288T21 17q0 .425-.288.713T20 18H4Zm0-5q-.425 0-.713-.288T3 12q0-.425.288-.713T4 11h16q.425 0 .713.288T21 12q0 .425-.288.713T20 13H4Zm0-5q-.425 0-.713-.288T3 7q0-.425.288-.713T4 6h16q.425 0 .713.288T21 7q0 .425-.288.713T20 8H4Z"
@@ -61,7 +64,7 @@
 </nav>
 
 <style lang="scss">
-	nav[aria-label='Main'] {
+	nav {
 		--_size: 0.15em;
 		--_border-size: 0.2rem;
 		--_svg-height: 1.5em;
@@ -123,7 +126,7 @@
 	}
 
 	@media only screen and (width > 40rem) {
-		nav[aria-label='Main'] {
+		nav {
 			--svg-height: 1.5em;
 		}
 
