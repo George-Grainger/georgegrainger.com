@@ -13,7 +13,7 @@
 
 	<p>{$t(`error.${status}.body`)}</p>
 
-	<Button href="/">Return to safety</Button>
+	<Button href="/">{$t('error.return')}</Button>
 </section>
 
 <style lang="scss">
@@ -26,7 +26,7 @@
 	}
 
 	h1 {
-		// line-height: 1;
+		line-height: 1;
 		font-weight: 800;
 		font-size: 5em;
 		letter-spacing: -0.03rem;

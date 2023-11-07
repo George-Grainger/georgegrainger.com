@@ -2,6 +2,7 @@ import type { Config } from 'sveltekit-i18n';
 import I18n from 'sveltekit-i18n';
 
 const config: Config = {
+	preprocess: 'preserveArrays',
 	loaders: [
 		{
 			locale: 'en',
@@ -12,12 +13,12 @@ const config: Config = {
 			locale: 'en',
 			key: 'home',
 			routes: ['', '/'],
-			loader: async () => (await import('$lib/translations/en/home.json')).default
+			loader: async () => (await import('$lib/translations/en/home')).default
 		},
 		{
 			locale: 'en',
 			key: 'error',
-			routes: ['error'],
+			// routes: ['error'],
 			loader: async () => (await import('$lib/translations/en/error.json')).default
 		},
 		{
@@ -29,12 +30,12 @@ const config: Config = {
 			locale: 'fr',
 			key: 'home',
 			routes: ['', '/'],
-			loader: async () => (await import('$lib/translations/fr/home.json')).default
+			loader: async () => (await import('$lib/translations/fr/home')).default
 		},
 		{
 			locale: 'fr',
 			key: 'error',
-			routes: ['error'],
+			// routes: ['error'],
 			loader: async () => (await import('$lib/translations/fr/error.json')).default
 		}
 	]

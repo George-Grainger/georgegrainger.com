@@ -1,22 +1,40 @@
 {
     "title": "La maison de George Grainger",
-    "nav": {
-        "label": "Principal",
-        "home": "Accueil",
-        "projects": "Projets",
-        "about": "Informations",
-        "hamburger-menu": "Menu hamburger"
-    },
+    "nav-label": "Principal",
+    "hamburger-menu": "Menu hamburger",
     "theme-toggle": "Basculer le thème",
     "motion": {
         "no-preference": "Garder l'animation",
         "reduce": "Réduire l'animation"
     },
-    "footer": {
-        "preferences": "Préférences",
-        "languages": "Langues",
-        "theme": "Thème",
-        "accessibility": "Accessibilité",
-        "created-by": "Créé par"
-    }
+    "nav-links": [
+        {
+            "text": "Accueil",
+            "link": "/"
+        },
+        {
+            "text": "Projets",
+            "link": "/projects"
+        },
+        {
+            "text": "Informations",
+            "link": "/about"
+        }
+    ],
+    "preferences": "Préférences",
+    "created-by": "Créé par",
+    "footer-links": [
+        {
+            "text": "Langues",
+            "link": "/languages"
+        },
+        {
+            "text": "Thème",
+            "link": "/theme"
+        },
+        {
+            "text": "Accessibilité",
+            "link": "/accessibility"
+        }
+    ]
 }

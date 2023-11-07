@@ -3,26 +3,33 @@
 	import HeroScene from '../lib/assets/svg/HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import symput from '$lib/assets/projects/Symput.svg';
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
+	import { getContext } from 'svelte/internal';
 
 	export let data;
+	const { t } = getContext('translations');
 </script>
 
 <section id="hero" class="hero">
-	<h1>Hello there</h1>
-	<h2>Thanks for stopping by</h2>
+	<h1>{$t('home.title')}</h1>
+	<h2>{$t('home.subtitle')}</h2>
 	<HeroScene />
-	<p class="intro">I'm George, a final year computer science student based in Manchester</p>
-	<Button href="/#about-me">About me</Button>
+	<p class="intro">{$t('home.intro-paragraph')}</p>
+	<Button href="/#about-me">{$t('home.about-me')}</Button>
 </section>
 
 <section id="projects" class="projects">
-	<ProjectCard technologies={['assembly', 'iot', 'love']}>
-		<svelte:fragment slot="image"><img src={symput} alt="Symput Logo" /></svelte:fragment>
-		<svelte:fragment slot="title">Test</svelte:fragment>
-	</ProjectCard>
+	{#each $t('home.projects') as project}
+		<ProjectCard technologies={project.technologies}>
+			<svelte:fragment slot="image"
+				><img srcset={project.thumbnails} alt={project.alt} /></svelte:fragment
+			>
+			<svelte:fragment slot="title">{project.title}</svelte:fragment>
+			<svelte:fragment slot="subtitle">{project.subtitle}</svelte:fragment>
+			<svelte:fragment slot="description">{project.description}</svelte:fragment>
+		</ProjectCard>
+	{/each}
 </section>
 
 <section id="about-me" class="about-me">
@@ -37,21 +44,26 @@
 
 	.hero {
 		place-items: center;
-		gap: 0.5em 1em;
+		gap: 1em 0em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
+		text-align: center;
+		margin-top: 1em;
 
 		h1 {
 			line-height: 1;
 			font-weight: 800;
 			font-size: 3.2125em;
 			letter-spacing: -0.03rem;
+			white-space: nowrap;
 		}
 
 		h2 {
+			line-height: 1;
 			font-weight: 700;
 			font-size: 1.525em;
 			letter-spacing: -0.015rem;
 			margin-bottom: 1em;
+			white-space: nowrap;
 		}
 
 		p {
@@ -83,12 +95,9 @@
 
 	@media only screen and (width > 60rem) {
 		.hero {
-			row-gap: 0.1em;
-			grid-template-columns: auto 1fr;
-
-			h1 {
-				margin-top: 12.5%;
-			}
+			row-gap: 0.5em;
+			grid-template-columns: 1fr 1fr;
+			margin-top: 2em;
 
 			h2 {
 				margin-block: 0.25em;
@@ -101,6 +110,10 @@
 				font-size: 0.7em;
 				max-width: 40ch;
 				text-wrap: initial;
+			}
+
+			p:lang(fr) {
+				max-width: 30ch;
 			}
 
 			:global(a) {

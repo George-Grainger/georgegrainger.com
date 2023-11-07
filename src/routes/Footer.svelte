@@ -9,19 +9,15 @@
 	<div class="footer-image"><FooterScene /></div>
 	<div class="footer-text-wrapper">
 		<div class="footer-text">
-			<strong>{$t('global.footer.preferences')}</strong>
+			<strong>{$t('global.preferences')}</strong>
 			<ul>
-				<li>
-					<a href={`/${locale}/languages`}>{$t('global.footer.languages')}</a>
-				</li>
-				<li>
-					<a href={`/${locale}/theme`}>{$t('global.footer.theme')}</a>
-				</li>
-				<li>
-					<a href={`/${locale}/accessibility`}>{$t('global.footer.accessibility')}</a>
-				</li>
+				{#each $t('global.footer-links') as { text, link }}
+					<li>
+						<a href={link}>{text}</a>
+					</li>
+				{/each}
 			</ul>
-			<strong>{$t('global.footer.created-by')}</strong>
+			<strong>{$t('global.created-by')}</strong>
 			<span>George Grainger</span>
 		</div>
 	</div>

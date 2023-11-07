@@ -18,11 +18,13 @@
 	setContext('translations', { ...data });
 
 	// Update cookie when locale changes
-	const oneYear = 1000 * 60 * 60 * 24 * 365;
-	browser &&
-		locale.subscribe(
-			($locale) => (document.cookie = `lang=${$locale} ; expires=${oneYear} ; path = /;`)
-		);
+	if (browser) {
+		const oneYear = 1000 * 60 * 60 * 24 * 365;
+		locale.subscribe(($locale) => {
+			document.cookie = `lang=${$locale} ; expires=${oneYear} ; path = /; SameSite=strict ;`;
+			document.documentElement.setAttribute('lang', $locale);
+		});
+	}
 
 	// Page transitions
 	let interval = 300;
