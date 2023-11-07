@@ -4,11 +4,10 @@
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
 	import symput from '$lib/assets/projects/Symput.svg';
-	import type { PageServerData } from './$types';
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 
-	export let data: PageServerData;
+	export let data;
 </script>
 
 <section id="hero" class="hero">

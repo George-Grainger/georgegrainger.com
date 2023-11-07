@@ -6,14 +6,13 @@
 	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
-
-	let lang = 'en';
+	import { locale, t } from '$lib/translations';
 </script>
 
 <nav aria-label="Main">
 	<ul class="links">
 		<li>
-			<a href="/">Home</a>
+			<a href="/">{$t('global.home')}</a>
 		</li>
 		<li>
 			<a href="/projects">Projects</a>
@@ -39,7 +38,7 @@
 			</Select>
 		</li>
 		<li class="select language-select">
-			<Select id="language-select" referBy="Language" bind:selected={lang}>
+			<Select id="language-select" referBy="Language" bind:selected={$locale}>
 				<Option value={'en'}>
 					<UkFlag />
 					<span>En</span>

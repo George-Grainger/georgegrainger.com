@@ -5,13 +5,10 @@ export async function GET({ setHeaders }) {
 	const topTracksEndpoint = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=9`;
 	const res = await getSpotifyResponse(topTracksEndpoint).catch((e) => e);
 
-	if (res.status == 503) {
+	// Handle Spotify Down
+	if (!res.ok) {
 		const tracks = (await import('$lib/api-backup/top-tracks')).default;
 		return json(tracks);
-	}
-
-	if (!res.ok) {
-		throw error(res.status, res.statusText);
 	}
 
 	const { items } = await res.json();

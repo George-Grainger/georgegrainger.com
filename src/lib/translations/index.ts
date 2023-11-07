@@ -1,8 +1,12 @@
 import i18n from 'sveltekit-i18n';
 import lang from './lang.json';
 import type { Config } from '@sveltejs/kit';
+import { browser, dev } from '$app/environment';
 
 const config: Config = {
+	log: {
+		level: dev ? 'warn' : 'error'
+	},
 	translations: {
 		en: { lang },
 		fr: { lang }
@@ -58,6 +62,13 @@ export const {
 	setRoute,
 	setLocale
 } = new i18n(config);
+
+const oneYear = 1000 * 60 * 60 * 24 * 365;
+locale.subscribe(($locale) => {
+	if (browser) {
+		document.cookie = `lang=${$locale} ; expires=${oneYear} ; path = /;`;
+	}
+});
 
 // Translations logs
 loading.subscribe(async ($loading) => {

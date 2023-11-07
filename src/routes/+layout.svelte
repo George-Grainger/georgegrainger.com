@@ -19,10 +19,12 @@
 		showClouds = changed;
 		beenDuration = !changed;
 		setTimeout(() => (beenDuration = true), 400);
+		console.log('begin navigate');
 	});
 
 	afterNavigate(() => {
 		showClouds = false;
+		console.log('end navigate');
 	});
 </script>
 
@@ -32,9 +34,9 @@
 	<main out:fade={{ duration: interval }}>
 		<slot />
 	</main>
-{:else}
+	<!-- {:else}
 	<div transition:fly={{ x: '50%', duration: interval }} class="big-cloud" />
-	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" />
+	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" /> -->
 {/if}
 
 <Footer />
