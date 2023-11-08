@@ -60,6 +60,8 @@
 	on:mouseenter={handleMouseOver}
 	on:mouseleave={handleMouseOut}
 	on:pointerdown={handleMouseOver}
+	on:focusin={handleMouseOver}
+	on:focusout={handleMouseOut}
 >
 	<header>
 		<slot name="image"><img src="" alt="Empty Project Card" /></slot>
