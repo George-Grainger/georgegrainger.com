@@ -66,5 +66,34 @@ export default {
 			link: '/projects/iot-vinyl-playing',
 			technologies: ['assembly', 'iot', 'cpp']
 		}
-	]
+	],
+	about: 'About me',
+	'academic-title': 'Academic',
+	'academic-paragraphs': [
+		"I'm in my third year studying for my Computer Science MEng(Hons) at The University of Manchester.",
+		'In first year I won the Netcraft Prize for the top 10 students with an average of 90%. In second year I continued to do well and was in the top 5% of students (of 400) with an average of 89%. I also achieved the top grade in the System Architecture unit with an average of 92%.',
+		'I enjoy a range of course units, particularly those based around AI, Graphics and Hardware. I\'m excited to see how these play into my third-year project which is simulating the dopamine system and addiction through reinforcement learning - <a href="projects/reinforcement-learning">read more</a>.'
+	],
+	'experience-title': 'Experience',
+	'experience-paragraphs': [
+		'I spent a year working as a junior developer at <a href="https://www.enigma-interactive.co.uk" target="_blank" rel="noopener noreferrer">Enigma Interactive</a>. During this time I had three main projects:'
+	],
+	'enigma-roles': [
+		"Contributing to the 'core team', this involved programming in Java and building the base framework upon which other sites were developed.",
+		'Developing a <a href="https://transplant-resource.newcastle-hospitals.nhs.uk" target="_blank" rel="noopener noreferrer">heart and lung transplant resource</a> for Newcastle NHS foundation trust - <a href="projects/nhs-heart-and-lung">read more</a>.',
+		'Producing an educational game for Western Power, which taught children the potential dangers of power lines, and how to avoid them.'
+	],
+	'interests-title': 'Interests',
+	'interests-paragraphs': [
+		"I've played rugby since I was little, and still enjoy playing it now. Since coming to university, I've also taken up climbing and surfing. These bring new challenges that I'm enjoying getting involved in.",
+		'In particular, I like the problem-solving aspect of climbing, and the feeling of satisfaction after persevering to get a tricky climb.'
+	],
+	cv: 'View my CV',
+	'spotify-tagline': 'Information on my favourite songs and recent listening',
+	'latest-song': 'Latest song played',
+	'album-img-alt': 'Album image for {{title}}',
+	'played-on': 'Played on {{date}} at {{time}}',
+	'check-back': "Check back when I'm listening for a live feed",
+	'current-playing': "I'm currently listening at...",
+	'stick-around': 'Stick around to see what I listen to next'
 };

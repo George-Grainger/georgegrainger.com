@@ -79,18 +79,18 @@
 	}
 </script>
 
-<ul on:keydown={handleKeyDown}>
+<ol on:keydown={handleKeyDown}>
 	{#each topTracks as track}
 		<TopTrackCard tag="li" {...track} />
 	{/each}
-</ul>
+</ol>
 
 <style lang="scss">
-	ul {
+	ol {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
-		align-items: center;
-		gap: 0.5em;
+		place-content: center;
+		gap: 1.5%;
 		aspect-ratio: 1;
 
 		:global(li) {
@@ -119,7 +119,7 @@
 		// This doesn't work when nested?
 		:global(.expanded) {
 			transition: transform var(--duration) var(--transition);
-			transform: scale(3.25);
+			transform: scale(3.18);
 			z-index: 1;
 		}
 	}

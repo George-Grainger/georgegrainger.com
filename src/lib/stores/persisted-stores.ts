@@ -7,9 +7,9 @@ export function persisted<T extends string>(
 	permitted: { [key: string]: T }
 ): Writable<T> {
 	const store = writable<T>(initialValue, (set) => {
-		const handleStorage = (event: StorageEvent) => {
-			if (event.key === key) {
-				set((event.newValue as T) || initialValue);
+		const handleStorage = (e: StorageEvent) => {
+			if (e.key === key) {
+				set((e.newValue as T) || initialValue);
 			}
 		};
 		browser && window.addEventListener('storage', handleStorage);

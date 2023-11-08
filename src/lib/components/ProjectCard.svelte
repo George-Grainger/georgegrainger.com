@@ -2,12 +2,65 @@
 	import Button from './Button.svelte';
 	import { technologyMap } from '$lib/utils/client/technology-map';
 	import CondtionalLink from './CondtionalLink.svelte';
+	import { beforeUpdate, onMount } from 'svelte';
 
 	type Technology = keyof typeof technologyMap;
 	export let technologies: Technology[] = [];
+
+	let card: HTMLElement;
+	let preload = true;
+
+	// Prevent CLS when calculating margins
+	beforeUpdate(() => {
+		preload = false;
+	});
+
+	onMount(() => {
+		const articleHeight = card?.clientHeight;
+		const frontHeight = (card?.firstChild as HTMLElement).clientHeight;
+		card?.style.setProperty('margin-bottom', `${frontHeight - articleHeight}px`);
+	});
+
+	const handleMouseOver = () => {
+		// Remove translate to prevent weirdness on pointer down
+		card.style.removeProperty('translate');
+
+		// Get list of all cards on parent
+		let cards = Array.from(card.parentElement?.children || []) as HTMLElement[];
+		let cardIndex = cards.indexOf(card);
+
+		// Get all cards in same column as current one
+		const perRow = getComputedStyle(card.parentElement as HTMLElement)
+			.getPropertyValue('grid-template-columns')
+			.split(' ').length;
+		const col = cardIndex % perRow;
+		cards = cards.filter((_, i) => i % perRow == col);
+		cardIndex = cards.indexOf(card);
+
+		// Offset cards below
+		const cardsBefore = cards.slice(0, cardIndex);
+		cardsBefore.forEach((c) => c.style.setProperty('translate', '0 -3rem'));
+
+		// Offset cards above
+		const cardsAfter = cards.slice(cardIndex + 1);
+		const upOffset = Number(card.style.getPropertyValue('margin-bottom').slice(0, -2));
+		const downOffset = `${-upOffset}px`;
+		cardsAfter.forEach((c) => c.style.setProperty('translate', `0 ${downOffset}`));
+	};
+
+	const handleMouseOut = () => {
+		const cards = Array.from(card.parentElement?.children || []) as HTMLElement[];
+		cards.forEach((c) => c.style.removeProperty('translate'));
+	};
 </script>
 
-<article>
+<article
+	class:preload
+	bind:this={card}
+	on:mouseenter={handleMouseOver}
+	on:mouseleave={handleMouseOut}
+	on:pointerdown={handleMouseOver}
+>
 	<header>
 		<slot name="image"><img src="" alt="Empty Project Card" /></slot>
 		<h1><slot name="title">Project Title</slot></h1>
@@ -16,7 +69,7 @@
 	<section>
 		<strong aria-hidden="true"><slot name="title">Title</slot></strong>
 		<p><slot name="description">Project description</slot></p>
-		<div class="languages">
+		<div class="languages" style={`--columns: ${technologies.length}`}>
 			{#each technologies as technology}
 				{#if !technologyMap[technology]}
 					<span class="error">Unknown technology: {technology}</span>
@@ -42,8 +95,8 @@
 		position: relative;
 		isolation: isolate;
 		width: fit-content;
-		margin: auto;
 		contain: layout;
+		transition: translate var(--duration) var(--transition);
 
 		&::before {
 			content: '';
@@ -129,9 +182,12 @@
 		h2 {
 			font-size: 0.75em;
 			font-weight: 600;
-			text-wrap: balance;
 			color: var(--hover-inverse);
 		}
+	}
+
+	.preload section {
+		height: 0;
 	}
 
 	section {

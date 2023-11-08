@@ -11,18 +11,8 @@ html {
 	box-sizing: inherit;
 }
 
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-a,
-ol,
-ul,
-button {
+// Use where to remove specificity
+:where(body, h1, h2, h3, h4, h5, h6, p, a, ol, ul, button) {
 	margin: 0;
 	padding: 0;
 	font-weight: inherit;
@@ -31,14 +21,15 @@ button {
 	color: currentColor;
 }
 
-ol,
-ul {
+// Use where to remove specificity
+:where(ol, ul) {
 	list-style-type: none;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
+	vertical-align: middle;
 }
 
 /* General styles */
@@ -67,7 +58,7 @@ img {
 
 	// Display
 	--border-radius: 0.67rem;
-	--page-width: min(100vw - 3rem, 80rem);
+	--page-width: min(100vw - 1rem, 80rem);
 
 	// Animation
 	--transition: cubic-bezier(0.22, 0.61, 0.36, 1);
@@ -94,6 +85,12 @@ img {
 	--hover-inverse: var(--white-hover);
 	--outline: var(--red);
 	--card: var(--black-hover);
+}
+
+@media only screen and (width > 60rem) {
+	:root {
+		--page-width: min(100vw - 3rem, 80rem);
+	}
 }
 
 body {
@@ -164,4 +161,42 @@ a:focus-visible {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
+}
+
+// Use where to remove specificity
+:where(.prose) {
+	> :not(h1, h2, h3, div) + * {
+		margin-top: 0.75em;
+	}
+
+	> h1,
+	> h2,
+	> h3 {
+		font-weight: 700;
+	}
+
+	> h1 {
+		font-size: 2em;
+	}
+
+	> h2 {
+		font-size: 1.3em;
+	}
+
+	> h3 {
+		font-size: 1.1em;
+	}
+
+	> :where(ol, ul) {
+		list-style: revert;
+		margin-left: 1em;
+
+		li + li {
+			margin-top: 0.375em;
+		}
+
+		::marker {
+			font-weight: 600;
+		}
+	}
 }

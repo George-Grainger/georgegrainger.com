@@ -28,6 +28,7 @@ function createTheme(): Theme {
 		if (!Object.values(options).includes(value)) {
 			store.set(initialTheme);
 		}
+
 		document.documentElement.setAttribute('data-theme', value);
 	});
 	const toggle = () => {

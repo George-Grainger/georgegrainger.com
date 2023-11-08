@@ -33,8 +33,32 @@
 </section>
 
 <section id="about-me" class="about-me">
-	<TopTracks topTracks={data.topTracks} />
-	<LastPlayedCard {...data.currentTrack} />
+	<h1 class="about-title">{$t('home.about')}</h1>
+	<div class="prose">
+		<h2>{$t('home.academic-title')}</h2>
+		{#each $t('home.academic-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
+		<h2>{$t('home.experience-title')}</h2>
+		{#each $t('home.experience-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
+		<ol>
+			{#each $t('home.enigma-roles') as paragraph}
+				<li>{@html paragraph}</li>
+			{/each}
+		</ol>
+		<h2>{$t('home.interests-title')}</h2>
+		{#each $t('home.interests-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
+	</div>
+	<div class="spotify">
+		<h2>Spotify</h2>
+		<p>{$t('home.spotify-tagline')}</p>
+		<TopTracks topTracks={data.topTracks} />
+		<LastPlayedCard {...data.currentTrack} />
+	</div>
 </section>
 
 <style lang="scss">
@@ -83,6 +107,7 @@
 		display: grid;
 		grid-template-columns: repeat(auto-fill, 18rem);
 		justify-content: center;
+		align-items: start;
 		gap: 2em 4em;
 		font-size: 1.125rem;
 		margin-bottom: 2.5%;
@@ -91,6 +116,26 @@
 
 	.about-me {
 		gap: 1rem;
+
+		h1 {
+			font-weight: 700;
+			font-size: 2em;
+		}
+	}
+
+	.spotify {
+		display: grid;
+		align-content: baseline;
+		gap: 1em;
+
+		h2 {
+			font-size: 1.3em;
+			font-weight: 700;
+		}
+
+		p {
+			margin-top: -1em;
+		}
 	}
 
 	@media only screen and (width > 60rem) {
@@ -123,6 +168,10 @@
 
 		.about-me {
 			grid-template-columns: repeat(2, 1fr);
+
+			h1 {
+				grid-column: 1 / -1;
+			}
 		}
 	}
 </style>
