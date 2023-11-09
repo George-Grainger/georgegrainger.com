@@ -1,40 +1,40 @@
 {
-    "title": "George Grainger's Home",
-    "nav-label": "Main",
-    "hamburger-menu": "Hamburger menu",
-    "theme-toggle": "Theme Toggle",
-    "motion": {
-        "no-preference": "Keep Animations",
-        "reduce": "Reduce Animations"
-    },
-    "nav-links": [
-        {
-            "text": "Home",
-            "link": "/"
-        },
-        {
-            "text": "Projects",
-            "link": "/projects"
-        },
-        {
-            "text": "About",
-            "link": "/about"
-        }
-    ],
-    "preferences": "Preferences",
-    "created-by": "Created by",
-    "footer-links": [
-        {
-            "text": "Languages",
-            "link": "/languages"
-        },
-        {
-            "text": "Theme",
-            "link": "/theme"
-        },
-        {
-            "text": "Accessibility",
-            "link": "/accessibility"
-        }
-    ]
+	"title": "George Grainger's Home",
+	"nav-label": "Main",
+	"hamburger-menu": "Hamburger menu",
+	"theme-toggle": "Theme Toggle",
+	"motion": {
+		"no-preference": "Keep Animations",
+		"reduce": "Reduce Animations"
+	},
+	"nav-links": [
+		{
+			"text": "Home",
+			"link": "/"
+		},
+		{
+			"text": "Projects",
+			"link": "/projects"
+		},
+		{
+			"text": "About",
+			"link": "/about"
+		}
+	],
+	"preferences": "Preferences",
+	"created-by": "Created by",
+	"footer-links": [
+		{
+			"text": "Languages",
+			"link": "/languages"
+		},
+		{
+			"text": "Theme",
+			"link": "/theme"
+		},
+		{
+			"text": "Accessibility",
+			"link": "/accessibility"
+		}
+	]
 }

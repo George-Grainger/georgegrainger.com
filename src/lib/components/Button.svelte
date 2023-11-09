@@ -4,9 +4,10 @@
 	export let href = '';
 	export let target = '';
 	export let rel = '';
+	export let download = '';
 </script>
 
-<CondtionalLink class="btn" {href} {target} {rel} fallback="button">
+<CondtionalLink class="btn" {href} {target} {rel} {download} fallback="button">
 	<strong><slot>Button Text</slot></strong>
 	<span>
 		<svg viewBox="0 0 66 43" fill="currentColor">

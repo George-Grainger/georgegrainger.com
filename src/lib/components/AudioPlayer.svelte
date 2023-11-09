@@ -27,7 +27,6 @@
 
 	import { autoplay } from '$lib/stores/autoplay';
 	import ProgressBar from './ProgressBar.svelte';
-	import { fade } from 'svelte/transition';
 
 	export let src: string;
 

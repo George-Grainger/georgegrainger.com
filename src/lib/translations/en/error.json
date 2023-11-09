@@ -1,8 +1,8 @@
 {
-    "title": "Oops ☹",
-    "404": "That page doesn't exist",
-    "500": "You've hit a server error",
-    "404.body": "You might have misstyped it? Otherwise, if something weird is going on, get in touch",
-    "500.body": "I'm not sure why that happened - but feel free to get in touch and let me know",
-    "return": "Return to safety"
+	"title": "Oops ☹",
+	"404": "That page doesn't exist",
+	"500": "You've hit a server error",
+	"404.body": "You might have misstyped it? Otherwise, if something weird is going on, get in touch",
+	"500.body": "I'm not sure why that happened - but feel free to get in touch and let me know",
+	"return": "Return to safety"
 }

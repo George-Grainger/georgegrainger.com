@@ -1,5 +1,5 @@
 import { filterTrackData, getSpotifyResponse } from '$lib/utils/server/spotify';
-import { error, json } from '@sveltejs/kit';
+import { json } from '@sveltejs/kit';
 
 export async function GET({ setHeaders }) {
 	const topTracksEndpoint = `https://api.spotify.com/v1/me/top/tracks?time_range=short_term&limit=9`;

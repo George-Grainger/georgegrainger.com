@@ -57,6 +57,7 @@
 		{#each $t('home.interests-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
 		{/each}
+		<Button href="/GeorgeGraingerCV.pdf" target="_blank">View my CV</Button>
 	</div>
 	<div class="spotify">
 		<h2>Spotify</h2>
@@ -76,7 +77,6 @@
 		gap: 1em 0em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 		text-align: center;
-		margin-top: 1em;
 
 		h1 {
 			line-height: 1;
@@ -120,7 +120,8 @@
 	}
 
 	.about-me {
-		gap: 1rem;
+		gap: 2rem;
+		// text-align: justify;
 
 		h1 {
 			font-weight: 700;
@@ -141,13 +142,16 @@
 		p {
 			margin-top: -1em;
 		}
+
+		:global(a) {
+			margin-top: 2em;
+		}
 	}
 
 	@media only screen and (width > 60rem) {
 		.hero {
 			row-gap: 0.5em;
 			grid-template-columns: 1fr 1fr;
-			margin-top: 2em;
 
 			h2 {
 				margin-block: 0.25em;

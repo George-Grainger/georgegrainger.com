@@ -1,7 +1,7 @@
 <script lang="ts">
 	export let src: string;
 	export let alt: string;
-	export let placeholderSrc: string = '';
+	export let placeholderSrc = '';
 
 	function setLoaded(e: Event) {
 		const el = e.currentTarget as HTMLImageElement;
