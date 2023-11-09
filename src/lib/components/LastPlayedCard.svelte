@@ -71,7 +71,7 @@
 	<LazyImage
 		src={imgUrl}
 		alt={`Album image for ${title}`}
-		placholderSrc={imgPlaceholderUrl}
+		placeholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
 	<div class="details" class:isPlaying>
@@ -122,8 +122,7 @@
 		}
 
 		// Prevent height of image from stretching
-		:global(> div),
-		:global(div img) {
+		:global(.lazy-img) {
 			height: initial;
 		}
 

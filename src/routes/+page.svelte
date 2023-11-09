@@ -6,6 +6,7 @@
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 	import { getContext } from 'svelte/internal';
+	import LazyImage from '$lib/components/LazyImage.svelte';
 
 	export let data;
 	const { t } = getContext('translations');
@@ -22,9 +23,13 @@
 <section id="projects" class="projects">
 	{#each $t('home.projects') as project}
 		<ProjectCard technologies={project.technologies}>
-			<svelte:fragment slot="image"
-				><img srcset={project.thumbnails} alt={project.alt} /></svelte:fragment
-			>
+			<svelte:fragment slot="image">
+				<LazyImage
+					placeholderSrc={project.placeholderSrc || ''}
+					src={project.src}
+					alt={project.alt}
+				/>
+			</svelte:fragment>
 			<svelte:fragment slot="title">{project.title}</svelte:fragment>
 			<svelte:fragment slot="subtitle">{project.subtitle}</svelte:fragment>
 			<svelte:fragment slot="description">{project.description}</svelte:fragment>

@@ -1,4 +1,11 @@
-import symput from '$lib/assets/projects/Symput.svg';
+import symput from '$lib/assets/projects/symput.svg';
+import brain from '$lib/assets/projects/brain.webp';
+import brainPlaceholder from '$lib/assets/projects/brain-placeholder.webp';
+import nhsHl from '$lib/assets/projects/nhs-hl.svg';
+import stendhal from '$lib/assets/projects/stendhal.webp';
+import stendhalPlaceholder from '$lib/assets/projects/stendhal-placeholder.webp';
+import personalWebsite from '$lib/assets/projects/personal-website.svg';
+import iotVinyl from '$lib/assets/projects/iot-vinyl.svg';
 
 export default {
 	title: 'Hello there',
@@ -11,7 +18,7 @@ export default {
 			subtitle: 'An Android keyboard and associated full stack website for feedback',
 			description:
 				'Created a full stack website, symput.com allowing users of our first-year group project android keyboard to provide feedback. The site includes a CMS, user profiles, serverless functions and more!',
-			thumbnails: symput,
+			src: symput,
 			alt: 'The Symput logo',
 			link: '/projects/symput',
 			technologies: ['nextjs', 'tailwind', 'firebase']
@@ -21,7 +28,8 @@ export default {
 			subtitle: 'Computational models simulating the dopamine system circuirty in the brain',
 			description:
 				'My third-year project in which I hope to create simulations of the dopamine system, specifically relating to addiction through reinforcement learning models.',
-			thumbnails: symput,
+			src: brain,
+			placeholderSrc: brainPlaceholder,
 			alt: 'A purple 3d render of a brain',
 			link: '/projects/reinforcement-learning',
 			technologies: ['python', 'research']
@@ -31,7 +39,7 @@ export default {
 			subtitle: 'Created a resource for Newcastle NHS Foundation trust transplant patients',
 			description:
 				"Created an information and learning system for heart and lung patients, hopefully easing the process of understanding changes they'll need to make after the operation. The site had to be universally useable making accessibility and intuitiveness essential.",
-			thumbnails: symput,
+			src: nhsHl,
 			alt: 'The NHS logo',
 			link: '/projects/nhs-heart-and-lung',
 			technologies: ['wordpress', 'accessibility']
@@ -41,7 +49,8 @@ export default {
 			subtitle: 'Debugging and adding features to an open source MMORPG with 10,000 lines of code',
 			description:
 				"Brownfield development on a large scale, open source Java codebase. Improved my ability to navigate, and understand others' code while realising some of the advantages of test-driven development.",
-			thumbnails: symput,
+			src: stendhal,
+			placeholderSrc: stendhalPlaceholder,
 			alt: 'Artwork from Stendhal',
 			link: '/projects/stendhal',
 			technologies: ['java', 'junit', 'opensource']
@@ -51,7 +60,7 @@ export default {
 			subtitle: 'georgegrainger.com (this site) - my portfolio website to try and show off!',
 			description:
 				'Designed and implemented this website. This site contains nice animations, particularly when switching between dark and light modes. It also includes page transitions and use of the Spotify API.',
-			thumbnails: symput,
+			src: personalWebsite,
 			alt: 'Footer artwork from georgegrainger.com',
 			link: '/projects/personal-website',
 			technologies: ['solidjs', 'love']
@@ -61,7 +70,7 @@ export default {
 			subtitle: 'Embedded chips into vinyls so Alexa plays a song when a phone is held nearby',
 			description:
 				'Designing a system so wthat when I hold my phone up to a vinyl found in my room, it will start playing a song from that album from my Alexa.',
-			thumbnails: symput,
+			src: iotVinyl,
 			alt: 'Collage of album covers',
 			link: '/projects/iot-vinyl-playing',
 			technologies: ['assembly', 'iot', 'cpp']

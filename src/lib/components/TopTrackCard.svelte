@@ -75,7 +75,7 @@
 	<LazyImage
 		src={imgUrl}
 		alt={`Album image for ${title}`}
-		placholderSrc={imgPlaceholderUrl}
+		placeholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
 	<button aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>

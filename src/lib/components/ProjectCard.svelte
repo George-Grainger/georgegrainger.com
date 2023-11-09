@@ -59,7 +59,6 @@
 	bind:this={card}
 	on:mouseenter={handleMouseOver}
 	on:mouseleave={handleMouseOut}
-	on:pointerdown={handleMouseOver}
 	on:focusin={handleMouseOver}
 	on:focusout={handleMouseOut}
 >

@@ -1,4 +1,9 @@
-import symput from '$lib/assets/projects/Symput.svg';
+import symput from '$lib/assets/projects/symput.svg';
+import brain from '$lib/assets/projects/brain.webp';
+import nhsHl from '$lib/assets/projects/nhs-hl.svg';
+import stendhal from '$lib/assets/projects/stendhal.webp';
+import personalWebsite from '$lib/assets/projects/personal-website.svg';
+import iotVinyl from '$lib/assets/projects/iot-vinyl.svg';
 
 export default {
 	title: 'Bonjour',
@@ -11,7 +16,7 @@ export default {
 			subtitle: 'Un clavier Android et un site Web complet associé pour les commentaires',
 			description:
 				"Création d'un site Web complet, symput.com permettant aux utilisateurs de notre clavier Android de projet de groupe de première année de fournir des commentaires. Le site comprend un CMS, des profils d'utilisateurs, des fonctions sans serveur et plus encore !",
-			thumbnails: symput,
+			src: symput,
 			alt: 'Le logo Symput',
 			link: '/projects/symput',
 			technologies: ['nextjs', 'tailwind', 'firebase']
@@ -22,7 +27,7 @@ export default {
 				'Modèles informatiques simulant les circuits du système dopaminergique dans le cerveau',
 			description:
 				"Mon projet de troisième année dans lequel j'espère créer des simulations du système dopaminergique, spécifiquement liées à la dépendance à travers des modèles d'apprentissage par renforcement.",
-			thumbnails: symput,
+			src: brain,
 			alt: "Un rendu 3D violet d'un cerveau",
 			link: '/projects/reinforcement-learning',
 			technologies: ['python', 'research']
@@ -33,7 +38,7 @@ export default {
 				"Création d'une ressource pour les patients transplantés de la Newcastle NHS Foundation Trust",
 			description:
 				"Création d'un système d'information et d'apprentissage pour les patients cardiaques et pulmonaires, facilitant, espérons-le, le processus de compréhension des changements qu'ils devront apporter après l'opération. Le site devait être universellement utilisable rendant l'accessibilité et l'intuitivité essentielles.",
-			thumbnails: symput,
+			src: nhsHl,
 			alt: 'Le logo du NHS',
 			link: '/projects/nhs-heart-and-lung',
 			technologies: ['wordpress', 'accessibility']
@@ -44,7 +49,7 @@ export default {
 				'Débogage et ajout de fonctionnalités à un MMORPG open source avec 10 000 lignes de code',
 			description:
 				"Développement brownfield à grande échelle, base de code Java open source. J'ai amélioré ma capacité à naviguer et à comprendre le code des autres tout en réalisant certains des avantages du développement piloté par les tests.",
-			thumbnails: symput,
+			src: stendhal,
 			alt: 'Oeuvre de Stendhal',
 			link: '/projects/stendhal',
 			technologies: ['java', 'junit', 'opensource']
@@ -54,7 +59,7 @@ export default {
 			subtitle: 'georgegrainger.com (ce site) - mon site de portfolio à essayer et à montrer !',
 			description:
 				"Conception et réalisation de ce site Web. Ce site contient de belles animations (si je le dis moi-même), en particulier lors du basculement entre les modes sombre et clair. Il inclut également les transitions de page et l'utilisation de l'API Spotify.",
-			thumbnails: symput,
+			src: personalWebsite,
 			alt: 'Illustration de pied de page de georgegrainger.com',
 			link: '/projects/personal-website',
 			technologies: ['solidjs', 'love']
@@ -65,7 +70,7 @@ export default {
 				"Puces intégrées dans les vinyles pour qu'Alexa joue une chanson lorsqu'un téléphone est tenu à proximité",
 			description:
 				'Concevoir un système pour que lorsque je tiens mon téléphone devant un vinyle trouvé dans ma chambre, il commence à jouer une chanson de cet album de mon Alexa.',
-			thumbnails: symput,
+			src: iotVinyl,
 			alt: "Collage de pochettes d'albums",
 			link: '/projects/iot-vinyl-playing',
 			technologies: ['assembly', 'iot', 'cpp']
