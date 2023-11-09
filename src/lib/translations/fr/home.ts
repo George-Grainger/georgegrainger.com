@@ -1,4 +1,4 @@
-import symput from '$lib/assets/projects/symput.svg';
+import symput from '$lib/assets/projects/Symput.svg';
 import brain from '$lib/assets/projects/brain.webp';
 import nhsHl from '$lib/assets/projects/nhs-hl.svg';
 import stendhal from '$lib/assets/projects/stendhal.webp';
