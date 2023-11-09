@@ -47,7 +47,7 @@
 	<title>{$t('global.title')}</title>
 </svelte:head>
 
-<Nav />
+<Nav bind:showClouds />
 
 {#if !showClouds && beenDuration}
 	<main out:fade={{ duration: duration }}>
@@ -55,21 +55,9 @@
 	</main>
 	<Footer {duration} />
 {:else}
-	<svg width="110vw" height="54vw" overflow="visible">
-		<use
-			href="#lg-cloud-1"
-			class="big-cloud"
-			x="-5vw"
-			y="-18vw"
-			transition:fly={{ x: '-110vw', duration: duration }}
-		/>
-		<use
-			href="#lg-cloud-1"
-			x="-5vw"
-			y="10vw"
-			class="big-cloud"
-			transition:fly={{ x: '110vw', duration: duration }}
-		/>
+	<svg overflow="visible">
+		<use href="#lg-cloud-1" transition:fly={{ x: '-100%', duration: duration }} />
+		<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
 	</svg>
 {/if}
 
@@ -80,5 +68,31 @@
 		z-index: 9;
 		position: fixed;
 		pointer-events: none;
+		width: 165vh;
+		height: 81vh;
+
+		use:first-child {
+			transform: translate(-25vh, -20vw);
+		}
+
+		use {
+			transform: translate(-25vh, 25vh);
+			opacity: 0.8;
+		}
+	}
+
+	@media only screen and (width > 60rem) {
+		svg {
+			width: 110vw;
+			height: 54vw;
+		}
+
+		use:first-child {
+			transform: translate(-5vw, -18vw);
+		}
+
+		use {
+			transform: translate(-5vw, -10vw);
+		}
 	}
 </style>

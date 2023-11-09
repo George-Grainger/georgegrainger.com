@@ -6,13 +6,26 @@
 	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
-	import { getContext } from 'svelte';
+	import { getContext, onMount } from 'svelte';
 
+	// Handle showing clouds for hamburger menu
+	export let showClouds: boolean;
+	function removeHamburgerOnDesktop() {
+		if (window.matchMedia('(width > 60rem)').matches) {
+			showClouds = false;
+		}
+	}
+	onMount(() => {
+		window.addEventListener('resize', removeHamburgerOnDesktop);
+		return () => window.removeEventListener('resize', removeHamburgerOnDesktop);
+	});
+
+	// Handle translation
 	const { t, locale } = getContext('translations');
 </script>
 
 <nav aria-label={$t('global.nav-label')}>
-	<ul class="links">
+	<ul class:showClouds class="links">
 		{#each $t('global.nav-links') as { text, link }}
 			<li>
 				<a href={link}>{text}</a>
@@ -48,7 +61,7 @@
 			</Select>
 		</li>
 	</ul>
-	<button class="hamburger">
+	<button class="hamburger" on:click={() => (showClouds = !showClouds)}>
 		<svg viewBox="0 0 24 24">
 			<title>{$t('global.hamburger-menu')}</title>
 			<path
@@ -86,7 +99,22 @@
 	}
 
 	.links {
-		display: none;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 1em;
+		gap: 1.5em;
+		position: fixed;
+		inset: 3em 7.5vw 4em;
+		font-size: 1.5em;
+		opacity: 0;
+		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
+
+		&.showClouds {
+			--_delay: var(--duration);
+			opacity: 1;
+		}
 	}
 
 	li {
@@ -148,6 +176,7 @@
 	@media only screen and (width > 60rem) {
 		.links {
 			display: contents;
+			font-size: inherit;
 		}
 
 		.hamburger {

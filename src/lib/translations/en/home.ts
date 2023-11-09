@@ -12,6 +12,7 @@ export default {
 	subtitle: 'Thanks for stopping by',
 	'intro-paragraph': "I'm George, a final year computer science student based in Manchester",
 	'about-me': 'About Me',
+	'projects-title': 'Projects',
 	projects: [
 		{
 			title: 'Symput',
@@ -97,12 +98,23 @@ export default {
 		"I've played rugby since I was little, and still enjoy playing it now. Since coming to university, I've also taken up climbing and surfing. These bring new challenges that I'm enjoying getting involved in.",
 		'In particular, I like the problem-solving aspect of climbing, and the feeling of satisfaction after persevering to get a tricky climb.'
 	],
-	cv: 'View my CV',
 	'spotify-tagline': 'Information on my favourite songs and recent listening',
-	'latest-song': 'Latest song played',
+	cv: 'View my CV',
+	pause: 'Pause',
+	play: 'Play',
+	mute: 'Mute',
+	unmute: 'Unmute',
+	close: 'Close',
+	'spotify-logo': 'Spotify logo',
+	'spotify-sr-only': 'Listen to {{title}} on Spotify',
+	'currently-playing': 'Currently Playing',
+	'latest-song': 'My Most Recent Song',
+	'personal-favourite': 'A Personal Favourite',
 	'album-img-alt': 'Album image for {{title}}',
 	'played-on': 'Played on {{date}} at {{time}}',
 	'check-back': "Check back when I'm listening for a live feed",
-	'current-playing': "I'm currently listening at...",
-	'stick-around': 'Stick around to see what I listen to next'
+	'current-tagline': "I'm currently listening at...",
+	'stick-around': 'Stick around to see what I listen to next',
+	'no-spotify': 'Live Spotify data is unavailable ☹',
+	'last-played-tagline': "Check when I'm online to see a live feed"
 };

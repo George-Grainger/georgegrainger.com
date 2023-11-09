@@ -1,7 +1,14 @@
 import type { Config } from 'sveltekit-i18n';
 import I18n from 'sveltekit-i18n';
 
-const config: Config = {
+interface Params {
+	title?: string;
+	date?: string;
+	time?: string;
+	// add more parameters that are used here
+}
+
+const config: Config<Params> = {
 	preprocess: 'preserveArrays',
 	loaders: [
 		{

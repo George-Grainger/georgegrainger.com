@@ -5,6 +5,7 @@
 	import { autoplay } from '$lib/stores/autoplay';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
 	import Cross from '$lib/assets/svg/audio/Cross.svelte';
+	import { getContext } from 'svelte/internal';
 
 	export let tag = 'div';
 
@@ -18,6 +19,8 @@
 	export let previewUrl: string | undefined = undefined;
 
 	export let expanded = false;
+
+	const { t } = getContext('translations');
 
 	// Play audio if autoplay is true
 	function handleClick(e: MouseEvent) {
@@ -74,12 +77,12 @@
 >
 	<LazyImage
 		src={imgUrl}
-		alt={`Album image for ${title}`}
+		alt={$t('home.album-img-alt', { title })}
 		placeholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
 	<button aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>
-		<span class="sr-only">Close</span>
+		<span class="sr-only">{$t('home.close')}</span>
 		<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
 	</button>
 	<div class="details">

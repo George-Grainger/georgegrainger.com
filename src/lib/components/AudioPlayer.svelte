@@ -27,10 +27,12 @@
 
 	import { autoplay } from '$lib/stores/autoplay';
 	import ProgressBar from './ProgressBar.svelte';
+	import { getContext } from 'svelte/internal';
 
 	export let src: string;
 
 	// The duration appears to only work when it's not preset?
+	const { t } = getContext('translations');
 	let duration: number;
 	let time = 0;
 	let muted = false;
@@ -64,7 +66,7 @@
 		on:play={handlePlay}
 		on:ended={() => (time = duration)}
 	/>
-	<button class="play" aria-label={paused ? 'play' : 'pause'} on:click={handleClick}>
+	<button class="play" aria-label={$t(paused ? 'home.play' : 'home.pause')} on:click={handleClick}>
 		{#if paused}
 			<PlayIcon fill="var(--black)" />
 		{:else}
@@ -72,7 +74,11 @@
 		{/if}
 	</button>
 	<ProgressBar on:pointerdown={() => (paused = true)} bind:time bind:duration />
-	<button class="mute" aria-label={muted ? 'mute' : 'unmute'} on:click={() => (muted = !muted)}>
+	<button
+		class="mute"
+		aria-label={$t(muted ? 'home.mute' : 'home.unmute')}
+		on:click={() => (muted = !muted)}
+	>
 		{#if muted}
 			<SoundOff fill="var(--white)" />
 		{:else}

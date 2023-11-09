@@ -5,6 +5,7 @@
 	import LazyImage from './LazyImage.svelte';
 	import ProgressBar from './ProgressBar.svelte';
 	import { invalidateAll } from '$app/navigation';
+	import { getContext } from 'svelte/internal';
 
 	export let title: string;
 	export let artist: string;
@@ -20,6 +21,7 @@
 	export let isPlaying: boolean;
 	export let isOffline: boolean;
 
+	const { t, locale } = getContext('translations');
 	let playedAtDate = new Date(playedAt);
 	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 
@@ -51,13 +53,15 @@
 </script>
 
 <div class="last-played-card">
-	{#if isPlaying}
-		<strong class="header">Currently Playing</strong>
-	{:else if isOffline}
-		<strong class="header">A Personal Favourite</strong>
-	{:else}
-		<strong class="header">My Most Recent Song</strong>
-	{/if}
+	<strong class="header">
+		{#if isPlaying}
+			{$t('home.currently-playing')}
+		{:else if isOffline}
+			{$t('home.personal-favourite')}
+		{:else}
+			{$t('home.latest-song')}
+		{/if}
+	</strong>
 	<a
 		class="spotify-link"
 		href={playUrl}
@@ -65,12 +69,12 @@
 		rel="noopener noreferrer"
 		on:keydown={handleKeyDown}
 	>
-		<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
-		<img src={spotifyLogo} alt="Spotify Logo" />
+		<span class="sr-only">{$t('home.spotify-sr-only', { title })}</span>
+		<img src={spotifyLogo} alt={$t('home.spotify-logo')} />
 	</a>
 	<LazyImage
 		src={imgUrl}
-		alt={`Album image for ${title}`}
+		alt={$t('home.album-img-alt', { title })}
 		placeholderSrc={imgPlaceholderUrl}
 		loading="lazy"
 	/>
@@ -78,19 +82,20 @@
 		<p class="title">{title}</p>
 		<strong class="artist">{artist}</strong>
 		{#if isPlaying}
-			<small>I'm currently listening at...</small>
+			<small>{$t('home.current-intro')}</small>
 			<ProgressBar time={progress} {duration} />
-			<p class="tagline">Stick around to see what I listen to next</p>
+			<p class="tagline">{$t('home.stick-around')}</p>
 		{:else if isOffline}
-			<small>Live Spotify data is unavailable ☹</small>
-			<p class="tagline">Check again when online to see a live feed</p>
+			<small>{$t('home.no-spotify')}</small>
+			<p class="tagline">{$t('home.last-played-tagline')}</p>
 		{:else}
-			<small
-				>Played on {playedAtDate
-					.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short', hourCycle: 'h12' })
-					.replace(',', ' at ')}</small
-			>
-			<p class="tagline">Check when I'm online to see a live feed</p>
+			<small>
+				{$t('home.played-on', {
+					date: playedAtDate.toLocaleString($locale, { dateStyle: 'short' }),
+					time: playedAtDate.toLocaleTimeString($locale, { timeStyle: 'short', hourCycle: 'h24' })
+				})}
+			</small>
+			<p class="tagline">{$t('home.last-played-tagline')}</p>
 		{/if}
 	</div>
 	{#if previewUrl}

@@ -21,6 +21,9 @@
 </section>
 
 <section id="projects" class="projects">
+	<div>
+		<h1 id="project-title">{$t('home.projects-title')}</h1>
+	</div>
 	{#each $t('home.projects') as project}
 		<ProjectCard technologies={project.technologies}>
 			<svelte:fragment slot="image">
@@ -114,19 +117,30 @@
 		justify-content: center;
 		align-items: start;
 		gap: 2em 4em;
-		font-size: 1.125rem;
 		margin-bottom: 2.5%;
 		counter-reset: card-num;
+
+		div {
+			margin: auto;
+			grid-column: 1 / -1;
+		}
+
+		h1 {
+			transition: translate var(--duration) var(--transition);
+		}
+
+		:global(article) {
+			font-size: 1.125rem;
+		}
 	}
 
 	.about-me {
 		gap: 2rem;
-		// text-align: justify;
+	}
 
-		h1 {
-			font-weight: 700;
-			font-size: 2em;
-		}
+	h1 {
+		font-weight: 700;
+		font-size: 3em;
 	}
 
 	.spotify {
@@ -141,10 +155,6 @@
 
 		p {
 			margin-top: -1em;
-		}
-
-		:global(a) {
-			margin-top: 2em;
 		}
 	}
 

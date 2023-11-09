@@ -4,7 +4,7 @@
 	export let href = '';
 	export let target = '';
 	export let rel = '';
-	export let download = '';
+	export let download: string | null = null;
 </script>
 
 <CondtionalLink class="btn" {href} {target} {rel} {download} fallback="button">

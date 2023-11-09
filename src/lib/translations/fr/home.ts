@@ -10,6 +10,7 @@ export default {
 	subtitle: "Merci d'être passé",
 	'intro-paragraph': "Je m'appelle George, un étudiant en informatique vivant à Manchester",
 	'about-me': 'Sur moi',
+	'projects-title': 'Projets',
 	projects: [
 		{
 			title: 'Symput',
@@ -99,10 +100,21 @@ export default {
 	],
 	cv: 'Voir mon CV',
 	'spotify-tagline': 'Informations sur mes chansons récentes et préférées',
+	pause: "Mettre l'audio en pause",
+	play: "Lire l'audio",
+	mute: 'Couper le son',
+	unmute: "Réactiver le son de l'audio",
+	close: 'Fermez',
+	'spotify-logo': 'Spotify Logo',
+	'spotify-sr-only': 'Écoutez {{title}} sur Spotify',
+	'currently-playing': 'En cours de lecture',
 	'latest-song': 'Dernière chanson jouée',
+	'personal-favourite': 'Un favori personnel',
 	'album-img-alt': "Image de l'album pour {{title}}",
 	'played-on': 'Joué le {{date}} à {{time}}',
 	'check-back': "Revenez quand j'écoute un flux en direct",
-	'current-playing': "J'écoute actuellement à...",
-	'stick-around': "Reste dans le coin pour voir ce que j'écoute ensuite"
+	'current-tagline': "J'écoute actuellement à...",
+	'no-spotify': 'Les données Spotify en direct ne sont pas disponibles ☹',
+	'stick-around': "Reste dans le coin pour voir ce que j'écoute ensuite",
+	'last-played-tagline': 'Vérifier quand je suis en ligne pour voir un flux en direct'
 };

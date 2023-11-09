@@ -27,6 +27,7 @@
 
 		// Get list of all cards on parent
 		let cards = Array.from(card.parentElement?.children || []) as HTMLElement[];
+		cards = cards.filter((c) => c.tagName === 'ARTICLE');
 		let cardIndex = cards.indexOf(card);
 
 		// Get all cards in same column as current one
@@ -39,6 +40,10 @@
 
 		// Offset cards below
 		const cardsBefore = cards.slice(0, cardIndex);
+		const mid = (perRow - 1) / 2;
+		if (col === Math.floor(mid) % perRow || col === Math.ceil(mid) % perRow) {
+			cardsBefore.push(document.getElementById('project-title') as HTMLElement);
+		}
 		cardsBefore.forEach((c) => c.style.setProperty('translate', '0 -3rem'));
 
 		// Offset cards above
@@ -46,10 +51,16 @@
 		const upOffset = Number(card.style.getPropertyValue('margin-bottom').slice(0, -2));
 		const downOffset = `${-upOffset}px`;
 		cardsAfter.forEach((c) => c.style.setProperty('translate', `0 ${downOffset}`));
+
+		// Scroll into view on mobile
+		if (matchMedia('(pointer: coarse)').matches) {
+			card.scrollIntoView(true);
+		}
 	};
 
 	const handleMouseOut = () => {
 		const cards = Array.from(card.parentElement?.children || []) as HTMLElement[];
+		cards.push(document.getElementById('project-title') as HTMLElement);
 		cards.forEach((c) => c.style.removeProperty('translate'));
 	};
 </script>
