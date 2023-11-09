@@ -27,7 +27,7 @@
 	}
 
 	// Page transitions
-	let interval = 300;
+	let duration = 450;
 	let showClouds = false;
 	let beenDuration = true;
 
@@ -35,7 +35,7 @@
 		const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 		showClouds = changed;
 		beenDuration = !changed;
-		setTimeout(() => (beenDuration = true), 400);
+		setTimeout(() => (beenDuration = true), 600);
 	});
 
 	afterNavigate(() => {
@@ -50,27 +50,35 @@
 <Nav />
 
 {#if !showClouds && beenDuration}
-	<main out:fade={{ duration: interval }}>
+	<main out:fade={{ duration: duration }}>
 		<slot />
 	</main>
+	<Footer {duration} />
 {:else}
-	<div transition:fly={{ x: '50%', duration: interval }} class="big-cloud" />
-	<div transition:fly={{ x: '-50%', duration: interval }} class="big-cloud" />
+	<svg width="110vw" height="54vw" overflow="visible">
+		<use
+			href="#lg-cloud-1"
+			class="big-cloud"
+			x="-5vw"
+			y="-18vw"
+			transition:fly={{ x: '-110vw', duration: duration }}
+		/>
+		<use
+			href="#lg-cloud-1"
+			x="-5vw"
+			y="10vw"
+			class="big-cloud"
+			transition:fly={{ x: '110vw', duration: duration }}
+		/>
+	</svg>
 {/if}
 
-<Footer />
 <Symbols />
 
 <style lang="scss">
-	.big-cloud {
-		z-index: 5;
+	svg {
+		z-index: 9;
 		position: fixed;
-		inset: 0;
-		background-color: var(--cloud);
-		translate: 40%;
-
-		+ .big-cloud {
-			translate: -40%;
-		}
+		pointer-events: none;
 	}
 </style>

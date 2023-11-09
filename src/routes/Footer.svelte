@@ -1,11 +1,14 @@
 <script lang="ts">
 	import FooterScene from '$lib/assets/svg/FooterScene.svelte';
 	import { getContext } from 'svelte';
+	import { fade } from 'svelte/transition';
 
-	const { t, locale } = getContext('translations');
+	export let duration = 450;
+
+	const { t } = getContext('translations');
 </script>
 
-<footer>
+<footer transition:fade={{ duration }}>
 	<div class="footer-image"><FooterScene /></div>
 	<div class="footer-text-wrapper">
 		<div class="footer-text">
