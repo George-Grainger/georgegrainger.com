@@ -30,8 +30,7 @@
 
 		if (progress == duration) {
 			await invalidate('home:data');
-			console.log('invalidated');
-			progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
+			progress = 0;
 		}
 	}
 

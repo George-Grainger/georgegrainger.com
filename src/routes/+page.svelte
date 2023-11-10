@@ -36,7 +36,6 @@
 	$: {
 		if (browser && $locale) {
 			invalidate('home:data');
-			console.log('invalidated');
 		}
 	}
 </script>
