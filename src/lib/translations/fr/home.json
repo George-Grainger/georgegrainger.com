@@ -41,7 +41,7 @@
 	"album-img-alt": "Image de l'album pour {{title}}",
 	"played-on": "Joué le {{date}} à {{time}}",
 	"check-back": "Revenez quand j'écoute un flux en direct",
-	"current-tagline": "J'écoute actuellement à...",
+	"current-intro": "J'écoute actuellement à...",
 	"no-spotify": "Les données Spotify en direct ne sont pas disponibles ☹",
 	"stick-around": "Reste dans le coin pour voir ce que j'écoute ensuite",
 	"last-played-tagline": "Vérifier quand je suis en ligne pour voir un flux en direct"

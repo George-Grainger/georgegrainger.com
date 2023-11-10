@@ -1,7 +1,3 @@
-export const config = {
-	isr: { expiration: 60 }
-};
-
 export async function load({ fetch, cookies, depends }) {
 	depends('home:data');
 
