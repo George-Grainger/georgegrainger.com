@@ -64,6 +64,7 @@ img {
 	// Animation
 	--transition: cubic-bezier(0.22, 0.61, 0.36, 1);
 	--duration: 300ms;
+	--rm-translation: max(20vw, 48%);
 }
 
 :root {
@@ -86,6 +87,8 @@ img {
 	--hover-inverse: var(--white-hover);
 	--outline: var(--red);
 	--card: var(--black-hover);
+
+	--rm-translation: max(20vw, 30%);
 }
 
 body {
@@ -124,10 +127,6 @@ main {
 	margin-inline: auto;
 	font-size: clamp(1.125rem, 3.5vw, 1.375rem);
 	margin-top: 1rem;
-}
-
-section + section {
-	margin-top: 15rem;
 }
 
 button {
@@ -207,6 +206,6 @@ a:focus-visible {
 	}
 
 	main {
-		margin-top: 2rem;
+		margin-top: 7.5rem;
 	}
 }

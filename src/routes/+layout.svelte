@@ -32,10 +32,13 @@
 	let beenDuration = true;
 
 	beforeNavigate((e) => {
-		const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
-		showClouds = changed;
-		beenDuration = !changed;
-		setTimeout(() => (beenDuration = true), 600);
+		// Don't delay when navigating on mobile
+		if (!showClouds) {
+			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
+			showClouds = changed;
+			beenDuration = !changed;
+			setTimeout(() => (beenDuration = true), 600);
+		}
 	});
 
 	afterNavigate(() => {
@@ -50,7 +53,7 @@
 <Nav bind:showClouds />
 
 {#if !showClouds && beenDuration}
-	<main out:fade={{ duration: duration }}>
+	<main transition:fade={{ duration: duration }}>
 		<slot />
 	</main>
 	<Footer {duration} />
@@ -70,15 +73,15 @@
 		pointer-events: none;
 		width: 165vh;
 		height: 81vh;
+	}
 
-		use:first-child {
-			transform: translate(-25vh, -20vw);
-		}
+	use:first-child {
+		transform: translate(-25vh, -20vh);
+	}
 
-		use {
-			transform: translate(-25vh, 25vh);
-			opacity: 0.8;
-		}
+	use {
+		transform: translate(-25vh, 25vh);
+		opacity: 0.85;
 	}
 
 	@media only screen and (width > 60rem) {
@@ -92,7 +95,7 @@
 		}
 
 		use {
-			transform: translate(-5vw, -10vw);
+			transform: translate(-5vw, 15vh);
 		}
 	}
 </style>
