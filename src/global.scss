@@ -64,7 +64,7 @@ img {
 	// Animation
 	--transition: cubic-bezier(0.22, 0.61, 0.36, 1);
 	--duration: 300ms;
-	--rm-translation: max(20vw, 48%);
+	--rm-translation: 70%;
 }
 
 :root {
@@ -87,8 +87,6 @@ img {
 	--hover-inverse: var(--white-hover);
 	--outline: var(--red);
 	--card: var(--black-hover);
-
-	--rm-translation: max(20vw, 30%);
 }
 
 body {
@@ -203,9 +201,10 @@ a:focus-visible {
 @media only screen and (width > 60rem) {
 	:root {
 		--page-width: min(100vw - 3rem, 80rem);
+		--rm-translation: 35vw;
 	}
 
 	main {
-		margin-top: 7.5rem;
+		margin-top: 2.5rem;
 	}
 }

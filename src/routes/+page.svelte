@@ -6,10 +6,12 @@
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 	import { getContext, onMount } from 'svelte/internal';
+	import { invalidate } from '$app/navigation';
+	import { browser } from '$app/environment';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 
 	export let data;
-	const { t } = getContext('translations');
+	const { t, locale } = getContext('translations');
 
 	onMount(() => {
 		let previousY = 0;
@@ -30,6 +32,12 @@
 		const aboutClouds = document.getElementById('about-me')?.firstChild as HTMLElement;
 		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
 	});
+
+	$: {
+		if (browser && $locale) {
+			invalidate('home:data');
+		}
+	}
 </script>
 
 <section id="hero" class="hero">
@@ -51,8 +59,8 @@
 		</svg>
 		<h1 id="project-title">{$t('home.projects-title')}</h1>
 	</div>
-	{#each $t('home.projects') as project}
-		<ProjectCard technologies={project.technologies}>
+	{#each data.projects as project}
+		<ProjectCard technologies={project.technologies} href={project.slug}>
 			<svelte:fragment slot="image">
 				<LazyImage
 					placeholderSrc={project.placeholderSrc || ''}
@@ -122,6 +130,7 @@
 		gap: 1em 0em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 		text-align: center;
+		margin-top: 5rem;
 
 		h1 {
 			line-height: 1;
@@ -291,7 +300,7 @@
 				display: none;
 			}
 
-			&.first-child :first-child {
+			&:first-child :first-child {
 				transform-origin: 683px 0px;
 				scale: 250%;
 			}

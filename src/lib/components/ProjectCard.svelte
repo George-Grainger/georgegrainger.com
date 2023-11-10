@@ -3,9 +3,13 @@
 	import { technologyMap } from '$lib/utils/client/technology-map';
 	import CondtionalLink from './CondtionalLink.svelte';
 	import { beforeUpdate, onMount } from 'svelte';
+	import { getContext } from 'svelte/internal';
 
 	type Technology = keyof typeof technologyMap;
 	export let technologies: Technology[] = [];
+	export let href: string;
+
+	const { t } = getContext('translations');
 
 	let card: HTMLElement;
 	let preload = true;
@@ -97,7 +101,7 @@
 				{/if}
 			{/each}
 		</div>
-		<Button href={'about'}>View Details</Button>
+		<Button {href}>{$t('home.view-details')}</Button>
 	</section>
 </article>
 
@@ -158,7 +162,11 @@
 			section {
 				opacity: 1;
 				transform: translateY(0);
-				pointer-events: auto;
+				pointer-events: autosean;
+
+				:global(a) {
+					pointer-events: auto;
+				}
 			}
 		}
 	}
@@ -211,8 +219,12 @@
 		margin-top: 60%;
 		opacity: 0;
 		padding-bottom: 1em;
-		pointer-events: none;
 		transform: translateY(5%);
+		pointer-events: none;
+
+		:global(a) {
+			pointer-events: none;
+		}
 
 		strong {
 			font-size: 1.5em;

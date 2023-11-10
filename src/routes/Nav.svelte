@@ -110,6 +110,7 @@
 		font-size: 1.5em;
 		opacity: 0;
 		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
+		pointer-events: none;
 
 		&.showClouds {
 			--_delay: var(--duration);
@@ -177,6 +178,7 @@
 		.links {
 			display: contents;
 			font-size: inherit;
+			pointer-events: auto;
 		}
 
 		.hamburger {

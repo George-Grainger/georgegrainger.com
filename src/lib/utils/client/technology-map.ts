@@ -1,19 +1,19 @@
 import type { ComponentType } from 'svelte';
-import Assembly from '$lib/assets/projects/logos/Assembly.svelte';
-import Cpp from '$lib/assets/projects/logos/Cpp.svelte';
-import Firebase from '$lib/assets/projects/logos/Firebase.svelte';
-import Heart from '$lib/assets/projects/logos/Heart.svelte';
-import IoT from '$lib/assets/projects/logos/IoT.svelte';
-import Java from '$lib/assets/projects/logos/Java.svelte';
-import JUnit from '$lib/assets/projects/logos/JUnit.svelte';
-import NextJs from '$lib/assets/projects/logos/NextJS.svelte';
-import OpenSource from '$lib/assets/projects/logos/OpenSource.svelte';
-import Python from '$lib/assets/projects/logos/Python.svelte';
-import Research from '$lib/assets/projects/logos/Research.svelte';
-import SolidJs from '$lib/assets/projects/logos/SolidJS.svelte';
-import TailwindCss from '$lib/assets/projects/logos/TailwindCSS.svelte';
-import W3C from '$lib/assets/projects/logos/W3C.svelte';
-import WordPress from '$lib/assets/projects/logos/WordPress.svelte';
+import Assembly from '$lib/projects/logos/Assembly.svelte';
+import Cpp from '$lib/projects/logos/Cpp.svelte';
+import Firebase from '$lib/projects/logos/Firebase.svelte';
+import Heart from '$lib/projects/logos/Heart.svelte';
+import IoT from '$lib/projects/logos/IoT.svelte';
+import Java from '$lib/projects/logos/Java.svelte';
+import JUnit from '$lib/projects/logos/JUnit.svelte';
+import NextJs from '$lib/projects/logos/NextJS.svelte';
+import OpenSource from '$lib/projects/logos/OpenSource.svelte';
+import Python from '$lib/projects/logos/Python.svelte';
+import Research from '$lib/projects/logos/Research.svelte';
+import SolidJs from '$lib/projects/logos/SolidJS.svelte';
+import TailwindCss from '$lib/projects/logos/TailwindCSS.svelte';
+import W3C from '$lib/projects/logos/W3C.svelte';
+import WordPress from '$lib/projects/logos/WordPress.svelte';
 
 export interface TechnologyInfo {
 	name: string;

@@ -20,7 +20,7 @@ const config: Config<Params> = {
 			locale: 'en',
 			key: 'home',
 			routes: ['', '/'],
-			loader: async () => (await import('$lib/translations/en/home')).default
+			loader: async () => (await import('$lib/translations/en/home.json')).default
 		},
 		{
 			locale: 'en',
@@ -37,7 +37,7 @@ const config: Config<Params> = {
 			locale: 'fr',
 			key: 'home',
 			routes: ['', '/'],
-			loader: async () => (await import('$lib/translations/fr/home')).default
+			loader: async () => (await import('$lib/translations/fr/home.json')).default
 		},
 		{
 			locale: 'fr',
@@ -56,7 +56,7 @@ const defaultLocaleForLanguage: Record<string, string> = {
 };
 
 export async function loadTranslations(languages: readonly string[], route: string) {
-	const locale =
+	const _locale =
 		languages.find((lang) =>
 			availableLanguages.has(
 				!lang.includes('-') && lang in defaultLocaleForLanguage
@@ -66,7 +66,8 @@ export async function loadTranslations(languages: readonly string[], route: stri
 		) ?? defaultLocale;
 
 	const instance = new I18n(config);
-	await instance.loadTranslations(locale, route);
+	await instance.loadTranslations(_locale, route);
 
-	return { ...instance };
+	const { t, locale } = instance;
+	return { t, locale };
 }
