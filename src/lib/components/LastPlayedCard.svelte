@@ -4,7 +4,7 @@
 	import AudioPlayer from './AudioPlayer.svelte';
 	import LazyImage from './LazyImage.svelte';
 	import ProgressBar from './ProgressBar.svelte';
-	import { invalidate } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 	import { getContext } from 'svelte/internal';
 
 	export let title: string;
@@ -29,7 +29,7 @@
 		progress = Math.min(progress + 1, duration);
 
 		if (progress == duration) {
-			await invalidate('home:data');
+			await invalidateAll();
 			progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 		}
 	}

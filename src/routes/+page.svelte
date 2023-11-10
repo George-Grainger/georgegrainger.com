@@ -6,7 +6,7 @@
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 	import { getContext, onMount } from 'svelte/internal';
-	import { invalidate } from '$app/navigation';
+	import { invalidateAll } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 
@@ -35,7 +35,7 @@
 
 	$: {
 		if (browser && $locale) {
-			invalidate('home:data');
+			invalidateAll();
 		}
 	}
 </script>

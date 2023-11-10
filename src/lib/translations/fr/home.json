@@ -39,7 +39,7 @@
 	"latest-song": "Dernière chanson jouée",
 	"personal-favourite": "Un favori personnel",
 	"album-img-alt": "Image de l'album pour {{title}}",
-	"played-on": "Joué le {{date} à {{time}}",
+	"played-on": "Joué le {{date}} à {{time}}",
 	"check-back": "Revenez quand j'écoute un flux en direct",
 	"current-tagline": "J'écoute actuellement à...",
 	"no-spotify": "Les données Spotify en direct ne sont pas disponibles ☹",

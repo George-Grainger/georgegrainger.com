@@ -41,8 +41,8 @@
 	"album-img-alt": "Album image for {{title}}",
 	"played-on": "Played on {{date}} at {{time}}",
 	"check-back": "Check back when I'm listening for a live feed",
-	"current-tagline": "I'm currently listening at...",
+	"current-intro": "I'm currently listening at...",
 	"stick-around": "Stick around to see what I listen to next",
 	"no-spotify": "Live Spotify data is unavailable ☹",
-	"last-played-tagline": "Check when I'm online to see a live feed"
+	"last-played-intro": "Check when I'm online to see a live feed"
 }
