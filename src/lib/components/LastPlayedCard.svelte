@@ -29,7 +29,7 @@
 		progress = Math.min(progress + 1, duration);
 
 		if (progress == duration) {
-			await invalidate('home:data');
+			await invalidate('home:spotify');
 			progress = 0;
 		}
 	}

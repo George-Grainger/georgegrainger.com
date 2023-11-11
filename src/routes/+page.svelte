@@ -33,10 +33,8 @@
 		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
 	});
 
-	$: {
-		if (browser && $locale) {
-			invalidate('home:data');
-		}
+	$: if (browser && $locale) {
+		invalidate('home:projects');
 	}
 </script>
 

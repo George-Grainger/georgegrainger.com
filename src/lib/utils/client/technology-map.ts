@@ -98,4 +98,4 @@ const TECHNOLOGIES = {
 };
 
 // Solve issue with type either not correctly mapping keys or values
-export const technologyMap: Record<keyof typeof TECHNOLOGIES, TechnologyInfo> = TECHNOLOGIES;
+export const technologyMap: Record<string, TechnologyInfo> = TECHNOLOGIES;
