@@ -77,19 +77,9 @@
 		contain: content;
 	}
 
-	.sun-moon {
-		transition: translate var(--duration) var(--transition), fill var(--duration) var(--transition);
-	}
-
-	.moon-mask {
-		transition: translate var(--duration) var(--transition);
-	}
-
 	.stars,
 	.dots {
 		--_distance: 3.125rem;
-		transition: translate var(--duration) var(--transition),
-			opacity calc(var(--duration) * 0.5) var(--transition);
 	}
 
 	.stars {
@@ -108,14 +98,10 @@
 		opacity: 0;
 	}
 
-	:global([data-theme='light']) svg {
+	:global([data-theme='light']) {
 		.stars,
 		.dots {
 			opacity: 0;
-		}
-
-		.clouds use {
-			animation: cloud-to-light var(--duration) var(--_delay, 0ms);
 		}
 
 		.sun-moon {
@@ -123,18 +109,16 @@
 			translate: 13rem;
 		}
 
-		.plane {
-			animation: plane-move calc(6 * var(--duration)) 1 calc(1.25 * var(--duration));
-		}
-
 		.moon-mask {
 			translate: 8rem -4rem;
 		}
 	}
 
-	:global([data-theme='dark']) svg {
-		background-color: hsl(223, 48%, 25%);
-		border-color: hsl(230, 23%, 56%);
+	:global([data-theme='dark']) {
+		svg {
+			background-color: hsl(223, 48%, 25%);
+			border-color: hsl(230, 23%, 56%);
+		}
 
 		.stars,
 		.dots {
@@ -144,6 +128,38 @@
 		.clouds use {
 			translate: 6.75rem;
 			opacity: 0;
+		}
+	}
+
+	:global([data-motion='no-preference']) {
+		.sun-moon {
+			transition: translate var(--duration) var(--transition),
+				fill var(--duration) var(--transition);
+		}
+
+		.moon-mask {
+			transition: translate var(--duration) var(--transition);
+		}
+
+		.stars,
+		.dots {
+			transition: translate var(--duration) var(--transition),
+				opacity calc(var(--duration) * 0.5) var(--transition);
+		}
+	}
+
+	:global([data-motion='no-preference'][data-theme='light']) {
+		.clouds use {
+			animation: cloud-to-light var(--duration) var(--_delay, 0ms);
+		}
+
+		.plane {
+			animation: plane-move calc(6 * var(--duration)) 1 calc(1.25 * var(--duration));
+		}
+	}
+
+	:global([data-motion='no-preference'][data-theme='dark']) {
+		.clouds use {
 			transition: translate var(--duration) var(--transition),
 				opacity var(--duration) var(--transition);
 		}

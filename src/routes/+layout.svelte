@@ -11,6 +11,7 @@
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { setContext } from 'svelte';
 	import { browser } from '$app/environment';
+	import { motion } from '$lib/stores/motion';
 
 	// Handle Translations
 	export let data;
@@ -33,11 +34,11 @@
 
 	beforeNavigate((e) => {
 		// Don't delay when navigating on mobile
-		if (!showClouds) {
+		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 			showClouds = changed;
 			beenDuration = !changed;
-			setTimeout(() => (beenDuration = true), 600);
+			setTimeout(() => (beenDuration = true), duration / 0.75);
 		}
 	});
 

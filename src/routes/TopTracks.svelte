@@ -96,8 +96,6 @@
 		:global(li) {
 			z-index: 0;
 			transform-origin: var(--_horizontal, 50%) var(--_vertical, 50%);
-			transition: transform var(--duration) var(--transition),
-				z-index 1ms var(--transition) var(--duration);
 
 			&:nth-child(-n + 3) {
 				--_vertical: 2.5%;
@@ -118,9 +116,19 @@
 
 		// This doesn't work when nested?
 		:global(.expanded) {
-			transition: transform var(--duration) var(--transition);
 			transform: scale(3.175);
 			z-index: 1;
+		}
+	}
+
+	:global([data-motion='no-preference']) ol {
+		:global(li) {
+			transition: transform var(--duration) var(--transition),
+				z-index 1ms var(--transition) var(--duration);
+		}
+
+		:global(.expanded) {
+			transition: transform var(--duration) var(--transition);
 		}
 	}
 </style>

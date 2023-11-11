@@ -164,7 +164,6 @@
 		margin-top: min(10vw, 15rem);
 
 		h1 {
-			transition: translate var(--duration) var(--transition);
 			position: sticky;
 			top: 33vh;
 			grid-area: 1 / -1;
@@ -285,6 +284,10 @@
 				grid-column: 1 / -1;
 			}
 		}
+	}
+
+	:global([data-motion='no-preference']) .projects h1 {
+		transition: translate var(--duration) var(--transition);
 	}
 
 	@media only screen and (width <= 40rem) {

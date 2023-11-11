@@ -12,7 +12,13 @@
 				theme = isDark ? 'dark' : 'light';
 			}
 			document.documentElement.setAttribute('data-theme', theme);
-			localStorage.setItem('theme', theme);
+
+			let motion = localStorage.getItem('motion');
+			if (!theme) {
+				const isReduced = window?.matchMedia('(prefers-reduced-motion: reduced)').matches;
+				theme = isReduced ? 'reduced' : 'no-preference';
+			}
+			document.documentElement.setAttribute('data-motion', motion);
 		</script>
 
 		%sveltekit.head%

@@ -99,6 +99,16 @@
 </svelte:element>
 
 <style lang="scss">
+	:global([data-motion='no-preference']) .top-track-card {
+		button :global(svg) {
+			transition: opacity var(--duration) var(--transition);
+		}
+
+		.details {
+			transition: transform var(--duration) var(--transition);
+		}
+	}
+
 	.top-track-card {
 		border-radius: calc(0.5 * var(--border-radius));
 		position: relative;
@@ -126,7 +136,6 @@
 				opacity: 0;
 				border-radius: 100vmax;
 				filter: drop-shadow(0 0 0.075rem var(--black));
-				transition: opacity var(--duration) var(--transition);
 
 				&:focus-visible {
 					outline-offset: -0.175em;
@@ -145,7 +154,6 @@
 			background-image: linear-gradient(transparent 5%, var(--black) 75%);
 			transform: translateY(100%);
 			font-size: 0.4em;
-			transition: transform var(--duration) var(--transition);
 
 			p,
 			strong {

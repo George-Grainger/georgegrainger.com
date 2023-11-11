@@ -6,54 +6,53 @@
 	<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
 </svg>
 
-<svg class="sky-wrapper" viewBox="0 -200 2196 500">
-	<use
-		href="#sm-asteroid-1"
-		height="40"
-		y="40"
-		style="transform-origin: 1098px 60px; animation-delay: -30s;"
-	/>
-	<use
-		href="#sm-asteroid-3"
-		height="50"
-		y="55"
-		style="transform-origin: 1098px 80px; animation-delay: -180s;"
-	/>
-	<use
-		href="#sm-asteroid-5"
-		height="40"
-		y="10"
-		style="transform-origin: 1098px 30px; animation-delay: -120s;"
-	/>
-	<use
-		href="#sm-asteroid-7"
-		height="30"
-		y="200"
-		style="transform-origin: 1098px 215px; animation-delay: -50s;"
-	/>
-	<use
-		href="#sm-asteroid-2"
-		height="40"
-		y="175"
-		style="transform-origin: 1098px 195px; animation-delay: -140s;"
-	/>
-	<use
-		href="#sm-asteroid-9"
-		height="40"
-		y="40"
-		style="transform-origin: 1098px 60px; animation-delay: -100s;"
-	/>
-	<use
-		href="#sm-asteroid-8"
-		height="80"
-		y="40"
-		style="transform-origin: 1098px 100px; animation-delay: -75s;"
-	/>
-</svg>
-
 <svg class="main-scene" viewBox="0 -200 2196 975">
 	<use class="sun" href="#sun" height="150" x="-450" y="30" />
 	<use href="#earth" class="earth" height="440" x="325" y="200" />
+	<svg class="sky-wrapper" viewBox="0 0 2196 500" width="2196" height="500" x="0" y="0">
+		<use
+			href="#sm-asteroid-1"
+			height="40"
+			y="40"
+			style="transform-origin: 1098px 60px; animation-delay: -30s;"
+		/>
+		<use
+			href="#sm-asteroid-3"
+			height="50"
+			y="55"
+			style="transform-origin: 1098px 80px; animation-delay: -180s;"
+		/>
+		<use
+			href="#sm-asteroid-5"
+			height="40"
+			y="10"
+			style="transform-origin: 1098px 30px; animation-delay: -120s;"
+		/>
+		<use
+			href="#sm-asteroid-7"
+			height="30"
+			y="200"
+			style="transform-origin: 1098px 215px; animation-delay: -50s;"
+		/>
+		<use
+			href="#sm-asteroid-2"
+			height="40"
+			y="175"
+			style="transform-origin: 1098px 195px; animation-delay: -140s;"
+		/>
+		<use
+			href="#sm-asteroid-9"
+			height="40"
+			y="40"
+			style="transform-origin: 1098px 60px; animation-delay: -100s;"
+		/>
+		<use
+			href="#sm-asteroid-8"
+			height="80"
+			y="40"
+			style="transform-origin: 1098px 100px; animation-delay: -75s;"
+		/>
+	</svg>
 
 	<path
 		class="mountain-group"
@@ -117,6 +116,15 @@
 			d="M878.3 496.2 751.8 344.4l-1.8 34.8 14.3 23.4-9.2 34.3L762 458l-12.2 25.1 48.2 13 80.4.1Z"
 		/>
 	</g>
+	<svg class="sky-wrapper" viewBox="0 0 2196 500" width="2196" height="500" x="0" y="0">
+		<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s;" />
+		<use href="#sm-cloud-1" height="40" y="40" style="animation-delay: -30s;" />
+		<use href="#sm-cloud-2" height="50" y="55" style="animation-delay: -210s;" />
+		<use href="#sm-cloud-1" height="40" y="10" style="animation-delay: -120s;" />
+		<use href="#sm-cloud-2" height="30" y="200" style="animation-delay: -50s;" />
+		<use href="#sm-cloud-3" height="40" y="175" style="animation-delay: -140s;" />
+		<use href="#sm-cloud-3" height="40" y="80" style="animation-delay: -100s;" />
+	</svg>
 
 	<g class="surface">
 		<path
@@ -476,17 +484,19 @@
 	</defs>
 </svg>
 
-<svg class="sky-wrapper" viewBox="0 -200 2196 500">
-	<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s;" />
-	<use href="#sm-cloud-1" height="40" y="40" style="animation-delay: -30s;" />
-	<use href="#sm-cloud-2" height="50" y="55" style="animation-delay: -210s;" />
-	<use href="#sm-cloud-1" height="40" y="10" style="animation-delay: -120s;" />
-	<use href="#sm-cloud-2" height="30" y="200" style="animation-delay: -50s;" />
-	<use href="#sm-cloud-3" height="40" y="175" style="animation-delay: -140s;" />
-	<use href="#sm-cloud-3" height="40" y="80" style="animation-delay: -100s;" />
-</svg>
-
 <style lang="scss">
+	:global([data-motion='reduce']) {
+		svg {
+			--duration: 0;
+		}
+
+		[href^='#sm-cloud'],
+		[href^='#sm-asteroid'],
+		.house .smoke path {
+			animation-play-state: paused;
+		}
+	}
+
 	svg {
 		--_surface-l1: hsl(117, 36%, 49%);
 		--_surface-l2: hsl(118, 44%, 43%);

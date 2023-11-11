@@ -9,6 +9,10 @@
 </svg>
 
 <style lang="scss">
+	:global([data-motion='reduce']) svg {
+		--duration: 0;
+	}
+
 	svg {
 		contain: content;
 		max-width: 100%;

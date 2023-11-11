@@ -126,7 +126,6 @@
 		isolation: isolate;
 		width: fit-content;
 		contain: layout;
-		transition: translate var(--duration) var(--transition);
 
 		&::before {
 			content: '';
@@ -282,6 +281,7 @@
 		}
 
 		:global(svg) {
+			transition: transform var(--duration) var(--transition);
 			--a-duration: calc(2.5 * var(--duration));
 			width: var(--size, 1em);
 			font-size: 2em;
@@ -294,6 +294,8 @@
 
 	:global([data-motion='no-preference']) {
 		article {
+			transition: translate var(--duration) var(--transition);
+
 			&:focus-within :global(path),
 			&:hover :global(path) {
 				stroke-dasharray: 0 var(--_dash-array, 1600);
@@ -322,10 +324,6 @@
 		}
 
 		.languages {
-			:global(svg) {
-				transition: transform var(--duration) var(--transition);
-			}
-
 			:global(path) {
 				fill-opacity: 0;
 
