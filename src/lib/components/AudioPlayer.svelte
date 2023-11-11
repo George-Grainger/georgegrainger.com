@@ -111,7 +111,7 @@
 	}
 
 	.play {
-		padding: 0.15em;
+		padding: 0.1em;
 		margin: 0.15em;
 	}
 

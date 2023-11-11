@@ -13,6 +13,7 @@
 
 	let card: HTMLElement;
 	let preload = true;
+	let initialCoords = [0, 0];
 
 	// Prevent CLS when calculating margins
 	beforeUpdate(() => {
@@ -23,6 +24,17 @@
 		const articleHeight = card?.clientHeight;
 		const frontHeight = (card?.firstChild as HTMLElement).clientHeight;
 		card?.style.setProperty('margin-bottom', `${frontHeight - articleHeight}px`);
+
+		const cardRect = card.getBoundingClientRect();
+		const fontSize = window
+			.getComputedStyle(document.documentElement)
+			.getPropertyValue('font-size');
+		const offset = 10 * parseFloat(fontSize);
+		console.log(fontSize);
+		initialCoords = [
+			cardRect.left + window.scrollX - offset,
+			cardRect.top + window.scrollY - offset
+		];
 	});
 
 	const handleMouseOver = () => {
@@ -52,13 +64,14 @@
 
 		// Offset cards above
 		const cardsAfter = cards.slice(cardIndex + 1);
-		const upOffset = Number(card.style.getPropertyValue('margin-bottom').slice(0, -2));
+		const upOffset = parseFloat(card.style.getPropertyValue('margin-bottom'));
 		const downOffset = `${-upOffset}px`;
 		cardsAfter.forEach((c) => c.style.setProperty('translate', `0 ${downOffset}`));
 
 		// Scroll into view on mobile
 		if (matchMedia('(pointer: coarse)').matches) {
-			card.scrollIntoView(true);
+			console.log('here');
+			scrollTo(initialCoords[0], initialCoords[1]);
 		}
 	};
 

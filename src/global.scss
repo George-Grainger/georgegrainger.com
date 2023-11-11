@@ -131,6 +131,10 @@ button {
 	cursor: pointer;
 }
 
+:target {
+	scroll-margin: 10rem;
+}
+
 :focus {
 	outline: none;
 }

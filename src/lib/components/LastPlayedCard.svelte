@@ -24,19 +24,27 @@
 	const { t, locale } = getContext('translations');
 	let playedAtDate = new Date(playedAt);
 	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
+	let tick: number | undefined;
+
+	async function HandleRefetch() {
+		clearInterval(tick);
+		await invalidate('home:spotify');
+		playedAtDate = new Date(playedAt);
+		progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
+		tick = setInterval(updateProgress, 1000);
+	}
 
 	async function updateProgress() {
 		progress = Math.min(progress + 1, duration);
 
 		if (progress == duration) {
-			await invalidate('home:spotify');
-			progress = 0;
+			HandleRefetch();
 		}
 	}
 
 	isPlaying &&
 		onMount(() => {
-			const tick = setInterval(updateProgress, 1000);
+			tick = setInterval(updateProgress, 1000);
 
 			return () => clearInterval(tick);
 		});
