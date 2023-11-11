@@ -8,6 +8,7 @@ interface Metadata {
 	technologies: string[];
 	date: string;
 	homepage?: boolean;
+	inProgress: boolean;
 }
 
 export interface Project extends Metadata {
@@ -25,6 +26,8 @@ export const getProjects = async (lang = 'en') => {
 	const projects = await Promise.all(
 		Object.entries(allProjects).map(async ([path, resolver]) => {
 			const { metadata } = (await resolver()) as { metadata: Metadata };
+			metadata.inProgress = metadata.inProgress ?? false;
+			metadata.homepage = metadata.homepage ?? false;
 			const slug = '/projects/' + path?.split('/').pop()?.slice(0, -3) ?? null;
 			return { ...metadata, slug };
 		})

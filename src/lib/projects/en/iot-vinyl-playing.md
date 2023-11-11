@@ -7,6 +7,5 @@ alt: Collage of album covers
 technologies: ['assembly', 'iot', 'cpp']
 date: 10/12/21
 homepage: true
+inProgress: true
 ---
-
-Sorry I'm stil creating the content for these pages - please check back in the near future and I'll have them created with the github linked!

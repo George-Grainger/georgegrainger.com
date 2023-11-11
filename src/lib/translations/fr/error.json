@@ -1,8 +1,11 @@
 {
-	"title": "Oops ☹",
-	"404": "That page doesn't exist",
-	"500": "You hit a server error",
-	"404.body": "Maybe you've misstyped it? If you're sure it's not, please let me know",
-	"500.body": "I'm not sure why that happened - but feel free to get in touch and let me know",
-	"return": "Retour en sécurité"
+	"title": "Oups ☹",
+	"404": "Cette page n'existe pas",
+	"500": "Vous avez rencontré une erreur de serveur",
+	"projects": "Ce projet n'existe pas",
+	"404.body": "Peut-être l'avez-vous mal tapé? Si vous êtes sûr que ce n'est pas le cas, faites-le moi savoir",
+	"500.body": "Je ne sais pas pourquoi cela s'est produit, mais n'hésitez pas à me contacter et à me le faire savoir",
+	"projects.body": "Je n'ai pas encore ce projet, il a peut-être un nom différent, alors consultez la liste complète ci-dessous",
+	"return": "Retour en sécurité",
+	"return-projects": "Voir tous les projets"
 }

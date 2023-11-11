@@ -5,13 +5,17 @@
 	export let data;
 </script>
 
-<pre>{JSON.stringify(data.projects)}</pre>
-
-<h1>blog</h1>
+<h1>Projects</h1>
 
 <ul>
-	<li><a href="/projects/one">one</a></li>
-	<li><a href="/projects/two">two</a></li>
-	<li><a href="/projects/three">three</a></li>
-	<li>{$t('global.home')}</li>
+	{#each data.projects as project}
+		<li>
+			<h2>
+				<a href={project.slug}>
+					{project.title}
+				</a>
+			</h2>
+			Published {project.date}
+		</li>
+	{/each}
 </ul>

@@ -47,6 +47,7 @@ img {
 	--blue: hsl(223, 100%, 33%);
 	--red: hsl(349, 100%, 43%);
 	--purple: hsl(259, 79%, 50%);
+	--green: hsl(117, 36%, 49%);
 
 	// Svg colors
 	--cloud: hsl(0, 0%, 98%);
@@ -166,29 +167,29 @@ a:focus-visible {
 
 // Use where to remove specificity
 :where(.prose) {
-	> :not(h1, h2, h3, div) + * {
+	> :not(h1, h2, h3, h4, h5, h6, div) + * {
 		margin-top: 0.75em;
 	}
 
-	> h1,
-	> h2,
-	> h3 {
+	h1,
+	h2,
+	h3 {
 		font-weight: 700;
 	}
 
-	> h1 {
+	h1 {
 		font-size: 2em;
 	}
 
-	> h2 {
+	h2 {
 		font-size: 1.3em;
 	}
 
-	> h3 {
+	h3 {
 		font-size: 1.1em;
 	}
 
-	> :where(ol, ul) {
+	:where(ol, ul) {
 		list-style: revert;
 		margin-left: 1em;
 
@@ -200,6 +201,50 @@ a:focus-visible {
 			font-weight: 600;
 		}
 	}
+
+	blockquote::before,
+	blockquote::after {
+		color: var(--text);
+		font-size: 3em;
+		line-height: 0.1em;
+	}
+
+	blockquote::before {
+		content: open-quote;
+		margin-right: 0.25em;
+	}
+
+	blockquote::after {
+		content: close-quote;
+		margin-left: 0.125em;
+	}
+
+	blockquote p {
+		display: inline;
+	}
+
+	hr {
+		border-color: var(--text);
+	}
+
+	pre {
+		white-space: pre-wrap;
+		word-break: break-all;
+	}
+
+	small {
+		color: var(--hover-inverse);
+	}
+}
+
+:lang(en) .prose blockquote::before,
+:lang(en) .prose blockquote::after {
+	vertical-align: -0.4em;
+}
+
+:lang(fr) .prose blockquote::before,
+:lang(fr) .prose blockquote::after {
+	vertical-align: -0.2em;
 }
 
 @media only screen and (width > 60rem) {

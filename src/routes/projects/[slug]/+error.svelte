@@ -4,16 +4,15 @@
 	import { getContext } from 'svelte';
 
 	const { t } = getContext('translations');
-	const { status } = $page;
 </script>
 
 <section>
 	<h1>{$t('error.title')}</h1>
-	<h2>{$t(`error.${status}`)}</h2>
+	<h2>{$t(`error.projects`)}</h2>
 
-	<p>{$t(`error.${status}.body`)}</p>
+	<p>{$t(`error.projects.body`)}</p>
 
-	<Button href="/">{$t('error.return')}</Button>
+	<Button href="/projects">{$t('error.return-projects')}</Button>
 </section>
 
 <style lang="scss">
