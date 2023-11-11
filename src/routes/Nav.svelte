@@ -7,7 +7,8 @@
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 	import { getContext, onMount } from 'svelte';
-	import { onNavigate } from '$app/navigation';
+	import { invalidateAll, onNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
 
 	// Handle showing clouds for hamburger menu
 	export let showClouds: boolean;
@@ -34,6 +35,10 @@
 
 	// Handle translation
 	const { t, locale } = getContext('translations');
+
+	$: if (browser && $locale) {
+		invalidateAll();
+	}
 </script>
 
 <nav aria-label={$t('global.nav-label')}>

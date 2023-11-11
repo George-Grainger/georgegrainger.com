@@ -25,12 +25,14 @@
 		const frontHeight = (card?.firstChild as HTMLElement).clientHeight;
 		card?.style.setProperty('margin-bottom', `${frontHeight - articleHeight}px`);
 
+		// Calculate offsets for scrolling
 		const cardRect = card.getBoundingClientRect();
 		const fontSize = window
 			.getComputedStyle(document.documentElement)
 			.getPropertyValue('font-size');
 		const offset = 10 * parseFloat(fontSize);
-		console.log(fontSize);
+
+		// Initialise coordinates
 		initialCoords = [
 			cardRect.left + window.scrollX - offset,
 			cardRect.top + window.scrollY - offset
@@ -70,7 +72,6 @@
 
 		// Scroll into view on mobile
 		if (matchMedia('(pointer: coarse)').matches) {
-			console.log('here');
 			scrollTo(initialCoords[0], initialCoords[1]);
 		}
 	};

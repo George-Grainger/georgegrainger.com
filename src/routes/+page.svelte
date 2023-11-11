@@ -6,12 +6,10 @@
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 	import { getContext, onMount } from 'svelte/internal';
-	import { invalidate } from '$app/navigation';
-	import { browser } from '$app/environment';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 
 	export let data;
-	const { t, locale } = getContext('translations');
+	const { t } = getContext('translations');
 
 	onMount(() => {
 		let previousY = 0;
@@ -32,10 +30,6 @@
 		const aboutClouds = document.getElementById('about-me')?.firstChild as HTMLElement;
 		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
 	});
-
-	$: if (browser && $locale) {
-		invalidate('home:projects');
-	}
 </script>
 
 <section id="hero" class="hero">

@@ -1,6 +1,6 @@
-export async function load({ params }) {
+export async function load({ data, params }) {
 	// Can't use $lib here for some reason?
-	const post = await import(`../../../lib/projects/en/${params.slug}.md`);
+	const post = await import(`../../../lib/projects/${data.lang}/${params.slug}.md`);
 	const { title, date, src } = post.metadata;
 	const content = post.default;
 
