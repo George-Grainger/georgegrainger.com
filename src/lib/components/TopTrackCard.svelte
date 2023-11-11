@@ -111,6 +111,10 @@
 			aspect-ratio: 1;
 		}
 
+		:global(.lazy-img) {
+			border-radius: calc(0.5 * var(--border-radius));
+		}
+
 		button {
 			display: contents;
 

@@ -27,7 +27,7 @@
 				}
 				previousY = currentY;
 			},
-			{ threshold: 0.4 }
+			{ threshold: 0.33 }
 		);
 		const aboutClouds = document.getElementById('about-me')?.firstChild as HTMLElement;
 		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
@@ -108,7 +108,6 @@
 		{#each $t('home.interests-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
 		{/each}
-		<Button href="/GeorgeGraingerCV.pdf" target="_blank">View my CV</Button>
 	</div>
 	<div class="spotify">
 		<h2>Spotify</h2>
@@ -116,6 +115,7 @@
 		<TopTracks topTracks={data.topTracks} />
 		<LastPlayedCard {...data.currentTrack} />
 	</div>
+	<Button href="/GeorgeGraingerCV.pdf" target="_blank">{$t('home.cv')}</Button>
 </section>
 
 <style lang="scss">
@@ -128,7 +128,6 @@
 		gap: 1em 0em;
 		font-size: clamp(1.125rem, 3.5vw, 1.875rem);
 		text-align: center;
-		margin-top: 5rem;
 
 		h1 {
 			line-height: 1;
@@ -219,6 +218,7 @@
 			position: absolute;
 			z-index: 3;
 			top: -10rem;
+			pointer-events: none;
 		}
 
 		g {
@@ -260,6 +260,7 @@
 		.hero {
 			row-gap: 0.5em;
 			grid-template-columns: 1fr 1fr;
+			margin-top: 5rem;
 
 			h2 {
 				margin-block: 0.25em;
@@ -292,7 +293,7 @@
 		}
 	}
 
-	@media only screen and (width <= 60rem) {
+	@media only screen and (width <= 40rem) {
 		.about-me g {
 			:nth-child(n + 2) {
 				display: none;

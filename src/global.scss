@@ -201,7 +201,7 @@ a:focus-visible {
 @media only screen and (width > 60rem) {
 	:root {
 		--page-width: min(100vw - 3rem, 80rem);
-		--rm-translation: 35vw;
+		--rm-translation: min(50vw, 50%);
 	}
 
 	main {

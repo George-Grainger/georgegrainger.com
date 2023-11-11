@@ -1,8 +1,17 @@
 <script>
+	import { browser } from '$app/environment';
+	import { invalidate } from '$app/navigation';
 	import { getContext } from 'svelte';
 
-	const { t } = getContext('translations');
+	const { t, locale } = getContext('translations');
+	export let data;
+
+	$: if (browser && $locale) {
+		invalidate('projects:data');
+	}
 </script>
+
+<pre>{JSON.stringify(data.projects)}</pre>
 
 <h1>blog</h1>
 

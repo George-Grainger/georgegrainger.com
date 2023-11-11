@@ -10,7 +10,11 @@ interface Metadata {
 	homepage?: boolean;
 }
 
-export const getProjects = async (lang: string) => {
+export interface Project extends Metadata {
+	slug: string;
+}
+
+export const getProjects = async (lang = 'en') => {
 	let allProjects;
 	if (lang === 'fr') {
 		allProjects = import.meta.glob('$lib/projects/fr/*.md');

@@ -7,9 +7,21 @@
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 	import { getContext, onMount } from 'svelte';
+	import { onNavigate } from '$app/navigation';
 
 	// Handle showing clouds for hamburger menu
 	export let showClouds: boolean;
+	let showLinks = false;
+
+	onNavigate(() => {
+		showLinks = false;
+	});
+
+	function handleHamburgerPress() {
+		showLinks = !showLinks;
+		showClouds = showLinks;
+	}
+
 	function removeHamburgerOnDesktop() {
 		if (window.matchMedia('(width > 60rem)').matches) {
 			showClouds = false;
@@ -25,7 +37,7 @@
 </script>
 
 <nav aria-label={$t('global.nav-label')}>
-	<ul class:showClouds class="links">
+	<ul class:showLinks class="links">
 		{#each $t('global.nav-links') as { text, link }}
 			<li>
 				<a href={link}>{text}</a>
@@ -61,7 +73,7 @@
 			</Select>
 		</li>
 	</ul>
-	<button class="hamburger" on:click={() => (showClouds = !showClouds)}>
+	<button class="hamburger" on:click={handleHamburgerPress}>
 		<svg viewBox="0 0 24 24">
 			<title>{$t('global.hamburger-menu')}</title>
 			<path
@@ -112,9 +124,10 @@
 		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
 		pointer-events: none;
 
-		&.showClouds {
+		&.showLinks {
 			--_delay: var(--duration);
 			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 

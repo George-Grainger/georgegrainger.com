@@ -11,6 +11,7 @@
 <style lang="scss">
 	svg {
 		contain: content;
+		max-width: 100%;
 	}
 
 	.moon-wrapper,
