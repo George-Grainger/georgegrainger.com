@@ -5,31 +5,12 @@
 	import Button from '$lib/components/Button.svelte';
 	import TopTracks from '$lib/components/TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
-	import { onMount } from 'svelte/internal';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 	import { t } from '$lib/translations';
+	import AboutCloudGroup from '$lib/assets/svg/AboutCloudGroup.svelte';
+	import ProjectCloudGroup from '$lib/assets/svg/ProjectCloudGroup.svelte';
 
 	export let data;
-
-	onMount(() => {
-		let previousY = 0;
-		const aboutTriggerObserver = new IntersectionObserver(
-			([entry]) => {
-				const currentY = entry.boundingClientRect.y;
-				if (entry.isIntersecting) {
-					// Scroll down into area
-					entry.target.classList.add('animate-now');
-				} else if (currentY >= previousY) {
-					// Scroll up out of area
-					entry.target.classList.remove('animate-now');
-				}
-				previousY = currentY;
-			},
-			{ threshold: 0.33 }
-		);
-		const aboutClouds = document.getElementById('about-me')?.firstChild as HTMLElement;
-		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
-	});
 </script>
 
 <svelte:head>
@@ -46,13 +27,7 @@
 
 <section id="projects" class="projects">
 	<div class="cloud-wrapper">
-		<svg viewBox="0 0 1360 330">
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="0" y="100" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="200" y="40" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="700" y="50" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="900" y="110" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="450" y="0" />
-		</svg>
+		<ProjectCloudGroup />
 		<h1 id="project-title">{$t('home.projects-title')}</h1>
 	</div>
 	{#each data.projects as project}
@@ -72,21 +47,7 @@
 </section>
 
 <section id="about-me" class="about-me">
-	<svg viewBox="0 0 1360 520" overflow="visible">
-		<g class="move-left">
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="450" y="0" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="150" y="40" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="457" height="220" x="70" y="180" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="375" y="165" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="458" height="214" x="70" y="300" />
-		</g>
-		<g class="move-right">
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="458" height="214" x="450" y="280" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="600" y="55" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="750" y="135" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="760" y="300" />
-		</g>
-	</svg>
+	<AboutCloudGroup />
 	<h1 class="about-title">{$t('home.about')}</h1>
 	<div class="prose">
 		<h2>{$t('home.academic-title')}</h2>
@@ -189,14 +150,6 @@
 			place-self: start center;
 			isolation: isolate;
 			pointer-events: none;
-
-			svg {
-				width: min(240vw, 160rem);
-				grid-area: 1 / -1;
-				will-change: transform;
-				z-index: 3;
-				margin-bottom: 15vh;
-			}
 		}
 
 		:global(article) {
@@ -208,29 +161,6 @@
 		position: relative;
 		gap: 2rem;
 		margin-top: 20rem;
-
-		svg {
-			place-self: start center;
-			width: min(240vw, 160rem);
-			position: absolute;
-			z-index: 3;
-			top: -10rem;
-			pointer-events: none;
-		}
-
-		g {
-			transition: transform calc(2 * var(--duration)) var(--transition);
-		}
-	}
-
-	:global([data-motion='reduce']) .move-left,
-	:global(.animate-now) .move-left {
-		transform: translateX(calc(-1 * var(--rm-translation)));
-	}
-
-	:global([data-motion='reduce']) .move-right,
-	:global(.animate-now) .move-right {
-		transform: translateX(calc(1 * var(--rm-translation)));
 	}
 
 	h1 {
@@ -292,24 +222,6 @@
 
 	:global([data-motion='no-preference']) .projects h1 {
 		transition: translate var(--duration) var(--transition);
-	}
-
-	@media only screen and (width <= 40rem) {
-		.about-me g {
-			:nth-child(n + 2) {
-				display: none;
-			}
-
-			&:first-child :first-child {
-				transform-origin: 683px 0px;
-				scale: 250%;
-			}
-
-			:first-child {
-				transform-origin: 729px 170px;
-				scale: 250%;
-			}
-		}
 	}
 
 	@keyframes appear {
