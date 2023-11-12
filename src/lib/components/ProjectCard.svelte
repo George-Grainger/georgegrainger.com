@@ -3,13 +3,12 @@
 	import { technologyMap } from '$lib/utils/client/technology-map';
 	import CondtionalLink from './CondtionalLink.svelte';
 	import { beforeUpdate, onMount } from 'svelte';
-	import { getContext } from 'svelte/internal';
 
 	type Technology = keyof typeof technologyMap;
 	export let technologies: Technology[] = [];
 	export let href: string;
 
-	const { t } = getContext('translations');
+	import { t } from '$lib/translations';
 
 	let card: HTMLElement;
 	let preload = true;
@@ -102,7 +101,7 @@
 		<div class="languages" style={`--columns: ${technologies.length}`}>
 			{#each technologies as technology}
 				{#if !technologyMap[technology]}
-					<span class="error">Unknown technology: {technology}</span>
+					<span class="error-text">Unknown technology: {technology}</span>
 				{:else}
 					<CondtionalLink
 						href={technologyMap[technology].href}

@@ -1,12 +1,36 @@
-export function load({ request, cookies }) {
+import { locales, loadTranslations, translations, defaultLocale } from '$lib/translations';
+
+export const load = async ({ url, cookies, request, params, route }) => {
+	const { pathname } = url;
+
 	// Try to get the locale from cookie
-	let languages = [cookies.get('lang')?.toLocaleLowerCase() ?? ''];
-	if (languages[0] === '') {
-		const acceptLanguages = request.headers.get('accept-language');
-		languages = acceptLanguages?.split(',')?.map((lang) => lang.split(';')[0].trim()) ?? [];
+	let locale = (cookies.get('lang') || '').toLowerCase();
+
+	// Get user preferred locale
+	if (!locale) {
+		locale = `${`${request.headers.get('accept-language')}`.match(
+			/[a-zA-Z]+?(?=-|_|,|;)/
+		)}`.toLowerCase();
+	}
+
+	// Get defined locales
+	const supportedLocales = locales.get().map((l) => l.toLowerCase());
+
+	// Use default locale if current locale is not supported
+	if (!supportedLocales.includes(locale)) {
+		locale = defaultLocale;
+	}
+
+	if (route.id === null || '404' in params) {
+		// Load error pages
+		await loadTranslations(locale, 'error');
+	} else {
+		// Load other text
+		await loadTranslations(locale, pathname);
 	}
 
 	return {
-		languages
+		i18n: { locale, route: pathname },
+		translations: translations.get() // `translations` on server contain all translations loaded by different clients
 	};
-}
+};

@@ -5,9 +5,9 @@
 
 <section class="error">
 	<h1>{$t('error.title')}</h1>
-	<h2>{$t(`error.500`)}</h2>
+	<h2>{$t(`error.projects`)}</h2>
 
-	<p>{$t(`error.500.body`)}</p>
+	<p>{$t(`error.projects.body`)}</p>
 
-	<Button href="/">{$t('error.return')}</Button>
+	<Button href="/projects">{$t('error.return-projects')}</Button>
 </section>

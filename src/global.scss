@@ -149,7 +149,7 @@ a:focus-visible {
 	border-radius: calc(0.5 * var(--border-radius));
 }
 
-.error {
+.error-text {
 	color: var(--red);
 }
 
@@ -163,6 +163,34 @@ a:focus-visible {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border-width: 0;
+}
+
+.error {
+	display: grid;
+	place-items: center;
+	place-content: center;
+	min-height: 50vh;
+	min-height: 50svh;
+
+	h1 {
+		font-weight: 800;
+		font-size: 5em;
+		letter-spacing: -0.03rem;
+	}
+
+	h2 {
+		font-weight: 700;
+		font-size: 1.6em;
+		letter-spacing: -0.015rem;
+	}
+
+	p {
+		text-align: center;
+		font-size: 0.9em;
+		max-width: 36ch;
+		text-wrap: balance;
+		margin-block: 0.75em 1.5em;
+	}
 }
 
 // Use where to remove specificity

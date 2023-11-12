@@ -6,9 +6,10 @@
 	import AnimationIcon from '$lib/assets/svg/AnimationIcon.svelte';
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
-	import { getContext, onMount } from 'svelte';
+	import { onMount } from 'svelte';
 	import { invalidateAll, onNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
+	import { t, locale } from '$lib/translations';
 
 	// Handle showing clouds for hamburger menu
 	export let showClouds: boolean;
@@ -34,7 +35,6 @@
 	});
 
 	// Handle translation
-	const { t, locale } = getContext('translations');
 
 	$: if (browser && $locale) {
 		invalidateAll();

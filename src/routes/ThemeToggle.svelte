@@ -1,8 +1,6 @@
 <script lang="ts">
 	import { theme } from '$lib/stores/theme';
-	import { getContext } from 'svelte';
-
-	const { t } = getContext('translations');
+	import { t } from '$lib/translations';
 
 	export let height: string | number | undefined = undefined;
 	export let width: string | number | undefined = undefined;

@@ -9,26 +9,11 @@
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { setContext } from 'svelte';
-	import { browser } from '$app/environment';
 	import { motion } from '$lib/stores/motion';
-
-	// Handle Translations
-	export let data;
-	const { t, locale } = data;
-	setContext('translations', { ...data });
-
-	// Update cookie when locale changes
-	if (browser) {
-		const oneYear = 1000 * 60 * 60 * 24 * 365;
-		locale.subscribe(($locale) => {
-			document.cookie = `lang=${$locale} ; expires=${oneYear} ; path = /; SameSite=strict ;`;
-			document.documentElement.setAttribute('lang', $locale);
-		});
-	}
+	import { t } from '$lib/translations';
 
 	// Page transitions
-	let duration = 450;
+	let duration = 350;
 	let showClouds = false;
 	let beenDuration = true;
 

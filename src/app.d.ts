@@ -9,10 +9,4 @@ declare global {
 	}
 }
 
-declare module 'svelte' {
-	export function getContext(
-		key: 'translations'
-	): Awaited<ReturnType<typeof import('$lib/utils/client/i18n')['loadTranslations']>>;
-}
-
 export {};

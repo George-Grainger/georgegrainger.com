@@ -24,15 +24,14 @@
 	import PauseIcon from '$lib/assets/svg/audio/PauseIcon.svelte';
 	import SoundOn from '$lib/assets/svg/audio/SoundOn.svelte';
 	import SoundOff from '$lib/assets/svg/audio/SoundOff.svelte';
-
+	import { t } from '$lib/translations';
 	import { autoplay } from '$lib/stores/autoplay';
 	import ProgressBar from './ProgressBar.svelte';
-	import { getContext } from 'svelte/internal';
 
 	export let src: string;
 
 	// The duration appears to only work when it's not preset?
-	const { t } = getContext('translations');
+
 	let duration: number;
 	let time = 0;
 	let muted = false;

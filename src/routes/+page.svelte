@@ -5,11 +5,11 @@
 	import Button from '$lib/components/Button.svelte';
 	import TopTracks from './TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
-	import { getContext, onMount } from 'svelte/internal';
+	import { onMount } from 'svelte/internal';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 
 	export let data;
-	const { t } = getContext('translations');
+	import { t } from '$lib/translations';
 
 	onMount(() => {
 		let previousY = 0;

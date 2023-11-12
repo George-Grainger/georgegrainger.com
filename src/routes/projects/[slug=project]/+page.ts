@@ -1,6 +1,9 @@
+import { error } from '@sveltejs/kit';
+
 export async function load({ data, params }) {
 	// Can't use $lib here for some reason?
 	const project = await import(`../../../lib/projects/${data.lang}/${params.slug}.md`);
+
 	const { title, date, inProgress } = project.metadata;
 	const content = project.default;
 

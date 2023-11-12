@@ -5,7 +5,6 @@
 	import LazyImage from './LazyImage.svelte';
 	import ProgressBar from './ProgressBar.svelte';
 	import { invalidate } from '$app/navigation';
-	import { getContext } from 'svelte/internal';
 
 	export let title: string;
 	export let artist: string;
@@ -21,7 +20,7 @@
 	export let isPlaying: boolean;
 	export let isOffline: boolean;
 
-	const { t, locale } = getContext('translations');
+	import { t, locale } from '$lib/translations';
 	let playedAtDate = new Date(playedAt);
 	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 	let tick: number | undefined;

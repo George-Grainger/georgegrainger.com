@@ -5,7 +5,7 @@
 	import { autoplay } from '$lib/stores/autoplay';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
 	import Cross from '$lib/assets/svg/audio/Cross.svelte';
-	import { getContext } from 'svelte/internal';
+	import { t } from '$lib/translations';
 
 	export let tag = 'div';
 
@@ -19,8 +19,6 @@
 	export let previewUrl: string | undefined = undefined;
 
 	export let expanded = false;
-
-	const { t } = getContext('translations');
 
 	// Play audio if autoplay is true
 	function handleClick(e: MouseEvent) {
