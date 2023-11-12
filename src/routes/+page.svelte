@@ -1,15 +1,15 @@
 <script lang="ts">
 	import '@fontsource/poppins/800.css';
-	import HeroScene from '../lib/assets/svg/HeroScene.svelte';
+	import HeroScene from '$lib/assets/svg/HeroScene.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import Button from '$lib/components/Button.svelte';
-	import TopTracks from './TopTracks.svelte';
+	import TopTracks from '$lib/components/TopTracks.svelte';
 	import LastPlayedCard from '$lib/components/LastPlayedCard.svelte';
 	import { onMount } from 'svelte/internal';
 	import LazyImage from '$lib/components/LazyImage.svelte';
+	import { t } from '$lib/translations';
 
 	export let data;
-	import { t } from '$lib/translations';
 
 	onMount(() => {
 		let previousY = 0;
@@ -31,6 +31,10 @@
 		aboutClouds && aboutTriggerObserver.observe(aboutClouds);
 	});
 </script>
+
+<svelte:head>
+	<title>{$t('home.browser-title')}</title>
+</svelte:head>
 
 <section id="hero" class="hero">
 	<h1>{$t('home.title')}</h1>

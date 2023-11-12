@@ -9,6 +9,6 @@ export const GET = async ({ params, setHeaders }) => {
 		projects = projects.filter((p) => p?.technologies?.includes(technology));
 	}
 
-	setHeaders({ 'cache-control': 'public, max-age=216000' });
+	setHeaders({ 'cache-control': 'public, max-age=216000', 'X-Robots-Tag': 'noindex, nofollow' });
 	return json(projects);
 };

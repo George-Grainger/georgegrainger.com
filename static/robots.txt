@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+
+# Specific directives for GPTBot
+User-agent: GPTBot
+Disallow: /

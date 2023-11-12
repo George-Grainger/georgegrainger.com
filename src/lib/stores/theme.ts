@@ -30,6 +30,9 @@ function createTheme(): Theme {
 		}
 
 		document.documentElement.setAttribute('data-theme', value);
+
+		const themeColor = value === options.DARK ? '#181a26' : '#b4d6fe';
+		document.querySelector('[name="theme-color"]')?.setAttribute('content', themeColor);
 	});
 	const toggle = () => {
 		store.update((last) => (last === options.DARK ? options.LIGHT : options.DARK));

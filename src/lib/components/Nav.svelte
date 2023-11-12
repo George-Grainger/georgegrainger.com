@@ -126,7 +126,7 @@
 		inset: 3em 7.5vw 4em;
 		font-size: 1.5em;
 		opacity: 0;
-		transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
+
 		pointer-events: none;
 
 		&.showLinks {
@@ -166,6 +166,12 @@
 
 	.select :global(button span) {
 		display: none;
+	}
+
+	:global([data-motion='no-preference']) {
+		.links {
+			transition: opacity var(--duration) var(--transition) var(--_delay, 0ms);
+		}
 	}
 
 	@media only screen and (width > 40rem) {

@@ -4,6 +4,100 @@
 		<meta charset="utf-8" />
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
 		<meta name="viewport" content="width=device-width" />
+		<link
+			rel="apple-touch-icon"
+			sizes="57x57"
+			href="%sveltekit.assets%/images/icons/apple-icon-57x57.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="60x60"
+			href="%sveltekit.assets%/images/icons/apple-icon-60x60.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="72x72"
+			href="%sveltekit.assets%/images/icons/apple-icon-72x72.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="76x76"
+			href="%sveltekit.assets%/images/icons/apple-icon-76x76.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="114x114"
+			href="%sveltekit.assets%/images/icons/apple-icon-114x114.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="120x120"
+			href="%sveltekit.assets%/images/icons/apple-icon-120x120.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="144x144"
+			href="%sveltekit.assets%/images/icons/apple-icon-144x144.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="152x152"
+			href="%sveltekit.assets%/images/icons/apple-icon-152x152.png"
+		/>
+		<link
+			rel="apple-touch-icon"
+			sizes="180x180"
+			href="%sveltekit.assets%/images/icons/apple-icon-180x180.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="192x192"
+			href="%sveltekit.assets%/images/icons/icon-192x192.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="%sveltekit.assets%/images/icons/favicon-16x16.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="%sveltekit.assets%/images/icons/favicon-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="96x96"
+			href="%sveltekit.assets%/images/icons/favicon-96x96.png"
+		/>
+		<link rel="manifest" href="%sveltekit.assets%/manifest.json" />
+		<meta name="msapplication-TileColor" content="#b4d6fe" />
+		<meta
+			name="msapplication-TileImage"
+			content="%sveltekit.assets%/images/icons/ms-icon-144x144.png"
+		/>
+		<meta name="theme-color" content="#b4d6fe" />
+		<meta name="og:title" content="George Grainger's Website" />
+		<meta name="og:url" content="https://www.georgegrainger.com" />
+		<meta name="og:type" content="article" />
+		<meta name="og:image:width" content="1200" />
+		<meta name="og:image:height" content="630" />
+		<meta name="og:image:url" content="https://www.georgegrainger.com/images/og.jpg" />
+		<meta name="og:image:secure_url" content="https://www.georgegrainger.com/images/og.jpg" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:image" content="https://www.georgegrainger.com/images/og.jpg" />
+		<meta name="twitter:site" content="@GeorgeGrainger0" />
+		<meta
+			name="og:description"
+			content="A Computer Science Student based in Manchester, who's interested in machine learning, visual computing and hardware design"
+		/>
+		<meta
+			name="description"
+			content="A Computer Science Student based in Manchester, who's interested in machine learning, visual computing and hardware design"
+		/>
 
 		<script>
 			let theme = localStorage.getItem('theme');
@@ -14,9 +108,9 @@
 			document.documentElement.setAttribute('data-theme', theme);
 
 			let motion = localStorage.getItem('motion');
-			if (!theme) {
+			if (!motion) {
 				const isReduced = window?.matchMedia('(prefers-reduced-motion: reduced)').matches;
-				theme = isReduced ? 'reduced' : 'no-preference';
+				motion = isReduced ? 'reduced' : 'no-preference';
 			}
 			document.documentElement.setAttribute('data-motion', motion);
 		</script>

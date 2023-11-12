@@ -15,7 +15,7 @@ export async function GET({ setHeaders }) {
 		const track = filterTrackData(data.item);
 		const duration = data.item.duration_ms / 1000;
 		const playedAt = new Date(Date.now() - data.progress_ms);
-		setHeaders({ 'cache-control': 'public, max-age=10' });
+		setHeaders({ 'cache-control': 'public, max-age=10', 'X-Robots-Tag': 'noindex, nofollow' });
 
 		return json({
 			...track,

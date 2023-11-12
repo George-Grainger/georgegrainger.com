@@ -14,6 +14,6 @@ export async function GET({ setHeaders }) {
 	const { items } = await res.json();
 	const tracks = items.map(filterTrackData);
 
-	setHeaders({ 'cache-control': 'public, max-age=3600' });
+	setHeaders({ 'cache-control': 'public, max-age=3600', 'X-Robots-Tag': 'noindex, nofollow' });
 	return json(tracks);
 }

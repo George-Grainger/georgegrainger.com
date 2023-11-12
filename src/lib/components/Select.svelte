@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
-	import { afterUpdate } from 'svelte';
+	import { afterUpdate, onMount } from 'svelte';
 	import Option from './Option.svelte';
 
 	export let id: string;
@@ -92,6 +92,10 @@
 		next?.setAttribute('aria-checked', 'true');
 		selected = next?.getAttribute('data-value') || '';
 	}
+
+	onMount(() => {
+		doUpdate(ul?.querySelector(`[data-value=${selected}]`) as HTMLElement);
+	});
 
 	afterUpdate(() => {
 		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;

@@ -4,8 +4,8 @@
 	import '@fontsource/poppins/700.css';
 	import '@fontsource/poppins/800.css';
 	import '../global.scss';
-	import Footer from './Footer.svelte';
-	import Nav from './Nav.svelte';
+	import Footer from '$lib/components/Footer.svelte';
+	import Nav from '$lib/components/Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
@@ -13,7 +13,7 @@
 	import { t } from '$lib/translations';
 
 	// Page transitions
-	let duration = 350;
+	$: duration = $motion === motion.NO_PREFERENCE ? 350 : 0;
 	let showClouds = false;
 	let beenDuration = true;
 
@@ -31,10 +31,6 @@
 		showClouds = false;
 	});
 </script>
-
-<svelte:head>
-	<title>{$t('global.title')}</title>
-</svelte:head>
 
 <Nav bind:showClouds />
 

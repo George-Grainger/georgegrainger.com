@@ -1,7 +1,14 @@
 <script>
 	export let data;
-	const { title, date, inProgress, content } = data;
+	const { title, date, description, inProgress, content } = data;
 </script>
+
+<svelte:head>
+	<title>{title} - George Grainger</title>
+	<meta property="og:title" content={title} />
+	<meta name="og:description" content={description} />
+	<meta name="description" content={description} />
+</svelte:head>
 
 <article class="prose">
 	<header class:inProgress>

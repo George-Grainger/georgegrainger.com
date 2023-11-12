@@ -101,7 +101,7 @@
 		<div class="languages" style={`--columns: ${technologies.length}`}>
 			{#each technologies as technology}
 				{#if !technologyMap[technology]}
-					<span class="error-text">Unknown technology: {technology}</span>
+					<span class="error">Unknown technology: {technology}</span>
 				{:else}
 					<CondtionalLink
 						href={technologyMap[technology].href}

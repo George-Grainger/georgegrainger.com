@@ -13,8 +13,9 @@ export const GET = async () => {
 	const body = render(projects);
 	const options = {
 		headers: {
-			'Cache-Control': 'max-age=0, s-maxage=3600',
-			'Content-Type': 'application/xml'
+			'content-type': 'application/xml',
+			'cache-control':
+				'public, no-cache, must-revalidate, proxy-revalidate, max-age=0, s-maxage=3600'
 		}
 	};
 

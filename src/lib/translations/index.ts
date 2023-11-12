@@ -33,7 +33,7 @@ export const config: Config<Params> = {
 		},
 		{
 			locale: 'en',
-			key: 'about',
+			key: 'projects',
 			routes: ['/projects'],
 			loader: async () => (await import('./en/projects.json')).default
 		},
