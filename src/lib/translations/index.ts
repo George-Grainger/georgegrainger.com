@@ -1,6 +1,5 @@
 import i18n, { type Config } from 'sveltekit-i18n';
 import { browser, dev } from '$app/environment';
-import lang from './lang.json';
 
 interface Params {
 	title?: string;
@@ -12,13 +11,6 @@ interface Params {
 export const defaultLocale = 'en';
 export const config: Config<Params> = {
 	preprocess: 'preserveArrays',
-	log: {
-		level: dev ? 'warn' : 'error'
-	},
-	translations: {
-		en: { lang },
-		fr: { lang }
-	},
 	loaders: [
 		{
 			locale: 'en',
@@ -28,7 +20,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'en',
 			key: 'home',
-			routes: ['/'],
+			routes: ['', '/'],
 			loader: async () => (await import('./en/home.json')).default
 		},
 		{
@@ -40,7 +32,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'en',
 			key: 'error',
-			routes: ['error'],
+			// routes: ['error'],
 			loader: async () => (await import('./en/error.json')).default
 		},
 		{
@@ -51,7 +43,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'fr',
 			key: 'home',
-			routes: ['/'],
+			routes: ['', '/'],
 			loader: async () => (await import('./fr/home.json')).default
 		},
 		{
@@ -63,7 +55,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'fr',
 			key: 'error',
-			routes: ['error'],
+			// routes: ['error'],
 			loader: async () => (await import('./fr/error.json')).default
 		}
 	]
@@ -88,4 +80,4 @@ locale.subscribe(($locale) => {
 	document.documentElement.setAttribute('lang', $locale);
 });
 
-loading.subscribe(($loading) => $loading && console.log('Loading translations...'));
+dev && loading.subscribe(($loading) => $loading && console.log('Loading translations...'));

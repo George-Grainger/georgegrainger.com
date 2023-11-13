@@ -1,6 +1,6 @@
 <script lang="ts">
 	import FooterScene from '$lib/assets/svg/FooterScene.svelte';
-	import { t } from '$lib/translations';
+	import { locale, t } from '$lib/translations';
 	import { fade } from 'svelte/transition';
 
 	export let duration = 450;
@@ -14,7 +14,7 @@
 			<ul>
 				{#each $t('global.footer-links') as { text, link }}
 					<li>
-						<a href={link}>{text}</a>
+						<a href={`/${$locale}${link}`}>{text}</a>
 					</li>
 				{/each}
 			</ul>

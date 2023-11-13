@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
-	import { afterUpdate, onMount } from 'svelte';
+	import { afterUpdate, createEventDispatcher, onMount } from 'svelte';
 	import Option from './Option.svelte';
 
 	export let id: string;
@@ -11,6 +11,8 @@
 	let expanded = false;
 	let btn: HTMLButtonElement;
 	let ul: HTMLElement;
+
+	const dispatch = createEventDispatcher();
 
 	function toggleExpanded() {
 		setExpanded(!expanded);
@@ -91,6 +93,13 @@
 		previous?.setAttribute('aria-checked', 'false');
 		next?.setAttribute('aria-checked', 'true');
 		selected = next?.getAttribute('data-value') || '';
+
+		if (previous && next !== previous) {
+			dispatch('change', {
+				from: previous?.getAttribute('data-value'),
+				to: next?.getAttribute('data-value')
+			});
+		}
 	}
 
 	onMount(() => {

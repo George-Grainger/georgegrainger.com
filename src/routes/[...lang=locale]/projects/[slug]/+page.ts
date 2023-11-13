@@ -1,8 +1,9 @@
 export async function load({ params, parent }) {
-	const { locale } = await parent();
+	const { slug } = params;
+	const { lang } = await parent();
 
 	// Can't use $lib here for some reason?
-	const project = await import(`../../../lib/projects/${locale}/${params.slug}.md`);
+	const project = await import(`../../../../lib/projects/${lang}/${slug}.md`);
 
 	const { title, date, description, inProgress } = project.metadata;
 	const content = project.default;
@@ -10,7 +11,7 @@ export async function load({ params, parent }) {
 	return {
 		content,
 		title,
-		date: new Date(date).toLocaleString(date.lang, { dateStyle: 'medium' }),
+		date: new Date(date).toLocaleString(lang, { dateStyle: 'medium' }),
 		description,
 		inProgress
 	};

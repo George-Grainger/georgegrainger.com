@@ -7,9 +7,9 @@
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 	import { onMount } from 'svelte';
-	import { invalidateAll, onNavigate } from '$app/navigation';
-	import { browser } from '$app/environment';
-	import { t, locale } from '$lib/translations';
+	import { goto, onNavigate } from '$app/navigation';
+	import { t, locale, locales } from '$lib/translations';
+	import { page } from '$app/stores';
 
 	// Handle showing clouds for hamburger menu
 	export let showClouds: boolean;
@@ -29,22 +29,18 @@
 			showClouds = false;
 		}
 	}
+
 	onMount(() => {
 		window.addEventListener('resize', removeHamburgerOnDesktop);
 		return () => window.removeEventListener('resize', removeHamburgerOnDesktop);
 	});
-
-	// Handle translation
-	$: if (browser && $locale) {
-		invalidateAll();
-	}
 </script>
 
 <nav aria-label={$t('global.nav-label')}>
 	<ul class:showLinks class="links">
 		{#each $t('global.nav-links') as { text, link }}
 			<li>
-				<a href={link}>{text}</a>
+				<a href={`/${$locale}${link}`}>{text}</a>
 			</li>
 		{/each}
 	</ul>
@@ -65,7 +61,17 @@
 			</Select>
 		</li>
 		<li class="select language-select">
-			<Select id="language-select" referBy="Language" bind:selected={$locale}>
+			<Select
+				id="language-select"
+				referBy="Language"
+				bind:selected={$locale}
+				on:change={({ detail }) =>
+					goto(`/${detail.to}${$page.data.route}`, {
+						replaceState: true,
+						noScroll: true,
+						keepFocus: true
+					})}
+			>
 				<Option value={'en'}>
 					<UkFlag />
 					<span>En</span>

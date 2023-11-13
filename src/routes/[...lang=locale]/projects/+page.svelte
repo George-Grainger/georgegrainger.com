@@ -1,5 +1,5 @@
 <script>
-	import { t } from '$lib/translations';
+	import { locale, t } from '$lib/translations';
 	export let data;
 </script>
 
@@ -13,7 +13,7 @@
 	{#each data.projects as project}
 		<li>
 			<h2>
-				<a href={project.slug}>
+				<a href={`/${$locale}${project.slug}+1`}>
 					{project.title}
 				</a>
 			</h2>

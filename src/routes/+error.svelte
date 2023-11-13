@@ -1,10 +1,10 @@
 <script>
 	import { page } from '$app/stores';
 	import Button from '$lib/components/Button.svelte';
-	import { t } from '$lib/translations';
+	import { locale, t } from '$lib/translations';
 
 	const { status, route } = $page;
-	const projectMiss = route.id?.startsWith('/projects');
+	const projectMiss = route.id?.startsWith('/[...lang=locale]/projects');
 </script>
 
 <svelte:head>
@@ -17,11 +17,11 @@
 	{#if projectMiss}
 		<h2>{$t(`error.projects`)}</h2>
 		<p>{$t(`error.projects.body`)}</p>
-		<Button href="/projects">{$t('error.return-projects')}</Button>
+		<Button href={`/${$locale}/projects`}>{$t('error.return-projects')}</Button>
 	{:else}
 		<h2>{$t(`error.${status}`)}</h2>
 		<p>{$t(`error.${status}.body`)}</p>
-		<Button href="/">{$t('error.return')}</Button>
+		<Button href={`/${$locale}`}>{$t('error.return')}</Button>
 	{/if}
 </section>
 
