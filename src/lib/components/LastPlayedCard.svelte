@@ -27,7 +27,7 @@
 
 	async function HandleRefetch() {
 		clearInterval(tick);
-		await invalidate('home:data');
+		await invalidate('/api/recently-played');
 		playedAtDate = new Date(playedAt);
 		progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 		tick = setInterval(updateProgress, 1000);
