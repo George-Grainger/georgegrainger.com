@@ -10,7 +10,6 @@
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
-	import { t } from '$lib/translations';
 
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 350 : 0;

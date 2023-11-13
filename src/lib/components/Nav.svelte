@@ -7,7 +7,7 @@
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 	import { onMount } from 'svelte';
-	import { invalidateAll, onNavigate } from '$app/navigation';
+	import { invalidate, invalidateAll, onNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { t, locale } from '$lib/translations';
 

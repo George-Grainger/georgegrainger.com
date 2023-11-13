@@ -1,5 +1,5 @@
 import { error } from '@sveltejs/kit';
 
 export function load() {
-	throw error(404, 'Page not found');
+	throw error(404, 'Project not found');
 }

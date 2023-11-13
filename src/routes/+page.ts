@@ -1,7 +1,12 @@
-export async function load({ data, fetch }) {
-	const { lang, ...rest } = data;
-	const res = await fetch(`/api/projects/${lang}/homepage`);
-	const projects = await res.json();
+export async function load({ fetch, parent, depends }) {
+	depends('home:data');
+	const { locale } = await parent();
+	const results = await Promise.all([
+		fetch('/api/recently-played'),
+		fetch('/api/top-tracks'),
+		fetch(`/api/projects/${locale}/homepage`)
+	]);
+	const [currentTrack, topTracks, projects] = await Promise.all(results.map((r) => r.json()));
 
-	return { projects, ...rest };
+	return { projects, currentTrack, topTracks };
 }
