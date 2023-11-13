@@ -40,7 +40,7 @@
 		margin-bottom: 15vh;
 	}
 
-	g {
+	:global([data-motion='no-preference']) g {
 		transition: transform calc(3 * var(--duration)) var(--transition);
 	}
 

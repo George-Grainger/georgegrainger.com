@@ -71,7 +71,7 @@
 		pointer-events: none;
 	}
 
-	g {
+	:global([data-motion='no-preference']) g {
 		transition: transform calc(3 * var(--duration)) var(--transition);
 	}
 
@@ -103,12 +103,12 @@
 			}
 
 			&:first-child :first-child {
-				transform-origin: 596px 210px;
+				transform-origin: 596px 330px;
 				scale: 400%;
 			}
 
 			:first-child {
-				transform-origin: 632px -10px;
+				transform-origin: 632px 75px;
 				scale: 400%;
 			}
 		}

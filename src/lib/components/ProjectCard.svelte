@@ -8,7 +8,7 @@
 	export let technologies: Technology[] = [];
 	export let href: string;
 
-	import { t } from '$lib/translations';
+	import { locale, t } from '$lib/translations';
 
 	let card: HTMLElement;
 	let preload = true;
@@ -114,7 +114,7 @@
 				{/if}
 			{/each}
 		</div>
-		<Button {href}>{$t('home.view-details')}</Button>
+		<Button href={`/${$locale}${href}`}>{$t('home.view-details')}</Button>
 	</section>
 </article>
 
