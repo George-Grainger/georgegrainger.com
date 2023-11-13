@@ -16,17 +16,14 @@ export async function handle({ event, resolve }) {
 	if (locale === defaultLocale && !request.headers.get('prevent-redirect')) {
 		const localeRegex = new RegExp(`^/${defaultLocale}`);
 		const location = `${pathname}`.replace(localeRegex, '') || '/';
-
-		return new Response(undefined, { headers: { location }, status: 301 });
+		const cookie = `lang=${defaultLocale} ; expires=3600 ; path = /; SameSite=strict ;`;
+		return new Response(undefined, { headers: { location, 'Set-Cookie': cookie }, status: 301 });
 	}
 
 	if (!locale) {
-		if (!isDataRequest) {
-			// Get user preferred locale if it's a direct navigation
-			locale = event.cookies.get('lang');
-		}
+		locale = event.cookies.get('lang');
 
-		if (!locale && !isDataRequest) {
+		if (!isDataRequest) {
 			// If can't find cookie get it from the header
 			const userLanguages = `${request.headers.get('accept-language')}`;
 			const localeRegex = new RegExp(/[a-zA-Z]+?(?=-|_|,|;)/);
