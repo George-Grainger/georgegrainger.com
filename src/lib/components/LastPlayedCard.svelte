@@ -23,7 +23,7 @@
 	import { t, locale } from '$lib/translations';
 	let playedAtDate = new Date(playedAt);
 	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
-	let tick: number | undefined;
+	let tick: ReturnType<typeof setTimeout>;
 
 	async function HandleRefetch() {
 		clearInterval(tick);
