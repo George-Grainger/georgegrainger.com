@@ -108,7 +108,7 @@
 <style lang="scss">
 	nav {
 		--_size: 0.15em;
-		--_border-size: 0.2rem;
+		--_border-size: 0.15rem;
 		--_svg-height: 1.5em;
 		--_select-fs: 0.9em;
 
@@ -142,8 +142,8 @@
 		inset: 3em 7.5vw 4em;
 		font-size: 1.5em;
 		opacity: 0;
-
 		pointer-events: none;
+		color: var(--black);
 
 		&.showLinks {
 			--_delay: var(--duration);
@@ -219,6 +219,7 @@
 			display: contents;
 			font-size: inherit;
 			pointer-events: auto;
+			color: currentColor;
 		}
 
 		.hamburger {

@@ -43,7 +43,6 @@
 		padding: 1rem 2rem 1rem 1rem;
 		gap: 3rem;
 		text-align: center;
-		outline: 0.25rem solid var(--text);
 
 		:global(.btn) {
 			place-self: end;
@@ -56,7 +55,7 @@
 	}
 
 	h1 {
-		font-size: 1.75em;
+		font-size: 1.5em;
 		font-weight: 700;
 		text-wrap: balance;
 	}
@@ -99,7 +98,7 @@
 
 	@media only screen and (width > 40rem) {
 		article {
-			grid-template-columns: 1fr 2fr;
+			grid-template-columns: 3fr 4fr;
 
 			a:first-child {
 				grid-row: span 2;

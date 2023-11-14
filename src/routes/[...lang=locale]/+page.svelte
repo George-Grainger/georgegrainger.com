@@ -80,6 +80,7 @@
 <style lang="scss">
 	section {
 		display: grid;
+		max-width: var(--page-width);
 	}
 
 	.hero {

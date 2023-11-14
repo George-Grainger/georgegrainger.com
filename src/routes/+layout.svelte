@@ -10,9 +10,8 @@
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
-
 	// Page transitions
-	$: duration = $motion === motion.NO_PREFERENCE ? 350 : 0;
+	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
 	let showClouds = false;
 	let beenDuration = true;
 
@@ -39,9 +38,15 @@
 	</main>
 	<Footer {duration} />
 {:else}
-	<svg overflow="visible">
-		<use href="#lg-cloud-1" transition:fly={{ x: '-100%', duration: duration }} />
-		<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
+	<svg overflow="visible" viewBox="0 0 2000 1000">
+		<g class="light">
+			<use href="#lg-cloud-1" transition:fly={{ x: '-100%', duration: duration }} />
+			<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
+		</g>
+		<g class="dark">
+			<use href="#sm-asteroid-7" transition:fly={{ x: '100%', duration: duration }} />
+			<use href="#sm-asteroid-7-flipped" transition:fly={{ x: '-100%', duration: duration }} />
+		</g>
 	</svg>
 {/if}
 
@@ -56,13 +61,34 @@
 		height: 81vh;
 	}
 
-	use:first-child {
-		transform: translate(-25vh, -20vh);
+	.dark {
+		:first-child {
+			transform: translate(-65vh, -25vh);
+		}
+
+		:last-child {
+			transform: translate(-65vh, 67vh);
+		}
 	}
 
-	use {
-		transform: translate(-25vh, 25vh);
-		opacity: 0.85;
+	.light {
+		:first-child {
+			transform: translate(-25vh, -20vh);
+			opacity: 0.85;
+		}
+
+		:last-child {
+			transform: translate(-25vh, 25vh);
+			opacity: 0.85;
+		}
+	}
+
+	:global([data-theme='dark']) .light {
+		display: none;
+	}
+
+	:global([data-theme='light']) .dark {
+		display: none;
 	}
 
 	@media only screen and (width > 60rem) {
@@ -71,12 +97,24 @@
 			height: 54vw;
 		}
 
-		use:first-child {
-			transform: translate(-5vw, -18vw);
+		.dark {
+			:first-child {
+				transform: translate(-5vw, -20vw);
+			}
+
+			:last-child {
+				transform: translate(-5vw, 35vh);
+			}
 		}
 
-		use {
-			transform: translate(-5vw, 15vh);
+		.light {
+			:first-child {
+				transform: translate(-5vw, -18vw);
+			}
+
+			:last-child {
+				transform: translate(-5vw, 15vh);
+			}
 		}
 	}
 </style>
