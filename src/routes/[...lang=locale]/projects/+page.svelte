@@ -1,7 +1,7 @@
 <script>
 	import LargeProjectCard from '$lib/components/LargeProjectCard.svelte';
 	import LazyImage from '$lib/components/LazyImage.svelte';
-	import { locale, t } from '$lib/translations';
+	import { t } from '$lib/translations';
 	export let data;
 </script>
 
@@ -35,6 +35,7 @@
 <style>
 	h1 {
 		margin: auto;
+		margin-left: 1rem;
 	}
 
 	ul {

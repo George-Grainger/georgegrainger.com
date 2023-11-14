@@ -1,8 +1,6 @@
 import { getProjects } from '$lib/utils/server/projects';
 import { json } from '@sveltejs/kit';
 
-export const prerender = true;
-
 export const GET = async ({ url, params, setHeaders }) => {
 	const { lang } = params;
 	const offset = Number(url.searchParams.get('offset')) ?? 0;
