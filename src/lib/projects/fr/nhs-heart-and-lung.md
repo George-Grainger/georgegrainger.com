@@ -4,7 +4,7 @@ subtitle: Création d'une ressource pour les patients transplantés de la Newcas
 description: Création d'un système d'information et d'apprentissage pour les patients cardiaques et pulmonaires, facilitant, espérons-le, le processus de compréhension des changements qu'ils devront apporter après l'opération. Le site devait être universellement utilisable rendant l'accessibilité et l'intuitivité essentielles.
 src: /images/projects/nhs-hl.svg
 alt: Le logo du NHS
-technologies: ['wordpress', 'accessibility']
+tags: ['wordpress', 'accessibility']
 date: 10/12/21
 homepage: 5
 ---

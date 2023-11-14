@@ -7,7 +7,16 @@
 	export let download: string | null = null;
 </script>
 
-<CondtionalLink class="btn" {href} {target} {rel} {download} fallback="button">
+<CondtionalLink
+	on:click
+	class="btn"
+	{href}
+	{target}
+	{rel}
+	{download}
+	{...$$restProps}
+	fallback="button"
+>
 	<strong><slot>Button Text</slot></strong>
 	<span>
 		<svg viewBox="0 0 66 43" fill="currentColor">

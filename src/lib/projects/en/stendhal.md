@@ -5,7 +5,7 @@ description: Brownfield development on a large scale, open source Java codebase.
 src: /images/projects/stendhal.webp
 placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Artwork from Stendhal
-technologies: ['java', 'junit', 'opensource']
+tags: ['java', 'junit', 'opensource']
 date: 10/12/21
 homepage: 2
 ---

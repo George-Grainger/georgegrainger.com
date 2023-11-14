@@ -5,7 +5,7 @@ description: Développement brownfield à grande échelle, base de code Java ope
 src: /images/projects/stendhal.webp
 placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Oeuvre de Stendhal
-technologies: ['java', 'junit', 'opensource']
+tags: ['java', 'junit', 'opensource']
 date: 10/12/21
 homepage: 2
 ---

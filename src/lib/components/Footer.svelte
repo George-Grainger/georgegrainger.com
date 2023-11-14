@@ -19,7 +19,13 @@
 				{/each}
 			</ul>
 			<strong>{$t('global.created-by')}</strong>
-			<span>George Grainger</span>
+			<a
+				href="https://www.linkedin.com/in/georgegrainger/"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				George Grainger
+			</a>
 		</div>
 	</div>
 </footer>

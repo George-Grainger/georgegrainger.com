@@ -7,8 +7,8 @@
 	import FranceFlag from '$lib/assets/svg/flags/FranceFlag.svelte';
 	import UkFlag from '$lib/assets/svg/flags/UKFlag.svelte';
 	import { onMount } from 'svelte';
-	import { goto, onNavigate } from '$app/navigation';
-	import { t, locale, locales } from '$lib/translations';
+	import { afterNavigate, disableScrollHandling, goto, onNavigate } from '$app/navigation';
+	import { t, locale } from '$lib/translations';
 	import { page } from '$app/stores';
 
 	// Handle showing clouds for hamburger menu
@@ -33,6 +33,17 @@
 	onMount(() => {
 		window.addEventListener('resize', removeHamburgerOnDesktop);
 		return () => window.removeEventListener('resize', removeHamburgerOnDesktop);
+	});
+
+	// Prevent scrolling issue caused by redirecting from /en to /
+	afterNavigate((e) => {
+		if (e.from?.route?.id !== e.to?.route?.id) {
+			return;
+		}
+
+		if (e.from?.params?.lang !== e.to?.params?.lang) {
+			disableScrollHandling();
+		}
 	});
 </script>
 
@@ -68,8 +79,8 @@
 				on:change={({ detail }) =>
 					goto(`/${detail.to}${$page.data.route}`, {
 						replaceState: true,
-						noScroll: true,
-						keepFocus: true
+						keepFocus: true,
+						noScroll: true
 					})}
 			>
 				<Option value={'en'}>

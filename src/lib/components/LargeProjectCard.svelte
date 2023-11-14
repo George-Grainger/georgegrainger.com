@@ -1,30 +1,30 @@
 <script lang="ts">
-	import { technologyMap } from '$lib/utils/client/technology-map';
+	import { tagMap } from '$lib/utils/client/tag-map';
 	import Button from './Button.svelte';
 	import CondtionalLink from './CondtionalLink.svelte';
 
-	type Technology = keyof typeof technologyMap;
-	export let technologies: Technology[] = [];
+	type Tag = keyof typeof tagMap;
+	export let tags: Tag[] = [];
 	export let href: string;
 </script>
 
 <article>
-	<slot name="image"><img src="" alt="Empty Project Card" /></slot>
+	<a {href}><slot name="image"><img src="" alt="Empty Project Card" /></slot></a>
 	<div class="content">
 		<h1><a {href}><slot name="title">Project Title</slot></a></h1>
-		<div class="languages" style={`--columns: ${technologies.length}`}>
-			{#each technologies as technology}
-				{#if !technologyMap[technology]}
-					<span class="error">Unknown technology: {technology}</span>
+		<div class="languages" style={`--columns: ${tags.length}`}>
+			{#each tags as tag}
+				{#if !tagMap[tag]}
+					<span class="text-error">Unknown tag: {tag}</span>
 				{:else}
 					<CondtionalLink
-						href={technologyMap[technology].href}
+						href={tagMap[tag].href}
 						target="_blank"
 						rel="noopener noreferrer"
 						fallback="span"
 					>
-						<svelte:component this={technologyMap[technology].component} />
-						<small>{technologyMap[technology].name}</small>
+						<svelte:component this={tagMap[tag].component} />
+						<small>{tagMap[tag].name}</small>
 					</CondtionalLink>
 				{/if}
 			{/each}
@@ -41,12 +41,17 @@
 		background-color: var(--card);
 		border-radius: calc(var(--border-radius) + 1rem);
 		padding: 1rem 2rem 1rem 1rem;
-		gap: 1rem;
+		gap: 3rem;
 		text-align: center;
+		outline: 0.25rem solid var(--text);
 
 		:global(.btn) {
 			place-self: end;
 			margin-bottom: 1rem;
+		}
+
+		:global(.lazy-img) {
+			aspect-ratio: 3 / 2;
 		}
 	}
 
@@ -96,8 +101,12 @@
 		article {
 			grid-template-columns: 1fr 2fr;
 
-			:global(.lazy-img) {
+			a:first-child {
 				grid-row: span 2;
+			}
+
+			:global(.lazy-img) {
+				aspect-ratio: 1;
 			}
 		}
 	}

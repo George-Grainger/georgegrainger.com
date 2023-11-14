@@ -14,7 +14,7 @@
 <ul>
 	{#each data.projects as project}
 		<li>
-			<LargeProjectCard href={project.slug} technologies={project.technologies}>
+			<LargeProjectCard href={project.slug} tags={project.tags}>
 				<svelte:fragment slot="image">
 					<LazyImage
 						placeholderSrc={project.placeholderSrc || ''}
@@ -32,14 +32,18 @@
 
 <style>
 	h1 {
-		font-size: 4rem;
-		font-weight: 700;
 		margin: auto;
-		margin-bottom: 2rem;
 	}
 
 	ul {
 		display: grid;
-		gap: 2rem;
+		margin-top: 1em;
+		gap: 3em;
+	}
+
+	@media only screen and (width <= 60rem) {
+		h1 {
+			text-align: center;
+		}
 	}
 </style>

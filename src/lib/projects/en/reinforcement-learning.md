@@ -5,7 +5,7 @@ description: My third-year project in which I hope to create simulations of the 
 src: /images/projects/brain.webp
 placeholderSrc: /images/projects/brain-placeholder.webp
 alt: A purple 3d render of a brain
-technologies: ['python', 'research']
+tags: ['python', 'research']
 date: 10/12/21
 homepage: 3
 ---

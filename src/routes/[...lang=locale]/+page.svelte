@@ -31,7 +31,7 @@
 		<h1 id="project-title">{$t('home.projects-title')}</h1>
 	</div>
 	{#each data.projects as project}
-		<ProjectCard technologies={project.technologies} href={project.slug}>
+		<ProjectCard tags={project.tags} href={project.slug}>
 			<svelte:fragment slot="image">
 				<LazyImage
 					placeholderSrc={project.placeholderSrc || ''}
@@ -120,10 +120,10 @@
 
 	.projects {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, 18rem);
+		grid-template-columns: repeat(auto-fill, min(20rem, 100vw - 5rem));
 		justify-content: center;
 		align-items: start;
-		gap: 2em 4em;
+		gap: 2rem 4rem;
 		margin-bottom: 2.5%;
 		counter-reset: card-num;
 		margin-top: min(10vw, 15rem);
@@ -161,11 +161,6 @@
 		position: relative;
 		gap: 2rem;
 		margin-top: 20rem;
-	}
-
-	h1 {
-		font-weight: 700;
-		font-size: 3em;
 	}
 
 	.spotify {

@@ -5,7 +5,7 @@ interface Metadata {
 	src: string;
 	placeholderSrc?: string;
 	alt: string;
-	technologies: string[];
+	tags: string[];
 	date: string;
 	homepage?: number;
 	inProgress: boolean;
@@ -15,7 +15,7 @@ export interface Project extends Metadata {
 	slug: string;
 }
 
-export const getProjects = async (lang = 'en') => {
+export const getProjects = async (lang = 'en', offset = 0, limit = 10, tag = '') => {
 	let allProjects;
 	if (lang === 'fr') {
 		allProjects = import.meta.glob('$lib/projects/fr/*.md');
@@ -23,7 +23,7 @@ export const getProjects = async (lang = 'en') => {
 		allProjects = import.meta.glob('$lib/projects/en/*.md');
 	}
 
-	const projects = await Promise.all(
+	let projects = await Promise.all(
 		Object.entries(allProjects).map(async ([path, resolver]) => {
 			const { metadata } = (await resolver()) as { metadata: Metadata };
 			metadata.inProgress = metadata.inProgress ?? false;
@@ -32,7 +32,19 @@ export const getProjects = async (lang = 'en') => {
 		})
 	);
 
-	const sortedProjects = projects.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+	if (tag) {
+		projects = projects.filter((p) => p?.tags?.includes(tag));
+	}
+
+	let sortedProjects = projects.sort((a, b) => +new Date(b.date) - +new Date(a.date));
+
+	if (offset) {
+		sortedProjects = sortedProjects.slice(offset);
+	}
+
+	if (limit && limit != -1 && limit < sortedProjects.length) {
+		sortedProjects = sortedProjects.slice(0, limit);
+	}
 
 	return sortedProjects.map((p) => {
 		return { ...p };

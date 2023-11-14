@@ -32,7 +32,7 @@
 	}
 </script>
 
-<div class="progress-bar" on:pointerdown>
+<div class="progress-bar" on:pointerdown on:pointerup>
 	<span>{format(time)}</span>
 	<div class="slider" on:pointerdown={handlePointerDown}>
 		<div class="progress" style="--progress: {(100 * time) / (duration || 1)}%" />

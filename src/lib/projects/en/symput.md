@@ -4,7 +4,7 @@ subtitle: An Android keyboard and associated full stack website for feedback
 description: Created a full stack website, symput.com allowing users of our first-year group project android keyboard to provide feedback. The site includes a CMS, user profiles, serverless functions and more!
 src: /images/projects/symput.svg
 alt: The Symput Logo
-technologies: ['nextjs', 'tailwind', 'firebase']
+tags: ['nextjs', 'tailwind', 'firebase']
 date: 10/12/21
 homepage: 1
 ---

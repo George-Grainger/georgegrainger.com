@@ -15,13 +15,13 @@ import TailwindCss from '$lib/projects/logos/TailwindCSS.svelte';
 import W3C from '$lib/projects/logos/W3C.svelte';
 import WordPress from '$lib/projects/logos/WordPress.svelte';
 
-export interface TechnologyInfo {
+export interface TagInfo {
 	name: string;
 	href?: string;
 	component: ComponentType;
 }
 
-const TECHNOLOGIES = {
+const TAGS = {
 	assembly: {
 		name: 'Assembly',
 		href: 'https://www.assemblyscript.org/',
@@ -98,4 +98,4 @@ const TECHNOLOGIES = {
 };
 
 // Solve issue with type either not correctly mapping keys or values
-export const technologyMap: Record<string, TechnologyInfo> = TECHNOLOGIES;
+export const tagMap: Record<string, TagInfo> = TAGS;

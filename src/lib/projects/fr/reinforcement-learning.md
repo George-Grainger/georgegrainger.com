@@ -5,7 +5,7 @@ description: Mon projet de troisième année dans lequel j'espère créer des si
 src: /images/projects/brain.webp
 placeholderSrc: /images/projects/brain-placeholder.webp
 alt: Un rendu 3D violet d'un cerveau
-technologies: ['python', 'research']
+tags: ['python', 'research']
 date: 10/12/21
 homepage: 3
 ---

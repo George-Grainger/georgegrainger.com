@@ -36,6 +36,7 @@
 	let time = 0;
 	let muted = false;
 	let paused = true;
+	let prevPaused = true;
 
 	function handleClick() {
 		paused = !paused;
@@ -52,6 +53,15 @@
 
 		audio.play();
 		audio.volume = 1;
+	}
+
+	function handlePointerDown() {
+		prevPaused = paused;
+		paused = true;
+	}
+
+	function handlePointerUp() {
+		paused = prevPaused;
 	}
 </script>
 
@@ -72,7 +82,12 @@
 			<PauseIcon fill="var(--black)" />
 		{/if}
 	</button>
-	<ProgressBar on:pointerdown={() => (paused = true)} bind:time bind:duration />
+	<ProgressBar
+		on:pointerdown={handlePointerDown}
+		on:pointerup={handlePointerUp}
+		bind:time
+		bind:duration
+	/>
 	<button
 		class="mute"
 		aria-label={$t(muted ? 'home.mute' : 'home.unmute')}

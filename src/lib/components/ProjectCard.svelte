@@ -1,11 +1,11 @@
 <script lang="ts">
 	import Button from './Button.svelte';
-	import { technologyMap } from '$lib/utils/client/technology-map';
+	import { tagMap } from '$lib/utils/client/tag-map';
 	import CondtionalLink from './CondtionalLink.svelte';
 	import { beforeUpdate, onMount } from 'svelte';
 
-	type Technology = keyof typeof technologyMap;
-	export let technologies: Technology[] = [];
+	type Tag = keyof typeof tagMap;
+	export let tags: Tag[] = [];
 	export let href: string;
 
 	import { locale, t } from '$lib/translations';
@@ -98,18 +98,14 @@
 	<section>
 		<strong aria-hidden="true"><slot name="title">Title</slot></strong>
 		<p><slot name="description">Project description</slot></p>
-		<div class="languages" style={`--columns: ${technologies.length}`}>
-			{#each technologies as technology}
-				{#if !technologyMap[technology]}
-					<span class="error">Unknown technology: {technology}</span>
+		<div class="languages" style={`--columns: ${tags.length}`}>
+			{#each tags as tag}
+				{#if !tagMap[tag]}
+					<span class="text-error">Unknown tag: {tag}</span>
 				{:else}
-					<CondtionalLink
-						href={technologyMap[technology].href}
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						<svelte:component this={technologyMap[technology].component} />
-						<small>{technologyMap[technology].name}</small>
+					<CondtionalLink href={tagMap[tag].href} target="_blank" rel="noopener noreferrer">
+						<svelte:component this={tagMap[tag].component} />
+						<small>{tagMap[tag].name}</small>
 					</CondtionalLink>
 				{/if}
 			{/each}
@@ -208,6 +204,7 @@
 		}
 
 		h1 {
+			font-size: 1.15em;
 			font-weight: 700;
 		}
 

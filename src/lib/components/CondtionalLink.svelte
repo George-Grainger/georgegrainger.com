@@ -7,9 +7,9 @@
 </script>
 
 {#if href}
-	<a {href} {target} {rel} {...$$restProps}><slot /></a>
+	<a {href} {target} {rel} {...$$restProps} on:click><slot /></a>
 {:else if fallback}
-	<svelte:element this={fallback} {...$$restProps}><slot /></svelte:element>
+	<svelte:element this={fallback} on:click {...$$restProps}><slot /></svelte:element>
 {:else}
 	<slot />
 {/if}

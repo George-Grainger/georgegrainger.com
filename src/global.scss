@@ -134,6 +134,16 @@ button {
 	cursor: pointer;
 }
 
+h1 {
+	font-size: 3em;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 2em;
+	font-weight: 600;
+}
+
 :target {
 	scroll-margin: 10rem;
 }
@@ -151,7 +161,7 @@ a:focus-visible {
 	border-radius: calc(0.5 * var(--border-radius));
 }
 
-.error {
+.text-error {
 	color: var(--red);
 }
 
@@ -171,24 +181,6 @@ a:focus-visible {
 :where(.prose) {
 	> :not(h1, h2, h3, h4, h5, h6, div) + * {
 		margin-top: 0.75em;
-	}
-
-	h1,
-	h2,
-	h3 {
-		font-weight: 700;
-	}
-
-	h1 {
-		font-size: 2em;
-	}
-
-	h2 {
-		font-size: 1.3em;
-	}
-
-	h3 {
-		font-size: 1.1em;
 	}
 
 	:where(ol, ul) {
