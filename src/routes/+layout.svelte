@@ -38,7 +38,7 @@
 	</main>
 	<Footer {duration} />
 {:else}
-	<svg overflow="visible" viewBox="0 0 2000 1000">
+	<svg overflow="visible">
 		<g class="light">
 			<use href="#lg-cloud-1" transition:fly={{ x: '-100%', duration: duration }} />
 			<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
@@ -49,7 +49,6 @@
 		</g>
 	</svg>
 {/if}
-
 <Symbols />
 
 <style lang="scss">
@@ -63,11 +62,11 @@
 
 	.dark {
 		:first-child {
-			transform: translate(-65vh, -25vh);
+			transform: translate(-65vh, -20vh);
 		}
 
 		:last-child {
-			transform: translate(-65vh, 67vh);
+			transform: translate(-65vh, 40vh);
 		}
 	}
 
@@ -103,7 +102,7 @@
 			}
 
 			:last-child {
-				transform: translate(-5vw, 35vh);
+				transform: translate(-5vw, 38vh);
 			}
 		}
 

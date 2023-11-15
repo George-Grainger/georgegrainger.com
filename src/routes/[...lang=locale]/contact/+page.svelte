@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Button from '$lib/components/Button.svelte';
-	import { crossfade, fade, fly } from 'svelte/transition';
+	import { crossfade, fly } from 'svelte/transition';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { z } from 'zod';
 

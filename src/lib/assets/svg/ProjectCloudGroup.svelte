@@ -38,6 +38,7 @@
 		will-change: transform;
 		z-index: 3;
 		margin-bottom: 15vh;
+		contain: paint;
 	}
 
 	:global([data-motion='no-preference']) g {

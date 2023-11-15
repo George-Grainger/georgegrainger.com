@@ -76,12 +76,13 @@
 				id="language-select"
 				referBy="Language"
 				bind:selected={$locale}
-				on:change={({ detail }) =>
-					goto(`/${detail.to}${$page.data.route}`, {
+				on:change={() => {
+					goto(`/${$locale}${$page.data.route}`, {
 						replaceState: true,
 						keepFocus: true,
 						noScroll: true
-					})}
+					});
+				}}
 			>
 				<Option value={'en'}>
 					<UkFlag />
