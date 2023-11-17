@@ -1,6 +1,9 @@
 <script lang="ts">
+	import { onNavigate } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
-	import { crossfade, fly } from 'svelte/transition';
+	import { t } from '$lib/translations/index.js';
+	import { onDestroy } from 'svelte';
+	import { fly } from 'svelte/transition';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { z } from 'zod';
 
@@ -8,12 +11,12 @@
 
 	let submissionStatus = '';
 	const newContact = z.object({
-		name: z.string().min(2),
-		email: z.string().email(),
-		message: z.string().min(10)
+		name: z.string().min(2, $t('contact.name-error')),
+		email: z.string().email($t('contact.email-error')),
+		message: z.string().min(10, $t('contact.message-error'))
 	});
 
-	const { form, errors, enhance } = superForm(data.form, {
+	const { form, errors, constraints, enhance, reset } = superForm(data.form, {
 		validators: newContact,
 		resetForm: true,
 		onSubmit: () => {
@@ -27,58 +30,53 @@
 		}
 	});
 
-	const [send, receive] = crossfade({
-		duration: 200
+	// Prevent error when navigating on half filled form
+	let section: HTMLElement;
+	onNavigate((e) => {
+		if (e.to?.route.id?.endsWith('/contact')) {
+			return;
+		} else if ($form.name || $form.email || $form.message) {
+			reset();
+			section.parentNode?.removeChild(section);
+		}
 	});
+
+	// If there's an error disable the button
+	$: disabled = Object.values($errors).every((v) => v == undefined) ? null : 'disabled';
 </script>
 
-<section>
-	<h1>Get in touch</h1>
+<section bind:this={section}>
+	<h1>{$t('contact.title')}</h1>
 
 	{#if submissionStatus === 'failed'}
 		<div in:fly={{ duration: 200, delay: 200, y: 5 }} out:fly={{ duration: 200, y: -5 }}>
-			<h2>Submission Failed</h2>
-			<p>Hmm... something went wrong. Sorry about that - it's probably my fault.</p>
-			<p>
-				It's probably easier if you <a href="mailto:georgegrainger2000@gmail.com"
-					>email me directly</a
-				>, it all ends up there anyway!
-			</p>
-			<p>If you'd prefer to use the form, you can retry by clicking below</p>
-			<Button on:click={() => (submissionStatus = '')}>Retry</Button>
+			<h2>{$t('contact.failed-title')}</h2>
+			{#each $t('contact.failed-paragraphs') as paragraph}
+				<p>{@html paragraph}</p>
+			{/each}
+			<Button on:click={() => (submissionStatus = '')}>{$t('contact.failed-cta')}</Button>
 		</div>
 	{:else if submissionStatus === 'success'}
 		<div in:fly={{ duration: 200, delay: 200, y: 5 }} out:fly={{ duration: 200, y: -5 }}>
-			<h2>Success</h2>
-			<p>Thanks for getting in touch, I'll get back to you as soon as I can</p>
-			<p>
-				For now, feel free to keep looking round - if you think of anything else to say you can
-				always resubmit below using the button below.
-			</p>
+			<h2>{$t('contact.success-title')}</h2>
+			{#each $t('contact.success-paragraphs') as paragraph}
+				<p>{@html paragraph}</p>
+			{/each}
 			<Button data-sveltekit-reload on:click={() => (submissionStatus = '')}>
-				Send another message
+				{$t('contact.success-cta')}
 			</Button>
 		</div>
 	{:else}
 		<div in:fly={{ duration: 200, delay: 200, y: 5 }} out:fly={{ duration: 200, y: -5 }}>
-			<p>If you're interested, fill in the form below and I'll be sure to get back to you.</p>
-			<p>
-				Alternatively, you can <a href="mailto:georgegrainger2000@gmail.com">email me directly</a>
-				or reach out to me on
-				<a
-					href="https://www.linkedin.com/in/georgegrainger/"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					LinkedIn.
-				</a>
-			</p>
-			<form method="POST" use:enhance>
+			{#each $t('contact.form-paragraphs') as paragraph}
+				<p>{@html paragraph}</p>
+			{/each}
+			<form method="POST" use:enhance data-sveltekit-reload>
 				<div class={$errors.name ? 'error' : ''}>
-					<label for="name">Your name:</label>
+					<label for="name">{$t('contact.your-name')}</label>
 					{#if $errors.name}
 						<small class="text-error">
-							<span class="sr-only">Error: </span>{$errors.name}
+							<span class="sr-only">{$t('contact.error')}</span>{$errors.name}
 						</small>
 					{/if}
 					<input
@@ -86,17 +84,18 @@
 						type="text"
 						name="name"
 						aria-label="name"
+						aria-invalid={$errors.name ? 'true' : undefined}
 						placeholder="John Doe"
-						required
 						autocomplete="off"
+						{...$constraints.name}
 					/>
 				</div>
 
 				<div class={$errors.email ? 'error' : ''}>
-					<label for="email">Your email:</label>
+					<label for="email">{$t('contact.your-email')}</label>
 					{#if $errors.email}
 						<small class="text-error">
-							<span class="sr-only">Error: </span>{$errors.email}
+							<span class="sr-only">{$t('contact.error')}</span>{$errors.email}
 						</small>
 					{/if}
 					<input
@@ -104,35 +103,37 @@
 						type="email"
 						name="email"
 						aria-label="email"
+						aria-invalid={$errors.email ? 'true' : undefined}
 						placeholder="example@gmail.com"
-						required
 						autocomplete="off"
+						{...$constraints.email}
 					/>
 				</div>
 
 				<div class={`message ${$errors.message ? 'error' : ''}`}>
-					<label for="message" class="Your Message:">Message:</label>
+					<label for="message" class="Your Message:">{$t('contact.message')}</label>
 					{#if $errors.message}
 						<small class="text-error">
-							<span class="sr-only">Error: </span>{$errors.message}
+							<span class="sr-only">{$t('contact.error')}</span>{$errors.message}
 						</small>
 					{/if}
 					<textarea
 						bind:value={$form.message}
 						name="message"
 						aria-label="message"
-						placeholder="Message"
-						required
-						rows="3"
+						aria-invalid={$errors.message ? 'true' : undefined}
+						placeholder={$t('contact.message-prompt')}
+						rows="5"
 						autocomplete="off"
+						{...$constraints.message}
 					/>
 				</div>
 
 				<div class="submit-content">
 					{#if submissionStatus === 'submitting'}
-						<p class="submitting">Submitting...</p>
+						<p class="submitting">{$t('contact.submitting')}</p>
 					{:else}
-						<Button type="submit">Send Message</Button>
+						<Button type="submit" {disabled}>{$t('contact.form-cta')}</Button>
 					{/if}
 				</div>
 			</form>
@@ -159,6 +160,7 @@
 		position: relative;
 		display: grid;
 		gap: 0.125em;
+		align-content: end;
 	}
 
 	div.error::before {
@@ -187,10 +189,6 @@
 	label,
 	small {
 		padding: 0.5rem;
-	}
-
-	textarea {
-		min-height: 3rem;
 	}
 
 	label {

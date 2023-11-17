@@ -1,0 +1,30 @@
+{
+    "title": "Get in touch",
+    "failed-title": "Submission failed",
+    "failed-paragraphs": [
+        "Hmm... something went wrong. Sorry about that - it's probably my fault.",
+        "It's probably easier if you <a href=\"mailto:georgegrainger2000@gmail.com\">email me directly</a>, it all ends up there anyway!",
+        "If you'd prefer to use the form, you can retry by clicking below."
+    ],
+    "failed-cta": "Retry",
+    "success-title": "Success",
+    "success-paragraphs": [
+        "Thanks for getting in touch, I'll get back to you as soon as I can.",
+        "For now, feel free to keep looking round - if you think of anything else to say you can always resubmit below using the button below."
+    ],
+    "success-cta": "Send another message",
+    "form-paragraphs": [
+        "If you're interested, fill in the form below and I'll be sure to get back to you.",
+        "Alternatively, you can <a href=\"mailto:georgegrainger2000@gmail.com\">email me directly</a> or reach out to me on <a href=\"https://www.linkedin.com/in/georgegrainger/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>."
+    ],
+    "submitting": "Submitting...",
+    "form-cta": "Send Message",
+    "your-name": "Your name: ",
+    "name-error": "Your name must contain at least 2 characters",
+    "your-email": "Your email: ",
+    "email-error": "Invalid email",
+    "message": "Message: ",
+    "message-prompt": "Ideally about finding me a job!",
+    "message-error": "Your message must contain at least 10 characters",
+    "error": "Error: "
+}

@@ -31,6 +31,12 @@ export const config: Config<Params> = {
 		},
 		{
 			locale: 'en',
+			key: 'contact',
+			routes: ['/contact'],
+			loader: async () => (await import('./en/contact.json')).default
+		},
+		{
+			locale: 'en',
 			key: 'error',
 			// routes: ['error'],
 			loader: async () => (await import('./en/error.json')).default
@@ -51,6 +57,12 @@ export const config: Config<Params> = {
 			key: 'projects',
 			routes: ['/projects'],
 			loader: async () => (await import('./fr/projects.json')).default
+		},
+		{
+			locale: 'fr',
+			key: 'contact',
+			routes: ['/contact'],
+			loader: async () => (await import('./fr/contact.json')).default
 		},
 		{
 			locale: 'fr',

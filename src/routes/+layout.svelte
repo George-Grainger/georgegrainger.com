@@ -8,14 +8,14 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { afterNavigate, beforeNavigate } from '$app/navigation';
+	import { afterNavigate, onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
 	let showClouds = false;
 	let beenDuration = true;
 
-	beforeNavigate((e) => {
+	onNavigate((e) => {
 		// Don't delay when navigating on mobile
 		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
@@ -62,11 +62,11 @@
 
 	.dark {
 		:first-child {
-			transform: translate(-65vh, -20vh);
+			transform: translate(-25vh, -11vh);
 		}
 
 		:last-child {
-			transform: translate(-65vh, 40vh);
+			transform: translate(-25vh, 50vh);
 		}
 	}
 
@@ -102,7 +102,7 @@
 			}
 
 			:last-child {
-				transform: translate(-5vw, 38vh);
+				transform: translate(-5vw, 43vh);
 			}
 		}
 

@@ -9,7 +9,9 @@
 </script>
 
 <article>
-	<a {href}><slot name="image"><img src="" alt="Empty Project Card" /></slot></a>
+	<a class="project-image" {href}>
+		<slot name="image"><img src="" alt="Empty Project Card" /></slot>
+	</a>
 	<div class="content">
 		<h1><a {href}><slot name="title">Project Title</slot></a></h1>
 		<div class="languages" style={`--columns: ${tags.length}`}>
@@ -40,7 +42,7 @@
 		display: grid;
 		background-color: var(--card);
 		border-radius: calc(var(--border-radius) + 1rem);
-		padding: 1rem 2rem 1rem 1rem;
+		padding: 1rem;
 		gap: 3rem;
 		text-align: center;
 
@@ -96,21 +98,20 @@
 		}
 	}
 
-	@media only screen and (width > 40rem) {
+	@media only screen and (width > 60rem) {
 		article {
 			grid-template-columns: 3fr 4fr;
+			padding-right: 2rem;
 
 			a:first-child {
 				grid-row: span 2;
 			}
 
 			:global(.lazy-img) {
-				aspect-ratio: 1;
+				aspect-ratio: initial;
 			}
 		}
-	}
 
-	@media only screen and (width > 60rem) {
 		.content {
 			text-align: initial;
 			margin-top: 1rem;
