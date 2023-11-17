@@ -20,20 +20,20 @@
 			"link": "/contact"
 		}
 	],
-	"preferences": "Préférences",
+	"links": "Liens annexes",
 	"created-by": "Créé par",
 	"footer-links": [
 		{
-			"text": "Langues",
-			"link": "/languages"
+			"text": "Préférences",
+			"link": "/preferences"
 		},
 		{
-			"text": "Thème",
-			"link": "/theme"
+			"text": "Politique de Confidentialité",
+			"link": "/privacy-policy"
 		},
 		{
-			"text": "Accessibilité",
-			"link": "/accessibility"
+			"text": "Conditions d'Utilisation",
+			"link": "/terms-of-use"
 		}
 	]
 }

@@ -10,6 +10,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
+
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
 	let showClouds = false;

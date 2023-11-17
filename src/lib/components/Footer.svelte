@@ -10,7 +10,7 @@
 	<div class="footer-image"><FooterScene /></div>
 	<div class="footer-text-wrapper">
 		<div class="footer-text">
-			<strong>{$t('global.preferences')}</strong>
+			<strong>{$t('global.links')}</strong>
 			<ul>
 				{#each $t('global.footer-links') as { text, link }}
 					<li>

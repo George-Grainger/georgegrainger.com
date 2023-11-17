@@ -14,9 +14,10 @@ export const GET = async () => {
 
 	const pages = [
 		{ page: `projects`, updated: `2023-11-12` },
-		{ page: `contact`, updated: `2023-11-12` },
-		{ page: `privacy-policy`, updated: `2023-11-12` },
-		{ page: `cookie-policy`, updated: `2023-11-12` }
+		{ page: `contact`, updated: `2023-11-16` },
+		{ page: `preferences`, updated: `2023-11-17` },
+		{ page: `privacy-policy`, updated: `2023-11-17` },
+		{ page: `terms-of-use`, updated: `2023-11-17` }
 	];
 
 	const body = render(pages, projects);
