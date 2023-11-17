@@ -63,21 +63,25 @@
 	.dark {
 		:first-child {
 			transform: translate(-25vh, -11vh);
+			transform: translate(-25lvh, -11lvh);
 		}
 
 		:last-child {
 			transform: translate(-25vh, 50vh);
+			transform: translate(-25lvh, 50lvh);
 		}
 	}
 
 	.light {
 		:first-child {
 			transform: translate(-25vh, -20vh);
+			transform: translate(-25lvh, -20lvh);
 			opacity: 0.85;
 		}
 
 		:last-child {
 			transform: translate(-25vh, 25vh);
+			transform: translate(-25lvh, 25lvh);
 			opacity: 0.85;
 		}
 	}
@@ -103,6 +107,7 @@
 
 			:last-child {
 				transform: translate(-5vw, 43vh);
+				transform: translate(-5vw, 43lvh);
 			}
 		}
 
@@ -113,6 +118,7 @@
 
 			:last-child {
 				transform: translate(-5vw, 15vh);
+				transform: translate(-5vw, 15lvh);
 			}
 		}
 	}
