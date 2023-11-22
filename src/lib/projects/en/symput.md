@@ -9,4 +9,4 @@ date: 10/12/21
 homepage: 1
 ---
 
-Sorry I'm stil creating the content for these pages - please check back in the near future and I'll have them created with the github linked!
+Sorry, I'm still creating the content for these pages - please check back in the near future and I'll have them created with the GitHub linked!

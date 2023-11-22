@@ -9,3 +9,5 @@ tags: ['python', 'research']
 date: 10/12/21
 homepage: 3
 ---
+
+Désolé, je suis toujours en train de créer le contenu de ces pages - veuillez revenir dans un avenir proche et je les ferai créer avec le lien GitHub !

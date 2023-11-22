@@ -7,7 +7,7 @@ placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Oeuvre de Stendhal
 tags: ['java', 'junit', 'opensource']
 date: 10/12/21
-homepage: 2
+homepage: 6
 ---
 
-Sorry I'm stil creating the content for these pages - please check back in the near future and I'll have them created with the github linked!
+Désolé, je suis toujours en train de créer le contenu de ces pages - veuillez revenir dans un avenir proche et je les ferai créer avec le lien GitHub !

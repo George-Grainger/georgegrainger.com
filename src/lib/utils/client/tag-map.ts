@@ -14,6 +14,8 @@ import SolidJs from '$lib/projects/logos/SolidJS.svelte';
 import TailwindCss from '$lib/projects/logos/TailwindCSS.svelte';
 import W3C from '$lib/projects/logos/W3C.svelte';
 import WordPress from '$lib/projects/logos/WordPress.svelte';
+import Svelte from '$lib/projects/logos/Svelte.svelte';
+import Rust from '$lib/projects/logos/Rust.svelte';
 
 export interface TagInfo {
 	name: string;
@@ -80,6 +82,11 @@ const TAGS = {
 		href: 'https://www.solidjs.com/',
 		component: SolidJs
 	},
+	sveltekit: {
+		name: 'SvelteKit',
+		href: 'https://kit.svelte.dev/',
+		component: Svelte
+	},
 	tailwind: {
 		name: 'TailwindCSS',
 		href: 'https://tailwindcss.com/',
@@ -94,6 +101,11 @@ const TAGS = {
 		name: 'WordPress',
 		href: 'https://wordpress.org/',
 		component: WordPress
+	},
+	rust: {
+		name: "Rust",
+		href: "https://www.rust-lang.org",
+		component: Rust
 	}
 };
 

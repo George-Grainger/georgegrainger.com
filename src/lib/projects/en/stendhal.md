@@ -7,7 +7,7 @@ placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Artwork from Stendhal
 tags: ['java', 'junit', 'opensource']
 date: 10/12/21
-homepage: 2
+homepage: 6
 ---
 
-Sorry I'm stil creating the content for these pages - please check back in the near future and I'll have them created with the github linked!
+Sorry, I'm still creating the content for these pages - please check back in the near future and I'll have them created with the GitHub linked!

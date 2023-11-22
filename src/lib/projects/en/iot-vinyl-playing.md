@@ -6,6 +6,7 @@ src: /images/projects/iot-vinyl.svg
 alt: Collage of album covers
 tags: ['assembly', 'iot', 'cpp']
 date: 10/12/21
-homepage: 6
 inProgress: true
 ---
+
+Sorry, I'm still creating the content for these pages - please check back in the near future and I'll have them created with the GitHub linked!

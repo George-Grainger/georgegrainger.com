@@ -6,6 +6,7 @@ src: /images/projects/iot-vinyl.svg
 alt: Collage de pochettes d'albums
 tags: ['assembly', 'iot', 'cpp']
 date: 10/12/21
-homepage: 6
 inProgress: true
 ---
+
+Désolé, je suis toujours en train de créer le contenu de ces pages - veuillez revenir dans un avenir proche et je les ferai créer avec le lien GitHub !

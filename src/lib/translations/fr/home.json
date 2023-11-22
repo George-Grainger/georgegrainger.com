@@ -9,9 +9,9 @@
 	"about": "Sur moi",
 	"academic-title": "Académique",
 	"academic-paragraphs": [
-		"Je suis dans ma troisième année d'études pour mon MEng (Hons) en informatique à l'Université de Manchester.",
-		"En première année, j'ai remporté le prix Netcraft pour les 10 meilleurs étudiants avec une moyenne de 90 %. En deuxième année, j'ai continué à bien faire et j'étais dans le top 5% des étudiants (sur 400) avec une moyenne de 89%. J'ai également obtenu la meilleure note dans l'unité d'architecture système avec une moyenne de 92%.",
-		"J'apprécie une gamme d'unités de cours, en particulier celles basées sur l'IA, les graphiques et le matériel. J'ai hâte de voir comment cela joue dans mon projet de troisième année qui simule le système dopaminergique et la dépendance par l'apprentissage par renforcement - <a href=\"/third-year-project\">en savoir plus</a>."
+		"Je suis en dernière année d'études pour mon Master en informatique (Hons) à l'Université de Manchester.",
+		"En première année, j'ai remporté le prix Netcraft pour les 10 meilleurs étudiants avec une moyenne de 90 %. En deuxième année, j'ai continué à bien faire et j'étais dans <a href=\"https://www.georgegrainger.com/SecondYearLetter.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">le top 5% des étudiants</a> (sur 400) avec une moyenne de 89%. J'ai également obtenu la meilleure note dans l'unité d'architecture système avec une moyenne de 92%.",
+		"J'apprécie une gamme d'unités de cours, notamment celles basées sur l'IA, l'ingénierie des données et le développement logiciel. J'ai particulièrement apprécié de voir comment ceux-ci interagissaient dans mon projet de troisième année simulant le système dopaminergique et la dépendance grâce à l'apprentissage par renforcement - <a href=\"projects/reinforcement-learning\">en savoir plus</a>."
 	],
 	"experience-title": "Expérience",
 	"experience-paragraphs": [
