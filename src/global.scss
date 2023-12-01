@@ -150,6 +150,10 @@ h2 {
 	font-weight: 600;
 }
 
+h3 {
+	font-weight: 600;
+}
+
 :target {
 	scroll-margin: 10rem;
 }
@@ -198,7 +202,7 @@ a:focus-visible {
 	}
 
 	h3 {
-		font-size: 1.1em;
+		font-size: 1em;
 	}
 
 	:where(ol, ul) {

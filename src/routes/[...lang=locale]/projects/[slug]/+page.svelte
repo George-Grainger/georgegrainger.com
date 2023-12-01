@@ -1,4 +1,6 @@
 <script>
+	import { t } from '$lib/translations';
+
 	export let data;
 	const { title, date, description, inProgress, content } = data;
 </script>
@@ -34,7 +36,7 @@
 				<p>In Progress</p>
 			</div>
 		{/if}
-		<small>Last Updated: {date}</small>
+		<small>{$t('projects.published')} {date}</small>
 	</header>
 	<svelte:component this={content} />
 </article>

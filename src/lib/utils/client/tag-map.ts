@@ -103,8 +103,8 @@ const TAGS = {
 		component: WordPress
 	},
 	rust: {
-		name: "Rust",
-		href: "https://www.rust-lang.org",
+		name: 'Rust',
+		href: 'https://www.rust-lang.org',
 		component: Rust
 	}
 };

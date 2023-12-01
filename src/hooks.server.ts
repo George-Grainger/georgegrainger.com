@@ -1,4 +1,4 @@
-import { defaultLocale, loadTranslations, locales } from '$lib/translations';
+import { defaultLocale, locales } from '$lib/translations';
 
 export async function handle({ event, resolve }) {
 	const { url, request, isDataRequest } = event;

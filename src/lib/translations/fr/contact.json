@@ -1,30 +1,30 @@
 {
-    "title": "Contactez-nous",
-    "failed-title": "Échec de la soumission",
-    "failed-paragraphs": [
-        "Hmm... Quelque chose s'est mal passé. Désolé pour cela, c'est probablement de ma faute.",
-        "C'est probablement plus facile si vous <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a>, tout finit là de toute façon !",
-        "Si vous préférez utiliser le formulaire, vous pouvez réessayer en cliquant ci-dessous."
-    ],
-    "failed-cta": "Réessayer",
-    "success-title": "Succès",
-    "success-paragraphs": [
-        "Merci de m'avoir contacté, je vous répondrai dès que possible",
-        "Pour l'instant, n'hésitez pas à continuer à regarder autour de vous - si vous pensez à autre chose à dire, vous pouvez toujours soumettre à nouveau ci-dessous en utilisant le bouton ci-dessous."
-    ],
-    "success-cta": "Envoyer un autre message",
-    "form-paragraphs": [
-        "Si vous êtes intéressé, remplissez le formulaire ci-dessous et je ne manquerai pas de vous répondre.",
-        "Alternativement, vous pouvez <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a> ou me contacter sur <a href=\"https://www.linkedin.com/in/georgegrainger/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>."
-    ],
-    "submitting": "Soumettre...",
-    "form-cta": "Envoyer un message",
-    "your-name": "Votre nom: ",
-    "name-error": "Votre nom doit contenir au moins 2 caractères",
-    "your-email": "Votre e-mail: ",
-    "email-error": "E-mail non valide",
-    "message": "Message: ",
-    "message-prompt": "Idéalement, il s'agit de me trouver un emploi !",
-    "message-error": "Votre message doit contenir au moins 10 caractères",
-    "error": "Erreur: "
+	"title": "Contactez-nous",
+	"failed-title": "Échec de la soumission",
+	"failed-paragraphs": [
+		"Hmm... Quelque chose s'est mal passé. Désolé pour cela, c'est probablement de ma faute.",
+		"C'est probablement plus facile si vous <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a>, tout finit là de toute façon !",
+		"Si vous préférez utiliser le formulaire, vous pouvez réessayer en cliquant ci-dessous."
+	],
+	"failed-cta": "Réessayer",
+	"success-title": "Succès",
+	"success-paragraphs": [
+		"Merci de m'avoir contacté, je vous répondrai dès que possible",
+		"Pour l'instant, n'hésitez pas à continuer à regarder autour de vous - si vous pensez à autre chose à dire, vous pouvez toujours soumettre à nouveau ci-dessous en utilisant le bouton ci-dessous."
+	],
+	"success-cta": "Envoyer un autre message",
+	"form-paragraphs": [
+		"Si vous êtes intéressé, remplissez le formulaire ci-dessous et je ne manquerai pas de vous répondre.",
+		"Alternativement, vous pouvez <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a> ou me contacter sur <a href=\"https://www.linkedin.com/in/georgegrainger/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>."
+	],
+	"submitting": "Soumettre...",
+	"form-cta": "Envoyer un message",
+	"your-name": "Votre nom: ",
+	"name-error": "Votre nom doit contenir au moins 2 caractères",
+	"your-email": "Votre e-mail: ",
+	"email-error": "E-mail non valide",
+	"message": "Message: ",
+	"message-prompt": "Idéalement, il s'agit de me trouver un emploi !",
+	"message-error": "Votre message doit contenir au moins 10 caractères",
+	"error": "Erreur: "
 }

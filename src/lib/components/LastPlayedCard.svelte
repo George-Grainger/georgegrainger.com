@@ -20,7 +20,7 @@
 	export let isPlaying: boolean;
 	export let isOffline: boolean;
 
-	import { t, locale } from '$lib/translations';
+	import { t, locale, defaultLocaleVariant } from '$lib/translations';
 	let playedAtDate = new Date(playedAt);
 	let progress = Math.min((Date.now() - playedAtDate.getTime()) / 1000, duration);
 	let tick: ReturnType<typeof setTimeout>;
@@ -98,8 +98,11 @@
 		{:else}
 			<small>
 				{$t('home.played-on', {
-					date: playedAtDate.toLocaleString($locale, { dateStyle: 'short' }),
-					time: playedAtDate.toLocaleTimeString($locale, { timeStyle: 'short', hourCycle: 'h24' })
+					date: playedAtDate.toLocaleString(defaultLocaleVariant[$locale], { dateStyle: 'short' }),
+					time: playedAtDate.toLocaleTimeString(defaultLocaleVariant[$locale], {
+						timeStyle: 'short',
+						hourCycle: 'h24'
+					})
 				})}
 			</small>
 			<p class="tagline">{$t('home.last-played-tagline')}</p>

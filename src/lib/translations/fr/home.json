@@ -14,7 +14,12 @@
 		"J'apprécie une gamme d'unités de cours, notamment celles basées sur l'IA, l'ingénierie des données et le développement logiciel. J'ai particulièrement apprécié de voir comment ceux-ci interagissaient dans mon projet de troisième année simulant le système dopaminergique et la dépendance grâce à l'apprentissage par renforcement - <a href=\"projects/reinforcement-learning\">en savoir plus</a>."
 	],
 	"experience-title": "Expérience",
-	"experience-paragraphs": [
+	"nimble-paragraphs": [
+		"Pendant l'été, j'ai travaillé sur le projet NimbleAI à l'Université de Manchester. Cela a permis de concevoir et de mettre en œuvre des accélérateurs neuromorphiques pour la phase précoce de perception et d'optimisation des systèmes de vision par ordinateur dans des dispositifs IOT avec une puissance et une surface limitées.",
+		"Dans l'ensemble, l'expérience a été extrêmement enrichissante, car elle a permis de travailler dans un environnement de développement itératif et axé sur les tests. L'accent mis sur la faible consommation d'énergie et les hautes performances a démontré la nécessité de donner la priorité aux caractéristiques de conception pour s'assurer que le projet progresse et que les livrables puissent être atteints avec succès.",
+		"Le stage était principalement axé sur la mise en œuvre de matériel piloté par logiciel, mais il a également développé des connaissances transférables dans les pipelines CI/CD, les conteneurs Docker et les outils de script. J'espère que je pourrai approfondir cette compréhension supplémentaire pour améliorer mon travail futur et créer des projets plus passionnants à l'avenir."
+	],
+	"enigma-paragraphs": [
 		"J'ai passé un an à travailler en tant que développeur junior chez <a href=\"https://www.enigma-interactive.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\">Enigma Interactive</a>. Durant cette période, j'avais trois projets principaux :"
 	],
 	"enigma-roles": [
@@ -24,8 +29,8 @@
 	],
 	"interests-title": "Intérêts",
 	"interests-paragraphs": [
-		"Je joue au rugby depuis que je suis tout petit et j'aime toujours autant jouer maintenant. Depuis que je suis à l'université, j'ai aussi pratiqué l'escalade et le surf. Ceux-ci apportent de nouveaux défis et dans lesquels j'aime m'impliquer.",
-		"En particulier, j'aime l'aspect résolution de problèmes de l'escalade et le sentiment de satisfaction après avoir persévéré pour obtenir une ascension délicate."
+		"Dans mes temps libres, j'aime rester actif et j'ai joué au rugby toute ma vie, en tant que membre d'un comité à l'université. J'aime particulièrement la nature d'équipe du jeu, où tout le monde joue pour et se fait confiance.",
+		"À l'université, j'ai commencé à faire de l'escalade et du surf, appréciant les nouveaux défis qu'ils apportent. L'aspect résolution de problèmes de l'escalade est particulièrement attrayant, le sentiment de satisfaction étant grand après avoir terminé une ascension difficile."
 	],
 	"cv": "Voir mon CV",
 	"spotify-tagline": "Informations sur mes chansons récentes et préférées",

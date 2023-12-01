@@ -55,7 +55,12 @@
 			<p>{@html paragraph}</p>
 		{/each}
 		<h2>{$t('home.experience-title')}</h2>
-		{#each $t('home.experience-paragraphs') as paragraph}
+		<h3>NimbleAI</h3>
+		{#each $t('home.nimble-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
+		<h3>Enigma Interactive</h3>
+		{#each $t('home.enigma-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
 		{/each}
 		<ol>
@@ -63,16 +68,19 @@
 				<li>{@html paragraph}</li>
 			{/each}
 		</ol>
+	</div>
+	<div class="prose">
 		<h2>{$t('home.interests-title')}</h2>
 		{#each $t('home.interests-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
 		{/each}
-	</div>
-	<div class="spotify">
-		<h2>Spotify</h2>
-		<p>{$t('home.spotify-tagline')}</p>
-		<TopTracks topTracks={data.topTracks} />
-		<LastPlayedCard {...data.currentTrack} />
+
+		<div class="spotify">
+			<h2>Spotify</h2>
+			<p>{$t('home.spotify-tagline')}</p>
+			<TopTracks topTracks={data.topTracks} />
+			<LastPlayedCard {...data.currentTrack} />
+		</div>
 	</div>
 	<Button href="/GeorgeGraingerCV.pdf" target="_blank">{$t('home.cv')}</Button>
 </section>
@@ -171,7 +179,7 @@
 
 		h2 {
 			font-size: 1.3em;
-			font-weight: 700;
+			font-weight: 600;
 		}
 
 		p {

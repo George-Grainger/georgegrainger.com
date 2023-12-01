@@ -15,9 +15,11 @@
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
 	let showClouds = false;
 	let beenDuration = true;
+	let scrollY = 0;
 
 	onNavigate((e) => {
 		// Don't delay when navigating on mobile
+		scrollY = 0;
 		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 			showClouds = changed;
@@ -34,7 +36,18 @@
 <Nav bind:showClouds />
 
 {#if !showClouds && beenDuration}
-	<main transition:fade={{ duration: duration }}>
+	<main
+		on:introstart={() => {
+			// Prevents issue where moves to top of page of nav bar open
+			scrollTo(0, scrollY);
+			document.documentElement.style.removeProperty('scroll-behavior');
+		}}
+		on:outrostart={() => {
+			scrollY = document.documentElement.scrollTop;
+			document.documentElement.style.setProperty('scroll-behavior', 'unset');
+		}}
+		transition:fade={{ duration: duration }}
+	>
 		<slot />
 	</main>
 	<Footer {duration} />

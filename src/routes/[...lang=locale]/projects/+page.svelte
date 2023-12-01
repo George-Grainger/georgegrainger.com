@@ -24,7 +24,9 @@
 						/>
 					</svelte:fragment>
 					<svelte:fragment slot="title">{project.title}</svelte:fragment>
-					<svelte:fragment slot="published">Published {project.date}</svelte:fragment>
+					<svelte:fragment slot="published"
+						>{$t('projects.published')} {project.date}</svelte:fragment
+					>
 					<svelte:fragment slot="description">{project.description}</svelte:fragment>
 				</LargeProjectCard>
 			</li>

@@ -8,7 +8,7 @@
 </script>
 
 <svelte:head>
-	<title>{status} - George Grainger</title>
+	<title>{projectMiss ? 404 : status} - George Grainger</title>
 </svelte:head>
 
 <section>

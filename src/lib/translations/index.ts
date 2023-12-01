@@ -8,6 +8,11 @@ interface Params {
 	// add more parameters that are used here
 }
 
+export const defaultLocaleVariant: Record<string, string> = {
+	en: 'en-GB',
+	fr: 'fr-FR'
+};
+
 export const defaultLocale = 'en';
 export const config: Config<Params> = {
 	preprocess: 'preserveArrays',
@@ -26,7 +31,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'en',
 			key: 'projects',
-			routes: ['/projects'],
+			routes: [/\/projects\/?.*/],
 			loader: async () => (await import('./en/projects.json')).default
 		},
 		{
@@ -73,7 +78,7 @@ export const config: Config<Params> = {
 		{
 			locale: 'fr',
 			key: 'projects',
-			routes: ['/projects'],
+			routes: [/\/projects\/?.*/],
 			loader: async () => (await import('./fr/projects.json')).default
 		},
 		{

@@ -1,3 +1,5 @@
+import { defaultLocaleVariant } from '$lib/translations/index.js';
+
 export async function load({ params, parent }) {
 	const { slug } = params;
 	const { lang } = await parent();
@@ -11,7 +13,7 @@ export async function load({ params, parent }) {
 	return {
 		content,
 		title,
-		date: new Date(date).toLocaleString(lang, { dateStyle: 'medium' }),
+		date: new Date(date).toLocaleString(defaultLocaleVariant[lang], { dateStyle: 'medium' }),
 		description,
 		inProgress
 	};

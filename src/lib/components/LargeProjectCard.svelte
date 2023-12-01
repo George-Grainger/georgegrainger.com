@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { t } from '$lib/translations';
 	import { tagMap } from '$lib/utils/client/tag-map';
 	import Button from './Button.svelte';
 	import CondtionalLink from './CondtionalLink.svelte';
@@ -34,7 +35,7 @@
 		<small class="published"><slot name="published">Published on...</slot></small>
 		<p><slot name="description">Project description</slot></p>
 	</div>
-	<Button {href}>Read More</Button>
+	<Button {href}>{$t('projects.read-more')}</Button>
 </article>
 
 <style lang="scss">

@@ -14,7 +14,12 @@
 		"I enjoy a range of course units, particularly those based around AI, Data Engineering and Software Development. I particularly enjoyed seeing how these interacted in my third-year project simulating the dopamine system and addiction through reinforcement learning - <a href=\"projects/reinforcement-learning\">read more</a>."
 	],
 	"experience-title": "Experience",
-	"experience-paragraphs": [
+	"nimble-paragraphs": [
+		"In summer I worked on the <a href=\"\">NimbleAI project</a> at the University of Manchester. This invloved designing and implementing neuromorphic accelerators for the early perception and optimisation stage for computer vision systems in power and area constrained endpoints.",
+		"Overall, the experience was extremely rewarding, providing exposure to working in an iterative and test-focused development environment. The focus on low power and high performance provided demonstrated a need to prioritise design features to ensure the project progressed and deliverables could be achieved successfully.",
+		"The internship was primarily focused on software-driven hardware implementation, however, it also developed transferable knowledge in CI/CD pipelines, Docker Containers and scripting tools. Hopefully, I'll be able to expand on this additional understanding to improve my future work and create more exciting projects in future."
+	],
+	"enigma-paragraphs": [
 		"I spent a year working as a junior developer at <a href=\"https://www.enigma-interactive.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\">Enigma Interactive</a>. During this time I had three main projects:"
 	],
 	"enigma-roles": [
@@ -24,8 +29,8 @@
 	],
 	"interests-title": "Interests",
 	"interests-paragraphs": [
-		"I've played rugby since I was little, and still enjoy playing it now. Since coming to university, I've also taken up climbing and surfing. These bring new challenges that I'm enjoying getting involved in.",
-		"In particular, I like the problem-solving aspect of climbing, and the feeling of satisfaction after persevering to get a tricky climb."
+		"In my free time, I enjoy keeping active and have played rugby all my life, taking a committee role at University. I particularly enjoy the team nature of the game, with everyone playing for and trusting each other.",
+		"At University I took up climbing and surfing, enjoying the new challenges they bring. The problem-solving aspect of climbing is especially appealing, with the feeling of satisfaction being great after completing a tricky climb."
 	],
 	"spotify-tagline": "Information on my favourite songs and recent listening",
 	"cv": "View my CV",
