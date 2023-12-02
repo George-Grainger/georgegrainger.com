@@ -1,7 +1,7 @@
 {
 	"name": "George's Website",
 	"short_name": "George's Website",
-	"description": "A Computer Science Student based in Manchester, who's interested in machine learning, visual computing and hardware design",
+	"description": "A final year computer science student based in Manchester, who's interested in machine learning, data engineering and software development",
 	"theme_color": "#b4d6fe",
 	"background_color": "#b4d6fe",
 	"display": "standalone",
