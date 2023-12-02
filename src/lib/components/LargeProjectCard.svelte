@@ -70,7 +70,7 @@
 	.content {
 		display: grid;
 		place-content: start;
-		gap: 1rem 3rem;
+		gap: 1rem 2rem;
 
 		p {
 			grid-column: 1 / -1;
@@ -81,7 +81,8 @@
 	.languages {
 		columns: var(--columns, 3);
 		column-rule: 1px solid var(--text);
-		margin: auto;
+		margin: auto 0 auto auto;
+		justify-content: end;
 
 		:global(a),
 		:global(span) {
@@ -91,7 +92,7 @@
 
 		:global(svg) {
 			margin: auto;
-			height: 2rem;
+			height: 1.75rem;
 		}
 
 		small {
@@ -102,7 +103,7 @@
 	@media only screen and (width > 60rem) {
 		article {
 			grid-template-columns: 3fr 4fr;
-			padding-right: 2rem;
+			padding-right: 1.5rem;
 
 			a:first-child {
 				grid-row: span 2;
@@ -116,7 +117,7 @@
 		.content {
 			text-align: initial;
 			margin-top: 1rem;
-			grid-template-columns: 1fr auto;
+			grid-template-columns: auto 1fr;
 		}
 	}
 </style>

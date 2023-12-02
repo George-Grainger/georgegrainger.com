@@ -6,7 +6,7 @@ src: /images/projects/stendhal.webp
 placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Artwork from Stendhal
 tags: ['java', 'junit', 'opensource']
-date: 10/12/21
+date: 12/03/21
 homepage: 6
 ---
 

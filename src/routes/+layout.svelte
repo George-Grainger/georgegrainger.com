@@ -19,7 +19,6 @@
 
 	onNavigate((e) => {
 		// Don't delay when navigating on mobile
-		scrollY = 0;
 		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 			showClouds = changed;
@@ -29,6 +28,7 @@
 	});
 
 	afterNavigate(() => {
+		scrollY = 0;
 		showClouds = false;
 	});
 </script>
@@ -39,13 +39,11 @@
 	<main
 		on:introstart={() => {
 			// Prevents issue where moves to top of page of nav bar open
+			document.documentElement.style.setProperty('scroll-behavior', 'unset');
 			scrollTo(0, scrollY);
 			document.documentElement.style.removeProperty('scroll-behavior');
 		}}
-		on:outrostart={() => {
-			scrollY = document.documentElement.scrollTop;
-			document.documentElement.style.setProperty('scroll-behavior', 'unset');
-		}}
+		on:outrostart={() => (scrollY = document.documentElement.scrollTop)}
 		transition:fade={{ duration: duration }}
 	>
 		<slot />

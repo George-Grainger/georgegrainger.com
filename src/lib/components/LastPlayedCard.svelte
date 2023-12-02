@@ -205,14 +205,6 @@
 			font-size: 1.5em;
 		}
 
-		:global(.play) {
-			background-color: var(--text);
-
-			:global(svg) {
-				fill: var(--inverse);
-			}
-		}
-
 		:global(.mute svg) {
 			fill: var(--text);
 		}

@@ -5,7 +5,7 @@ description: Created an information and learning system for heart and lung patie
 src: /images/projects/nhs-hl.svg
 alt: The NHS logo
 tags: ['wordpress', 'accessibility']
-date: 10/12/21
+date: 08/31/20
 homepage: 5
 ---
 

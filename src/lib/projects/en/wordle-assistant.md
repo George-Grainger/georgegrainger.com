@@ -5,7 +5,7 @@ description: Designed and optimised an information-theory-based Wordle Solver us
 src: /images/projects/wordle-assistant.svg
 alt: Collage of album covers
 tags: ['assembly', 'rust']
-date: 10/12/21
+date: 11/18/23
 homepage: 2
 inProgress: true
 ---

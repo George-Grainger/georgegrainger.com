@@ -5,7 +5,7 @@ description: Designed and implemented this website. This site contains nice anim
 src: /images/projects/personal-website.svg
 alt: Footer artwork from georgegrainger.com
 tags: ['sveltekit', 'solidjs']
-date: 10/12/21
+date: 12/02/23
 homepage: 4
 ---
 

@@ -5,7 +5,7 @@ description: Création d'un site Web complet, symput.com permettant aux utilisat
 src: /images/projects/symput.svg
 alt: Le logo Symput
 tags: ['nextjs', 'tailwind', 'firebase']
-date: 10/12/21
+date: 05/14/21
 homepage: 1
 ---
 

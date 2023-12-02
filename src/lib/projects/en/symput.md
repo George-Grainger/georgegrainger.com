@@ -5,7 +5,7 @@ description: Created a full stack website, symput.com allowing users of our firs
 src: /images/projects/symput.svg
 alt: The Symput Logo
 tags: ['nextjs', 'tailwind', 'firebase']
-date: 10/12/21
+date: 05/14/21
 homepage: 1
 ---
 

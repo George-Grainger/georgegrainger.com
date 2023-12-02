@@ -5,7 +5,7 @@ description: Conception et optimisation d'un solveur Wordle basé sur la théori
 src: /images/projects/wordle-assistant.svg
 alt: Logo de l'assistant Wordle
 tags: ['assembly', 'rust']
-date: 10/12/21
+date: 11/18/23
 homepage: 2
 inProgress: true
 ---

@@ -5,7 +5,7 @@ description: Conception et réalisation de ce site Web. Ce site contient de bell
 src: /images/projects/personal-website.svg
 alt: Illustration de pied de page de georgegrainger.com
 tags: ['sveltekit', 'solidjs']
-date: 10/12/21
+date: 12/02/23
 homepage: 4
 ---
 

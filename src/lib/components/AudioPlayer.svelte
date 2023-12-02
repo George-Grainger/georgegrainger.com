@@ -75,11 +75,11 @@
 		on:play={handlePlay}
 		on:ended={() => (time = duration)}
 	/>
-	<button class="play" aria-label={$t(paused ? 'home.play' : 'home.pause')} on:click={handleClick}>
+	<button aria-label={$t(paused ? 'home.play' : 'home.pause')} on:click={handleClick}>
 		{#if paused}
-			<PlayIcon fill="var(--black)" />
+			<PlayIcon />
 		{:else}
-			<PauseIcon fill="var(--black)" />
+			<PauseIcon />
 		{/if}
 	</button>
 	<ProgressBar
@@ -94,9 +94,9 @@
 		on:click={() => (muted = !muted)}
 	>
 		{#if muted}
-			<SoundOff fill="var(--white)" />
+			<SoundOff />
 		{:else}
-			<SoundOn fill="var(--white)" />
+			<SoundOn />
 		{/if}
 	</button>
 </div>
@@ -118,19 +118,15 @@
 		aspect-ratio: 1;
 		border: none;
 		border-radius: 100vmax;
+		background-color: transparent;
+		margin: 0.1em;
 
 		&:focus-visible {
 			outline: solid var(--red) 0.125em;
 		}
 	}
 
-	.play {
-		padding: 0.1em;
-		margin: 0.15em;
-	}
-
 	.mute {
 		margin: 0.15em;
-		background-color: transparent;
 	}
 </style>
