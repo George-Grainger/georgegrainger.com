@@ -69,11 +69,13 @@
 			{/each}
 		</ol>
 	</div>
-	<div class="prose">
-		<h2>{$t('home.interests-title')}</h2>
-		{#each $t('home.interests-paragraphs') as paragraph}
-			<p>{@html paragraph}</p>
-		{/each}
+	<div>
+		<div class="prose">
+			<h2>{$t('home.interests-title')}</h2>
+			{#each $t('home.interests-paragraphs') as paragraph}
+				<p>{@html paragraph}</p>
+			{/each}
+		</div>
 
 		<div class="spotify">
 			<h2>Spotify</h2>
@@ -180,6 +182,7 @@
 		h2 {
 			font-size: 1.3em;
 			font-weight: 600;
+			margin-top: 0.75em;
 		}
 
 		p {

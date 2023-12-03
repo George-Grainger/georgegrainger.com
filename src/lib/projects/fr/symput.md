@@ -1,7 +1,7 @@
 ---
 title: Symput
 subtitle: Un clavier Android et un site Web complet associé pour les commentaires
-description: Création d'un site Web complet, symput.com permettant aux utilisateurs de notre clavier Android de projet de groupe de première année de fournir des commentaires. Le site comprend un CMS, des profils d'utilisateurs, des fonctions sans serveur et plus encore !
+description: J'ai créé symput.com, un site Web complet alimenté par NextJS qui permet aux utilisateurs du clavier Android de mon projet de groupe de première année de fournir des commentaires. Le site utilise Google Cloud Platform pour gérer les profils d'utilisateurs et les messages de commentaires, en utilisant des fonctions sans serveur pour la modération et la suppression des données de compte.
 src: /images/projects/symput.svg
 alt: Le logo Symput
 tags: ['nextjs', 'tailwind', 'firebase']

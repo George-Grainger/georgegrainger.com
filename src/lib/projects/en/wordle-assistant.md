@@ -4,9 +4,9 @@ subtitle: Designed a browser extension that helps you guess the best next word i
 description: Designed and optimised an information-theory-based Wordle Solver using Rust. Then combined WebAssembly and Chrome browser extensions to enable the solver to be used interactively to assist in the existing Worlde game.
 src: /images/projects/wordle-assistant.svg
 alt: Collage of album covers
-tags: ['assembly', 'rust']
+tags: ['webassembly', 'rust', 'chrome']
 date: 11/18/23
-homepage: 2
+homepage: 5
 inProgress: true
 ---
 

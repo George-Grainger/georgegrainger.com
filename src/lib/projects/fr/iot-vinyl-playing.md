@@ -5,7 +5,7 @@ description: Concevoir un système pour que lorsque je tiens mon téléphone dev
 src: /images/projects/iot-vinyl.svg
 alt: Collage de pochettes d'albums
 tags: ['assembly', 'iot', 'cpp']
-date: 01/01/2019
+# date: 01/01/2019
 inProgress: true
 ---
 

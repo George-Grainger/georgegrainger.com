@@ -5,7 +5,7 @@ description: Designing a system so wthat when I hold my phone up to a vinyl foun
 src: /images/projects/iot-vinyl.svg
 alt: Collage of album covers
 tags: ['assembly', 'iot', 'cpp']
-date: 01/01/2019
+# date: 01/01/2019
 inProgress: true
 ---
 

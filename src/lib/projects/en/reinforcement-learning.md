@@ -1,7 +1,7 @@
 ---
 title: Reinforcement Learning
 subtitle: Computational models simulating the dopamine system circuirty in the brain
-description: My third-year project in which I hope to create simulations of the dopamine system, specifically relating to addiction through reinforcement learning models.
+description: My third-year project creating a more holistic reinforcement learning model that could simulate the adoption and progression of substance abuse and gambling disorders. By identifying key risk factors, this research could help lessen the impact of addiction on both individuals and wider society.
 src: /images/projects/brain.webp
 placeholderSrc: /images/projects/brain-placeholder.webp
 alt: A purple 3d render of a brain

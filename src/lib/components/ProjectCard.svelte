@@ -277,6 +277,7 @@
 		}
 
 		:global(svg) {
+			overflow: visible;
 			transition: transform var(--duration) var(--transition);
 			--a-duration: calc(2.5 * var(--duration));
 			width: var(--size, 1em);
@@ -352,6 +353,7 @@
 			fill-opacity: 0;
 		}
 		100% {
+			stroke-width: var(--_final-stroke);
 			fill-opacity: 1;
 		}
 	}

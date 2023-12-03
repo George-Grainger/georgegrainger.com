@@ -14,8 +14,10 @@ import SolidJs from '$lib/projects/logos/SolidJS.svelte';
 import TailwindCss from '$lib/projects/logos/TailwindCSS.svelte';
 import W3C from '$lib/projects/logos/W3C.svelte';
 import WordPress from '$lib/projects/logos/WordPress.svelte';
+import WebAssembly from '$lib/projects/logos/WebAssembly.svelte';
 import Svelte from '$lib/projects/logos/Svelte.svelte';
 import Rust from '$lib/projects/logos/Rust.svelte';
+import Chrome from '$lib/projects/logos/Chrome.svelte';
 
 export interface TagInfo {
 	name: string;
@@ -28,6 +30,11 @@ const TAGS = {
 		name: 'Assembly',
 		href: 'https://www.assemblyscript.org/',
 		component: Assembly
+	},
+	chrome: {
+		name: 'Extension',
+		href: 'https://chromewebstore.google.com/',
+		component: Chrome
 	},
 	cpp: {
 		name: 'C++',
@@ -96,6 +103,11 @@ const TAGS = {
 		name: 'Accessibility',
 		href: 'https://www.w3.org/',
 		component: W3C
+	},
+	webassembly: {
+		name: 'WebAssembly',
+		href: 'https://webassembly.org/',
+		component: WebAssembly
 	},
 	wordpress: {
 		name: 'WordPress',

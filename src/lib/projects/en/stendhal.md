@@ -1,7 +1,7 @@
 ---
 title: Stendhal
 subtitle: Debugging and adding features to an open source MMORPG with 10,000 lines of code
-description: Brownfield development on a large scale, open source Java codebase. Improved my ability to navigate, and understand others' code while realising some of the advantages of test-driven development.
+description: Brownfield development on a large scale, open source Java codebase. This experience improved my ability to navigate and comprehend others' code while realising the advantages of test-driven development.
 src: /images/projects/stendhal.webp
 placeHolderSrc: /images/projects/stendhal-placeholder.webp
 alt: Artwork from Stendhal

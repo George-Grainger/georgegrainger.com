@@ -79,20 +79,34 @@
 	}
 
 	.languages {
-		columns: var(--columns, 3);
-		column-rule: 1px solid var(--text);
-		margin: auto 0 auto auto;
-		justify-content: end;
+		display: flex;
+		margin: auto;
+		white-space: nowrap;
+		gap: 2rem;
 
 		:global(a),
 		:global(span) {
 			display: grid;
+			position: relative;
 			text-align: center;
+		}
+
+		:global(a + a::before),
+		:global(a + span::before),
+		:global(span + a::before),
+		:global(span + span::before) {
+			content: '';
+			position: absolute;
+			width: 1px;
+			height: 100%;
+			left: -1rem;
+			background-color: var(--text);
 		}
 
 		:global(svg) {
 			margin: auto;
 			height: 1.75rem;
+			stroke-width: var(--_final-stroke);
 		}
 
 		small {
@@ -118,6 +132,10 @@
 			text-align: initial;
 			margin-top: 1rem;
 			grid-template-columns: auto 1fr;
+		}
+
+		.languages {
+			margin-right: 0;
 		}
 	}
 </style>

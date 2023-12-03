@@ -1,7 +1,7 @@
 ---
 title: Personal Website
 subtitle: georgegrainger.com (ce site) - mon site de portfolio à essayer et à montrer !
-description: Conception et réalisation de ce site Web. Ce site contient de belles animations (si je le dis moi-même), en particulier lors du basculement entre les modes sombre et clair. Il inclut également les transitions de page et l'utilisation de l'API Spotify.
+description: Conception et réalisation mon site web de portfolio en SolidJS puis à nouveau dans SvelteKit, en me concentrant sur la création d'animations accessibles mais agréables lors du changement de thème. De plus, le site dispose de fonctionnalités telles que la prise en charge des langues, les transitions de page et l'intégration avec l'API Spotify.
 src: /images/projects/personal-website.svg
 alt: Illustration de pied de page de georgegrainger.com
 tags: ['sveltekit', 'solidjs']
