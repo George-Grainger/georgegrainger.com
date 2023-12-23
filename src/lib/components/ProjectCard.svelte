@@ -301,6 +301,15 @@
 						forwards;
 			}
 
+			&:focus-within :global(.remove-stroke),
+			&:hover :global(.remove-stroke path) {
+				animation: border-move var(--a-duration) var(--a-delay, 0ms) linear forwards,
+					fill-icon var(--a-duration) calc(1.25 * var(--a-duration) + var(--a-delay, 0ms)) linear
+						forwards,
+					remove-stroke var(--a-duration) calc(1.25 * var(--a-duration) + var(--a-delay, 0ms))
+						linear forwards;
+			}
+
 			&::before,
 			&::after {
 				transition: transform var(--duration) var(--transition);
@@ -349,12 +358,14 @@
 	}
 
 	@keyframes fill-icon {
-		0% {
-			fill-opacity: 0;
-		}
-		100% {
-			stroke-width: var(--_final-stroke);
+		to {
 			fill-opacity: 1;
+		}
+	}
+
+	@keyframes remove-stroke {
+		to {
+			stroke-width: var(--_final-stroke);
 		}
 	}
 </style>
