@@ -1,4 +1,9 @@
-<svg class="remove-stroke" fill="none" viewBox="0 0 512 512" style="--_dash-array: 1300; --_final-stroke: 0">
+<svg
+	class="remove-stroke"
+	fill="none"
+	viewBox="0 0 512 512"
+	style="--_dash-array: 1300; --_final-stroke: 0"
+>
 	<title>Chrome Logo</title>
 	<path
 		d="M256 384a128 128 0 1 0 0-256 128 128 0 0 0 0 256Z"

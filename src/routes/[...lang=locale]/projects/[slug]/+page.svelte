@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations';
 
 	export let data;
-	const { title, date, description, inProgress, content } = data;
+	const { title, date, description, inProgress } = data;
 </script>
 
 <svelte:head>
@@ -38,7 +38,10 @@
 		{/if}
 		<small>{$t('projects.published')} {date}</small>
 	</header>
-	<svelte:component this={content} />
+
+	{#key data}
+		<svelte:component this={data.content} />
+	{/key}
 </article>
 
 <style lang="scss">
