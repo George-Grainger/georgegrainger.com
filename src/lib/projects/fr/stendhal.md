@@ -11,11 +11,13 @@ homepage: 6
 ---
 
 ## C'est quoi Stendhal :
+
 Stendhal est un "jeu d'aventure open source avec une touche old-school". Il s'agit d'un MMORPG (jeu de rôle en ligne massivement multijoueur) dans lequel les joueurs sont des héros et se déplacent dans un paysage diversifié de villes, de forêts et de montagnes en combattant des monstres au fur et à mesure.
 
 Graphiquement, il ressemble aux anciens jeux Pokémon auxquels j'ai joué quand j'étais plus jeune, ce qui lui donne une sensation nostalgique.
 
 ## Mon implication ?
+
 Plutôt que de jouer au jeu, Stendhal était pour moi un projet de groupe de deuxième année auquel j'ai participé à l'Université de Manchester. Cela impliquait le débogage et la correction de la grande base de code open source utilisée pour exécuter le jeu.
 
 Cela devait être fait dans un délai raisonnablement court, avec seulement un semestre pour connaître le jeu, apporter nos modifications et prouver qu'ils fonctionnaient avec succès.

@@ -14,7 +14,7 @@ inProgress: true
 
 ## The motivation:
 
-The Wordle craze swept the world, but since I live under a rock, I never got properly into it. However, I really like the concept of the game as did find it fun to play from time to time. I enjoy playing puzzles and do a few most days as a hobby (and to try and wake up). 
+The Wordle craze swept the world, but since I live under a rock, I never got properly into it. However, I really like the concept of the game as did find it fun to play from time to time. I enjoy playing puzzles and do a few most days as a hobby (and to try and wake up).
 
 Recently, I've also been trying to find ways to write code in Rust. Its ideas around ownership make me curious, and with memory leaks and issues with parallelism getting drilled into me during my University course units, the promise to overcome them is enchanting!
 

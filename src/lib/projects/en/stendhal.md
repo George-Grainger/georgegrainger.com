@@ -11,11 +11,13 @@ homepage: 6
 ---
 
 ## What's Stendhal:
+
 Stendhal is an open-source "adventure game with an old-school feel." It's an MMORPG (massively multiplayer online role-playing game) in which players are heroes and move around a diverse landscape of cities, forests and mountains fighting monsters as they go.
 
 Graphically, it has the feel of the older Pokemon games I played when I was younger, giving it a nostalgic feel.
 
 ## My involvement?
+
 Rather than playing the game, Stendhal for me was a second-year group project I took part in at the University of Manchester. It involved debugging and fixing the large, open-source codebase used to run the game.
 
 This had to be done in a reasonably short timeframe, with only one semester to get to know the game, make our changes and prove they worked successfully.

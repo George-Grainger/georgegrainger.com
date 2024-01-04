@@ -52,6 +52,7 @@ SolidStart, l'équivalent SolidJS, NextJS était le choix évident. Cependant, i
 Puisque j'allais faire une réécriture assez importante, j'ai décidé pourquoi ne pas en faire une autre opportunité d'apprendre un nouveau framework. J'avais vu des gens s'extasier sur l'expérience de développement de SvelteKit, alors j'ai pensé que cela valait la peine d'essayer.
 
 ## SvelteKit :
+
 Après avoir compris la syntaxe SvelteKit, la mise à jour du site a été moins pénible que prévu !
 
 La plupart des éléments clés ne sont que du SVG et du CSS, ce qui signifie qu'après quelques réorganisations, ils pourraient être portés tels quels.
@@ -67,6 +68,7 @@ J'ai ensuite réfléchi à l'amélioration de la qualité du SVG, car j'avais eu
 Finalement, j'ai décidé qu'il serait judicieux de faire les traductions ! Le laisser aussi tard était une erreur...
 
 ### Problèmes i18n :
+
 SvelteKit étant bien connecté à NextJS, je m'attendais à leur l'intégration i18n est extrêmement bonne. Malheureusement, j'avais tort. Il n'y a pas de package officiel, ce qui n'est pas très problématique, mais j'ai eu du mal à en faire fonctionner un autre.
 
 Le problème résidait dans mon rendu côté serveur, avec Spotify et la traduction n'étant parfois pas renvoyés à chaque chargement de page. Cela a pris beaucoup de temps à résoudre, mais s'est avéré provenir d'un malentendu sur le moment d'utiliser +page.ts et +page.server.ts.
@@ -74,11 +76,13 @@ Le problème résidait dans mon rendu côté serveur, avec Spotify et la traduct
 Cependant, une fois ce problème résolu, j'ai pu créer l'itinéraire basé sur l'i18n dont j'avais toujours rêvé !
 
 ### Création d'un formulaire de contact :
+
 En recherchant les sites Web SvelteKit, j'ai trouvé une excellente source sur [scottspence.com](https://www.scottspence.com/) et j'ai pensé qu'un formulaire de contact constituerait un excellent ajout au site.
 
 Suivre son tutoriel a simplifié l'ensemble du processus, et si vous apprenez SvelteKit, je recommanderais son contenu.
 
 ## Dernières pensées:
+
 Je pense que la création des deux versions de mon site Web a été incroyablement instructive, permettant une compréhension plus approfondie des avantages et des inconvénients des différents frameworks.
 
 Cependant, malgré tout le battage médiatique, je préfère probablement SolidJS !
