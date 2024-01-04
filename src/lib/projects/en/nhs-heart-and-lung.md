@@ -1,5 +1,5 @@
 ---
-title: NHS Heart and Lung Resource
+title: NHS Heart and Lung Website
 subtitle: Created a resource for Newcastle NHS Foundation trust transplant patients
 description: Created a user-friendly educational platform for heart and lung transplant patients, simplifying the post-operation adjustment by outlining necessary lifestyle changes. Accessibility and intuitive design were essential to accommodate varying technical literacy and maximise the site's benefit for all users.
 src: /images/projects/nhs-hl.svg

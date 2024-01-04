@@ -27,7 +27,7 @@
 		border-radius: var(--border-radius);
 	}
 
-	img {
+	img.lazy-img {
 		height: 100%;
 		width: 100%;
 		object-fit: cover;

@@ -5,8 +5,8 @@ export async function handle({ event, resolve }) {
 	const { pathname, origin } = url;
 
 	// Catch routes that shouldn't be i18n
+	event.locals.lang = defaultLocale;
 	if (pathname.startsWith('/api')) {
-		event.locals.lang = defaultLocale;
 		return resolve(event);
 	}
 

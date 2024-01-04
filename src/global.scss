@@ -193,6 +193,10 @@ a:focus-visible {
 		margin-top: 0.75em;
 	}
 
+	.lazy-img {
+		margin-top: 0;
+	}
+
 	h1 {
 		font-size: 2em;
 	}
@@ -250,6 +254,17 @@ a:focus-visible {
 
 	small {
 		color: var(--hover-inverse);
+	}
+
+	img,
+	iframe {
+		width: 100%;
+		border-radius: var(--border-radius);
+		margin-top: 0.75em;
+	}
+
+	iframe {
+		aspect-ratio: 16 / 9;
 	}
 }
 
