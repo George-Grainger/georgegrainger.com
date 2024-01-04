@@ -17,10 +17,11 @@
 	let showClouds = false;
 	let beenDuration = true;
 	let scrollY = 0;
-
+	
 	const isValidTransition = function () {
+		const isFirefox = navigator.userAgent.search("Firefox") > -1;
 		const definition = Math.max(screen.availHeight, screen.availWidth) * window.devicePixelRatio;
-		return $theme == theme.LIGHT || definition < 3840;
+		return !isFirefox || $theme == theme.LIGHT || definition < 3840;
 	};
 
 	onNavigate((e) => {
