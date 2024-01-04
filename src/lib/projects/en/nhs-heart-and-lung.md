@@ -29,13 +29,13 @@ Once again this might seem unusual - why would privacy be a concern if it's only
 
 By providing this "fire and forget" question functionality patients who'd previously not been able to get the information they wanted now could.
 
-### The technology
+### The technology:
 
 The primary technologies used were WordPress, with custom themes, plugins and Gutenberg blocks being created.
 
 This enabled the site to fit the NHS corporate guidelines while ensuring reusability. Once the project was finished the staff at Newcastle-upon-Tyne Hospital Trust could create and manipulate pages without any interference from Enigma. They could also track how all patients were doing, and provide any additional support for those who were struggling with the content.
 
-### Key challenges
+### Key challenges:
 
 Despite being a mostly content-based site, there were numerous learning points in the project many of which stemmed from a UX point of view. Since the site had to be suitable for everyone, accessibility was a huge priority. No matter if you were using a screenreader, or keyboard or just interacting in a typical fashion, the content still had to be available.
 

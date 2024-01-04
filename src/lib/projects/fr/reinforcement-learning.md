@@ -23,7 +23,7 @@ homepage: 3
 
 ## Le projet tel que présenté à l'université :
 
-<iframe src="https://youtu.be/-Jsgl17cXuQ"></iframe>
+<iframe src="https://www.youtube.com/embed/-Jsgl17cXuQ?si=SLcUPA5oBz7xd7bv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Motivation derrière le rôle :
 

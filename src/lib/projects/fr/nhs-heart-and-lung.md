@@ -29,13 +29,13 @@ Encore une fois, cela peut sembler inhabituel : pourquoi la confidentialité se
 
 En fournissant cette fonctionnalité de question « lancer et oublier », les patients qui n'avaient pas pu auparavant obtenir les informations qu'ils souhaitaient pouvaient désormais obtenir.
 
-### La technologie
+### La technologie :
 
 Les principales technologies utilisées étaient WordPress, avec la création de thèmes personnalisés, de plugins et de blocs Gutenberg.
 
 Cela a permis au site de respecter les directives de l'entreprise du NHS tout en garantissant sa réutilisabilité. Une fois le projet terminé, le personnel du Newcastle-upon-Tyne Hospital Trust a pu créer et manipuler des pages sans aucune interférence d'Enigma. Ils pourraient également suivre l’état de santé de tous les patients et fournir un soutien supplémentaire à ceux qui avaient des difficultés avec le contenu.
 
-### Principaux défis
+### Principaux défis :
 
 Bien qu'il s'agisse d'un site principalement basé sur le contenu, le projet comportait de nombreux points d'apprentissage, dont beaucoup provenaient d'un point de vue UX. Le site devant être adapté à tous, l’accessibilité était une priorité absolue. Peu importe si vous utilisiez un lecteur d'écran, un clavier ou si vous interagissiez simplement de manière habituelle, le contenu devait toujours être disponible.
 
