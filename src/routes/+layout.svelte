@@ -10,6 +10,7 @@
 	import { fade, fly } from 'svelte/transition';
 	import { afterNavigate, onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
+	import { theme } from '$lib/stores/theme';
 
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
@@ -17,9 +18,14 @@
 	let beenDuration = true;
 	let scrollY = 0;
 
+	const isValidTransition = function () {
+		const definition = Math.max(screen.availHeight, screen.availWidth) * window.devicePixelRatio;
+		return $theme == theme.LIGHT || definition < 3840;
+	};
+
 	onNavigate((e) => {
 		// Don't delay when navigating on mobile
-		if (!showClouds && $motion == motion.NO_PREFERENCE) {
+		if (!showClouds && $motion == motion.NO_PREFERENCE && isValidTransition()) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 			showClouds = changed;
 			beenDuration = !changed;
