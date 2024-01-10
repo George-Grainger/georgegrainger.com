@@ -22,7 +22,7 @@
 	<h2>{$t('home.subtitle')}</h2>
 	<HeroScene />
 	<p class="intro">{$t('home.intro-paragraph')}</p>
-	<Button href="/#about-me">{$t('home.about-me')}</Button>
+	<Button href={`#about-me`}>{$t('home.about-me')}</Button>
 </section>
 
 <section id="projects" class="projects">

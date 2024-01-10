@@ -78,13 +78,13 @@
 
 	.dark {
 		:first-child {
-			transform: translate(-25vh, -15vh);
-			transform: translate(-25lvh, -15lvh);
+			transform: translate(-25vh, -19vh);
+			transform: translate(-25lvh, -19lvh);
 		}
 
 		:last-child {
-			transform: translate(-25vh, 48vh);
-			transform: translate(-25lvh, 46lvh);
+			transform: translate(-32vh, 42vh);
+			transform: translate(-32lvh, 42lvh);
 		}
 	}
 

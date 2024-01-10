@@ -44,6 +44,10 @@
 	$: disabled = Object.values($errors).every((v) => v == undefined) ? null : 'disabled';
 </script>
 
+<svelte:head>
+	<title>{$t('contact.contact')} - George Grainger</title>
+</svelte:head>
+
 <section bind:this={section}>
 	<h1>{$t('contact.title')}</h1>
 
