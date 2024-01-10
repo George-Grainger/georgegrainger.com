@@ -1,28 +1,18 @@
-<symbol viewBox="0 0 24 24" id="crater-light" fill="#FBFBFB">
-	<circle cx="12" cy="12" r="12" filter="url(#crater-shadow-light)" />
-</symbol>
+<svg viewBox="0 0 24 24" id="crater-light" fill="none">
+	<path d="M22.39 6A12 12 0 1 0 1.61 18 12 12 0 0 0 22.39 6Z" fill="#FBFBFB" />
+	<path
+		d="M11.18 23.97a12 12 0 0 1 6.1-22.75A11.99 11.99 0 0 0 1.6 18a11.99 11.99 0 0 0 9.57 5.97Z"
+		fill="#BCBCBC"
+	/>
+</svg>
 
-<filter id="crater-shadow-light">
-	<feOffset dx="5" dy="1" />
-	<feGaussianBlur stdDeviation="0" result="offset-blur" />
-	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
-	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
-	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
-	<feComposite operator="over" in="shadow" in2="SourceGraphic" />
-</filter>
-
-<symbol viewBox="0 0 24 24" id="crater-dark" fill="#CCCED7">
-	<circle cx="12" cy="12" r="12" filter="url(#crater-shadow-dark)" />
-</symbol>
-
-<filter id="crater-shadow-dark">
-	<feOffset dx="5" dy="1" />
-	<feGaussianBlur stdDeviation="0" result="offset-blur" />
-	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
-	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
-	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
-	<feComposite operator="over" in="shadow" in2="SourceGraphic" />
-</filter>
+<svg viewBox="0 0 24 24" id="crater-dark" fill="none">
+	<path d="M22.39 6A12 12 0 1 0 1.61 18 12 12 0 0 0 22.39 6Z" fill="#CCCED7" />
+	<path
+		d="M11.18 23.97a12 12 0 0 1 6.1-22.75A11.99 11.99 0 0 0 1.6 18a11.99 11.99 0 0 0 9.57 5.97Z"
+		fill="#86878E"
+	/>
+</svg>
 
 <symbol viewBox="0 0 512 512" id="moon">
 	<circle cx="256" cy="256" r="256" fill="#DADDE7" filter="url(#moon-shadow)" />
@@ -34,18 +24,10 @@
 	<use href="#crater-dark" x="100" y="384" height="32" width="32" />
 </symbol>
 
-<symbol viewBox="0 0 24 24" id="crater-asteroid" fill="#FBFBFB">
-	<circle cx="12" cy="12" r="12" filter="url(#crater-shadow-asteroid)" />
+<symbol viewBox="0 0 12 12" id="crater-asteroid" fill="none">
+	<path d="M6 12A6 6 0 1 0 6 0a6 6 0 0 0 0 12Z" fill="#FBFBFB" />
+	<path d="M1.021 2.65a6 6 0 0 1 8.328 8.328A6 6 0 1 0 1.022 2.65Z" fill="#BCBCBC" />
 </symbol>
-
-<filter id="crater-shadow-asteroid">
-	<feOffset dx="-3" dy="3" />
-	<feGaussianBlur stdDeviation="0" result="offset-blur" />
-	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
-	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
-	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
-	<feComposite operator="over" in="shadow" in2="SourceGraphic" />
-</filter>
 
 <filter id="moon-shadow">
 	<feOffset dx="96" dy="-96" />
@@ -114,24 +96,32 @@
 	<use href="#crater-asteroid" x="36" y="10" height="3" width="3" />
 </symbol>
 
-<symbol viewBox="0 0 80 35" id="sm-asteroid-7" fill="#DADDE7">
+<symbol viewBox="0 0 81 36" id="sm-asteroid-7" fill="none">
 	<path
-		d="M20.9551 0.141507C9.97817 1.12756 -0.672237 12.8682 0.0332056 19.0813C1.49025 26.204 7.94884 32.9288 16.5505 33.8367C31.2754 35.3909 33.1009 31.5557 54.2098 30.9737C75.3187 30.3917 79.4034 29.686 79.316 23.2657C77.3955 17.5719 70.3841 14.4575 54.2098 8.95071C49.6488 8.33183 36.6711 -1.27026 20.9551 0.141507Z"
-		filter="url(#asteroid-shadow)"
+		d="M21.2.7C10 1.7-.6 13.7 0 20.1c1.4 7.3 8 14.2 16.6 15.1 14.9 1.6 16.7-2.3 38-3C76 31.8 80.1 31 80 24.5c-1.9-5.8-9-9-25.3-14.7C50.1 9.1 37-.7 21.2.7Z"
+		fill="#DADDE7"
+	/>
+	<path
+		d="M20.7.8c-7.9 4-14 12.2-13.5 17 1.5 7.3 8 14.2 16.6 15.1 8 .9 12.2.2 17.7-.8 4.8-.8 10.5-1.8 20.3-2 7.4-.3 12.8-.5 16.6-1-2.7 2.3-9.3 2.8-23.7 3.2-9.8.2-15.5 1.2-20.3 2-5.5 1-9.7 1.8-17.7.9-8.6-1-15.2-7.8-16.6-15.1-.7-6.3 9.7-18 20.6-19.3Z"
+		fill="#B9BCC4"
 	/>
 	<use href="#crater-asteroid" x="16" y="4" height="17" width="17" />
 	<use href="#crater-asteroid" x="36" y="10" height="3" width="3" />
 	<use href="#crater-asteroid" x="64" y="18" height="5" width="5" />
 </symbol>
 
-<svg viewBox="0 0 80 35" id="sm-asteroid-7-flipped" fill="#DADDE7">
+<symbol viewBox="0 0 81 36" id="sm-asteroid-7-flipped" fill="none">
 	<path
-		d="M59 35c11-1 22-13 21-19-1-7-8-14-17-15-14-1-16 2-37 3S1 5 1 12c2 5 9 9 25 14 4 1 17 10 33 9Z"
-		filter="url(#asteroid-shadow)"
+		d="M59.47 35.7c11.02-1.3 21.44-13.57 20.57-19.9A19.37 19.37 0 0 0 63.02 1.17c-14.86-1.2-16.6 2.77-37.84 3.92C3.94 6.24-.16 7.07.1 13.63c2.08 5.76 9.22 8.76 25.65 13.95 4.61.52 17.93 9.98 33.72 8.12Z"
+		fill="#DADDE7"
+	/>
+	<path
+		d="M9.02 6.38c-1.48 1.15-1.91 2.73-1.82 5 2.08 5.76 9.22 8.76 25.65 13.95 1.35.15 3.45 1.07 6.14 2.25 6.47 2.83 16.37 7.17 27.5 5.88a20.74 20.74 0 0 1-7.02 2.24c-11.17 1.32-21.1-3.03-27.58-5.87-2.69-1.18-4.79-2.1-6.14-2.25C9.32 22.38 2.18 19.4.1 13.63c-.17-4.34 1.57-6.17 8.92-7.25Z"
+		fill="#B9BCC4"
 	/>
 	<use href="#crater-asteroid" x="36" y="10" height="3" width="3" />
 	<use href="#crater-asteroid" x="50" y="8" height="15" width="15" />
-</svg>
+</symbol>
 
 <symbol viewBox="0 0 49 48" id="sm-asteroid-8" fill="#DADDE7">
 	<path

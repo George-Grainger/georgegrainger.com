@@ -10,23 +10,16 @@
 	import { fade, fly } from 'svelte/transition';
 	import { onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
-	import { theme } from '$lib/stores/theme';
 
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
-	let showClouds = false;
+	let showClouds = true;
 	let beenDuration = true;
 	let scrollY = 0;
 
-	const isValidTransition = function () {
-		const isChromium = 'chrome' in window;
-		const definition = Math.max(screen.availHeight, screen.availWidth) * window.devicePixelRatio;
-		return isChromium || $theme == theme.LIGHT || definition < 3840;
-	};
-
 	onNavigate((e) => {
 		// Don't delay when navigating on mobile
-		if (!showClouds && $motion == motion.NO_PREFERENCE && isValidTransition()) {
+		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
 			showClouds = changed;
 			beenDuration = !changed;
@@ -64,8 +57,11 @@
 			<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
 		</g>
 		<g class="dark">
-			<use href="#sm-asteroid-7" transition:fly={{ x: '100%', duration: duration }} />
-			<use href="#sm-asteroid-7-flipped" transition:fly={{ x: '-100%', duration: duration }} />
+			<use href="#sm-asteroid-7" transition:fly={{ x: '100%', duration: duration, opacity: 1 }} />
+			<use
+				href="#sm-asteroid-7-flipped"
+				transition:fly={{ x: '-100%', duration: duration, opacity: 1 }}
+			/>
 		</g>
 	</svg>
 {/if}
@@ -82,13 +78,13 @@
 
 	.dark {
 		:first-child {
-			transform: translate(-25vh, -11vh);
-			transform: translate(-25lvh, -11lvh);
+			transform: translate(-25vh, -15vh);
+			transform: translate(-25lvh, -15lvh);
 		}
 
 		:last-child {
-			transform: translate(-25vh, 50vh);
-			transform: translate(-25lvh, 50lvh);
+			transform: translate(-25vh, 48vh);
+			transform: translate(-25lvh, 46lvh);
 		}
 	}
 
