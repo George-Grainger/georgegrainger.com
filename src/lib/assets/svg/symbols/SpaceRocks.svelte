@@ -4,6 +4,7 @@
 
 <filter id="crater-shadow-light">
 	<feOffset dx="5" dy="1" />
+	<feGaussianBlur stdDeviation="0" result="offset-blur" />
 	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
 	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
@@ -16,6 +17,7 @@
 
 <filter id="crater-shadow-dark">
 	<feOffset dx="5" dy="1" />
+	<feGaussianBlur stdDeviation="0" result="offset-blur" />
 	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
 	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
@@ -38,6 +40,7 @@
 
 <filter id="crater-shadow-asteroid">
 	<feOffset dx="-3" dy="3" />
+	<feGaussianBlur stdDeviation="0" result="offset-blur" />
 	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 	<feFlood flood-color="black" flood-opacity="0.6" result="color" />
 	<feComposite operator="in" in="color" in2="inverse" result="shadow" />
@@ -165,6 +168,7 @@
 
 <filter id="asteroid-shadow">
 	<feOffset dx="2" dy="-4" />
+	<feGaussianBlur stdDeviation="0" result="offset-blur" />
 	<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 	<feFlood flood-color="black" flood-opacity="0.4" result="color" />
 	<feComposite operator="in" in="color" in2="inverse" result="shadow" />

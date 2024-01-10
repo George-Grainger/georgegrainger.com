@@ -434,6 +434,7 @@
 		</symbol>
 		<filter id="crater-shadow-footer">
 			<feOffset dx="2" dy="2" />
+			<feGaussianBlur stdDeviation="0" result="offset-blur" />
 			<feComposite operator="out" in="SourceGraphic" in2="offset-blur" result="inverse" />
 			<feFlood flood-color="black" flood-opacity="0.6" result="color" />
 			<feComposite operator="in" in="color" in2="inverse" result="shadow" />
