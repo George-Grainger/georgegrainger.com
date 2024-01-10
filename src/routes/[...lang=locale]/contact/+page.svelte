@@ -2,7 +2,6 @@
 	import { onNavigate } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import { t } from '$lib/translations/index.js';
-	import { onDestroy } from 'svelte';
 	import { fly } from 'svelte/transition';
 	import { superForm } from 'sveltekit-superforms/client';
 	import { z } from 'zod';

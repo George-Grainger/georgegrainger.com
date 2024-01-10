@@ -31,7 +31,7 @@ export const getProjects = async (lang = 'en', offset = 0, limit = 10, tag = '')
 			return { ...metadata, slug };
 		})
 	);
-	projects = projects.filter((p) => p.hasOwnProperty('date'));
+	projects = projects.filter((p) => 'date' in p);
 
 	if (tag) {
 		projects = projects.filter((p) => p?.tags?.includes(tag));

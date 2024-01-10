@@ -8,7 +8,7 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { afterNavigate, onNavigate } from '$app/navigation';
+	import { onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
 	import { theme } from '$lib/stores/theme';
 
@@ -19,9 +19,9 @@
 	let scrollY = 0;
 
 	const isValidTransition = function () {
-		const isFirefox = navigator.userAgent.search('Firefox') > -1;
+		const isChromium = 'chrome' in window;
 		const definition = Math.max(screen.availHeight, screen.availWidth) * window.devicePixelRatio;
-		return !isFirefox || $theme == theme.LIGHT || definition < 3840;
+		return isChromium || $theme == theme.LIGHT || definition < 3840;
 	};
 
 	onNavigate((e) => {
@@ -32,11 +32,12 @@
 			beenDuration = !changed;
 			setTimeout(() => (beenDuration = true), duration / 0.75);
 		}
-	});
 
-	afterNavigate(() => {
-		scrollY = 0;
-		showClouds = false;
+		// Callback to run after DOM update
+		return () => {
+			scrollY = 0;
+			showClouds = false;
+		};
 	});
 </script>
 
