@@ -13,7 +13,7 @@
 
 	// Page transitions
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
-	let showClouds = true;
+	let showClouds = false;
 	let beenDuration = true;
 	let scrollY = 0;
 
