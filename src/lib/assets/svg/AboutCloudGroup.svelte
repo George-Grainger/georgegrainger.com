@@ -15,7 +15,7 @@
 				}
 				previousY = currentY;
 			},
-			{ threshold: 0.33 }
+			{ rootMargin: '0px 0px -500px 0px' }
 		);
 
 		const aboutGroup = document.getElementById('about-me')?.firstChild as HTMLElement;
