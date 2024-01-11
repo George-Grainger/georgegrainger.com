@@ -15,7 +15,7 @@
 				}
 				previousY = currentY;
 			},
-			{ threshold: 0.35 }
+			{ threshold: 0.33 }
 		);
 
 		const aboutGroup = document.getElementById('about-me')?.firstChild as HTMLElement;
@@ -25,18 +25,18 @@
 
 <svg viewBox="0 0 1360 520" overflow="visible">
 	<g class="light">
-		<g class="move-left">
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="450" y="0" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="150" y="40" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="457" height="220" x="70" y="180" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="375" y="165" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="458" height="214" x="70" y="300" />
+		<g class="move-left" fill-opacity="0.85">
+			<use href="#lg-cloud-2" width="458" height="214" x="450" y="0" />
+			<use href="#lg-cloud-2" width="458" height="214" x="150" y="40" />
+			<use href="#lg-cloud-2" width="457" height="220" x="70" y="180" />
+			<use href="#lg-cloud-1" width="457" height="220" x="375" y="165" />
+			<use href="#lg-cloud-1" width="458" height="214" x="70" y="300" />
 		</g>
-		<g class="move-right">
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="458" height="214" x="450" y="280" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="600" y="55" />
-			<use fill-opacity="0.85" href="#lg-cloud-2" width="458" height="214" x="750" y="135" />
-			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="760" y="300" />
+		<g class="move-right" fill-opacity="0.85">
+			<use href="#lg-cloud-1" width="458" height="214" x="450" y="280" />
+			<use href="#lg-cloud-1" width="457" height="220" x="600" y="55" />
+			<use href="#lg-cloud-2" width="458" height="214" x="750" y="135" />
+			<use href="#lg-cloud-1" width="457" height="220" x="760" y="300" />
 		</g>
 	</g>
 	<g class="dark">
