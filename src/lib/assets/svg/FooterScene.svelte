@@ -153,33 +153,43 @@
 		/>
 		<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
 
-		<use href="#crater-footer" x="-600" y="385" height="18" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="-540" y="385" height="16" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="-480" y="400" height="14" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="-420" y="420" height="20" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="60" y="410" height="12" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="80" y="400" height="16" fill="var(--_surface-l7)" />
-		<use href="#crater-footer" x="90" y="415" height="14" fill="var(--_surface-l7)" />
+		<g fill="var(--_surface-l7)">
+			<use href="#crater-footer" x="-590" y="385" height="9" />
+			<use href="#crater-footer" x="-530" y="385" height="8" />
+			<use href="#crater-footer" x="-470" y="400" height="7" />
+			<use href="#crater-footer" x="-410" y="420" height="10" />
+			<use href="#crater-footer" x="70" y="410" height="6" />
+			<use href="#crater-footer" x="90" y="400" height="8" />
+			<use href="#crater-footer" x="100" y="415" height="7" />
+		</g>
 
-		<use href="#crater-footer" x="-760" y="440" height="12" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="-740" y="420" height="30" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="-720" y="440" height="16" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="580" y="435" height="24" fill="var(--_surface-l6)" />
-		<use href="#crater-footer" x="720" y="450" height="20" fill="var(--_surface-l6)" />
+		<g fill="var(--_surface-l6)">
+			<use href="#crater-footer" x="-750" y="440" height="6" />
+			<use href="#crater-footer" x="-725" y="415" height="15" />
+			<use href="#crater-footer" x="-710" y="440" height="8" />
+			<use href="#crater-footer" x="590" y="435" height="12" />
+			<use href="#crater-footer" x="730" y="450" height="10" />
+		</g>
 
-		<use href="#crater-footer" x="-520" y="490" height="32" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="-100" y="480" height="20" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="-60" y="500" height="10" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="260" y="480" height="26" fill="var(--_surface-l5)" />
-		<use href="#crater-footer" x="520" y="500" height="10" fill="var(--_surface-l5)" />
+		<g fill="var(--_surface-l5)">
+			<use href="#crater-footer" x="-510" y="490" height="16" />
+			<use href="#crater-footer" x="-90" y="480" height="10" />
+			<use href="#crater-footer" x="-50" y="500" height="5" />
+			<use href="#crater-footer" x="270" y="480" height="13" />
+			<use href="#crater-footer" x="530" y="500" height="5" />
+		</g>
 
-		<use href="#crater-footer" x="-800" y="490" height="32" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="-760" y="490" height="16" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="-240" y="520" height="24" fill="var(--_surface-l4)" />
-		<use href="#crater-footer" x="440" y="530" height="20" fill="var(--_surface-l4)" />
+		<g fill="var(--_surface-l4)">
+			<use href="#crater-footer" x="-790" y="490" height="16" />
+			<use href="#crater-footer" x="-750" y="490" height="8" />
+			<use href="#crater-footer" x="-230" y="520" height="12" />
+			<use href="#crater-footer" x="450" y="530" height="10" />
+		</g>
 
-		<use href="#crater-footer" x="-720" y="570" height="28" fill="var(--_surface-l3)" />
-		<use href="#crater-footer" x="-160" y="565" height="20" fill="var(--_surface-l3)" />
+		<g fill="var(--_surface-l3)">
+			<use href="#crater-footer" x="-710" y="570" height="14" />
+			<use href="#crater-footer" x="-150" y="565" height="10" />
+		</g>
 
 		<!-- Layer 6 -->
 		<use href="#tree-green" x="120" y="385" height="20" />
@@ -429,7 +439,7 @@
 	</g>
 
 	<defs>
-		<symbol viewBox="0 0 12 24" id="crater-footer">
+		<symbol viewBox="0 0 24 12" id="crater-footer">
 			<ellipse cx="12" cy="6" rx="12" ry="6" filter="url(#crater-shadow-footer)" />
 		</symbol>
 		<filter id="crater-shadow-footer">
