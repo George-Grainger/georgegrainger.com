@@ -8,7 +8,7 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import Symbols from '$lib/assets/svg/Symbols.svelte';
 	import { fade, fly } from 'svelte/transition';
-	import { onNavigate } from '$app/navigation';
+	import { disableScrollHandling, onNavigate } from '$app/navigation';
 	import { motion } from '$lib/stores/motion';
 
 	// Page transitions
@@ -21,6 +21,8 @@
 		// Don't delay when navigating on mobile
 		if (!showClouds && $motion == motion.NO_PREFERENCE) {
 			const changed = !e.willUnload && e.from?.route.id != e.to?.route.id;
+			// Prevent scroll bug on locale change
+			!changed && disableScrollHandling();
 			showClouds = changed;
 			beenDuration = !changed;
 			setTimeout(() => (beenDuration = true), duration / 0.75);
@@ -57,9 +59,9 @@
 			<use href="#lg-cloud-1" transition:fly={{ x: '100%', duration: duration }} />
 		</g>
 		<g class="dark">
-			<use href="#sm-asteroid-7" transition:fly={{ x: '100%', duration: duration, opacity: 1 }} />
+			<use href="#asteroid-7" transition:fly={{ x: '100%', duration: duration, opacity: 1 }} />
 			<use
-				href="#sm-asteroid-7-flipped"
+				href="#asteroid-7-flipped"
 				transition:fly={{ x: '-100%', duration: duration, opacity: 1 }}
 			/>
 		</g>

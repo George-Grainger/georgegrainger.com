@@ -11,43 +11,43 @@
 	<use href="#earth" class="earth" height="440" x="325" y="200" />
 	<svg class="sky-wrapper" viewBox="0 0 2196 500" width="2196" height="500" x="0" y="0">
 		<use
-			href="#sm-asteroid-1"
+			href="#asteroid-1"
 			height="40"
 			y="40"
 			style="transform-origin: 1098px 60px; animation-delay: -30s;"
 		/>
 		<use
-			href="#sm-asteroid-3"
+			href="#asteroid-3"
 			height="50"
 			y="55"
 			style="transform-origin: 1098px 80px; animation-delay: -180s;"
 		/>
 		<use
-			href="#sm-asteroid-5"
+			href="#asteroid-5"
 			height="40"
 			y="10"
 			style="transform-origin: 1098px 30px; animation-delay: -120s;"
 		/>
 		<use
-			href="#sm-asteroid-7"
+			href="#asteroid-7"
 			height="30"
 			y="200"
 			style="transform-origin: 1098px 215px; animation-delay: -50s;"
 		/>
 		<use
-			href="#sm-asteroid-2"
+			href="#asteroid-2"
 			height="40"
 			y="175"
 			style="transform-origin: 1098px 195px; animation-delay: -140s;"
 		/>
 		<use
-			href="#sm-asteroid-9"
+			href="#asteroid-9"
 			height="40"
 			y="40"
 			style="transform-origin: 1098px 60px; animation-delay: -100s;"
 		/>
 		<use
-			href="#sm-asteroid-8"
+			href="#asteroid-8"
 			height="80"
 			y="40"
 			style="transform-origin: 1098px 100px; animation-delay: -75s;"
@@ -502,7 +502,7 @@
 		}
 
 		[href^='#sm-cloud'],
-		[href^='#sm-asteroid'],
+		[href^='#asteroid'],
 		.house .smoke path {
 			animation-play-state: paused;
 		}
@@ -657,7 +657,7 @@
 		}
 	}
 
-	[href^='#sm-asteroid'] {
+	[href^='#asteroid'] {
 		animation: pan-screen 180s linear infinite, spin 30s linear infinite;
 
 		&:nth-child(2n + 1) {
@@ -684,12 +684,12 @@
 			--_delay: calc(0.67 * var(--duration));
 		}
 
-		[href^='#sm-asteroid'] {
+		[href^='#asteroid'] {
 			animation-play-state: paused;
 		}
 
 		[href^='#crater-'],
-		[href^='#sm-asteroid-'],
+		[href^='#asteroid-'],
 		.astronaut,
 		.cow-helmet {
 			opacity: 0;

@@ -2,7 +2,7 @@
 	import Button from './Button.svelte';
 	import { tagMap } from '$lib/utils/client/tag-map';
 	import CondtionalLink from './CondtionalLink.svelte';
-	import { beforeUpdate, onMount } from 'svelte';
+	import { beforeUpdate } from 'svelte';
 
 	type Tag = keyof typeof tagMap;
 	export let tags: Tag[] = [];
@@ -11,6 +11,8 @@
 	import { locale, t } from '$lib/translations';
 
 	let card: HTMLElement;
+	let frontHeight: number;
+	let articleHeight: number;
 	let preload = true;
 	let initialCoords = [0, 0];
 
@@ -19,9 +21,9 @@
 		preload = false;
 	});
 
-	onMount(() => {
-		const articleHeight = card?.clientHeight;
-		const frontHeight = (card?.firstChild as HTMLElement).clientHeight;
+	function setOffsets() {
+		frontHeight = (card?.firstChild as HTMLElement).clientHeight;
+		articleHeight = card?.clientHeight;
 		card?.style.setProperty('margin-bottom', `${frontHeight - articleHeight}px`);
 
 		// Calculate offsets for scrolling
@@ -36,7 +38,11 @@
 			cardRect.left + window.scrollX - offset,
 			cardRect.top + window.scrollY - offset
 		];
-	});
+	}
+
+	$: if (card && frontHeight && articleHeight) {
+		setOffsets();
+	}
 
 	const handleMouseOver = () => {
 		// Remove translate to prevent weirdness on pointer down
@@ -51,6 +57,7 @@
 		const perRow = getComputedStyle(card.parentElement as HTMLElement)
 			.getPropertyValue('grid-template-columns')
 			.split(' ').length;
+
 		const col = cardIndex % perRow;
 		cards = cards.filter((_, i) => i % perRow == col);
 		cardIndex = cards.indexOf(card);
@@ -85,12 +92,13 @@
 <article
 	class:preload
 	bind:this={card}
+	bind:clientHeight={articleHeight}
 	on:mouseenter={handleMouseOver}
 	on:mouseleave={handleMouseOut}
 	on:focusin={handleMouseOver}
 	on:focusout={handleMouseOut}
 >
-	<header>
+	<header bind:clientHeight={frontHeight}>
 		<slot name="image"><img src="" alt="Empty Project Card" /></slot>
 		<h1><slot name="title">Project Title</slot></h1>
 		<h2><slot name="subtitle">Project Subtitle / short description</slot></h2>
@@ -200,7 +208,7 @@
 		h1,
 		h2 {
 			line-height: 1;
-			margin-inline: 0.25em;
+			margin-inline: 0.15em;
 		}
 
 		h1 {

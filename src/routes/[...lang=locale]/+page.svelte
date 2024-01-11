@@ -161,10 +161,12 @@
 			place-self: start center;
 			isolation: isolate;
 			pointer-events: none;
+			z-index: 5;
 		}
 
 		:global(article) {
 			font-size: 1.125rem;
+			margin-block: 0;
 		}
 	}
 
@@ -188,6 +190,10 @@
 		p {
 			margin-top: -1em;
 		}
+	}
+
+	:global([data-motion='no-preference']) .projects h1 {
+		transition: translate var(--duration) var(--transition);
 	}
 
 	@media only screen and (width > 60rem) {
@@ -225,10 +231,6 @@
 				grid-column: 1 / -1;
 			}
 		}
-	}
-
-	:global([data-motion='no-preference']) .projects h1 {
-		transition: translate var(--duration) var(--transition);
 	}
 
 	@keyframes appear {

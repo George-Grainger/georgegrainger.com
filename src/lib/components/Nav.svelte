@@ -191,6 +191,12 @@
 		}
 	}
 
+	:global([data-theme='dark']) {
+		a {
+			text-shadow: 1px 1px 10px var(--background);
+		}
+	}
+
 	@media only screen and (width > 40rem) {
 		nav {
 			--svg-height: 1.5em;

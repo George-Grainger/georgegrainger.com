@@ -1,4 +1,4 @@
-<svg viewBox="0 0 1360 330">
+<svg viewBox="0 0 1360 330" overflow="visible">
 	<g class="light">
 		<g class="move-left">
 			<use fill-opacity="0.85" href="#lg-cloud-1" width="457" height="220" x="0" y="100" />
@@ -12,21 +12,21 @@
 	</g>
 	<g class="dark">
 		<g class="move-left">
-			<use href="#sm-asteroid-1" width="142" height="80" x="100" y="100" />
-			<use href="#sm-asteroid-7" width="160" height="70" x="200" y="225" />
-			<use href="#sm-asteroid-2" width="116" height="90" x="315" y="70" />
-			<use href="#sm-asteroid-3" width="114" height="64" x="400" y="200" />
-			<use href="#sm-asteroid-5" width="120" height="72" x="475" y="95" />
-			<use href="#sm-asteroid-9" width="143" height="74" x="575" y="25" />
-			<use href="#sm-asteroid-8" width="98" height="96" x="600" y="150" />
+			<use href="#asteroid-1" width="142" height="80" x="100" y="100" />
+			<use href="#asteroid-7" width="160" height="70" x="200" y="225" />
+			<use href="#asteroid-2" width="116" height="90" x="315" y="70" />
+			<use href="#asteroid-3" width="114" height="64" x="400" y="200" />
+			<use href="#asteroid-5" width="120" height="72" x="475" y="95" />
+			<use href="#asteroid-9" width="143" height="74" x="575" y="25" />
+			<use href="#asteroid-8" width="98" height="96" x="600" y="150" />
 		</g>
 		<g class="move-right">
-			<use href="#sm-asteroid-1" width="142" height="80" x="735" y="150" />
-			<use href="#sm-asteroid-4" width="112" height="106" x="775" y="25" />
-			<use href="#sm-asteroid-5" width="120" height="72" x="900" y="100" />
-			<use href="#sm-asteroid-9" width="143" height="74" x="950" y="200" />
-			<use href="#sm-asteroid-7" width="160" height="70" x="1050" y="115" />
-			<use href="#sm-asteroid-6" width="100" height="84" x="1125" y="215" />
+			<use href="#asteroid-1" width="142" height="80" x="735" y="150" />
+			<use href="#asteroid-4" width="112" height="106" x="775" y="25" />
+			<use href="#asteroid-5" width="120" height="72" x="900" y="100" />
+			<use href="#asteroid-9" width="143" height="74" x="950" y="200" />
+			<use href="#asteroid-7" width="160" height="70" x="1050" y="115" />
+			<use href="#asteroid-6" width="100" height="84" x="1125" y="215" />
 		</g>
 	</g>
 </svg>
@@ -38,7 +38,6 @@
 		will-change: transform;
 		z-index: 3;
 		margin-bottom: 15vh;
-		contain: paint;
 	}
 
 	:global([data-motion='no-preference']) g {
@@ -48,11 +47,11 @@
 	:global([data-theme='dark']) .light,
 	:global([data-theme='light']) .dark {
 		.move-left {
-			transform: translateX(-100%);
+			transform: translateX(min(-60%, -30vw));
 		}
 
 		.move-right {
-			transform: translateX(100%);
+			transform: translateX(max(60%, 33vw));
 		}
 	}
 </style>

@@ -110,7 +110,7 @@ body::before {
 	height: 10rem;
 	filter: blur(1rem);
 	box-shadow: inset 0rem 0rem 25rem 5rem var(--background);
-	z-index: 1;
+	z-index: 3;
 
 	contain: content;
 }
