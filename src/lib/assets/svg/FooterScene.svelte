@@ -9,7 +9,15 @@
 <svg class="main-scene" viewBox="0 -200 2196 975">
 	<use class="sun" href="#sun" height="150" x="-450" y="30" />
 	<use href="#earth" class="earth" height="440" x="325" y="200" />
-	<svg class="sky-wrapper" viewBox="0 0 2196 500" width="2196" height="500" x="0" y="0">
+	<svg
+		class="sky-wrapper"
+		viewBox="0 0 2196 500"
+		width="2196"
+		height="500"
+		x="0"
+		y="0"
+		overflow="visible"
+	>
 		<use
 			href="#asteroid-1"
 			height="40"
@@ -116,7 +124,15 @@
 			d="M878.3 496.2 751.8 344.4l-1.8 34.8 14.3 23.4-9.2 34.3L762 458l-12.2 25.1 48.2 13 80.4.1Z"
 		/>
 	</g>
-	<svg class="sky-wrapper" viewBox="0 0 2196 500" width="2196" height="500" x="0" y="0">
+	<svg
+		class="sky-wrapper"
+		viewBox="0 0 2196 500"
+		width="2196"
+		height="500"
+		x="0"
+		y="0"
+		overflow="visible"
+	>
 		<use href="#sm-cloud-3" height="50" y="250" style="animation-delay: -20s;" />
 		<use href="#sm-cloud-1" height="40" y="40" style="animation-delay: -30s;" />
 		<use href="#sm-cloud-2" height="50" y="55" style="animation-delay: -210s;" />
