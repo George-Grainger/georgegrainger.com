@@ -77,6 +77,9 @@ img {
 	--hover-inverse: var(--black-hover);
 	--outline: var(--red);
 	--card: var(--white);
+
+	// Manually set since think normal matches OS
+	color-scheme: light;
 }
 
 :root[data-theme='dark'] {
@@ -90,6 +93,9 @@ img {
 	--card: var(--black-hover);
 
 	--rm-translation: 37.5%;
+
+	// Update browser color-scheme
+	color-scheme: dark;
 }
 
 body {
