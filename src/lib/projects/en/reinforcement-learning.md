@@ -76,4 +76,4 @@ Agents and environments were designed in an object-oriented way so the project c
 
 ## The full report
 
-If you're particularly interested the full (60-page!) report is available to read at [georgegrainger.com/rl-project.pdf](/rl-project.pdf).
+If you're particularly interested the full (67-page!) report is available to read at <a href="/rl-project.pdf" target="_blank">georgegrainger.com/rl-project.pdf</a>.

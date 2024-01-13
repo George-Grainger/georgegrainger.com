@@ -76,4 +76,4 @@ Les agents et les environnements ont été conçus de manière orientée objet a
 
 ## Le rapport complet
 
-Si vous êtes particulièrement intéressé, le rapport complet (60 pages !) peut être lu sur [georgegrainger.com/rl-project.pdf](/rl-project.pdf).
+Si vous êtes particulièrement intéressé, le rapport complet (67 pages !) peut être lu sur <a href="/rl-project.pdf" target="_blank">georgegrainger.com/rl-project.pdf</a>.
