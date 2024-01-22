@@ -147,6 +147,8 @@
 	div {
 		--_drop-duration: calc(var(--duration) * 0.67);
 		--_arrow-size: 0.4em;
+		display: grid;
+		grid-template-rows: 1fr 0px;
 
 		&::before {
 			position: fixed;
@@ -173,7 +175,6 @@
 		background-color: var(--inverse);
 		padding: var(--_size);
 		border: var(--_border-size) solid currentColor;
-		width: 100%;
 		cursor: pointer;
 
 		&:hover {
@@ -229,10 +230,8 @@
 		transition: translate var(--_drop-duration) var(--transition),
 			opacity var(--_drop-duration) var(--transition);
 		z-index: -1;
-		position: relative;
 
 		:global(li) {
-			position: relative;
 			border-block: none;
 			margin-block: -1px;
 			padding-block: 0.25em;
@@ -337,7 +336,6 @@
 
 		ul {
 			translate: 0 0.35em;
-			height: 0;
 		}
 
 		[aria-expanded='false'] + ul {
