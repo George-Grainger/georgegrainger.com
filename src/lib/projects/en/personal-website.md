@@ -5,7 +5,7 @@ description: Designed and implemented my portfolio website in SolidJS and then a
 src: /images/projects/personal-website.svg
 alt: Footer artwork from georgegrainger.com
 tags: ['sveltekit', 'solidjs']
-date: 01/04/24
+date: 01/22/24
 homepage: 4
 ---
 

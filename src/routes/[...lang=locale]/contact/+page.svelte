@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onNavigate } from '$app/navigation';
 	import Button from '$lib/components/Button.svelte';
 	import { t } from '$lib/translations/index.js';
 	import { fly } from 'svelte/transition';
@@ -15,7 +14,7 @@
 		message: z.string().min(10, $t('contact.message-error'))
 	});
 
-	const { form, errors, constraints, enhance, reset } = superForm(data.form, {
+	const { form, errors, constraints, enhance } = superForm(data.form, {
 		validators: newContact,
 		resetForm: true,
 		onSubmit: () => {
@@ -29,17 +28,6 @@
 		}
 	});
 
-	// Prevent error when navigating on half filled form
-	let section: HTMLElement;
-	onNavigate((e) => {
-		if (e.to?.route.id?.endsWith('/contact')) {
-			return;
-		} else if ($form.name || $form.email || $form.message) {
-			reset();
-			section.parentNode?.removeChild(section);
-		}
-	});
-
 	// If there's an error disable the button
 	$: disabled = Object.values($errors).every((v) => v == undefined) ? null : 'disabled';
 </script>
@@ -48,7 +36,7 @@
 	<title>{$t('contact.contact')} - George Grainger</title>
 </svelte:head>
 
-<section bind:this={section}>
+<section>
 	<h1>{$t('contact.title')}</h1>
 
 	{#if submissionStatus === 'failed'}
