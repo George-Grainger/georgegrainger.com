@@ -127,6 +127,7 @@
 						aria-invalid={$errors.message ? 'true' : undefined}
 						placeholder={$t('contact.message-prompt')}
 						rows="5"
+						minlength="10"
 						autocomplete="off"
 						{...$constraints.message}
 					/>

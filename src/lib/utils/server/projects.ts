@@ -27,7 +27,7 @@ export const getProjects = async (lang = 'en', offset = 0, limit = 10, tag = '')
 		Object.entries(allProjects).map(async ([path, resolver]) => {
 			const { metadata } = (await resolver()) as { metadata: Metadata };
 			metadata.inProgress = metadata.inProgress ?? false;
-			const slug = '/projects/' + path?.split('/').pop()?.slice(0, -3) ?? null;
+			const slug = '/projects/' + path?.split('/').pop()?.slice(0, -3);
 			return { ...metadata, slug };
 		})
 	);

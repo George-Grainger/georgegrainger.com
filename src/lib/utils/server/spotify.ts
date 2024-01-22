@@ -5,7 +5,7 @@ import {
 	SPOTIFY_CLIENT_SECRET,
 	SPOTIFY_REFRESH_TOKEN
 } from '$env/static/private';
-import { error } from '@sveltejs/kit';
+import { error, type NumericRange } from '@sveltejs/kit';
 
 export interface TopTrack {
 	title: string;
@@ -34,11 +34,11 @@ async function getAccessToken() {
 			refresh_token: SPOTIFY_REFRESH_TOKEN
 		})
 	}).catch(() => {
-		throw error(503, "Couldn't connect to Spotify");
+		error(503, "Couldn't connect to Spotify");
 	});
 
 	if (!res.ok) {
-		throw error(res.status, res.statusText);
+		error(res.status as NumericRange<400, 599>, res.statusText);
 	}
 
 	return res.json();

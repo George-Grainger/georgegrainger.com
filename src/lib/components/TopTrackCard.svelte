@@ -68,10 +68,13 @@
 <svelte:element
 	this={tag}
 	on:click={handleClick}
+	on:keydown
 	use:clickoutside={{ enabled: expanded, callback: handleClickOutside }}
+	role="button"
 	class:expanded
+	aria-expanded={expanded ? 'true' : 'false'}
 	class="top-track-card"
-	tabIndex={0}
+	tabindex={0}
 >
 	<LazyImage
 		src={imgUrl}

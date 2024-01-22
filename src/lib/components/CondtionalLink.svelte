@@ -9,7 +9,9 @@
 {#if href}
 	<a {href} {target} {rel} {...$$restProps} on:click><slot /></a>
 {:else if fallback}
-	<svelte:element this={fallback} on:click {...$$restProps}><slot /></svelte:element>
+	<svelte:element this={fallback} role="button" on:click {...$$restProps} tabindex="0">
+		<slot />
+	</svelte:element>
 {:else}
 	<slot />
 {/if}

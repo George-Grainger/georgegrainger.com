@@ -79,9 +79,9 @@
 	}
 </script>
 
-<ol on:keydown={handleKeyDown}>
+<ol>
 	{#each topTracks as track}
-		<TopTrackCard tag="li" {...track} />
+		<TopTrackCard tag="li" on:keydown={handleKeyDown} {...track} />
 	{/each}
 </ol>
 

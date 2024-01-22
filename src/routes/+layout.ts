@@ -1,10 +1,10 @@
 import { addTranslations, setLocale, setRoute } from '$lib/translations';
 import { dev } from '$app/environment';
 import { inject } from '@vercel/analytics';
-import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
+// import { injectSpeedInsights } from '@vercel/speed-insights/sveltekit';
 
-// Vercel analytics stuff
-injectSpeedInsights();
+// // Vercel analytics stuff
+// injectSpeedInsights();
 inject({ mode: dev ? 'development' : 'production' });
 
 export const load = async ({ data }) => {

@@ -65,7 +65,7 @@
 	}
 </script>
 
-<div class="player" on:keydown>
+<div class="player">
 	<audio
 		{src}
 		bind:currentTime={time}
@@ -92,6 +92,7 @@
 		class="mute"
 		aria-label={$t(muted ? 'home.mute' : 'home.unmute')}
 		on:click={() => (muted = !muted)}
+		on:keydown
 	>
 		{#if muted}
 			<SoundOff />
