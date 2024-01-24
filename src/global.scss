@@ -288,7 +288,7 @@ a:focus-visible {
 	vertical-align: -0.2em;
 }
 
-@media only screen and (width > 60rem) {
+@media only screen and (min-width: 60rem) {
 	:root {
 		--page-width: min(100vw - 3rem, 80rem);
 		--rm-translation: min(50vw, 50%);

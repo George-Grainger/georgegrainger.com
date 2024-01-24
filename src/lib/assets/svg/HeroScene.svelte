@@ -67,7 +67,7 @@
 		}
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		svg {
 			grid-row: 1 / span 4;
 			grid-column: 2;

@@ -46,7 +46,7 @@
 		gap: 2rem;
 	}
 
-	@media only screen and (width <= 60rem) {
+	@media only screen and (max-width: 59.9375rem) {
 		h1 {
 			text-align: center;
 		}

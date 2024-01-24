@@ -57,7 +57,7 @@
 		margin-bottom: 0.5em;
 	}
 
-	@media only screen and (width <= 40rem) {
+	@media only screen and (max-width: 39.9375rem) {
 		.inProgress div {
 			grid-column: 1 / -1;
 		}

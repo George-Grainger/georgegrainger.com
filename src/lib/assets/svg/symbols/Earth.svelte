@@ -34,7 +34,7 @@
 		animation: cloud-rotate infinite 75s linear;
 
 		&:last-of-type {
-			animation-delay: -67s;
+			transform: rotate(120deg);
 			animation-duration: 100s;
 		}
 	}

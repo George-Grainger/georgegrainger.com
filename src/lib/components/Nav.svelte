@@ -191,7 +191,7 @@
 		}
 	}
 
-	@media only screen and (width > 40rem) {
+	@media only screen and (min-width: 40rem) {
 		nav {
 			--svg-height: 1.5em;
 		}
@@ -215,7 +215,7 @@
 		}
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		.links {
 			display: contents;
 			font-size: inherit;

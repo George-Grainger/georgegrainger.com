@@ -210,7 +210,7 @@
 		}
 	}
 
-	@media only screen and (width <= 40rem) {
+	@media only screen and (max-width: 39.9375rem) {
 		.header {
 			font-size: 0.9em;
 		}

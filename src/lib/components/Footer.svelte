@@ -76,7 +76,7 @@
 		}
 	}
 
-	@media only screen and (width <= 60rem) {
+	@media only screen and (max-width: 59.9375rem) {
 		.footer-text {
 			text-align: center;
 

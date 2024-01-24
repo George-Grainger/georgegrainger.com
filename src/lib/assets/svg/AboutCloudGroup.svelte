@@ -96,7 +96,7 @@
 		}
 	}
 
-	@media only screen and (width <= 40rem) {
+	@media only screen and (max-width: 39.9375rem) {
 		.dark g {
 			:nth-child(n + 2) {
 				display: none;

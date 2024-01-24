@@ -196,7 +196,7 @@
 		transition: translate var(--duration) var(--transition);
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		.hero {
 			row-gap: 0.5em;
 			grid-template-columns: 1fr 1fr;

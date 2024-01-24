@@ -20,9 +20,9 @@
 		}
 
 		let next: Element | null = null;
-		const ul = e.currentTarget as HTMLElement;
+		const ol = (e.currentTarget as HTMLElement).closest('ol') as HTMLElement;
 
-		const index = Array.from(ul.children).indexOf(el);
+		const index = Array.from(ol.children).indexOf(el);
 		const row = Math.floor(index / 3);
 		const col = 1 + (index % 3);
 
@@ -35,6 +35,9 @@
 				}
 
 				if (!next && isCard) {
+					if (index == 0) {
+						return e;
+					}
 					next = document.querySelector('.last-played-card .spotify-link');
 				}
 				break;
@@ -44,28 +47,28 @@
 				break;
 			case 'ArrowDown':
 				if (altKey) {
-					next = ul?.querySelector(`li:nth-last-child(${4 - col})`);
+					next = ol?.querySelector(`li:nth-last-child(${4 - col})`);
 				} else {
-					next = ul?.querySelector(`li:nth-child(${index + 4})`);
+					next = ol?.querySelector(`li:nth-child(${index + 4})`);
 				}
 				break;
 			case 'ArrowRight':
 				if (altKey) {
-					next = ul?.querySelector(`li:nth-child(${3 * (row + 1)})`);
+					next = ol?.querySelector(`li:nth-child(${3 * (row + 1)})`);
 				} else {
 					next = el?.nextElementSibling;
 				}
 				break;
 			case 'ArrowUp':
 				if (altKey) {
-					next = ul?.querySelector(`li:nth-child(${col})`);
+					next = ol?.querySelector(`li:nth-child(${col})`);
 				} else {
-					next = ul?.querySelector(`li:nth-child(${index - 2})`);
+					next = ol?.querySelector(`li:nth-child(${index - 2})`);
 				}
 				break;
 			case 'ArrowLeft':
 				if (altKey) {
-					next = ul?.querySelector(`li:nth-child(${3 * row + 1})`);
+					next = ol?.querySelector(`li:nth-child(${3 * row + 1})`);
 				} else {
 					next = el?.previousElementSibling;
 				}

@@ -201,7 +201,7 @@
 		margin-top: 0.5rem;
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		.message,
 		.submit-content {
 			grid-column: span 2;

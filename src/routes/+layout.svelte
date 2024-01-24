@@ -112,7 +112,7 @@
 		display: none;
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		svg {
 			width: 110vw;
 			height: 54vw;

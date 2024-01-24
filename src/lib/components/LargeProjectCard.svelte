@@ -114,7 +114,7 @@
 		}
 	}
 
-	@media only screen and (width > 60rem) {
+	@media only screen and (min-width: 60rem) {
 		article {
 			grid-template-columns: 3fr 4fr;
 			padding-right: 1.5rem;

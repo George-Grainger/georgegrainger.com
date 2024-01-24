@@ -289,7 +289,7 @@
 		pointer-events: none;
 	}
 
-	@media only screen and (width <= 40rem) {
+	@media only screen and (max-width: 39.9375rem) {
 		div::before {
 			content: '';
 		}
@@ -320,7 +320,7 @@
 		}
 	}
 
-	@media only screen and (width > 40rem) {
+	@media only screen and (min-width: 40rem) {
 		div {
 			font-size: var(--_select-fs);
 		}
