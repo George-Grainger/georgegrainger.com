@@ -12,7 +12,7 @@
 	<meta name="description" content={description} />
 </svelte:head>
 
-<article class="prose">
+<section class="prose">
 	<header class:inProgress>
 		<h1>{title}</h1>
 		{#if inProgress}
@@ -42,7 +42,7 @@
 	{#key data}
 		<svelte:component this={data.content} />
 	{/key}
-</article>
+</section>
 
 <style lang="scss">
 	.inProgress {

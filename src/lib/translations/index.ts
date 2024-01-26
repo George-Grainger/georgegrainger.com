@@ -42,24 +42,6 @@ export const config: Config<Params> = {
 		},
 		{
 			locale: 'en',
-			key: 'preferences',
-			routes: ['/preferences'],
-			loader: async () => (await import('./en/preferences.json')).default
-		},
-		{
-			locale: 'en',
-			key: 'terms-of-use',
-			routes: ['/terms-of-use'],
-			loader: async () => (await import('./en/terms-of-use.json')).default
-		},
-		{
-			locale: 'en',
-			key: 'privacy-policy',
-			routes: ['/privacy-policy'],
-			loader: async () => (await import('./en/privacy-policy.json')).default
-		},
-		{
-			locale: 'en',
 			key: 'error',
 			// routes: ['error'],
 			loader: async () => (await import('./en/error.json')).default
@@ -86,24 +68,6 @@ export const config: Config<Params> = {
 			key: 'contact',
 			routes: ['/contact'],
 			loader: async () => (await import('./fr/contact.json')).default
-		},
-		{
-			locale: 'fr',
-			key: 'preferences',
-			routes: ['/preferences'],
-			loader: async () => (await import('./fr/preferences.json')).default
-		},
-		{
-			locale: 'fr',
-			key: 'terms-of-use',
-			routes: ['/terms-of-use'],
-			loader: async () => (await import('./fr/terms-of-use.json')).default
-		},
-		{
-			locale: 'fr',
-			key: 'privacy-policy',
-			routes: ['/privacy-policy'],
-			loader: async () => (await import('./fr/privacy-policy.json')).default
 		},
 		{
 			locale: 'fr',

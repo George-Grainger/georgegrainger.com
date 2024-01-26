@@ -72,7 +72,7 @@
 	use:clickoutside={{ enabled: expanded, callback: handleClickOutside }}
 	role="button"
 	class:expanded
-	aria-expanded={expanded ? 'true' : 'false'}
+	aria-pressed={expanded ? 'true' : 'false'}
 	class="top-track-card"
 	tabindex={0}
 >
