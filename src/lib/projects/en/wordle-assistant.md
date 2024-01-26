@@ -5,12 +5,12 @@ description: Designed and optimised an information-theory-based Wordle Solver us
 src: /images/projects/wordle-assistant.svg
 alt: Collage of album covers
 tags: ['webassembly', 'rust', 'chrome']
-date: 11/18/23
+date: 01/26/23
 homepage: 5
 inProgress: true
 ---
 
-**Sorry, I'm still creating the content for this page - please check back in the near future and I'll have it all finished.**
+**I'm currently in the process of publishing this extension - please check back shortly and I'll have it all finished.**
 
 ## The motivation:
 
@@ -28,4 +28,4 @@ Consequently, I decided I'd build this, adapting the Rust code from the tutorial
 
 ## The solution:
 
-**Sorry I'm still finalising the solution - please check back in a few weeks and it'll be finished!**
+**I'm currently in the process of publishing this extension - please check back shortly and I'll have it all finished.**

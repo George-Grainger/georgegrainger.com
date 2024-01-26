@@ -10,7 +10,7 @@ homepage: 5
 inProgress: true
 ---
 
-**Désolé, je suis encore en train de créer le contenu de cette page. Veuillez revenir dans un avenir proche et j'aurai tout terminé.**
+**Je suis actuellement en train de publier cette extension - veuillez revenir sous peu et j'aurai tout terminé.**
 
 ## La motivation:
 
@@ -28,4 +28,4 @@ Par conséquent, j'ai décidé de construire ceci, en adaptant le code Rust du t
 
 ## La solution:
 
-**Désolé, je suis encore en train de finaliser la solution – veuillez revenir dans quelques semaines et ce sera terminé !**
+**Je suis actuellement en train de publier cette extension - veuillez revenir sous peu et j'aurai tout terminé.**
