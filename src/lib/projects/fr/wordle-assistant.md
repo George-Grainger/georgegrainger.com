@@ -4,8 +4,8 @@ subtitle: Conception d'une extension de navigateur qui vous aide à deviner le m
 description: Conception et optimisation d'un solveur Wordle basé sur la théorie de l'information en utilisant Rust. Ensuite, nous avons combiné les extensions de navigateur WebAssembly et Chrome pour permettre au solveur d'être utilisé de manière interactive pour aider dans le jeu Worlde existant.
 src: /images/projects/wordle-assistant.svg
 alt: Logo de l'assistant Wordle
-tags: ['webassembly', 'rust']
-date: 11/18/23
+tags: ['webassembly', 'rust', 'chrome']
+date: 01/26/24
 homepage: 5
 inProgress: true
 ---
