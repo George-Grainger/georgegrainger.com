@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
-	import { afterUpdate, createEventDispatcher } from 'svelte';
+	import { afterUpdate, createEventDispatcher, onMount } from 'svelte';
 	import Option from './Option.svelte';
 
 	export let id: string;
@@ -101,6 +101,11 @@
 			});
 		}
 	}
+
+	onMount(() => {
+		doUpdate(ul?.querySelector(`[data-value=${selected}]`) as HTMLElement);
+	});
+
 	afterUpdate(() => {
 		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
 		if (current) {
@@ -120,9 +125,7 @@
 		bind:this={btn}
 		on:click={toggleExpanded}
 		on:keydown={handleKeyDown}
-	>
-		<div class="loading-spinner" />
-	</button>
+	/>
 	<ul
 		{id}
 		role="menu"
@@ -208,17 +211,6 @@
 		&[aria-expanded='true']::after {
 			opacity: 0.35;
 		}
-	}
-
-	.loading-spinner {
-		position: relative;
-		justify-self: center;
-		height: 1.25em;
-		aspect-ratio: 1;
-		border: 0.25em solid var(--text);
-		border-right-color: transparent;
-		border-radius: 100vmax;
-		animation: rotate-forever calc(2 * var(--duration)) linear infinite;
 	}
 
 	ul {
@@ -335,12 +327,6 @@
 
 		[aria-expanded='false'] + ul {
 			translate: 0 -1em;
-		}
-	}
-
-	@keyframes rotate-forever {
-		to {
-			transform: rotate(360deg);
 		}
 	}
 </style>
