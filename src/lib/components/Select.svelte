@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { browser } from '$app/environment';
 	import { clickoutside } from '$lib/hooks/use-click-outide';
-	import { afterUpdate, createEventDispatcher, onMount } from 'svelte';
+	import { afterUpdate, createEventDispatcher } from 'svelte';
 	import Option from './Option.svelte';
 
 	export let id: string;
@@ -101,11 +101,6 @@
 			});
 		}
 	}
-
-	onMount(() => {
-		doUpdate(ul?.querySelector(`[data-value=${selected}]`) as HTMLElement);
-	});
-
 	afterUpdate(() => {
 		const current = ul?.querySelector(`[data-value=${selected}]`) as HTMLElement;
 		if (current) {

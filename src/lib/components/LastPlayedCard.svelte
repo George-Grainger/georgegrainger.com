@@ -139,6 +139,7 @@
 		// Prevent height of image from stretching
 		:global(.lazy-img) {
 			height: initial;
+			aspect-ratio: 1;
 		}
 
 		.details {
