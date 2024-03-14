@@ -11,7 +11,7 @@
 	"academic-paragraphs": [
 		"Je suis en dernière année d'études pour mon Master en informatique (Hons) à l'Université de Manchester.",
 		"En première année, j'ai remporté le prix Netcraft pour les 10 meilleurs étudiants avec une moyenne de 90 %. En deuxième année, j'ai continué à bien faire et j'étais dans <a href=\"https://www.georgegrainger.com/SecondYearLetter.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">le top 5% des étudiants</a> (sur 400) avec une moyenne de 89%. J'ai également obtenu la meilleure note dans l'unité d'architecture système avec une moyenne de 92%.",
-		"J'apprécie une gamme d'unités de cours, notamment celles basées sur l'IA, l'ingénierie des données et le développement logiciel. J'ai particulièrement apprécié de voir comment ceux-ci interagissaient dans mon projet de troisième année simulant le système dopaminergique et la dépendance grâce à l'apprentissage par renforcement - <a href=\"projects/reinforcement-learning\">en savoir plus</a>."
+		"J'apprécie une gamme d'unités de cours, notamment celles basées sur l'IA, l'ingénierie des données et le développement logiciel. J'ai particulièrement apprécié de voir comment ceux-ci interagissaient dans mon projet de troisième année simulant le système dopaminergique et la dépendance grâce à l'apprentissage par renforcement - <a href=\"projects/reinforcement-learning\">voir les détails</a>."
 	],
 	"experience-title": "Expérience",
 	"nimble-paragraphs": [
@@ -24,7 +24,7 @@
 	],
 	"enigma-roles": [
 		"Contribuer à «l'équipe de base», cela impliquait de programmer en Java et de construire le cadre de base sur lequel d'autres sites ont été développés.",
-		"Développer une <a href=\"https://transplant-resource.newcastle-hospitals.nhs.uk\" target=\"_blank\" rel=\"noopener noreferrer\">ressource de transplantation cardiaque et pulmonaire</a> pour la confiance de la fondation Newcastle NHS - <a href=\"projects/nhs-heart-and-lung\">en savoir plus</a>.",
+		"Développer une <a href=\"https://transplant-resource.newcastle-hospitals.nhs.uk\" target=\"_blank\" rel=\"noopener noreferrer\">ressource de transplantation cardiaque et pulmonaire</a> pour la confiance de la fondation Newcastle NHS - <a href=\"projects/nhs-heart-and-lung\">voir les détails</a>.",
 		"Production d'un jeu éducatif pour Western Power, qui enseigne aux enfants les dangers potentiels des lignes électriques et comment les éviter."
 	],
 	"interests-title": "Intérêts",

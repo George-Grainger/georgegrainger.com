@@ -53,7 +53,7 @@
 			return e;
 		}
 
-		const card = document.querySelector('.top-track-card:last-child') as HTMLElement;
+		const card = document.querySelector('.top-track-item:last-child > button') as HTMLElement;
 		card.focus();
 		e.preventDefault();
 	}

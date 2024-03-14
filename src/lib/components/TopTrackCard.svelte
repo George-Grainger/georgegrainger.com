@@ -36,15 +36,15 @@
 	}
 
 	function handleClose(e: Event) {
-		let button = e.currentTarget as HTMLButtonElement;
-		button.closest('li')?.focus();
+		const button = e.currentTarget as HTMLButtonElement;
+		(button.closest(".top-track-card") as HTMLElement)?.focus();
 		handleClickOutside();
 		e.stopPropagation();
 		e.preventDefault();
 	}
 
 	function handleKeyPress(e: KeyboardEvent) {
-		if (e.key == ' ' || e.key == 'Enter' || (e.shiftKey && e.key == 'Tab')) {
+		if (e.key == "Escape" || e.key == ' ' || e.key == 'Enter' || (e.shiftKey && e.key == 'Tab')) {
 			handleClose(e);
 		}
 	}
@@ -59,49 +59,48 @@
 			return e;
 		}
 
-		const closeButton = el.closest('li')?.querySelector('.close') as SVGElement;
+		const closeButton = el.closest(tag)?.querySelector('.close') as SVGElement;
 		closeButton.focus();
 		e.preventDefault();
 	}
 </script>
 
-<svelte:element
-	this={tag}
-	on:click={handleClick}
-	on:keydown
-	use:clickoutside={{ enabled: expanded, callback: handleClickOutside }}
-	role="button"
-	class:expanded
-	aria-pressed={expanded ? 'true' : 'false'}
-	class="top-track-card"
-	tabindex={0}
->
-	<LazyImage
-		src={imgUrl}
-		alt={$t('home.album-img-alt', { title })}
-		placeholderSrc={imgPlaceholderUrl}
-		loading="lazy"
-	/>
-	<button aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>
-		<span class="sr-only">{$t('home.close')}</span>
-		<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
+<svelte:element this={tag} class:expanded class="top-track-item">
+	<button
+		on:click={handleClick}
+		on:keydown
+		use:clickoutside={{ enabled: expanded, callback: handleClickOutside }}
+		class="top-track-card"
+		aria-pressed={expanded ? 'true' : 'false'}
+		tabindex={0}
+	>
+		<LazyImage
+			src={imgUrl}
+			alt={$t('home.album-img-alt', { title })}
+			placeholderSrc={imgPlaceholderUrl}
+			loading="lazy"
+		/>
+		<button class="close-btn" aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>
+			<span class="sr-only">{$t('home.close')}</span>
+			<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
+		</button>
+		<div class="details">
+			<p>{title}</p>
+			<a href={playUrl} target="_blank" rel="noopener noreferrer">
+				<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
+				<img src={spotifyLogo} alt="Spotify Logo" />
+			</a>
+			<strong>{artist}</strong>
+			{#if previewUrl}
+				<AudioPlayer on:keydown={handleAudioKeyPress} src={previewUrl} />
+			{/if}
+		</div>
 	</button>
-	<div class="details">
-		<p>{title}</p>
-		<a href={playUrl} target="_blank" rel="noopener noreferrer">
-			<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
-			<img src={spotifyLogo} alt="Spotify Logo" />
-		</a>
-		<strong>{artist}</strong>
-		{#if previewUrl}
-			<AudioPlayer on:keydown={handleAudioKeyPress} src={previewUrl} />
-		{/if}
-	</div>
 </svelte:element>
 
 <style lang="scss">
-	:global([data-motion='no-preference']) .top-track-card {
-		button :global(svg) {
+	:global([data-motion='no-preference']) {
+		.close-btn :global(svg) {
 			transition: opacity var(--duration) var(--transition);
 		}
 
@@ -110,13 +109,22 @@
 		}
 	}
 
-	.top-track-card {
-		border-radius: calc(0.5 * var(--border-radius));
-		position: relative;
+	.top-track-item {
+		display: grid;
 		aspect-ratio: 1;
+		position: relative;
 		color: var(--white);
-		overflow: clip;
 		cursor: pointer;
+		overflow: clip;
+		border-radius: calc(0.5 * var(--border-radius));
+
+		&:has(> :focus-visible){
+			outline: solid var(--red) 0.3em;
+		}
+	}
+
+	.top-track-card {
+		border: none;
 
 		img {
 			aspect-ratio: 1;
@@ -126,7 +134,7 @@
 			border-radius: calc(0.5 * var(--border-radius));
 		}
 
-		button {
+		.close-btn {
 			display: contents;
 
 			:global(svg) {
@@ -180,20 +188,24 @@
 			}
 		}
 
-		&.expanded {
-			cursor: default;
-
-			button :global(svg) {
-				opacity: 1;
-			}
-
-			.details {
-				transform: translateY(0%);
-			}
-		}
-
 		:global(.player) {
 			font-size: 1.25em;
+		}
+	}
+
+	.expanded {
+		cursor: default;
+
+		&:has(> :focus-visible){
+			outline: solid var(--red) 0.095em;
+		}
+
+		.close-btn :global(svg) {
+			opacity: 1;
+		}
+
+		.details {
+			transform: translateY(0%);
 		}
 	}
 </style>

@@ -8,37 +8,41 @@
 		const { key, altKey, shiftKey } = e;
 		const el = e.target as HTMLElement;
 		const isCard = el.classList.contains('top-track-card');
+		const li = el.closest('li') as HTMLElement;
 
-		if (key == 'Escape' || (key == 'Tab' && isCard && shiftKey)) {
-			const li = el.closest('li') as HTMLElement;
-			li.focus();
-			li.classList.remove('expanded');
+		if (key == 'Escape') {
+			(li.querySelector(".close-btn") as HTMLButtonElement).click()
+			return;
 		}
-
-		if (!isCard || el.classList.contains('expanded')) {
+		if (key == 'Tab' && isCard && shiftKey) {
+			li.querySelector("button")?.focus();
+			li.classList.remove('expanded');
+			return
+		}
+		if (!isCard || li.classList.contains('expanded')) {
 			return e;
 		}
 
 		let next: Element | null = null;
-		const ol = (e.currentTarget as HTMLElement).closest('ol') as HTMLElement;
+		const ol = li.parentElement as HTMLElement;
 
-		const index = Array.from(ol.children).indexOf(el);
+		const index = Array.from(ol.children).indexOf(li);
 		const row = Math.floor(index / 3);
 		const col = 1 + (index % 3);
 
 		switch (key) {
 			case 'Tab':
 				if (shiftKey) {
-					next = el?.previousElementSibling;
+					next = li?.previousElementSibling;
 				} else {
-					next = el?.nextElementSibling;
+					next = li?.nextElementSibling;
 				}
 
 				if (!next && isCard) {
 					if (index == 0) {
 						return e;
 					}
-					next = document.querySelector('.last-played-card .spotify-link');
+					next = document.querySelector('.last-played-card') ;
 				}
 				break;
 			case ' ':
@@ -56,7 +60,7 @@
 				if (altKey) {
 					next = ol?.querySelector(`li:nth-child(${3 * (row + 1)})`);
 				} else {
-					next = el?.nextElementSibling;
+					next = li?.nextElementSibling;
 				}
 				break;
 			case 'ArrowUp':
@@ -70,14 +74,17 @@
 				if (altKey) {
 					next = ol?.querySelector(`li:nth-child(${3 * row + 1})`);
 				} else {
-					next = el?.previousElementSibling;
+					next = li?.previousElementSibling;
 				}
 				break;
 		}
 
 		e.preventDefault();
-		if (next) {
-			(next as HTMLElement)?.focus();
+		if (next?.classList.contains("last-played-card")){
+			next.querySelector("a")?.focus();
+		}
+		else if (next) {
+			next.querySelector("button")?.focus();
 		}
 	}
 </script>
