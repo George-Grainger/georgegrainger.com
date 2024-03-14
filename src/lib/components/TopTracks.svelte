@@ -14,13 +14,12 @@
 			(li.querySelector(".close-btn") as HTMLButtonElement).click()
 			return;
 		}
+		if (!isCard || li.classList.contains('expanded')) {
+			return e;
+		}
 		if (key == 'Tab' && isCard && shiftKey) {
 			li.querySelector("button")?.focus();
 			li.classList.remove('expanded');
-			return
-		}
-		if (!isCard || li.classList.contains('expanded')) {
-			return e;
 		}
 
 		let next: Element | null = null;
