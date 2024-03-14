@@ -1,7 +1,7 @@
 <script lang="ts">
 	import Button from './Button.svelte';
 	import { tagMap } from '$lib/utils/client/tag-map';
-	import CondtionalLink from './CondtionalLink.svelte';
+	import ConditionalLink from './ConditionalLink.svelte';
 	import { beforeUpdate } from 'svelte';
 
 	type Tag = keyof typeof tagMap;
@@ -111,10 +111,16 @@
 				{#if !tagMap[tag]}
 					<span class="text-error">Unknown tag: {tag}</span>
 				{:else}
-					<CondtionalLink href={tagMap[tag].href} target="_blank" rel="noopener noreferrer">
+					<ConditionalLink
+						href={tagMap[tag].href}
+						target="_blank"
+						rel="noopener noreferrer"
+						fallback="span"
+						role={null}
+					>
 						<svelte:component this={tagMap[tag].component} />
 						<small>{tagMap[tag].name}</small>
-					</CondtionalLink>
+					</ConditionalLink>
 				{/if}
 			{/each}
 		</div>
@@ -346,11 +352,13 @@
 				}
 			}
 
-			:global(:nth-child(2) path) {
+			:global(a:nth-child(2) path),
+			:global(span:nth-child(2) path) {
 				--a-delay: calc(0.4 * var(--a-duration));
 			}
 
-			:global(:nth-child(3) path) {
+			:global(a:nth-child(3) path),
+			:global(span:nth-child(3) path) {
 				--a-delay: calc(0.8 * var(--a-duration));
 			}
 		}

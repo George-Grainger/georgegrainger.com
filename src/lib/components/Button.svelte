@@ -1,5 +1,5 @@
 <script lang="ts">
-	import CondtionalLink from './CondtionalLink.svelte';
+	import ConditionalLink from './ConditionalLink.svelte';
 
 	export let href = '';
 	export let target = '';
@@ -7,7 +7,7 @@
 	export let download: string | null = null;
 </script>
 
-<CondtionalLink
+<ConditionalLink
 	on:click
 	class="btn"
 	{href}
@@ -25,7 +25,7 @@
 			<path d="m40 4 4-4h1l21 21a1 1 0 0 1 0 1L45 43h-1l-4-4a1 1 0 0 1 0-1l17-16v-1L40 5V4Z" />
 		</svg>
 	</span>
-</CondtionalLink>
+</ConditionalLink>
 
 <style lang="scss">
 	// Global to prevent purging

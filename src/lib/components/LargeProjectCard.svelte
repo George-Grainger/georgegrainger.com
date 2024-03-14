@@ -2,7 +2,7 @@
 	import { t } from '$lib/translations';
 	import { tagMap } from '$lib/utils/client/tag-map';
 	import Button from './Button.svelte';
-	import CondtionalLink from './CondtionalLink.svelte';
+	import ConditionalLink from './ConditionalLink.svelte';
 
 	type Tag = keyof typeof tagMap;
 	export let tags: Tag[] = [];
@@ -20,15 +20,16 @@
 				{#if !tagMap[tag]}
 					<span class="text-error">Unknown tag: {tag}</span>
 				{:else}
-					<CondtionalLink
+					<ConditionalLink
 						href={tagMap[tag].href}
 						target="_blank"
 						rel="noopener noreferrer"
 						fallback="span"
+						role={null}
 					>
 						<svelte:component this={tagMap[tag].component} />
 						<small>{tagMap[tag].name}</small>
-					</CondtionalLink>
+					</ConditionalLink>
 				{/if}
 			{/each}
 		</div>
