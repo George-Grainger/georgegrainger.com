@@ -41,7 +41,6 @@
 
 	.footer-text-wrapper {
 		color: var(--black);
-		background-color: var(--green);
 
 		padding-bottom: 1rem;
 		margin-top: -1rem;
@@ -68,12 +67,6 @@
 		position: relative;
 		display: flex;
 		justify-content: center;
-	}
-
-	:global([data-theme='dark']) {
-		.footer-text-wrapper {
-			background-color: hsl(227, 23%, 88%);
-		}
 	}
 
 	@media only screen and (max-width: 59.9375rem) {

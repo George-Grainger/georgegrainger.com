@@ -1,9 +1,9 @@
-<svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975">
+<svg class="surface" preserveAspectRatio="none" viewBox="0 -200  2196 975" overflow="visible">
 	<path d="M14 461h2182v97H14v-97Z" fill="var(--_surface-l5)" />
 	<path d="M14 478h2182v97H14v-97Z" fill="var(--_surface-l4)" />
 	<path d="M14 519h2182v97H14v-97Z" fill="var(--_surface-l3)" />
 	<path d="M14 563h2182v97H14v-97Z" fill="var(--_surface-l2)" />
-	<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
+	<rect x="0" y="620" width="100%" height="100vh" fill="var(--_surface-l1)" />
 </svg>
 
 <svg class="main-scene" viewBox="0 -200 2196 975">
@@ -167,7 +167,7 @@
 			d="m442 595 25 1c26 1 77 3 127 0 51-4 102-13 152-13 51 0 102 10 153 13 50 3 101-1 152 0 50 0 101 5 152 2 51-2 101-12 152-18s102-8 127-9l26-1c267-12 685 54 685 54H13s276-36 429-29Z"
 			fill="var(--_surface-l1)"
 		/>
-		<path d="M14 623h2182v152H14V623Z" fill="var(--_surface-l1)" />
+		<path d="M14 623h2182v160H14V623Z" fill="var(--_surface-l1)" />
 
 		<g fill="var(--_surface-l7)">
 			<use href="#crater-footer" x="-590" y="385" height="9" />
@@ -535,7 +535,6 @@
 		--_duration: calc(3 * var(--duration));
 		--_transition: var(--transition);
 
-		contain: content;
 		transform-origin: center center;
 
 		&.main-scene {
@@ -544,7 +543,8 @@
 			max-width: 130rem;
 			flex: 1 0 auto;
 			-webkit-mask-image: linear-gradient(transparent, black 25%);
-			mask-image: linear-gradient (transparent, black 25%);
+			mask-image: linear-gradient(transparent, black 25%);
+			// contain: content;
 		}
 
 		&.sky-wrapper {
@@ -553,7 +553,7 @@
 			width: 130vw;
 			max-width: 130rem;
 			-webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
-			mask-image: linear-gradient (90deg, transparent, black 20%, black 80%, transparent);
+			mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);
 		}
 
 		&.surface {
@@ -633,7 +633,8 @@
 		animation: smoke-animaton var(--_smoke-duration, var(--_duration)) linear infinite;
 	}
 
-	.surface path {
+	.surface path,
+	.surface rect {
 		transition: fill var(--duration) var(--transition);
 	}
 
