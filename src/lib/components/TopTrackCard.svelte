@@ -37,14 +37,14 @@
 
 	function handleClose(e: Event) {
 		const button = e.currentTarget as HTMLButtonElement;
-		(button.closest(".top-track-card") as HTMLElement)?.focus();
+		(button.closest('.top-track-card') as HTMLElement)?.focus();
 		handleClickOutside();
 		e.stopPropagation();
 		e.preventDefault();
 	}
 
 	function handleKeyPress(e: KeyboardEvent) {
-		if (e.key == "Escape" || e.key == ' ' || e.key == 'Enter' || (e.shiftKey && e.key == 'Tab')) {
+		if (e.key == 'Escape' || e.key == ' ' || e.key == 'Enter' || (e.shiftKey && e.key == 'Tab')) {
 			handleClose(e);
 		}
 	}
@@ -80,7 +80,12 @@
 			placeholderSrc={imgPlaceholderUrl}
 			loading="lazy"
 		/>
-		<button class="close-btn" aria-label="Close Card" on:click={handleClose} on:keydown={handleKeyPress}>
+		<button
+			class="close-btn"
+			aria-label="Close Card"
+			on:click={handleClose}
+			on:keydown={handleKeyPress}
+		>
 			<span class="sr-only">{$t('home.close')}</span>
 			<Cross class="close" fill="var(--white)" height="1em" width="1em" tabindex="0" />
 		</button>
@@ -110,21 +115,20 @@
 	}
 
 	.top-track-item {
-		display: grid;
-		aspect-ratio: 1;
 		position: relative;
 		color: var(--white);
 		cursor: pointer;
 		overflow: clip;
 		border-radius: calc(0.5 * var(--border-radius));
 
-		&:has(> :focus-visible){
+		&:has(> :focus-visible) {
 			outline: solid var(--red) 0.3em;
 		}
 	}
 
 	.top-track-card {
 		border: none;
+		aspect-ratio: 1;
 
 		img {
 			aspect-ratio: 1;
@@ -133,58 +137,58 @@
 		:global(.lazy-img) {
 			border-radius: calc(0.5 * var(--border-radius));
 		}
+	}
 
-		.close-btn {
-			display: contents;
+	.close-btn {
+		display: contents;
 
-			:global(svg) {
-				position: absolute;
-				padding: 0.25em;
-				top: calc(5% - 0.25em);
-				right: calc(5% - 0.25em);
-				opacity: 0;
-				border-radius: 100vmax;
-				filter: drop-shadow(0 0 0.075rem var(--black));
+		:global(svg) {
+			position: absolute;
+			padding: 0.25em;
+			top: calc(5% - 0.25em);
+			right: calc(5% - 0.25em);
+			opacity: 0;
+			border-radius: 100vmax;
+			filter: drop-shadow(0 0 0.075rem var(--black));
 
-				&:focus-visible {
-					outline-offset: -0.175em;
-					outline: solid var(--red) 0.067em;
-				}
+			&:focus-visible {
+				outline-offset: -0.175em;
+				outline: solid var(--red) 0.067em;
 			}
 		}
+	}
 
-		.details {
-			position: absolute;
-			display: grid;
-			grid-template-columns: auto 1.25em;
-			column-gap: 1em;
-			inset: auto 0 -1px;
-			padding: 15% 5% 5%;
-			background-image: linear-gradient(transparent 5%, var(--black) 75%);
-			transform: translateY(100%);
-			font-size: 0.4em;
+	.details {
+		position: absolute;
+		display: grid;
+		grid-template-columns: auto 1.25em;
+		column-gap: 1em;
+		inset: auto 0 -1px;
+		padding: 15% 5% 5%;
+		background-image: linear-gradient(transparent 5%, var(--black) 75%);
+		transform: translateY(100%);
+		font-size: 0.4em;
 
-			p,
-			strong {
-				overflow: hidden;
-				text-overflow: ellipsis;
-				white-space: nowrap;
-			}
+		p,
+		strong {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 
-			strong {
-				font-size: 0.75em;
-			}
+		strong {
+			font-size: 0.75em;
+		}
 
-			a {
-				grid-row: span 2;
-				align-self: center;
-				display: flex;
-				transition: scale var(--duration) var(--transition);
-				transform-origin: center;
+		a {
+			grid-row: span 2;
+			align-self: center;
+			display: flex;
+			transition: scale var(--duration) var(--transition);
+			transform-origin: center;
 
-				&:hover {
-					scale: 1.1;
-				}
+			&:hover {
+				scale: 1.1;
 			}
 		}
 
@@ -194,10 +198,12 @@
 	}
 
 	.expanded {
-		cursor: default;
-
-		&:has(> :focus-visible){
+		&:has(> :focus-visible) {
 			outline: solid var(--red) 0.095em;
+		}
+
+		.top-track-card {
+			cursor: default;
 		}
 
 		.close-btn :global(svg) {

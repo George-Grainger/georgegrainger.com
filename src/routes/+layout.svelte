@@ -15,7 +15,7 @@
 	$: duration = $motion === motion.NO_PREFERENCE ? 400 : 0;
 	let showClouds = false;
 	let beenDuration = true;
-	let scrollY = 0;
+	let scrollOffset = 0;
 
 	onNavigate((e) => {
 		// Don't delay when navigating on mobile
@@ -30,23 +30,46 @@
 
 		// Callback to run after DOM update
 		return () => {
-			scrollY = 0;
+			scrollOffset = 0;
 			showClouds = false;
 		};
 	});
+
+	function scrollY() {
+		// Prevents issue where moves to top of page of nav bar open
+		document.documentElement.style.setProperty('scroll-behavior', 'unset');
+		scrollTo(0, scrollOffset);
+		document.documentElement.style.removeProperty('scroll-behavior');
+	}
+
+	function calcScrollY() {
+		scrollOffset = document.documentElement.scrollTop;
+
+		const projectCards = document.getElementById('projects')?.querySelectorAll('article');
+		if (projectCards) {
+			const cards = Array.from(projectCards || []).map((node) => {
+				const nodeRect = node.getBoundingClientRect();
+				const offset = parseFloat(node.style.getPropertyValue('margin-bottom'));
+				return { top: nodeRect.top, bottom: nodeRect.bottom, offset };
+			});
+			const cardsAbove = cards.filter(({ bottom, offset }) => bottom + offset < 0);
+			const minOffsets = cardsAbove.reduce((acc: { [key: number]: number }, { top, offset }) => {
+				acc[top] = Math.min(offset, acc[top] || 0);
+				return acc;
+			}, {});
+
+			// Ensure project card offset doesn't mess up position
+			scrollOffset += Object.values(minOffsets).reduce((acc, offset) => acc - offset, 0);
+		}
+	}
 </script>
 
 <Nav bind:showClouds />
 
 {#if !showClouds && beenDuration}
 	<main
-		on:introstart={() => {
-			// Prevents issue where moves to top of page of nav bar open
-			document.documentElement.style.setProperty('scroll-behavior', 'unset');
-			scrollTo(0, scrollY);
-			document.documentElement.style.removeProperty('scroll-behavior');
-		}}
-		on:outrostart={() => (scrollY = document.documentElement.scrollTop)}
+		on:introstart={scrollY}
+		on:outrostart={calcScrollY}
 		transition:fade={{ duration: duration }}
 	>
 		<slot />

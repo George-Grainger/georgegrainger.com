@@ -16,7 +16,7 @@
 	"experience-title": "Experience",
 	"nimble-paragraphs": [
 		"In summer I worked on the <a href=\"\">NimbleAI project</a> at the University of Manchester. This invloved designing and implementing neuromorphic accelerators for the early perception and optimisation stage for computer vision systems in power and area constrained endpoints.",
-		"Overall, the experience was extremely rewarding, providing exposure to working in an iterative and test-focused development environment. The focus on low power and high performance provided demonstrated a need to prioritise design features to ensure the project progressed and deliverables could be achieved successfully.",
+		"Overall, the experience was extremely rewarding, providing exposure to working in an iterative and test-focused development environment. The focus on low power and high performance demonstrated a need to prioritise design features to ensure the project progressed and deliverables could be achieved successfully.",
 		"The internship was primarily focused on software-driven hardware implementation, however, it also developed transferable knowledge in CI/CD pipelines, Docker Containers and scripting tools. Hopefully, I'll be able to expand on this additional understanding to improve my future work and create more exciting projects in future."
 	],
 	"enigma-paragraphs": [

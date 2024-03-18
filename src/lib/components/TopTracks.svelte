@@ -11,14 +11,14 @@
 		const li = el.closest('li') as HTMLElement;
 
 		if (key == 'Escape') {
-			(li.querySelector(".close-btn") as HTMLButtonElement).click()
+			(li.querySelector('.close-btn') as HTMLButtonElement).click();
 			return;
 		}
 		if (!isCard || li.classList.contains('expanded')) {
 			return e;
 		}
 		if (key == 'Tab' && isCard && shiftKey) {
-			li.querySelector("button")?.focus();
+			li.querySelector('button')?.focus();
 			li.classList.remove('expanded');
 		}
 
@@ -41,7 +41,7 @@
 					if (index == 0) {
 						return e;
 					}
-					next = document.querySelector('.last-played-card') ;
+					next = document.querySelector('.last-played-card');
 				}
 				break;
 			case ' ':
@@ -79,11 +79,10 @@
 		}
 
 		e.preventDefault();
-		if (next?.classList.contains("last-played-card")){
-			next.querySelector("a")?.focus();
-		}
-		else if (next) {
-			next.querySelector("button")?.focus();
+		if (next?.classList.contains('last-played-card')) {
+			next.querySelector('a')?.focus();
+		} else if (next) {
+			next.querySelector('button')?.focus();
 		}
 	}
 </script>
