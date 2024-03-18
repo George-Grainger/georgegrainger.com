@@ -161,31 +161,34 @@
 	.details {
 		position: absolute;
 		display: grid;
-		grid-template-columns: auto 1.25em;
+		grid-template-columns: auto 1.85em;
 		column-gap: 1em;
 		inset: auto 0 -1px;
 		padding: 15% 5% 5%;
 		background-image: linear-gradient(transparent 5%, var(--black) 75%);
 		transform: translateY(100%);
-		font-size: 0.4em;
+		font-size: 0.25em;
 
 		p,
 		strong {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
+			text-align: left;
+		}
+
+		p {
+			font-size: 1.5em;
 		}
 
 		strong {
-			font-size: 0.75em;
+			font-size: 1.1em;
 		}
 
 		a {
 			grid-row: span 2;
 			align-self: center;
-			display: flex;
 			transition: scale var(--duration) var(--transition);
-			transform-origin: center;
 
 			&:hover {
 				scale: 1.1;
@@ -193,7 +196,7 @@
 		}
 
 		:global(.player) {
-			font-size: 1.25em;
+			font-size: 2em;
 		}
 	}
 
