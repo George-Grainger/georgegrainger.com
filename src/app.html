@@ -97,34 +97,27 @@
 			name="description"
 			content="A Computer Science Student based in Manchester, who's interested in machine learning, visual computing and hardware design"
 		/>
-
 		<script>
-			// Prevent initial flash of content
-			let theme = localStorage.getItem('theme');
-			if (!theme) {
-				const isDark = window?.matchMedia('(prefers-color-scheme: dark)').matches;
-				theme = isDark ? 'dark' : 'light';
-			}
-			document.documentElement.setAttribute('data-theme', theme);
-
-			let motion = localStorage.getItem('motion');
-			if (!motion) {
-				const isReduced = window?.matchMedia('(prefers-reduced-motion: reduced)').matches;
-				motion = isReduced ? 'reduced' : 'no-preference';
-			}
-			document.documentElement.setAttribute('data-motion', motion);
+			const theme = localStorage.getItem('theme');
+			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+				? 'dark'
+				: 'light';
+			document.documentElement.setAttribute('data-theme', theme ?? systemPreferredTheme);
 		</script>
-
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div>%sveltekit.body%</div>
-
 		<script>
-			// Update the selects before Sveltekit loads in
+			const motion = localStorage.getItem('motion');
+			const systemMotion = window.matchMedia('(prefers-reduced-motion: reduced)').matches
+				? 'reduced'
+				: 'no-preference';
+			const resolvedMotion = motion ?? systemMotion;
+			document.documentElement.setAttribute('data-motion', resolvedMotion);
 			const selects = [
 				{ id: 'language-select', value: document.documentElement.lang },
-				{ id: 'motion-select', value: document.documentElement.getAttribute('data-motion') }
+				{ id: 'motion-select', value: resolvedMotion }
 			];
 			selects.forEach(({ id, value }) => {
 				const select = document.getElementById(id);

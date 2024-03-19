@@ -516,12 +516,6 @@
 		svg {
 			--duration: 0;
 		}
-
-		[href^='#sm-cloud'],
-		[href^='#asteroid'],
-		.house .smoke path {
-			animation-play-state: paused;
-		}
 	}
 
 	svg {
@@ -630,7 +624,8 @@
 	}
 
 	.smoke circle {
-		animation: smoke-animaton var(--_smoke-duration, var(--_duration)) linear infinite;
+		animation: smoke-animaton var(--_smoke-duration, var(--_duration)) linear infinite
+			var(--play-state);
 	}
 
 	.surface path,
@@ -663,7 +658,7 @@
 	}
 
 	[href^='#sm-cloud'] {
-		animation: pan-screen 180s linear infinite;
+		animation: pan-screen 180s linear infinite var(--play-state);
 
 		&:nth-child(2n + 1) {
 			animation-duration: 240s;
@@ -675,7 +670,8 @@
 	}
 
 	[href^='#asteroid'] {
-		animation: pan-screen 180s linear infinite, spin 30s linear infinite;
+		animation: pan-screen 180s linear infinite var(--play-state),
+			spin 30s linear infinite var(--play-state);
 
 		&:nth-child(2n + 1) {
 			animation-duration: 240s 45s;
@@ -766,7 +762,7 @@
 			--_leg-rotation: 70deg;
 
 			translate: 0 -50%;
-			animation: cow-sway 10s linear infinite var(--_delay);
+			animation: cow-sway 10s linear infinite var(--_delay) var(--play-state);
 		}
 
 		.cow-shadow {

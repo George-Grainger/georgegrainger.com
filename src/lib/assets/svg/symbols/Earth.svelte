@@ -25,13 +25,9 @@
 </filter>
 
 <style lang="scss">
-	:global([data-motion='reduce']) use {
-		animation-play-state: paused;
-	}
-
 	use {
 		transform-origin: center;
-		animation: cloud-rotate infinite 75s linear;
+		animation: cloud-rotate infinite 75s linear var(--play-state);
 
 		&:last-of-type {
 			transform: rotate(120deg);
