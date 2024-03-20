@@ -97,6 +97,7 @@
 	ol {
 		display: grid;
 		grid-template-columns: repeat(3, 1fr);
+		grid-template-rows: repeat(3, 1fr);
 		place-content: center;
 		gap: 1.5%;
 		aspect-ratio: 1;
