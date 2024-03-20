@@ -6,7 +6,7 @@ src: /images/projects/brain.webp
 placeholderSrc: /images/projects/brain-placeholder.webp
 alt: Un rendu 3D violet d'un cerveau
 tags: ['python', 'research']
-date: 04/21/22
+date: 04/21/23
 homepage: 3
 ---
 

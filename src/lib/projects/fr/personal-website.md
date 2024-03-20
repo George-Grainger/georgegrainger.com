@@ -5,7 +5,7 @@ description: Conception et réalisation mon site web de portfolio en SolidJS pui
 src: /images/projects/personal-website.svg
 alt: Illustration de pied de page de georgegrainger.com
 tags: ['sveltekit', 'solidjs']
-date: 01/31/24
+date: 03/20/24
 homepage: 4
 ---
 
