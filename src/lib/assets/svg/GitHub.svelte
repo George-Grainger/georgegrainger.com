@@ -1,4 +1,4 @@
-<svg viewBox="0 0 100 100">
+<svg class="icon" viewBox="0 0 100 100">
 	<title>GitHub Logo</title>
 	<path
 		fill="currentColor"

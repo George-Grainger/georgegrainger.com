@@ -37,11 +37,12 @@
 				<p>In Progress</p>
 			</div>
 		{/if}
-		<small>{$t('projects.published')} {date}</small>
 		{#if github}
 			<a href={github} target="_blank" rel="noopener noreferrer">
-				<GitHub />
+				<GitHub /><small>{$t('projects.published')} {date}</small>
 			</a>
+		{:else}
+			<small>{$t('projects.published')} {date}</small>
 		{/if}
 	</header>
 
@@ -61,6 +62,10 @@
 		align-items: center;
 		gap: 1rem;
 		margin-bottom: 0.5em;
+	}
+
+	a :global(svg) {
+		margin-right: 0.5ch;
 	}
 
 	@media only screen and (max-width: 39.9375rem) {

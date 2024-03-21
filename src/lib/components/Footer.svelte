@@ -25,7 +25,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				George Grainger<LinkedIn />
+				<LinkedIn />George Grainger
 			</a>
 		</div>
 	</div>
@@ -61,10 +61,6 @@
 		ul {
 			display: flex;
 			gap: 0.5em 4ch;
-		}
-
-		a :global(svg) {
-			margin-left: 0.5ch;
 		}
 	}
 

@@ -26,12 +26,14 @@
 					</svelte:fragment>
 					<svelte:fragment slot="title">{project.title}</svelte:fragment>
 					<svelte:fragment slot="published">
-						{$t('projects.published')}
-						{project.date}
 						{#if project.github}
 							<a href={project.github} target="_blank" rel="noopener noreferrer">
-								<GitHub />
+								<GitHub />{$t('projects.published')}
+								{project.date}
 							</a>
+						{:else}
+							{$t('projects.published')}
+							{project.date}
 						{/if}
 					</svelte:fragment>
 					<svelte:fragment slot="description">{project.description}</svelte:fragment>

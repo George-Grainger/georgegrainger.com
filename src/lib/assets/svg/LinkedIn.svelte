@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+<svg class="icon" viewBox="0 0 448 512">
 	<title>LinkedIn Logo</title>
 	<rect fill="var(--white)" x="50" y="100" width="350" height="320" />
 	<path
