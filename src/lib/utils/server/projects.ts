@@ -8,6 +8,7 @@ interface Metadata {
 	tags: string[];
 	date: string;
 	homepage?: number;
+	github: string;
 	inProgress: boolean;
 }
 

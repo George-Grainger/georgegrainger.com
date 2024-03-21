@@ -6,6 +6,7 @@ src: /images/projects/personal-website.svg
 alt: Footer artwork from georgegrainger.com
 tags: ['sveltekit', 'solidjs']
 date: 03/20/24
+github: https://github.com/George-Grainger/georgegrainger.com
 homepage: 4
 ---
 

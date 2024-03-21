@@ -1,8 +1,9 @@
 <script>
 	import { t } from '$lib/translations';
+	import GitHub from '$lib/assets/svg/GitHub.svelte';
 
 	export let data;
-	const { title, date, description, inProgress } = data;
+	const { title, date, description, inProgress, github } = data;
 </script>
 
 <svelte:head>
@@ -37,6 +38,11 @@
 			</div>
 		{/if}
 		<small>{$t('projects.published')} {date}</small>
+		{#if github}
+			<a href={github} target="_blank" rel="noopener noreferrer">
+				<GitHub />
+			</a>
+		{/if}
 	</header>
 
 	{#key data}

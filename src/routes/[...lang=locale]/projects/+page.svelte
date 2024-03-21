@@ -1,4 +1,5 @@
 <script>
+	import GitHub from '$lib/assets/svg/GitHub.svelte';
 	import LargeProjectCard from '$lib/components/LargeProjectCard.svelte';
 	import LazyImage from '$lib/components/LazyImage.svelte';
 	import { t } from '$lib/translations';
@@ -24,9 +25,15 @@
 						/>
 					</svelte:fragment>
 					<svelte:fragment slot="title">{project.title}</svelte:fragment>
-					<svelte:fragment slot="published"
-						>{$t('projects.published')} {project.date}</svelte:fragment
-					>
+					<svelte:fragment slot="published">
+						{$t('projects.published')}
+						{project.date}
+						{#if project.github}
+							<a href={project.github} target="_blank" rel="noopener noreferrer">
+								<GitHub />
+							</a>
+						{/if}
+					</svelte:fragment>
 					<svelte:fragment slot="description">{project.description}</svelte:fragment>
 				</LargeProjectCard>
 			</li>

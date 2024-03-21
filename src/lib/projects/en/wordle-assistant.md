@@ -6,6 +6,7 @@ src: /images/projects/wordle-assistant.svg
 alt: Collage of album covers
 tags: ['webassembly', 'rust', 'chrome']
 date: 01/26/24
+github: https://github.com/George-Grainger/wordle-assistant
 homepage: 5
 inProgress: true
 ---

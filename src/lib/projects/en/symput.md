@@ -6,6 +6,7 @@ src: /images/projects/symput.svg
 alt: The Symput Logo
 tags: ['nextjs', 'tailwind', 'firebase']
 date: 05/14/21
+github: https://github.com/George-Grainger/symput.com
 homepage: 1
 ---
 
@@ -25,7 +26,7 @@ homepage: 1
 
 ## Project outline:
 
-Symput was a personal project I undertook to complement a group project from one of my first-year software engineering modules. The goal of that module was to create a bit of useful software for students at our University.
+[Symput.com](https://www.symput.com/) was a personal project I undertook to complement a group project from one of my first-year software engineering modules. The goal of that module was to create a bit of useful software for students at our University.
 
 Since it was during Covid-19, we decided to build a mathematical keyboard which integrated into Android, "simplifying the communication of maths" when messaging online. This had been annoying for many with discussions inevitably ending up with a photo of somebodies work on paper being posted into the chat. If you had no pen and paper nearby, you were out of luck, and if nobody else knew the answer so were they!
 

@@ -1,5 +1,6 @@
 <script lang="ts">
 	import FooterScene from '$lib/assets/svg/FooterScene.svelte';
+	import LinkedIn from '$lib/assets/svg/LinkedIn.svelte';
 	import { locale, t } from '$lib/translations';
 	import { fade } from 'svelte/transition';
 
@@ -24,7 +25,7 @@
 				target="_blank"
 				rel="noopener noreferrer"
 			>
-				George Grainger
+				George Grainger<LinkedIn />
 			</a>
 		</div>
 	</div>
@@ -60,6 +61,10 @@
 		ul {
 			display: flex;
 			gap: 0.5em 4ch;
+		}
+
+		a :global(svg) {
+			margin-left: 0.5ch;
 		}
 	}
 

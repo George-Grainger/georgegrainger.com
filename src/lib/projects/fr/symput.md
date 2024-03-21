@@ -6,20 +6,8 @@ src: /images/projects/symput.svg
 alt: Le logo Symput
 tags: ['nextjs', 'tailwind', 'firebase']
 date: 05/14/21
+github: https://github.com/George-Grainger/symput.com
 homepage: 1
----
-
----
-
-title: Symput
-subtitle: An Android keyboard and associated full stack website for feedback
-description: Created symput.com, a full-stack website powered by NextJS which facilitates users of my first-year group project's Android keyboard to provide feedback. The site uses Google Cloud Platform to manage user profiles and feedback posts, employing serverless functions for moderation and account data deletion. The platform remains accessible and showcases my ability to create a comprehensive green-field application.
-src: /images/projects/symput.svg
-alt: The Symput Logo
-tags: ['nextjs', 'tailwind', 'firebase']
-date: 05/14/21
-homepage: 1
-
 ---
 
 <script>
@@ -38,7 +26,7 @@ homepage: 1
 
 ## Grandes lignes du projet:
 
-Symput était un projet personnel que j'ai entrepris pour compléter un projet de groupe de l'un de mes modules de génie logiciel de première année. Le but de ce module était de créer un logiciel utile pour les étudiants de notre université.
+[Symput.com](https://www.symput.com/) était un projet personnel que j'ai entrepris pour compléter un projet de groupe de l'un de mes modules de génie logiciel de première année. Le but de ce module était de créer un logiciel utile pour les étudiants de notre université.
 
 Comme c'était pendant le Covid-19, nous avons décidé de construire un clavier mathématique intégré à Android, "simplifiant la communication mathématique" lors de la messagerie en ligne. Cela avait été ennuyeux pour beaucoup, les discussions se terminant inévitablement par une photo de quelqu'un travaillant sur papier publiée dans le chat. Si vous n’aviez ni stylo ni papier à proximité, vous n’aviez pas de chance, et si personne d’autre ne connaissait la réponse, eux aussi !
 
