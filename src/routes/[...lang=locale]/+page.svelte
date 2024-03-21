@@ -49,12 +49,16 @@
 <section id="about-me" class="about-me">
 	<AboutCloudGroup />
 	<h1 class="about-title">{$t('home.about')}</h1>
-	<div class="prose">
+	<div class="prose about-info">
 		<h2>{$t('home.academic-title')}</h2>
 		{#each $t('home.academic-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
 		{/each}
 		<h2>{$t('home.experience-title')}</h2>
+		<h3>Imago Software</h3>
+		{#each $t('home.imago-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
 		<h3>NimbleAI</h3>
 		{#each $t('home.nimble-paragraphs') as paragraph}
 			<p>{@html paragraph}</p>
@@ -68,15 +72,10 @@
 				<li>{@html paragraph}</li>
 			{/each}
 		</ol>
-	</div>
-	<div>
-		<div class="prose">
-			<h2>{$t('home.interests-title')}</h2>
-			{#each $t('home.interests-paragraphs') as paragraph}
-				<p>{@html paragraph}</p>
-			{/each}
-		</div>
-
+		<h2>{$t('home.interests-title')}</h2>
+		{#each $t('home.interests-paragraphs') as paragraph}
+			<p>{@html paragraph}</p>
+		{/each}
 		<div class="spotify">
 			<h2>Spotify</h2>
 			<p>{$t('home.spotify-tagline')}</p>
@@ -190,6 +189,13 @@
 		p {
 			margin-top: -1em;
 		}
+
+		&,
+		:global(ol),
+		:global(li),
+		:global(div) {
+			margin: 0; /* Reset margin for elements directly under .no-prose */
+		}
 	}
 
 	:global([data-motion='no-preference']) .projects h1 {
@@ -224,12 +230,8 @@
 			}
 		}
 
-		.about-me {
-			grid-template-columns: repeat(2, 1fr);
-
-			h1 {
-				grid-column: 1 / -1;
-			}
+		.about-info {
+			columns: 2;
 		}
 	}
 

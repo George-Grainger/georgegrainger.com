@@ -14,10 +14,15 @@
 		"I enjoy a range of course units, particularly those based around AI, Data Engineering and Software Development. I particularly enjoyed seeing how these interacted in my third-year project simulating the dopamine system and addiction through reinforcement learning - <a href=\"projects/reinforcement-learning\">view details</a>."
 	],
 	"experience-title": "Experience",
+	"imago-paragraphs": [
+		"I'm currently working for Imago Software on the Melontech Phase III. This project assists diabetes patients in tracking their glucose levels by analysing their sensor data and predicting hypoglycemic (low blood sugar) events. With this information, the patient can then act to increase their glucose intake around this time, mitigating any risks.",
+		"To create the system, we used a microservices architecture built in Flask and deployed on Amazon EC2 through Docker containers. The services interact with one another, periodically fetching and processing the data, before sending feedback via the WhatsApp API.",
+		"Learning how Docker and microservices architectures can ensure scalability and reliable deployments across diverse systems has been very informative. I'm keen to further this knowledge in my own personal projects by exploring orchestration tools such as Kubernetes and Docker Swarm."
+	],
 	"nimble-paragraphs": [
-		"In summer I worked on the <a href=\"\">NimbleAI project</a> at the University of Manchester. This invloved designing and implementing neuromorphic accelerators for the early perception and optimisation stage for computer vision systems in power and area constrained endpoints.",
+		"Between June and September I worked on the <a href=\"\">NimbleAI project</a> at the University of Manchester. This invloved designing and implementing neuromorphic accelerators for the early perception and optimisation stage for computer vision systems in power and area constrained endpoints.",
 		"Overall, the experience was extremely rewarding, providing exposure to working in an iterative and test-focused development environment. The focus on low power and high performance demonstrated a need to prioritise design features to ensure the project progressed and deliverables could be achieved successfully.",
-		"The internship was primarily focused on software-driven hardware implementation, however, it also developed transferable knowledge in CI/CD pipelines, Docker Containers and scripting tools. Hopefully, I'll be able to expand on this additional understanding to improve my future work and create more exciting projects in future."
+		"The internship was primarily focused on software-driven hardware implementation, however, it also developed transferable knowledge in CI/CD pipelines, Docker Containers and scripting tools. Much of this resulted from UoM experiencing a Cyber Attack during the early period of this work, preventing access from the machines hosting the EDA tools. Ultimately, I had to take greater ownership of my work and adapt to an uncertainty, experiences that will benefit my future career."
 	],
 	"enigma-paragraphs": [
 		"I spent a year working as a junior developer at <a href=\"https://www.enigma-interactive.co.uk\" target=\"_blank\" rel=\"noopener noreferrer\">Enigma Interactive</a>. During this time I had three main projects:"
