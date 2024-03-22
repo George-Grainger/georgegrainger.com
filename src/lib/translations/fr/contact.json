@@ -1,10 +1,10 @@
 {
 	"contact": "Contact",
-	"title": "Contactez-nous",
+	"title": "Contactez moi",
 	"failed-title": "Échec de la soumission",
 	"failed-paragraphs": [
 		"Hmm... Quelque chose s'est mal passé. Désolé pour cela, c'est probablement de ma faute.",
-		"C'est probablement plus facile si vous <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a>, tout finit là de toute façon !",
+		"C'est probablement plus facile si vous <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail</a>, tout finit là de toute façon !",
 		"Si vous préférez utiliser le formulaire, vous pouvez réessayer en cliquant ci-dessous."
 	],
 	"failed-cta": "Réessayer",
@@ -16,7 +16,7 @@
 	"success-cta": "Envoyer un autre message",
 	"form-paragraphs": [
 		"Si vous êtes intéressé, remplissez le formulaire ci-dessous et je ne manquerai pas de vous répondre.",
-		"Alternativement, vous pouvez <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail directement</a> ou me contacter sur <a href=\"https://www.linkedin.com/in/georgegrainger/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>."
+		"Sinon, vous pouvez <a href=\"mailto:georgegrainger2000@gmail.com\">m'envoyer un e-mail</a> ou me contacter sur <a href=\"https://www.linkedin.com/in/georgegrainger/\" target=\"_blank\" rel=\"noopener noreferrer\">LinkedIn</a>."
 	],
 	"submitting": "Soumettre...",
 	"form-cta": "Envoyer un message",
