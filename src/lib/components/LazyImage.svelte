@@ -35,7 +35,9 @@
 		border-radius: var(--border-radius);
 	}
 
-	.loading img {
-		opacity: 0;
+	@media (scripting: enabled) {
+		.loading img {
+			opacity: 0;
+		}
 	}
 </style>

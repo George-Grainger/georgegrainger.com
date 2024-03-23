@@ -229,8 +229,10 @@
 		}
 	}
 
-	.preload section {
-		height: 0;
+	@media (scripting: enabled) {
+		.preload section {
+			height: 0;
+		}
 	}
 
 	section {
