@@ -51,7 +51,7 @@
 		}
 
 		.move-right {
-			transform: translateX(max(60%, 33vw));
+			transform: translateX(max(70%, 35vw));
 		}
 	}
 </style>
