@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="%lang%" data-theme="light" data-motion="reduce">
+<html lang="%lang%" data-theme="light" data-motion="reduce" inital-load>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
@@ -102,7 +102,7 @@
 			const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 				? 'dark'
 				: 'light';
-			document.documentElement.setAttribute('data-theme', theme ?? systemPreferredTheme);
+			document.documentElement.setAttribute('data-theme', theme ?? systemTheme);
 		</script>
 		%sveltekit.head%
 	</head>
@@ -127,6 +127,7 @@
 					button.innerHTML = option.innerHTML;
 				}
 			});
+			document.documentElement.removeAttribute("initial-load")
 		</script>
 	</body>
 </html>
