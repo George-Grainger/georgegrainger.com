@@ -11,7 +11,7 @@
 
 	// Spotify Data
 	export let title: string;
-	export let artist: string;
+	export let creator: string;
 	export let imgUrl: string;
 	export let imgPlaceholderUrl: string;
 	export let playUrl: string;
@@ -95,7 +95,7 @@
 				<span class="sr-only">{`Listen to ${title} on Spotify`}</span>
 				<img src={spotifyLogo} alt="Spotify Logo" />
 			</a>
-			<strong>{artist}</strong>
+			<strong>{creator}</strong>
 			{#if previewUrl}
 				<AudioPlayer on:keydown={handleAudioKeyPress} src={previewUrl} />
 			{/if}

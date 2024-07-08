@@ -1,5 +1,34 @@
-import { filterTrackData, getSpotifyResponse } from '$lib/utils/server/spotify';
+import { filterTrackData, filterEpisodeData, getSpotifyResponse } from '$lib/utils/server/spotify';
 import { json } from '@sveltejs/kit';
+import type { CurrentlyPlaying, Episode, Track } from 'spotify-types';
+
+function filterAudio(data: CurrentlyPlaying) {
+	if (!data.item) {
+		return;
+	}
+
+	let audio;
+	switch (data.currently_playing_type) {
+		case 'track':
+			audio = filterTrackData(data.item as Track);
+			break;
+		case 'episode':
+			audio = filterEpisodeData(data.item as Episode);
+			break;
+		default:
+			return;
+	}
+
+	const duration = (data.item?.duration_ms || 0) / 1000;
+	const playedAt = new Date(Date.now() - (data.progress_ms || 0));
+	return {
+		...audio,
+		duration,
+		playedAt,
+		isPlaying: true,
+		isOffline: false
+	};
+}
 
 export async function GET({ setHeaders }) {
 	const nowPlayingEndpoint = `https://api.spotify.com/v1/me/player/currently-playing`;
@@ -9,21 +38,15 @@ export async function GET({ setHeaders }) {
 		getSpotifyResponse(recentlyPlayedEndpoint).catch((e) => e)
 	]);
 
-	// Currently playing a track
+	// Currently playing audio
 	if (npRes.ok && npRes.status != 204) {
 		const data = await npRes.json();
-		const track = filterTrackData(data.item);
-		const duration = data.item.duration_ms / 1000;
-		const playedAt = new Date(Date.now() - data.progress_ms);
-		setHeaders({ 'cache-control': 'public, max-age=10', 'X-Robots-Tag': 'noindex, nofollow' });
+		const audio = filterAudio(data);
 
-		return json({
-			...track,
-			duration,
-			playedAt,
-			isPlaying: true,
-			isOffline: false
-		});
+		if (audio) {
+			setHeaders({ 'cache-control': 'public, max-age=10', 'X-Robots-Tag': 'noindex, nofollow' });
+			return json(audio);
+		}
 	}
 
 	// Get most recent track

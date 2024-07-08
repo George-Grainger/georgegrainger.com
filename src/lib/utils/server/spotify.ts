@@ -1,4 +1,4 @@
-import type { Track } from 'spotify-types';
+import type { Episode, Track } from 'spotify-types';
 
 import {
 	SPOTIFY_CLIENT_ID,
@@ -9,11 +9,11 @@ import { error, type NumericRange } from '@sveltejs/kit';
 
 export interface TopTrack {
 	title: string;
-	artist: string;
+	creator: string;
 	imgUrl: string;
 	imgPlaceholderUrl: string;
 	playUrl: string;
-	previewUrl?: string;
+	previewUrl: string | null;
 }
 
 export type LastPlayedMedia = TopTrack & { duration: number; playedAt: number };
@@ -54,13 +54,32 @@ export async function getSpotifyResponse(endpoint: string) {
 	});
 }
 
-export function filterTrackData(track: Track): TopTrack {
+export function filterTrackData(track: Track): TopTrack | null {
+	if (!track) {
+		return null;
+	}
+
 	return {
 		title: track.name,
-		artist: track.artists.map((artist) => artist.name).join(', '),
+		creator: track.artists.map((artist) => artist.name).join(', '),
 		imgUrl: track.album.images[0].url,
 		imgPlaceholderUrl: track.album.images[2].url,
 		playUrl: track.external_urls.spotify,
 		previewUrl: track.preview_url
+	};
+}
+
+export function filterEpisodeData(episode: Episode): TopTrack | null {
+	if (!episode) {
+		return null;
+	}
+
+	return {
+		title: episode.name,
+		creator: episode.show.name,
+		imgUrl: episode.images[0].url,
+		imgPlaceholderUrl: episode.images[2].url,
+		playUrl: episode.external_urls.spotify,
+		previewUrl: episode.audio_preview_url
 	};
 }

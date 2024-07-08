@@ -4,7 +4,7 @@ import preview from '$lib/assets/api-backup/persuit-of-happiness-preview.mp3';
 
 export default {
 	title: 'Pursuit Of Happiness (Nightmare)',
-	artist: 'Kid Cudi, MGMT, Ratatat',
+	creator: 'Kid Cudi, MGMT, Ratatat',
 	imgUrl: full,
 	imgPlaceholderUrl: placeholder,
 	playUrl: 'https://open.spotify.com/track/4kTLpAbhuEGHAAdDjOIWaa',

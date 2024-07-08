@@ -29,7 +29,7 @@ import goldDustPreview from '$lib/assets/api-backup/gold-dust-preview.mp3';
 export default [
 	{
 		title: 'push (feat. Deb Never)',
-		artist: 'slowthai, Deb Never',
+		creator: 'slowthai, Deb Never',
 		imgUrl: push,
 		imgPlaceholderUrl: pushPlaceholder,
 		playUrl: 'https://open.spotify.com/track/1TXydwDv0VSV92ijrUNBfN',
@@ -37,7 +37,7 @@ export default [
 	},
 	{
 		title: 'Just You and I - Hybrid Minds Remix',
-		artist: 'Tom Walker, Hybrid Minds',
+		creator: 'Tom Walker, Hybrid Minds',
 		imgUrl: justYouAndI,
 		imgPlaceholderUrl: justYouAndIPlaceholder,
 		playUrl: 'https://open.spotify.com/track/0XdsnR967tt1wKzdrqk8OW',
@@ -45,7 +45,7 @@ export default [
 	},
 	{
 		title: 'Home',
-		artist: 'Edward Sharpe & The Magnetic Zeros',
+		creator: 'Edward Sharpe & The Magnetic Zeros',
 		imgUrl: home,
 		imgPlaceholderUrl: homePlaceholder,
 		playUrl: 'https://open.spotify.com/track/0cBPuDA3xUjR4Vh9o7CKy8',
@@ -53,7 +53,7 @@ export default [
 	},
 	{
 		title: 'Drowning In You',
-		artist: 'Hybrid Minds, Fred V',
+		creator: 'Hybrid Minds, Fred V',
 		imgUrl: drowningInYou,
 		imgPlaceholderUrl: drowningInYouPlaceholder,
 		playUrl: 'https://open.spotify.com/track/0bqJDrb7zRLOiCnUm7MXZW',
@@ -61,7 +61,7 @@ export default [
 	},
 	{
 		title: 'Intro',
-		artist: 'The xx',
+		creator: 'The xx',
 		imgUrl: intro,
 		imgPlaceholderUrl: introPlaceholder,
 		playUrl: 'https://open.spotify.com/track/2usrT8QIbIk9y0NEtQwS4j',
@@ -69,7 +69,7 @@ export default [
 	},
 	{
 		title: 'Shape Of My Heart',
-		artist: 'Sting',
+		creator: 'Sting',
 		imgUrl: shapeOfMyHeart,
 		imgPlaceholderUrl: shapeOfMyHeartPlaceholder,
 		playUrl: 'https://open.spotify.com/track/6CKoWCWAqEVWVjpeoJXyNH',
@@ -77,7 +77,7 @@ export default [
 	},
 	{
 		title: 'Feel It Still',
-		artist: 'Portugal. The Man',
+		creator: 'Portugal. The Man',
 		imgUrl: feelItStill,
 		imgPlaceholderUrl: feelItStillPlaceholder,
 		playUrl: 'https://open.spotify.com/track/7FESgYLcOufHqKlwrvJN60',
@@ -85,7 +85,7 @@ export default [
 	},
 	{
 		title: 'Environment',
-		artist: 'Dave',
+		creator: 'Dave',
 		imgUrl: environment,
 		imgPlaceholderUrl: environmentPlaceholder,
 		playUrl: 'https://open.spotify.com/track/7l1P6WtVtq1zQMq6qazNA4',
@@ -93,7 +93,7 @@ export default [
 	},
 	{
 		title: 'Gold Dust - SHY FX Re-Edit',
-		artist: 'DJ Fresh, SHY FX',
+		creator: 'DJ Fresh, SHY FX',
 		imgUrl: goldDust,
 		imgPlaceholderUrl: goldDustPlaceholder,
 		playUrl: 'https://open.spotify.com/track/3sSPJLT3Ib3o9SaEhEts2X',

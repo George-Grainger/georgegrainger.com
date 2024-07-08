@@ -7,7 +7,7 @@
 	import { invalidate } from '$app/navigation';
 
 	export let title: string;
-	export let artist: string;
+	export let creator: string;
 	export let imgUrl: string;
 	export let imgPlaceholderUrl: string;
 	export let playUrl: string;
@@ -87,7 +87,7 @@
 	/>
 	<div class="details" class:isPlaying>
 		<p class="title">{title}</p>
-		<strong class="artist">{artist}</strong>
+		<strong class="creator">{creator}</strong>
 		{#if isPlaying}
 			<small>{$t('home.current-intro')}</small>
 			<ProgressBar time={progress} {duration} />
