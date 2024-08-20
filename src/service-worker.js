@@ -62,7 +62,6 @@ self.addEventListener('fetch', (event) => {
 			}
 
 			if (response.status === 200) {
-				console.log(event.request.url);
 				cache.put(event.request, response.clone());
 			}
 
