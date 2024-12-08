@@ -119,8 +119,7 @@
 			text-align: center;
 			margin-top: 3em;
 			font-size: 0.9em;
-			max-width: 32ch;
-			text-wrap: balance;
+			max-width: 31ch;
 		}
 
 		:global(a) {
@@ -213,16 +212,14 @@
 			}
 
 			p {
-				text-align: justify;
 				text-align-last: center;
 				margin-top: 0;
 				font-size: 0.7em;
-				max-width: 40ch;
-				text-wrap: initial;
+				max-width: 41ch;
 			}
 
 			p:lang(fr) {
-				max-width: 30ch;
+				max-width: 33ch;
 			}
 
 			:global(a) {
